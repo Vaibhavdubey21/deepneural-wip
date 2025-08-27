@@ -278,7 +278,7 @@ export default function HomePage() {
             size="lg"
             className="shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-1 transition-all duration-300 px-10 py-5 rounded-xl bg-gradient-to-r from-primary to-primary/90 border border-primary/20 group"
           >
-            <Link href="/clients" className="flex items-center gap-3 font-medium">
+            <Link href="/clients" className="flex items-center gap-3 font-medium text-black">
               View All Case Studies 
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
@@ -297,7 +297,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h2 
-              className="text-3xl md:text-4xl font-bold mb-6 font-display"
+              className="text-3xl md:text-4xl font-bold mb-6 font-display text-black"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -307,7 +307,7 @@ export default function HomePage() {
             </motion.h2>
             
             <motion.p 
-              className="text-xl mb-10 opacity-90"
+              className="text-xl mb-10 opacity-90 text-black"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -330,14 +330,14 @@ export default function HomePage() {
                 iconPosition="right"
                 className="shadow-xl shadow-dark/20 hover:shadow-dark/30 transition-all"
               >
-                <Link href="/contact-us">Schedule a Demo</Link>
+                <Link href="/contact-us" className="text-black">Schedule a Demo</Link>
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
                 className="border-white/30 hover:bg-white/10 backdrop-blur-sm transition-all"
               >
-                <Link href="/about-us">Learn More About Us</Link>
+                <Link href="/about-us" className="text-black">Learn More About Us</Link>
               </Button>
             </motion.div>
           </div>
