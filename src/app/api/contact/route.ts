@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+export const runtime = 'nodejs';
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -14,21 +16,50 @@ export async function POST(request: Request) {
       );
     }
 
-    // Create a transporter
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: Number(process.env.EMAIL_PORT),
-      secure: process.env.EMAIL_SECURE === 'true',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
+    // Decide on transporter based on env configuration
+    const requiredEnv = ['EMAIL_FROM'];
+    const smtpEnv = ['EMAIL_HOST', 'EMAIL_PORT', 'EMAIL_USER', 'EMAIL_PASSWORD'];
+    const missingRequired = requiredEnv.filter((k) => !process.env[k as keyof NodeJS.ProcessEnv]);
+    const hasSmtpConfig = smtpEnv.every((k) => !!process.env[k as keyof NodeJS.ProcessEnv]);
 
-    // Prepare email content with improved formatting
+    let transporter: nodemailer.Transporter;
+
+    if (hasSmtpConfig) {
+      transporter = nodemailer.createTransport({
+        host: process.env.EMAIL_HOST,
+        port: Number(process.env.EMAIL_PORT),
+        secure: process.env.EMAIL_SECURE === 'true',
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+      });
+    } else if (process.env.NODE_ENV !== 'production') {
+      // Dev fallback: don’t send real email, output as JSON (see server logs)
+      transporter = nodemailer.createTransport({ jsonTransport: true });
+      if (smtpEnv.some((k) => !process.env[k as keyof NodeJS.ProcessEnv])) {
+        console.warn(
+          'Email SMTP environment variables are not fully configured. Using jsonTransport for development.'
+        );
+      }
+    } else {
+      return NextResponse.json(
+        { error: 'Email service is not configured. Set EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASSWORD, EMAIL_FROM.' },
+        { status: 500 }
+      );
+    }
+
+    if (missingRequired.length > 0) {
+      return NextResponse.json(
+        { error: `Missing environment variable(s): ${missingRequired.join(', ')}` },
+        { status: 500 }
+      );
+    }
+
+    // Prepare email content
     const mailOptions = {
       from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_RECIPIENT || 'Contact@deepneuraltechnologies.com', // You can add EMAIL_RECIPIENT to your env vars
+      to: process.env.EMAIL_RECIPIENT || 'Contact@deepneuraltechnologies.com',
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `
@@ -43,7 +74,7 @@ export async function POST(request: Request) {
             <div style="margin-top: 20px;">
               <strong>Message:</strong>
               <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 5px;">
-                ${message.replace(/\n/g, '<br>')}
+                ${String(message).replace(/\n/g, '<br>')}
               </div>
             </div>
           </div>
@@ -53,7 +84,6 @@ export async function POST(request: Request) {
           </div>
         </div>
       `,
-      // Text version for email clients that don't support HTML
       text: `
 New Contact Form Submission
 
@@ -69,10 +99,14 @@ This email was sent from the DeepNeural contact form.
       `,
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
+    // Send email (or log in dev jsonTransport)
+    const info = await transporter.sendMail(mailOptions);
 
-    // Return success response
+    // If using jsonTransport, log for developer visibility
+    if ('message' in info) {
+      console.log('Email (dev jsonTransport):', info.message?.toString?.() || info);
+    }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error sending email:', error);
