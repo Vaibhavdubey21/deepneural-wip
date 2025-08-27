@@ -309,7 +309,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h2 
-              className="text-3xl md:text-4xl font-bold mb-6 font-display"
+              className="text-3xl md:text-4xl font-bold mb-6 font-display text-black"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -319,7 +319,7 @@ export default function ServicesPage() {
             </motion.h2>
             
             <motion.p 
-              className="text-xl mb-8 opacity-90"
+              className="text-xl mb-8 opacity-90 text-black"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -341,7 +341,7 @@ export default function ServicesPage() {
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
               >
-                <Link href="/contact-us">Schedule a Consultation</Link>
+                <Link href="/contact-us" className="text-black">Schedule a Consultation</Link>
               </Button>
               
               <Button 
@@ -349,7 +349,7 @@ export default function ServicesPage() {
                 size="lg"
                 className="border-white text-white hover:bg-white/10"
               >
-                <Link href="/clients">View Case Studies</Link>
+                <Link href="/clients" className="text-black">View Case Studies</Link>
               </Button>
             </motion.div>
           </div>
