@@ -125,7 +125,7 @@ export default function HomePage() {
               { label: "AI Agents Deployed", value: "28+" },
               { label: "Enterprise Clients", value: "3" },
               { label: "Success Rate", value: "97.8%" },
-              { label: "ROI Improvement", value: "271%" }
+              { label: "ROI Improvement", value: "%" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
