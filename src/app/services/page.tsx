@@ -53,35 +53,35 @@ export default function ServicesPage() {
             {[
               {
                 icon: <Brain size={48} className="text-primary" />,
-                title: "Autonomous AI Agents",
-                description: "Custom-built AI agents that can perform complex tasks, make decisions, and learn from outcomes without human intervention.",
+                title: "AI Agents for Businesses",
+                description: "Automating workflows, decision-making, and customer engagement ",
                 features: [
-                  "Task automation and workflow optimization",
-                  "Decision support and recommendation systems",
-                  "Continuous learning and improvement",
-                  "Integration with existing business systems"
+                  "Build intelligent agents for customer support, sales, and lead generation.",
+                  "Automate repetitive tasks to save time and reduce operational costs.",
+                  "Enable real-time decision-making with AI-driven insights.",
+                
                 ]
               },
               {
                 icon: <MessageSquare size={48} className="text-primary" />,
-                title: "Natural Language Processing",
-                description: "Advanced NLP solutions that enable your systems to understand, interpret, and generate human language with remarkable accuracy.",
+                title: "AI SaaS Development",
+                description: "Scalable AI-powered SaaS platforms tailored for modern businesses .",
                 features: [
-                  "Conversational AI and chatbots",
-                  "Document analysis and summarization",
-                  "Sentiment analysis and opinion mining",
-                  "Multilingual support and translation"
+                  "Develop cloud-native SaaS platforms with AI at the core.",
+                  "Ensure scalability, security, and high availability for enterprise users.",
+                  "Provide subscription-based AI solutions with seamless user experience.",
+                
                 ]
               },
               {
                 icon: <Eye size={48} className="text-primary" />,
-                title: "Computer Vision Solutions",
-                description: "AI systems that can interpret and understand visual information from the world, enabling new capabilities for your business.",
+                title: "Custom AI Development",
+                description: "From computer vision to NLP, we build AI models that solve real-world problems.",
                 features: [
-                  "Object detection and recognition",
-                  "Image classification and segmentation",
-                  "Visual inspection and quality control",
-                  "Video analysis and surveillance"
+                  "Design and train AI models for industry-specific challenges.",
+                  "Implement computer vision, NLP, predictive analytics, and recommendation systems.",
+                  "Deliver end-to-end solutions from data preparation to deployment.",
+                  
                 ]
               }
             ].map((service, index) => (
@@ -174,7 +174,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Industry Solutions */}
-      <section className="py-20 bg-dark-light text-light">
+      {/*<section className="py-20 bg-dark-light text-light">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Industry-Specific Solutions"

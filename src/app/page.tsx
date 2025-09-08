@@ -33,7 +33,7 @@ export default function HomePage() {
                 transition={{ duration: 0.5 }}
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-6 text-white">
-                  Building the Next Generation of <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">AI Agents</span>
+                  Innovating Tomorrow's Ai Solution <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">AI Agents</span>
                 </h1>
               </motion.div>
               
@@ -122,10 +122,9 @@ export default function HomePage() {
           {/* Enhanced Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
             {[
-              { label: "AI Agents Deployed", value: "28+" },
-              { label: "Enterprise Clients", value: "3" },
-              { label: "Success Rate", value: "97.8%" },
-              { label: "ROI Improvement", value: "%" }
+              { label: "AI Agents Deployed", value: "16+" },
+              { label: "Enterprise Clients", value: "2" },
+              
             ].map((stat, index) => (
               <motion.div
                 key={index}

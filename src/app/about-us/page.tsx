@@ -187,7 +187,7 @@ const AboutPage: React.FC = () => {
               },
               {
                 name: "Abhishek Suman",
-                role: "Chief Technology Officer",
+                role: "Founder & CTO ",
                 bio: "As a co-founder, he plays a pivotal role in shaping DeepNeural Technologies’ strategy and innovation roadmap...",
                 image: "https://images.unsplash.com/photo-149479010???8377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
               },

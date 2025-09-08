@@ -114,8 +114,8 @@ const ClientsPage: React.FC = () => {
             {[
               {
                 quote: "The AI agents developed by DeepNeural have transformed our recruitment process, saving us countless hours and helping us find better candidates faster.",
-                author: "Sarah Johnson",
-                position: "Head of HR, NeoSource",
+                author: "Gaurav Gupta",
+                position: "Recruitment Industry Leader, NeoSource",
                 rating: 5
               },
               {
@@ -160,9 +160,12 @@ const ClientsPage: React.FC = () => {
           <p className="text-xl text-light-dark max-w-2xl mx-auto mb-8">
             Join the growing list of companies leveraging our AI agent technology to solve complex challenges
           </p>
-          <Button href="/contact-us" variant="primary" size="lg">
-            Get in touch
-          </Button>
+          <Link href="/contact-us">
+            <Button variant="primary" size="lg">
+              Get in touch
+            </Button>
+          </Link>
+
         </div>
       </section>
     </div>
