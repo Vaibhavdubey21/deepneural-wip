@@ -32,16 +32,21 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-6 text-white">
-                  Innovating Tomorrow's Ai Solution <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">AI Agents</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-6 text-white text-center">
+                  Innovating Tomorrow’s
+                  <br />
+                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+                    AI Solution
+                  </span>
                 </h1>
+
               </motion.div>
               
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-xl text-light-dark mb-8 max-w-lg"
+                className="text-xl text-light-dark mb-8 max-w-lg text-center"
               >
                 DeepNeural is pioneering autonomous AI agents that transform how businesses operate. Our cutting-edge solutions deliver unprecedented efficiency and intelligence.
               </motion.p>
@@ -80,10 +85,10 @@ export default function HomePage() {
               >
                 <div className="relative z-10 rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
                   <Image 
-                    src="/AI.jpg" 
+                    src="/newAI.jpeg" 
                     alt="AI Visualization"
-                    width={600}
-                    height={400}
+                    width={500}
+                    height={350}
                     className="w-full h-auto rounded-2xl shadow-2xl"
                   />
                   {/* Glass overlay effect */}
@@ -119,25 +124,27 @@ export default function HomePage() {
             </div>
           </div>
           
-          {/* Enhanced Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
-            {[
-              { label: "AI Agents Deployed", value: "16+" },
-              { label: "Enterprise Clients", value: "2" },
-              
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
-                className="text-center bg-dark-lighter/50 backdrop-blur-md p-4 rounded-xl border border-white/10 hover:border-primary/30 transition-all"
-                whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)' }}
-              >
-                <p className="text-3xl md:text-4xl font-bold mb-2 font-display bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">{stat.value}</p>
-                <p className="text-sm text-light-dark">{stat.label}</p>
-              </motion.div>
-            ))}
+          {/* Enhanced Stats */}                  
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 justify-center">
+         {[
+            { label: "AI Agents Deployed", value: "16+" },
+            { label: "Enterprise Clients", value: "3" },
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+              className="text-center bg-dark-lighter/50 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-primary/30 transition-all flex flex-col items-center justify-center"
+              whileHover={{
+                y: -5,
+                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
+              }}
+            >
+              <p className="text-3xl md:text-4xl font-bold mb-2 font-display bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">{stat.value}</p>
+              <p className="text-sm text-light-dark">{stat.label}</p>
+            </motion.div>
+          ))}
           </div>
         </div>
       </section>
@@ -157,7 +164,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: <Brain size={40} className="text-primary" />,
+                icon: <Brain size={40} className=" flex justify-center mb-4 text-primary" />,
                 title: "Autonomous Reasoning",
                 description: "Our agents can reason through complex problems, make decisions, and learn from outcomes without human intervention."
               },

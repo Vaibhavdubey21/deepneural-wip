@@ -183,14 +183,9 @@ const AboutPage: React.FC = () => {
                 name: "Vivek Saraf",
                 role: "Founder & CEO",
                 bio: "With over 23 years of experience in consulting, designing, and delivering technology solutions...",
-                image: "https://images.unsplash.com/photo-1472099645785-5??658abf4ff4e?q=80&w=400&auto=format&fit=crop",
+                image: "https://picsum.photos/400/400",
               },
-              {
-                name: "Abhishek Suman",
-                role: "Founder & CTO ",
-                bio: "As a co-founder, he plays a pivotal role in shaping DeepNeural Technologies’ strategy and innovation roadmap...",
-                image: "https://images.unsplash.com/photo-149479010???8377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
-              },
+              
             ].map((member, index) => (
               <motion.div
                 key={index}
@@ -225,11 +220,12 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <SectionHeading title="DeepNeural by the Numbers" subtitle="Our growth and impact since 2018" centered />
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
             {[
               { label: "AI Agents Deployed", value: "16+", icon: <Zap size={32} className="text-primary" /> },
-              { label: "Team Members", value: "8+", icon: <Users size={32} className="text-primary" /> },
-              { label: "Enterprise Clients", value: "2+", icon: <Globe size={32} className="text-primary" /> },
+              { label: "Team Members", value: "14+", icon: <Users size={32} className="text-primary" /> },
+              { label: "Enterprise Clients", value: "3+", icon: <Globe size={32} className="text-primary" /> },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -367,22 +363,26 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-wrap justify-center gap-4"
             >
+              <Link href="/contact">
               <Button
                 variant="secondary"
                 size="lg"
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
               >
-                <Link href="/contact">Contact Our Team</Link>
+                Contact Our Team
               </Button>
+              </Link>
 
+              <Link href="/services">
               <Button
                 variant="outline"
                 size="lg"
                 className="border-white text-white hover:bg-white/10"
               >
-                <Link href="/services">Explore Our Solutions</Link>
+                Explore Our Solutions
               </Button>
+              </Link>
             </motion.div>
           </div>
         </div>
