@@ -22,7 +22,6 @@ export default function HomePage() {
     <div className="overflow-hidden">
       <HeroSection />
 
-      {/* Features Section with improved cards */}
       <section className="py-20 bg-light relative">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 bg-[url('/dots-pattern.svg')] bg-repeat opacity-5"></div>

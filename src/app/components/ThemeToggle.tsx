@@ -8,12 +8,7 @@ function ThemeToggleButton() {
   const { theme, setTheme } = useTheme();
 
   const handleClick = () => {
-    // Cycle through: light -> dark -> system -> light
-    const themes: Array<'light' | 'dark' | 'system'> = [
-      'light',
-      'dark',
-      'system',
-    ];
+    const themes: Array<'light' | 'dark'> = ['light', 'dark'];
     const currentIndex = themes.indexOf(theme);
     const nextIndex = (currentIndex + 1) % themes.length;
     setTheme(themes[nextIndex]);
@@ -24,13 +19,7 @@ function ThemeToggleButton() {
       onClick={handleClick}
       className="p-4 rounded-lg hover:scale-110 transition-all text-black dark:text-white duration-300 shadow-none bg-transparent"
     >
-      {theme === 'light' ? (
-        <Moon size={22} />
-      ) : theme === 'dark' ? (
-        <Sun size={22} />
-      ) : (
-        <Sun size={22} />
-      )}
+      {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
     </Button>
   );
 }

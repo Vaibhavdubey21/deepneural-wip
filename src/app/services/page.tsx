@@ -17,38 +17,15 @@ import Link from 'next/link';
 import AnimatedCard from '../components/AnimatedCard';
 import Button from '../components/Button';
 import SectionHeading from '../components/SectionHeading';
+import HeaderSection from '../components/sections/HeaderSection';
 export default function ServicesPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-dark pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-30">
-          <div className="absolute inset-0 bg-linear-to-r from-blue-600 to-purple-600 mix-blend-multiply"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h1
-              className="text-4xl md:text-5xl font-bold text-white font-display mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Our AI Services
-            </motion.h1>
-
-            <motion.p
-              className="text-xl text-light-dark mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              Cutting-edge AI agent solutions tailored to your business needs
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
+      <HeaderSection
+        title="Our AI Services"
+        subtitle="Cutting-edge AI agent solutions tailored to your business needs"
+      />
       {/* Main Services */}
       <section className="py-20 bg-light">
         <div className="container mx-auto px-4">
@@ -185,69 +162,6 @@ export default function ServicesPage() {
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
               </AnimatedCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Industry Solutions */}
-      {/*<section className="py-20 bg-dark-light text-light">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Industry-Specific Solutions"
-            subtitle="AI agents tailored to the unique challenges of your industry"
-            centered
-            className="text-light"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            {[
-              {
-                title: "Financial Services",
-                description: "AI agents for fraud detection, risk assessment, algorithmic trading, and personalized financial advice.",
-                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop"
-              },
-              {
-                title: "Healthcare",
-                description: "Diagnostic assistance, patient monitoring, treatment recommendation, and healthcare operations optimization.",
-                image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&auto=format&fit=crop"
-              },
-              {
-                title: "Manufacturing",
-                description: "Predictive maintenance, quality control, supply chain optimization, and production planning.",
-                image: "https://images.unsplash.com/photo-1581093458791-9d15482aae9e?q=80&w=600&auto=format&fit=crop"
-              },
-              {
-                title: "Retail & E-commerce",
-                description: "Inventory management, demand forecasting, personalized recommendations, and customer service automation.",
-                image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=600&auto=format&fit=crop"
-              }
-            ].map((industry, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="flex flex-col md:flex-row bg-dark-lighter rounded-lg overflow-hidden shadow-lg"
-              >
-                <div className="md:w-2/5">
-                  <Image 
-                    src={industry.image} 
-                    alt={industry.title} 
-                    height = {500}
-                    width = {500}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-3/5 p-6 md:p-8">
-                  <h3 className="text-2xl font-bold mb-4">{industry.title}</h3>
-                  <p className="text-light-dark mb-6">{industry.description}</p>
-                  <Button variant="primary">
-                    <Link href="/contact-us">Explore Solutions</Link>
-                  </Button>
-                </div>
-              </motion.div>
             ))}
           </div>
         </div>
