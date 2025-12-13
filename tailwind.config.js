@@ -52,7 +52,7 @@ module.exports = {
       fontFamily: {
         'sans': ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
         'mono': ['var(--font-geist-mono)', ...defaultTheme.fontFamily.mono],
-        'display': ['Inter', 'Segoe UI', 'sans-serif'],
+        'display': ['var(--font-geist-sans)', 'sans-serif'],
       },
 
       // Custom animations
