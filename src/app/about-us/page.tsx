@@ -244,25 +244,6 @@ const AboutPage: React.FC = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* Achievements (commented out for now) */}
-          {/*
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {[
-              { title: "Series B Funding", description: "Raised $45M in Series B funding...", year: "2023" },
-              { title: "Tech Innovation Award", description: "Received the National AI Innovation Award...", year: "2022" },
-              { title: "Global Expansion", description: "Opened offices in Singapore and Dubai...", year: "2021" }
-            ].map((achievement, index) => (
-              <motion.div key={index} className="bg-light rounded-lg p-6 shadow-md relative">
-                <div className="absolute top-6 right-6 bg-primary text-white text-sm py-1 px-3 rounded-full">
-                  {achievement.year}
-                </div>
-                <h3 className="text-xl font-bold mb-3">{achievement.title}</h3>
-                <p className="text-gray-600">{achievement.description}</p>
-              </motion.div>
-            ))}
-          </div>
-          */}
         </div>
       </section>
 
