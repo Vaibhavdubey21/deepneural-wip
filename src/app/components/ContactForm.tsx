@@ -1,9 +1,9 @@
 'use client';
 
+import { AlertTriangle, CheckCircle, Send } from 'lucide-react';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Button from './Button';
-import { Send, CheckCircle, AlertTriangle } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -16,18 +16,18 @@ const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  
-  const { 
-    register, 
-    handleSubmit, 
+
+  const {
+    register,
+    handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     setError(null);
-    
+
     try {
       // Send form data to the API endpoint
       const response = await fetch('/api/contact', {
@@ -37,17 +37,17 @@ const ContactForm: React.FC = () => {
         },
         body: JSON.stringify(data),
       });
-      
+
       const result = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(result.error || 'Failed to send message');
       }
-      
+
       // Success
       setIsSubmitted(true);
       reset();
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => {
         setIsSubmitted(false);
@@ -71,16 +71,23 @@ const ContactForm: React.FC = () => {
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" id="contact-form">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-6"
+          id="contact-form"
+        >
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md flex items-start">
-              <AlertTriangle size={20} className="mr-2 flex-shrink-0 mt-0.5" />
+              <AlertTriangle size={20} className="mr-2 shrink-0 mt-0.5" />
               <p>{error}</p>
             </div>
           )}
-          
+
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Full Name
             </label>
             <input
@@ -96,9 +103,12 @@ const ContactForm: React.FC = () => {
               <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
             )}
           </div>
-          
+
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Email Address
             </label>
             <input
@@ -108,21 +118,26 @@ const ContactForm: React.FC = () => {
                 errors.email ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="john@example.com"
-              {...register('email', { 
+              {...register('email', {
                 required: 'Email is required',
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: 'Invalid email address'
-                }
+                  message: 'Invalid email address',
+                },
               })}
             />
             {errors.email && (
-              <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+              <p className="mt-1 text-sm text-red-600">
+                {errors.email.message}
+              </p>
             )}
           </div>
-          
+
           <div>
-            <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="company"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Company (Optional)
             </label>
             <input
@@ -133,9 +148,12 @@ const ContactForm: React.FC = () => {
               {...register('company')}
             />
           </div>
-          
+
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Message
             </label>
             <textarea
@@ -148,14 +166,16 @@ const ContactForm: React.FC = () => {
               {...register('message', { required: 'Message is required' })}
             />
             {errors.message && (
-              <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+              <p className="mt-1 text-sm text-red-600">
+                {errors.message.message}
+              </p>
             )}
           </div>
-          
-          <Button 
-            type="submit" 
-            variant="primary" 
-            size="lg" 
+
+          <Button
+            type="submit"
+            variant="primary"
+            size="lg"
             className="w-full"
             disabled={isSubmitting}
             icon={<Send size={18} />}

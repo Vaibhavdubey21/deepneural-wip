@@ -1,25 +1,34 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Brain, Database, LineChart, MessageSquare, Eye, Zap, Server, Shield, Code } from 'lucide-react';
+import {
+  ArrowRight,
+  Brain,
+  Code,
+  Database,
+  Eye,
+  LineChart,
+  MessageSquare,
+  Server,
+  Shield,
+  Zap,
+} from 'lucide-react';
+import Link from 'next/link';
+import AnimatedCard from '../components/AnimatedCard';
 import Button from '../components/Button';
 import SectionHeading from '../components/SectionHeading';
-import AnimatedCard from '../components/AnimatedCard';
-import Image from 'next/image';
 export default function ServicesPage() {
   return (
     <div>
       {/* Hero Section */}
       <section className="relative bg-dark pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-blue-600 to-purple-600 mix-blend-multiply"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-5xl font-bold text-white font-display mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -27,8 +36,8 @@ export default function ServicesPage() {
             >
               Our AI Services
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className="text-xl text-light-dark mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -48,48 +57,48 @@ export default function ServicesPage() {
             subtitle="Our flagship services that are transforming industries"
             centered
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
               {
                 icon: <Brain size={48} className="text-primary" />,
-                title: "AI Agents for Businesses",
-                description: "Automating workflows, decision-making, and customer engagement ",
+                title: 'AI Agents for Businesses',
+                description:
+                  'Automating workflows, decision-making, and customer engagement ',
                 features: [
-                  "Build intelligent agents for customer support, sales, and lead generation.",
-                  "Automate repetitive tasks to save time and reduce operational costs.",
-                  "Enable real-time decision-making with AI-driven insights.",
-                
-                ]
+                  'Build intelligent agents for customer support, sales, and lead generation.',
+                  'Automate repetitive tasks to save time and reduce operational costs.',
+                  'Enable real-time decision-making with AI-driven insights.',
+                ],
               },
               {
                 icon: <MessageSquare size={48} className="text-primary" />,
-                title: "AI SaaS Development",
-                description: "Scalable AI-powered SaaS platforms tailored for modern businesses .",
+                title: 'AI SaaS Development',
+                description:
+                  'Scalable AI-powered SaaS platforms tailored for modern businesses .',
                 features: [
-                  "Develop cloud-native SaaS platforms with AI at the core.",
-                  "Ensure scalability, security, and high availability for enterprise users.",
-                  "Provide subscription-based AI solutions with seamless user experience.",
-                
-                ]
+                  'Develop cloud-native SaaS platforms with AI at the core.',
+                  'Ensure scalability, security, and high availability for enterprise users.',
+                  'Provide subscription-based AI solutions with seamless user experience.',
+                ],
               },
               {
                 icon: <Eye size={48} className="text-primary" />,
-                title: "Custom AI Development",
-                description: "From computer vision to NLP, we build AI models that solve real-world problems.",
+                title: 'Custom AI Development',
+                description:
+                  'From computer vision to NLP, we build AI models that solve real-world problems.',
                 features: [
-                  "Design and train AI models for industry-specific challenges.",
-                  "Implement computer vision, NLP, predictive analytics, and recommendation systems.",
-                  "Deliver end-to-end solutions from data preparation to deployment.",
-                  
-                ]
-              }
+                  'Design and train AI models for industry-specific challenges.',
+                  'Implement computer vision, NLP, predictive analytics, and recommendation systems.',
+                  'Deliver end-to-end solutions from data preparation to deployment.',
+                ],
+              },
             ].map((service, index) => (
               <AnimatedCard key={index} delay={0.1 * index} className="p-8">
                 <div className="mb-6">{service.icon}</div>
                 <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
-                
+
                 <h4 className="font-semibold mb-3">Key Features:</h4>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, i) => (
@@ -99,7 +108,7 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-                
+
                 <Button variant="outline" className="mt-auto">
                   <Link href="/contact-us" className="flex items-center">
                     Learn More <ArrowRight size={16} className="ml-2" />
@@ -119,49 +128,57 @@ export default function ServicesPage() {
             subtitle="Targeted solutions for specific business challenges"
             centered
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {[
               {
                 icon: <LineChart size={36} className="text-primary" />,
-                title: "Predictive Analytics",
-                description: "Forecast trends, identify opportunities, and mitigate risks with advanced predictive models."
+                title: 'Predictive Analytics',
+                description:
+                  'Forecast trends, identify opportunities, and mitigate risks with advanced predictive models.',
               },
               {
                 icon: <Database size={36} className="text-primary" />,
-                title: "Data Intelligence",
-                description: "Extract actionable insights from your data with our AI-powered analytics solutions."
+                title: 'Data Intelligence',
+                description:
+                  'Extract actionable insights from your data with our AI-powered analytics solutions.',
               },
               {
                 icon: <Zap size={36} className="text-primary" />,
-                title: "Process Automation",
-                description: "Streamline operations with intelligent automation of repetitive and complex processes."
+                title: 'Process Automation',
+                description:
+                  'Streamline operations with intelligent automation of repetitive and complex processes.',
               },
               {
                 icon: <Server size={36} className="text-primary" />,
-                title: "AI Infrastructure",
-                description: "Build and maintain the robust infrastructure needed to support advanced AI operations."
+                title: 'AI Infrastructure',
+                description:
+                  'Build and maintain the robust infrastructure needed to support advanced AI operations.',
               },
               {
                 icon: <Shield size={36} className="text-primary" />,
-                title: "AI Security",
-                description: "Protect your AI systems and data with our specialized security solutions."
+                title: 'AI Security',
+                description:
+                  'Protect your AI systems and data with our specialized security solutions.',
               },
               {
                 icon: <Code size={36} className="text-primary" />,
-                title: "Custom AI Development",
-                description: "Bespoke AI solutions tailored to your unique business requirements and challenges."
+                title: 'Custom AI Development',
+                description:
+                  'Bespoke AI solutions tailored to your unique business requirements and challenges.',
               },
               {
                 icon: <Brain size={36} className="text-primary" />,
-                title: "AI Consulting",
-                description: "Strategic guidance on implementing AI to transform your business operations."
+                title: 'AI Consulting',
+                description:
+                  'Strategic guidance on implementing AI to transform your business operations.',
               },
               {
                 icon: <MessageSquare size={36} className="text-primary" />,
-                title: "Conversational AI",
-                description: "Create natural, engaging interactions between your systems and users."
-              }
+                title: 'Conversational AI',
+                description:
+                  'Create natural, engaging interactions between your systems and users.',
+              },
             ].map((service, index) => (
               <AnimatedCard key={index} delay={0.05 * index} className="p-6">
                 <div className="mb-4">{service.icon}</div>
@@ -244,38 +261,43 @@ export default function ServicesPage() {
             subtitle="How we deliver exceptional AI solutions for your business"
             centered
           />
-          
+
           <div className="relative mt-16">
             <div className="absolute top-0 bottom-0 left-1/2 w-px bg-primary/30 -translate-x-1/2 z-0 md:block hidden"></div>
-            
+
             {[
               {
-                title: "Discovery & Assessment",
-                description: "We begin by understanding your business, challenges, and goals. Our team conducts a thorough assessment to identify opportunities where AI agents can create the most value.",
-                icon: <Brain size={32} className="text-primary" />
+                title: 'Discovery & Assessment',
+                description:
+                  'We begin by understanding your business, challenges, and goals. Our team conducts a thorough assessment to identify opportunities where AI agents can create the most value.',
+                icon: <Brain size={32} className="text-primary" />,
               },
               {
-                title: "Solution Design",
-                description: "Our AI architects design a custom solution tailored to your specific needs, selecting the right technologies and approaches to address your unique challenges.",
-                icon: <Code size={32} className="text-primary" />
+                title: 'Solution Design',
+                description:
+                  'Our AI architects design a custom solution tailored to your specific needs, selecting the right technologies and approaches to address your unique challenges.',
+                icon: <Code size={32} className="text-primary" />,
               },
               {
-                title: "Development & Training",
-                description: "We develop your AI agents and train them using your data, continuously refining their capabilities to ensure they meet your performance requirements.",
-                icon: <Database size={32} className="text-primary" />
+                title: 'Development & Training',
+                description:
+                  'We develop your AI agents and train them using your data, continuously refining their capabilities to ensure they meet your performance requirements.',
+                icon: <Database size={32} className="text-primary" />,
               },
               {
-                title: "Integration & Deployment",
-                description: "We seamlessly integrate the AI solution with your existing systems and deploy it in your environment, ensuring minimal disruption to your operations.",
-                icon: <Server size={32} className="text-primary" />
+                title: 'Integration & Deployment',
+                description:
+                  'We seamlessly integrate the AI solution with your existing systems and deploy it in your environment, ensuring minimal disruption to your operations.',
+                icon: <Server size={32} className="text-primary" />,
               },
               {
-                title: "Monitoring & Optimization",
-                description: "After deployment, we continuously monitor the performance of your AI agents, making adjustments and improvements to maximize their effectiveness.",
-                icon: <LineChart size={32} className="text-primary" />
-              }
+                title: 'Monitoring & Optimization',
+                description:
+                  'After deployment, we continuously monitor the performance of your AI agents, making adjustments and improvements to maximize their effectiveness.',
+                icon: <LineChart size={32} className="text-primary" />,
+              },
             ].map((step, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -293,7 +315,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="md:w-1/2 text-center md:text-left">
                   <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
                   <p className="text-gray-600">{step.description}</p>
@@ -308,7 +330,7 @@ export default function ServicesPage() {
       <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold mb-6 font-display text-black"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -317,17 +339,18 @@ export default function ServicesPage() {
             >
               Ready to Transform Your Business with AI?
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-xl mb-8 opacity-90 text-black"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Contact us today to discuss how our AI agents can help you achieve your business goals.
+              Contact us today to discuss how our AI agents can help you achieve
+              your business goals.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -335,21 +358,25 @@ export default function ServicesPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-wrap justify-center gap-4"
             >
-              <Button 
-                variant="secondary" 
+              <Button
+                variant="secondary"
                 size="lg"
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
               >
-                <Link href="/contact-us" className="text-black">Schedule a Consultation</Link>
+                <Link href="/contact-us" className="text-black">
+                  Schedule a Consultation
+                </Link>
               </Button>
-              
-              <Button 
-                variant="outline" 
+
+              <Button
+                variant="outline"
                 size="lg"
                 className="border-white text-white hover:bg-white/10"
               >
-                <Link href="/clients" className="text-black">View Case Studies</Link>
+                <Link href="/clients" className="text-black">
+                  View Case Studies
+                </Link>
               </Button>
             </motion.div>
           </div>
@@ -357,4 +384,4 @@ export default function ServicesPage() {
       </section>
     </div>
   );
-};
+}

@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Brain, Menu, X } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,9 +32,11 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.header 
+    <motion.header
       className={`fixed w-full z-40 transition-all duration-300 ${
-        scrolled ? 'bg-dark/95 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-5'
+        scrolled
+          ? 'bg-light dark:bg-dark/95 dark:backdrop-blur-md py-3 shadow-lg'
+          : 'bg-transparent py-5'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -43,7 +46,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
             <Brain size={32} className="text-primary" />
-            <span className="text-xl font-bold text-light font-display">DeepNeural</span>
+            <span className="text-xl font-bold text-light-dark dark:text-light font-display">
+              DeepNeural
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -53,7 +58,9 @@ const Navbar = () => {
                 key={link.name}
                 href={link.path}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.path ? 'text-primary' : 'text-light'
+                  pathname === link.path
+                    ? 'text-primary'
+                    : 'text-light-dark dark:text-light'
                 }`}
               >
                 {link.name}
@@ -61,39 +68,45 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-light"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
+          {/* Desktop Theme Toggle and Mobile Menu Button */}
+          <div className="flex items-center space-x-4">
+            <ThemeToggle />
+            <button
+              className="md:hidden text-light-dark dark:text-light"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+          {/* Mobile Navigation */}
+          <motion.div
+            className={`md:hidden fixed inset-0 bg-light dark:bg-dark z-30 pt-20 ${
+              isOpen ? 'block' : 'hidden'
+            }`}
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : '100%' }}
+            transition={{ duration: 0.3 }}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            <nav className="flex flex-col items-center space-y-6 p-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.path}
+                  className={`text-xl font-medium transition-colors hover:text-primary ${
+                    pathname === link.path
+                      ? 'text-primary'
+                      : 'text-light-dark dark:text-light'
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </motion.div>
         </div>
       </div>
-
-      {/* Mobile Navigation */}
-      <motion.div 
-        className={`md:hidden fixed inset-0 bg-dark z-30 pt-20 ${isOpen ? 'block' : 'hidden'}`}
-        initial={{ opacity: 0, x: '100%' }}
-        animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : '100%' }}
-        transition={{ duration: 0.3 }}
-      >
-        <nav className="flex flex-col items-center space-y-6 p-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.path}
-              className={`text-xl font-medium transition-colors hover:text-primary ${
-                pathname === link.path ? 'text-primary' : 'text-light'
-              }`}
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-      </motion.div>
     </motion.header>
   );
 };
