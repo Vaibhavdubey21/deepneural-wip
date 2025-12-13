@@ -66,7 +66,7 @@ const Navbar = () => {
           <ThemeToggle />
           <Link href="/contact">
             <Button className="p-2 text-white dark:text-black bg-black shadow-none dark:bg-white ">
-              Contact
+              Contact Us
             </Button>
           </Link>
         </div>

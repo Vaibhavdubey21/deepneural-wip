@@ -15,66 +15,12 @@ import Link from 'next/link';
 import AnimatedCard from './components/AnimatedCard';
 import Button from './components/Button';
 import SectionHeading from './components/SectionHeading';
+import HeroSection from './components/sections/HeroSection';
 
 export default function HomePage() {
   return (
     <div className="overflow-hidden">
-      <section className="relative bg-blue dark:bg-amber-900 pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="mb-12 md:mb-0">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-6 text-white text-center">
-                  Innovating Tomorrow’s
-                  <br />
-                  <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
-                    AI Solution
-                  </span>
-                </h1>
-              </motion.div>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-xl text-light-dark mb-8 max-w-lg text-center"
-              >
-                DeepNeural is pioneering autonomous AI agents that transform how
-                businesses operate. Our cutting-edge solutions deliver
-                unprecedented efficiency and intelligence.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex flex-wrap gap-4"
-              >
-                <Button
-                  variant="primary"
-                  size="lg"
-                  icon={<ArrowRight size={18} />}
-                  iconPosition="right"
-                  className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
-                >
-                  <Link href="/services">Explore Our Solutions</Link>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all"
-                >
-                  <Link href="/contact-us">Contact Us</Link>
-                </Button>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Features Section with improved cards */}
       <section className="py-20 bg-light relative">

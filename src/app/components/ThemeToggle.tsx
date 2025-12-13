@@ -22,7 +22,7 @@ function ThemeToggleButton() {
   return (
     <Button
       onClick={handleClick}
-      className="p-4 rounded-lg hover:scale-110 transition-all text-white duration-300 shadow-none"
+      className="p-4 rounded-lg hover:scale-110 transition-all text-black dark:text-white duration-300 shadow-none bg-transparent"
     >
       {theme === 'light' ? (
         <Moon size={22} />
