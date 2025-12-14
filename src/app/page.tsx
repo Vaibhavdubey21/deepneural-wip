@@ -1,5 +1,6 @@
 'use client';
 
+import { Marquee } from '@/components/ui/marquee';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
@@ -10,22 +11,70 @@ import {
   Users,
   Zap,
 } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedCard from './components/AnimatedCard';
+import BentoDemo from './components/BentoDemo';
 import Button from './components/Button';
 import SectionHeading from './components/SectionHeading';
 import HeroSection from './components/sections/HeroSection';
 
 export default function HomePage() {
+  const topics = [
+    {
+      icon: <Brain size={40} />,
+      title: 'Autonomous Reasoning',
+      description:
+        'Our agents can reason through complex problems, make decisions, and learn from outcomes without human intervention.',
+      gradient: 'from-blue-500 to-blue-600',
+      bgGradient: 'from-blue-50 to-blue-100/50',
+    },
+    {
+      icon: <Database size={40} />,
+      title: 'Knowledge Integration',
+      description:
+        'Seamlessly connect to your existing data sources and knowledge bases to leverage institutional knowledge.',
+      gradient: 'from-purple-500 to-purple-600',
+      bgGradient: 'from-purple-50 to-purple-100/50',
+    },
+    {
+      icon: <Zap size={40} />,
+      title: 'Real-time Processing',
+      description:
+        'Process and respond to data streams in real-time, enabling immediate action and adaptation.',
+      gradient: 'from-amber-500 to-amber-600',
+      bgGradient: 'from-amber-50 to-amber-100/50',
+    },
+    {
+      icon: <Users size={40} />,
+      title: 'Human-like Interaction',
+      description:
+        'Natural language capabilities that make interaction with AI agents intuitive and productive for all users.',
+      gradient: 'from-emerald-500 to-emerald-600',
+      bgGradient: 'from-emerald-50 to-emerald-100/50',
+    },
+    {
+      icon: <LineChart size={40} />,
+      title: 'Predictive Analytics',
+      description:
+        'Forecast trends, identify opportunities, and mitigate risks before they impact your business.',
+      gradient: 'from-rose-500 to-rose-600',
+      bgGradient: 'from-rose-50 to-rose-100/50',
+    },
+    {
+      icon: <Shield size={40} />,
+      title: 'Enterprise Security',
+      description:
+        'Built with security-first architecture ensuring your data and operations remain protected.',
+      gradient: 'from-cyan-500 to-cyan-600',
+      bgGradient: 'from-cyan-50 to-cyan-100/50',
+    },
+  ];
+
   return (
     <div className="overflow-hidden">
       <HeroSection />
 
-      <section className="py-20 bg-light relative">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 bg-[url('/dots-pattern.svg')] bg-repeat opacity-5"></div>
-
+      <section className="py-20 dark:bg-linear-to-b from-black to-gray-700 relative">
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             title="Cutting-Edge AI Capabilities"
@@ -33,153 +82,70 @@ export default function HomePage() {
             centered
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: (
-                  <Brain
-                    size={40}
-                    className=" flex justify-center mb-4 text-primary"
-                  />
-                ),
-                title: 'Autonomous Reasoning',
-                description:
-                  'Our agents can reason through complex problems, make decisions, and learn from outcomes without human intervention.',
-              },
-              {
-                icon: <Database size={40} className="text-primary" />,
-                title: 'Knowledge Integration',
-                description:
-                  'Seamlessly connect to your existing data sources and knowledge bases to leverage institutional knowledge.',
-              },
-              {
-                icon: <Zap size={40} className="text-primary" />,
-                title: 'Real-time Processing',
-                description:
-                  'Process and respond to data streams in real-time, enabling immediate action and adaptation.',
-              },
-              {
-                icon: <Users size={40} className="text-primary" />,
-                title: 'Human-like Interaction',
-                description:
-                  'Natural language capabilities that make interaction with AI agents intuitive and productive for all users.',
-              },
-              {
-                icon: <LineChart size={40} className="text-primary" />,
-                title: 'Predictive Analytics',
-                description:
-                  'Forecast trends, identify opportunities, and mitigate risks before they impact your business.',
-              },
-              {
-                icon: <Shield size={40} className="text-primary" />,
-                title: 'Enterprise Security',
-                description:
-                  'Built with security-first architecture ensuring your data and operations remain protected.',
-              },
-            ].map((feature, index) => (
+          <Marquee pauseOnHover className="[--duration:40s]">
+            {topics.map((feature, index) => (
               <AnimatedCard
                 key={index}
                 delay={0.1 * index}
-                className="p-8 rounded-2xl border border-gray-200 bg-white shadow-lg hover:shadow-xl transition-all hover:border-primary/20 group hover:-translate-y-1"
+                className={`w-md px-6 py-6 rounded-2xl border transition-all duration-300 group hover:-translate-y-2 bg-linear-to-br ${feature.bgGradient} dark:bg-linear-to-br dark:from-zinc-950 dark:to-zinc-900 border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl dark:shadow-lg dark:hover:shadow-2xl`}
               >
-                <div className="mb-5 p-4 bg-primary/10 inline-block rounded-xl group-hover:bg-primary/20 transition-all">
-                  {feature.icon}
+                <div
+                  className={`mb-4 p-4 bg-linear-to-br ${feature.gradient} rounded-xl inline-block group-hover:scale-110 transition-transform duration-300 shadow-lg mt-2`}
+                >
+                  <div className="text-white">{feature.icon}</div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {feature.description}
+                </p>
               </AnimatedCard>
             ))}
-          </div>
+          </Marquee>
+
+          <Marquee reverse pauseOnHover className="[--duration:40s]">
+            {topics.map((feature, index) => (
+              <AnimatedCard
+                key={index}
+                delay={0.1 * index}
+                className={`w-md px-6 py-6 rounded-2xl border transition-all duration-300 group hover:-translate-y-2 bg-linear-to-br ${feature.bgGradient} dark:bg-linear-to-br dark:from-zinc-950 dark:to-zinc-900 border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl dark:shadow-lg dark:hover:shadow-2xl`}
+              >
+                <div
+                  className={`mb-4 p-4 bg-linear-to-br ${feature.gradient} rounded-xl inline-block group-hover:scale-110 transition-transform duration-300 shadow-lg mt-2`}
+                >
+                  <div className="text-white">{feature.icon}</div>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {feature.description}
+                </p>
+              </AnimatedCard>
+            ))}
+          </Marquee>
         </div>
       </section>
 
-      {/* Case Studies Preview with enhanced cards */}
-      <section className="py-20 bg-light relative">
-        <div className="absolute inset-0 bg-linear-to-b from-transparent to-gray-100"></div>
-
+      <section className="py-20 dark:bg-linear-to-b from-gray-700 to-black relative">
+        <div className="absolute bottom-0 right-0 w-50 h-50 bg-blue-600/30 rounded-full filter blur-3xl -mr-20 -mb-20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             title="Success Stories"
             subtitle="See how our AI agents have transformed businesses across industries."
             centered
           />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {[
-              {
-                title: 'Financial Services',
-                company: 'Global Bank Corp',
-                description:
-                  'Reduced fraud detection time by 90% while improving accuracy to 99.7% using our autonomous monitoring agents.',
-                image: '/agents.jpg',
-                tag: 'Finance',
-              },
-              {
-                title: 'Healthcare',
-                company: 'MediTech Solutions',
-                description:
-                  'Diagnostic accuracy improved by 35% with our AI agents assisting medical professionals in image analysis and patient data interpretation.',
-                image: '/meditech.jpg',
-                tag: 'Healthcare',
-              },
-              {
-                title: 'Manufacturing',
-                company: 'IndusTech Manufacturing',
-                description:
-                  'Predictive maintenance agents reduced downtime by 78% and extended equipment lifespan by 40% across production facilities.',
-                image: '/manufacturing.jpg',
-                tag: 'Industry',
-              },
-            ].map((study, index) => (
-              <AnimatedCard
-                key={index}
-                delay={0.1 * index}
-                className="overflow-hidden rounded-2xl bg-white shadow-xl border border-gray-100 group hover:shadow-2xl transition-all hover:-translate-y-2"
-              >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={study.image}
-                    alt={study.title}
-                    height={500}
-                    width={500}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute top-4 right-4 bg-primary/80 text-black text-xs font-semibold py-1 px-3 rounded-full backdrop-blur-sm">
-                    {study.tag}
-                  </div>
-                  <div className="absolute inset-0 bg-linear-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <div className="p-6 border-t border-gray-100">
-                  <div className="text-sm text-primary font-semibold mb-2">
-                    {study.company}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {study.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{study.description}</p>
-                  <Link
-                    href="/clients"
-                    className="text-primary font-medium inline-flex items-center hover:text-primary/80 transition-colors group-hover:gap-2"
-                  >
-                    Read Case Study{' '}
-                    <ArrowRight size={16} className="ml-1 transition-all" />
-                  </Link>
-                </div>
-              </AnimatedCard>
-            ))}
-          </div>
-
+          <BentoDemo />
           <div className="text-center mt-16">
             <Button
               variant="primary"
               size="lg"
-              className="shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-1 transition-all duration-300 px-10 py-5 rounded-xl bg-linear-to-r from-primary to-primary/90 border border-primary/20 group"
+              className="shadow-2xl shadow-white hover:shadow-white hover:-translate-y-1 transition-all duration-300 px-5 py-2 rounded-xl bg-linear-to-r from-primary to-primary/90 border border-primary/20 group dark:text-black text-white"
             >
               <Link
                 href="/clients"
-                className="flex items-center gap-3 font-medium text-black"
+                className="flex items-center gap-3 font-medium"
               >
                 View All Case Studies
                 <ArrowRight
@@ -193,16 +159,15 @@ export default function HomePage() {
       </section>
 
       {/* Enhanced CTA Section */}
-      <section className="py-24 bg-primary text-white relative overflow-hidden">
-        {/* Background elements */}
+      <section className="pt-32 pb-48 dark:bg-black bg-white text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-center opacity-10"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/20 rounded-full filter blur-3xl -mr-20 -mt-20"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/20 rounded-full filter blur-3xl -ml-20 -mb-20"></div>
+        <div className="absolute top-0 right-0 w-50 h-50 bg-blue-600/30 rounded-full filter blur-3xl -mr-20 -mt-20"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/30 rounded-full filter blur-3xl -ml-20 -mb-20"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h2
-              className="text-3xl md:text-4xl font-bold mb-6 font-display text-black"
+              className="text-3xl md:text-4xl font-bold mb-6 font-display text-black dark:text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -212,7 +177,7 @@ export default function HomePage() {
             </motion.h2>
 
             <motion.p
-              className="text-xl mb-10 opacity-90 text-black"
+              className="text-xl mb-10 opacity-90 text-black dark:text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -230,24 +195,20 @@ export default function HomePage() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button
-                variant="secondary"
+                variant="primary"
                 size="lg"
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
-                className="shadow-xl shadow-dark/20 hover:shadow-dark/30 transition-all"
+                className="shadow-xl shadow-dark/20 hover:shadow-dark/30 transition-all dark:text-black text-white"
               >
-                <Link href="/contact-us" className="text-black">
-                  Schedule a Demo
-                </Link>
+                <Link href="/contact-us">Schedule a Demo</Link>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/30 hover:bg-white/10 backdrop-blur-sm transition-all"
+                className="border-black dark:border-white/60 dark:text-white/90 hover:bg-white/10 backdrop-blur-sm transition-all"
               >
-                <Link href="/about-us" className="text-black">
-                  Learn More About Us
-                </Link>
+                <Link href="/about-us">Learn More About Us</Link>
               </Button>
             </motion.div>
           </div>

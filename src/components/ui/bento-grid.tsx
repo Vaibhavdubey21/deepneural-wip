@@ -55,11 +55,13 @@ const BentoCard = ({
   <div
     key={name}
     className={cn(
-      'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl',
-      // light styles
-      'bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.02),0_1px_2px_rgba(0,0,0,.03)]',
-      // dark styles
+      'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-2xl',
+      // light styles - subtle gray background with border
+      'bg-slate-50 border border-slate-200 [box-shadow:0_4px_12px_rgba(0,0,0,.08),0_1px_2px_rgba(0,0,0,.04)]',
+
       'dark:bg-background transform-gpu dark:[box-shadow:0_-10px_40px_-10px_#ffffff0d_inset] dark:[border:1px_solid_rgba(255,255,255,.1)]',
+
+      'transform-gpu transition-all duration-300 hover:shadow-md dark:hover:shadow-lg',
       className
     )}
     {...props}
@@ -86,7 +88,7 @@ const BentoCard = ({
         <h3 className="text-xl font-semibold text-black dark:text-white">
           {name}
         </h3>
-        <p className="max-w-lg text-neutral-400">{description}</p>
+        <p className="max-w-lg text-gray-600">{description}</p>
       </div>
 
       <div
