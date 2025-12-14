@@ -64,7 +64,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex absolute right-4 items-center space-x-1">
           <ThemeToggle />
-          <Link href="/contact">
+          <Link href="/contact-us">
             <Button className="p-2 text-white dark:text-black bg-black shadow-none dark:bg-white ">
               Contact Us
             </Button>

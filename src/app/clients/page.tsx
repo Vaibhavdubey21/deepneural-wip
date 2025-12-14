@@ -1,9 +1,9 @@
 'use client';
-import { ArrowRight, Quote, Star } from 'lucide-react';
-import Image from 'next/image';
+import { Quote, Star } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import AnimatedCard from '../components/AnimatedCard';
+import BentoDemo from '../components/BentoDemo';
 import Button from '../components/Button';
 import SectionHeading from '../components/SectionHeading';
 import HeaderSection from '../components/sections/HeaderSection';
@@ -18,76 +18,13 @@ const ClientsPage: React.FC = () => {
       />
 
       {/* Case Studies */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Case Studies"
-            subtitle="Real-world examples of how our AI agents are creating value"
-            centered
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {[
-              {
-                title: 'HR Recruitment GenAI SaaS Platform',
-                company: 'NeoSource',
-                industry: 'Human Resources',
-                description:
-                  'Leveraging GenAI to streamline recruitment processes, reducing time-to-hire by 60% and improving candidate quality through intelligent matching algorithms.',
-                image: '/AI.jpg',
-              },
-              {
-                title: 'AI SaaS Dental Imaging Platform',
-                company: '4EDental.com',
-                industry: 'Healthcare',
-                description:
-                  'Revolutionizing dental imaging with AI-powered diagnostics that detect issues with 98% accuracy, helping dentists provide better care and reduce misdiagnosis.',
-                image: '/meditech.jpg',
-              },
-              {
-                title: 'Manufacturing Process Optimization',
-                company: 'PrecisionTech Industries',
-                industry: 'Manufacturing',
-                description:
-                  'Implementing AI agents to monitor production lines, resulting in 35% reduction in defects, 22% increase in throughput, and significant energy savings.',
-                image: '/manufacturing.jpg',
-              },
-            ].map((study, index) => (
-              <AnimatedCard
-                key={index}
-                delay={0.1 * index}
-                className="overflow-hidden"
-              >
-                <div className="relative h-48 mb-4">
-                  <Image
-                    src={study.image}
-                    alt={study.title}
-                    fill
-                    className="object-cover rounded-t-lg"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center mb-2">
-                    <span className="text-sm font-medium text-primary-dark">
-                      {study.industry}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{study.title}</h3>
-                  <p className="text-gray-600 mb-4">{study.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">{study.company}</span>
-                    <Link
-                      href="/contact-us"
-                      className="text-primary hover:text-primary-dark flex items-center text-sm font-medium"
-                    >
-                      Read more <ArrowRight size={16} className="ml-1" />
-                    </Link>
-                  </div>
-                </div>
-              </AnimatedCard>
-            ))}
-          </div>
-        </div>
+      <section className="py-20 px-4 dark:bg-black bg-white">
+        <SectionHeading
+          title="Case Studies"
+          subtitle="Real-world examples of how our AI agents are creating value"
+          centered
+        />
+        <BentoDemo />
       </section>
 
       {/* Testimonials */}

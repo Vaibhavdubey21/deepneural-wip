@@ -1,5 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import React from 'react';
 
 interface SectionHeadingProps {
   title: string;
@@ -16,7 +16,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
 }) => {
   return (
     <div className={`mb-12 ${centered ? 'text-center' : ''} ${className}`}>
-      <motion.h2 
+      <motion.h2
         className="text-3xl md:text-4xl font-bold font-display mb-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -25,10 +25,10 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       >
         {title}
       </motion.h2>
-      
+
       {subtitle && (
-        <motion.p 
-          className="text-lg text-gray-600 max-w-3xl mx-auto"
+        <motion.p
+          className="text-lg text-gray-600 max-w-3xl mx-auto mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -37,9 +37,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
           {subtitle}
         </motion.p>
       )}
-      
-      <motion.div 
-        className="h-1 w-20 bg-primary mt-4 rounded-full"
+
+      <motion.div
+        className="h-1 w-20 bg-primary rounded-full"
         initial={{ opacity: 0, width: 0 }}
         whileInView={{ opacity: 1, width: centered ? 80 : 80 }}
         viewport={{ once: true }}
