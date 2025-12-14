@@ -8,6 +8,7 @@ import {
 } from '@radix-ui/react-icons';
 
 import { BentoCard, BentoGrid } from '@/components/ui/bento-grid';
+import { Globe } from '@/components/ui/globe';
 import AnimatedListBg from './AnimatedListBg';
 
 const features = [
@@ -23,7 +24,7 @@ const features = [
     BadgeIcon: MixerHorizontalIcon,
     companyName: 'PrecisionTech Industries',
     background: (
-      <AnimatedListBg className="absolute top-14 right-2 h-[300px] w-full scale-110 border-none mask-[linear-gradient(to_top,transparent_5%,#000_100%)] transition-all duration-400 ease-out group-hover:scale-90" />
+      <AnimatedListBg className="absolute top-20 right-2 h-[300px] w-full scale-115 border-none mask-[linear-gradient(to_top,transparent_5%,#000_100%)] transition-all duration-400 ease-out group-hover:scale-90" />
     ),
     className: 'lg:row-start-1 lg:row-end-7 lg:col-start-2 lg:col-end-3',
   },
@@ -52,7 +53,7 @@ const features = [
     badgeLabel: 'Healthcare',
     BadgeIcon: HeartIcon,
     companyName: '4EDental.com',
-    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    background: <Globe className="top-10 left-48" />,
     className: 'lg:col-start-1 lg:col-end-2 lg:row-start-4 lg:row-end-7',
   },
 ];

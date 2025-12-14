@@ -29,7 +29,7 @@ const AboutPage: React.FC = () => {
       />
 
       {/* Mission and Vision */}
-      <section className="py-20 bg-dark-light text-light">
+      <section className="py-20 dark:bg-black text-light">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div
@@ -91,7 +91,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Our Core Values"
@@ -138,9 +138,15 @@ const AboutPage: React.FC = () => {
                   'We move quickly, adapt to changing circumstances, and continuously evolve our approach based on new learnings.',
               },
             ].map((value, index) => (
-              <AnimatedCard key={index} delay={0.1 * index} className="p-6">
-                <div className="mb-4">{value.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{value.title}</h3>
+              <AnimatedCard
+                key={index}
+                delay={0.1 * index}
+                className="p-8 dark:bg-zinc-800 text-gray-600 dark:text-gray-400"
+              >
+                <div className="mb-4 p-4">{value.icon}</div>
+                <h3 className="text-xl font-bold mb-3 dark:text-white">
+                  {value.title}
+                </h3>
                 <p className="text-gray-600">{value.description}</p>
               </AnimatedCard>
             ))}

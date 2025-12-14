@@ -60,11 +60,15 @@ const ClientsPage: React.FC = () => {
                 rating: 5,
               },
             ].map((testimonial, index) => (
-              <AnimatedCard key={index} delay={0.1 * index} className="p-6">
+              <AnimatedCard
+                key={index}
+                delay={0.1 * index}
+                className="p-6 dark:bg-zinc-800"
+              >
                 <div className="mb-4 text-primary">
                   <Quote size={32} />
                 </div>
-                <p className="text-gray-600 mb-6 italic">
+                <p className="text-gray-600 dark:text-gray-400 mb-6 italic">
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center justify-between">

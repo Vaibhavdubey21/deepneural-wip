@@ -74,7 +74,7 @@ export default function HomePage() {
     <div className="overflow-hidden">
       <HeroSection />
 
-      <section className="py-20 dark:bg-linear-to-b from-black to-gray-700 relative">
+      <section className="py-20 dark:bg-linear-to-b from-[#0a0a0a] to-gray-700 relative">
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             title="Cutting-Edge AI Capabilities"

@@ -48,12 +48,18 @@ export function Marquee({
       className={cn(
         'group flex gap-(--gap) overflow-hidden p-2 [--duration:40s] [--gap:1rem]',
         {
-          'flex-row': !vertical,
+          'flex-row relative': !vertical,
           'flex-col': vertical,
         },
         className
       )}
     >
+      {!vertical && (
+        <>
+          <div className="absolute left-0 top-0 bottom-0 w-12 bg-linear-to-r from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-linear-to-l from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
+        </>
+      )}
       {Array(repeat)
         .fill(0)
         .map((_, i) => (
