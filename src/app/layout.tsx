@@ -39,7 +39,7 @@ export default function RootLayout({
       <body
         className={`${interSans.variable} ${jetbrainsMono.variable} antialiased flex flex-col min-h-screen bg-light dark:bg-dark text-light-dark dark:text-light transition-colors`}
       >
-        <ThemeProvider defaultTheme="dark">
+        <ThemeProvider defaultTheme="light">
           <Navbar />
           <main className="grow">{children}</main>
           <Footer />

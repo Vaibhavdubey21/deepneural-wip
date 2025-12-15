@@ -1,16 +1,16 @@
 'use client';
 
-import { Marquee } from '@/components/ui/marquee';
-import { motion } from 'framer-motion';
 import {
-  ArrowRight,
-  Brain,
-  Database,
-  LineChart,
-  Shield,
-  Users,
-  Zap,
-} from 'lucide-react';
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedCard from './components/AnimatedCard';
 import BentoDemo from './components/BentoDemo';
@@ -21,110 +21,100 @@ import HeroSection from './components/sections/HeroSection';
 export default function HomePage() {
   const topics = [
     {
-      icon: <Brain size={40} />,
       title: 'Autonomous Reasoning',
       description:
         'Our agents can reason through complex problems, make decisions, and learn from outcomes without human intervention.',
-      gradient: 'from-blue-500 to-blue-600',
-      bgGradient: 'from-blue-50 to-blue-100/50',
+      url: 'https://images.pexels.com/photos/2085832/pexels-photo-2085832.jpeg',
     },
     {
-      icon: <Database size={40} />,
       title: 'Knowledge Integration',
       description:
         'Seamlessly connect to your existing data sources and knowledge bases to leverage institutional knowledge.',
-      gradient: 'from-purple-500 to-purple-600',
-      bgGradient: 'from-purple-50 to-purple-100/50',
+      url: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     {
-      icon: <Zap size={40} />,
       title: 'Real-time Processing',
       description:
         'Process and respond to data streams in real-time, enabling immediate action and adaptation.',
-      gradient: 'from-amber-500 to-amber-600',
-      bgGradient: 'from-amber-50 to-amber-100/50',
+      url: 'https://images.unsplash.com/photo-1633451238042-85d93d267866?q=80&w=2352&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     {
-      icon: <Users size={40} />,
       title: 'Human-like Interaction',
       description:
         'Natural language capabilities that make interaction with AI agents intuitive and productive for all users.',
-      gradient: 'from-emerald-500 to-emerald-600',
-      bgGradient: 'from-emerald-50 to-emerald-100/50',
+      url: 'https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     {
-      icon: <LineChart size={40} />,
       title: 'Predictive Analytics',
       description:
         'Forecast trends, identify opportunities, and mitigate risks before they impact your business.',
-      gradient: 'from-rose-500 to-rose-600',
-      bgGradient: 'from-rose-50 to-rose-100/50',
+      url: 'https://images.pexels.com/photos/6770611/pexels-photo-6770611.jpeg',
     },
     {
-      icon: <Shield size={40} />,
       title: 'Enterprise Security',
       description:
         'Built with security-first architecture ensuring your data and operations remain protected.',
-      gradient: 'from-cyan-500 to-cyan-600',
-      bgGradient: 'from-cyan-50 to-cyan-100/50',
+      url: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg',
     },
   ];
 
   return (
     <div className="overflow-hidden">
+      {/* Landing page intro */}
       <HeroSection />
 
       <section className="py-20 dark:bg-linear-to-b from-[#0a0a0a] to-gray-700 relative">
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto relative z-10">
           <SectionHeading
             title="Cutting-Edge AI Capabilities"
             subtitle="Our AI agents leverage the latest advancements in machine learning and neural networks to deliver intelligent solutions."
             centered
           />
-
-          <Marquee pauseOnHover className="[--duration:40s]">
-            {topics.map((feature, index) => (
-              <AnimatedCard
-                key={index}
-                delay={0.1 * index}
-                className={`w-md px-6 py-6 rounded-2xl border transition-all duration-300 group hover:-translate-y-2 bg-linear-to-br ${feature.bgGradient} dark:bg-linear-to-br dark:from-zinc-950 dark:to-zinc-900 border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl dark:shadow-lg dark:hover:shadow-2xl`}
-              >
-                <div
-                  className={`mb-4 p-4 bg-linear-to-br ${feature.gradient} rounded-xl inline-block group-hover:scale-110 transition-transform duration-300 shadow-lg mt-2`}
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            plugins={[Autoplay({ delay: 4000 })]}
+            className="w-full"
+          >
+            <CarouselContent className="px-4 py-8">
+              {topics.map((feature, index) => (
+                <CarouselItem
+                  key={index}
+                  className="flex items-center justify-center md:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="text-white">{feature.icon}</div>
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {feature.description}
-                </p>
-              </AnimatedCard>
-            ))}
-          </Marquee>
+                  <AnimatedCard
+                    key={index}
+                    className={`w-md h-80 rounded-2xl border transition-all duration-300 group hover:scale-105 border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl dark:shadow-lg dark:hover:shadow-2xl flex flex-col relative overflow-hidden`}
+                  >
+                    <Image
+                      src={feature.url}
+                      alt="Image"
+                      loading="lazy"
+                      priority={false}
+                      width={900}
+                      height={900}
+                      objectFit="cover"
+                      className="absolute top-0 left-0 w-full h-full"
+                    />
 
-          <Marquee reverse pauseOnHover className="[--duration:40s]">
-            {topics.map((feature, index) => (
-              <AnimatedCard
-                key={index}
-                delay={0.1 * index}
-                className={`w-md px-6 py-6 rounded-2xl border transition-all duration-300 group hover:-translate-y-2 bg-linear-to-br ${feature.bgGradient} dark:bg-linear-to-br dark:from-zinc-950 dark:to-zinc-900 border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl dark:shadow-lg dark:hover:shadow-2xl`}
-              >
-                <div
-                  className={`mb-4 p-4 bg-linear-to-br ${feature.gradient} rounded-xl inline-block group-hover:scale-110 transition-transform duration-300 shadow-lg mt-2`}
-                >
-                  <div className="text-white">{feature.icon}</div>
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {feature.description}
-                </p>
-              </AnimatedCard>
-            ))}
-          </Marquee>
+                    {/* Content wrapper at the bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-lg rounded-t-2xl">
+                      <h3 className="text-xl font-bold mb-3 text-white transition-colors">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-200 leading-relaxed text-sm">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </AnimatedCard>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
 
