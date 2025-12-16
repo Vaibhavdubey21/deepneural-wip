@@ -40,12 +40,14 @@ function HeaderSection({
       };
   return (
     <div className="relative min-h-[50vh] md:h-90 w-full rounded-md flex flex-col items-center justify-center bg-white dark:bg-black">
-      <Spotlight
-        gradientFirst={spotlightGradients.gradientFirst}
-        gradientSecond={spotlightGradients.gradientSecond}
-        gradientThird={spotlightGradients.gradientThird}
-        height={1100}
-      />
+      <div className="hidden md:block">
+        <Spotlight
+          gradientFirst={spotlightGradients.gradientFirst}
+          gradientSecond={spotlightGradients.gradientSecond}
+          gradientThird={spotlightGradients.gradientThird}
+          height={1100}
+        />
+      </div>
       <div className="mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mt-32">
           <motion.div

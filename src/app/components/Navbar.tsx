@@ -1,10 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Brain, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from './Button';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -13,6 +13,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
     { name: 'About', path: '/about-us' },
@@ -20,8 +21,30 @@ const Navbar = () => {
     { name: 'Clients', path: '/clients' },
   ];
 
+  useEffect(() => {
+    closeMenu();
+  }, [pathname]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMenu();
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', onKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
-    <div className="fixed top-0 w-full z-40">
+    <div className="fixed top-0 w-screen z-40">
       {/* Backdrop blur layer */}
       <div className="absolute inset-x-0 top-0 h-24 backdrop-blur-md" />
 
@@ -72,43 +95,68 @@ const Navbar = () => {
         </div>
 
         {/* Theme Toggle and Mobile Menu - Right */}
-        <div className="absolute right-10 flex items-center space-x-4">
-          <button
-            className="md:hidden text-light-dark dark:text-light"
+        <div className="absolute md:hidden right-4 flex items-center justify-end space-x-3 z-60">
+          <ThemeToggle />
+          <Button
+            className="md:hidden text-black dark:text-white bg-transparent"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </Button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      <motion.div
-        className={`md:hidden fixed inset-0 bg-light dark:bg-dark z-30 pt-20 ${
-          isOpen ? 'block' : 'hidden'
-        }`}
-        initial={{ opacity: 0, x: '100%' }}
-        animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : '100%' }}
-        transition={{ duration: 0.3 }}
-      >
-        <nav className="flex flex-col items-center space-y-6 p-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.path}
-              className={`text-xl font-medium transition-colors hover:text-primary ${
-                pathname === link.path
-                  ? 'text-primary'
-                  : 'text-light-dark dark:text-light'
-              }`}
-              onClick={() => setIsOpen(false)}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="md:hidden fixed inset-0 z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Overlay (tap outside closes) */}
+            <div
+              className="absolute inset-0 dark:bg-black/40"
+              onClick={closeMenu}
+            />
+
+            {/* Drawer */}
+            <motion.div
+              className="absolute right-0 top-24 h-fit w-full bg-light dark:bg-dark"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()} // prevent overlay close on drawer click
             >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-      </motion.div>
+              <nav className="flex flex-col w-screen items-center space-y-6 p-8 backdrop-blur-md">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.path}
+                    className={`text-xl font-medium transition-colors hover:text-primary ${
+                      pathname === link.path
+                        ? 'text-primary'
+                        : 'text-light-dark dark:text-light'
+                    }`}
+                    onClick={closeMenu}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
+                <Link href="/contact-us" onClick={closeMenu} className="w-full">
+                  <Button className="w-full p-3 text-white dark:text-black bg-black shadow-none dark:bg-white">
+                    Contact Us
+                  </Button>
+                </Link>
+              </nav>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

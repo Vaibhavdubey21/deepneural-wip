@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${interSans.variable} ${jetbrainsMono.variable} antialiased flex flex-col min-h-screen bg-light dark:bg-dark text-light-dark dark:text-light transition-colors`}
+        className={`${interSans.variable} ${jetbrainsMono.variable} antialiased flex flex-col min-h-screen bg-light dark:bg-dark text-light-dark dark:text-light transition-colors overflow-x-hidden`}
       >
         <ThemeProvider defaultTheme="light">
           <Navbar />

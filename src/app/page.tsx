@@ -15,7 +15,7 @@ import Link from 'next/link';
 import AnimatedCard from './components/AnimatedCard';
 import BentoDemo from './components/BentoDemo';
 import Button from './components/Button';
-import SectionHeading from './components/SectionHeading';
+import SectionHeader from './components/SectionHeader';
 import HeroSection from './components/sections/HeroSection';
 
 export default function HomePage() {
@@ -65,10 +65,10 @@ export default function HomePage() {
 
       <section className="py-20 dark:bg-linear-to-b from-[#0a0a0a] to-gray-700 relative">
         <div className="container mx-auto relative z-10">
-          <SectionHeading
-            title="Cutting-Edge AI Capabilities"
-            subtitle="Our AI agents leverage the latest advancements in machine learning and neural networks to deliver intelligent solutions."
-            centered
+          <SectionHeader
+            subheading="Engineering intelligent autonomy"
+            heading="Cutting-Edge AI"
+            description="Our AI agents leverage the latest advancements in machine learning and neural networks to deliver intelligent solutions."
           />
           <Carousel
             opts={{
@@ -121,10 +121,10 @@ export default function HomePage() {
       <section className="py-20 dark:bg-linear-to-b from-gray-700 to-black relative">
         <div className="absolute bottom-0 right-0 w-50 h-50 bg-blue-600/30 rounded-full filter blur-3xl -mr-20 -mb-20"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <SectionHeading
-            title="Success Stories"
-            subtitle="See how our AI agents have transformed businesses across industries."
-            centered
+          <SectionHeader
+            subheading="From vision to value"
+            heading="Success Stories"
+            description="Discover how DeepNeural AI agents have transformed businesses across various industries, driving innovation and efficiency."
           />
           <BentoDemo />
           <div className="text-center mt-16">

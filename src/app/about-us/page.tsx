@@ -16,6 +16,7 @@ import Link from 'next/link';
 import React from 'react';
 import AnimatedCard from '../components/AnimatedCard';
 import Button from '../components/Button';
+import SectionHeader from '../components/SectionHeader';
 import SectionHeading from '../components/SectionHeading';
 import HeaderSection from '../components/sections/HeaderSection';
 
@@ -29,61 +30,108 @@ const AboutPage: React.FC = () => {
       />
 
       {/* Mission and Vision */}
-      <section className="py-20 dark:bg-black text-light">
+      <section className="py-20 pt-18 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <SectionHeader
+            subheading="What drives us"
+            heading="Mission & Vision"
+            description="The principles that guide how we build autonomous AI
+              agents—responsibly, reliably, and at scale."
+          />
+          {/* Section header */}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* Card */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-dark-lighter p-8 rounded-lg"
+              className="
+                group relative overflow-hidden rounded-2xl
+                bg-zinc-50 dark:bg-zinc-950/60
+                border border-zinc-200/70 dark:border-zinc-800/70
+                shadow-sm hover:shadow-md transition-shadow
+                p-7 md:p-8
+              "
             >
-              <div className="flex items-center mb-6">
-                <div className="bg-primary/20 p-3 rounded-full mr-4">
-                  <Target size={32} className="text-primary" />
+              {/* subtle glow */}
+              <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-primary/10 blur-3xl group-hover:bg-primary/15 transition-colors" />
+
+              <div className="flex items-start gap-4">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-xl bg-primary/20 blur-md" />
+                  <div className="relative rounded-xl p-3 bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/60 dark:border-zinc-800/60">
+                    <Target size={28} className="text-primary" />
+                  </div>
                 </div>
-                <h2 className="text-2xl font-bold font-display">Our Mission</h2>
+
+                <div>
+                  <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
+                    OUR MISSION
+                  </p>
+                  <h3 className="mt-1 text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+                    Build agents that amplify people.
+                  </h3>
+                </div>
               </div>
 
-              <p className="text-light-dark text-lg mb-4">
+              <p className="mt-5 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
                 To create autonomous AI agents that enhance human capabilities,
                 solve complex problems, and drive business transformation across
                 industries.
               </p>
 
-              <p className="text-light-dark">
-                We believe in building AI systems that work alongside humans,
-                taking on repetitive and complex tasks while allowing people to
-                focus on creative and strategic work where they excel.
+              <p className="mt-4 leading-relaxed text-zinc-600 dark:text-zinc-400">
+                We build AI that works alongside humans—taking on repetitive and
+                complex tasks so teams can focus on creative and strategic work.
               </p>
             </motion.div>
 
+            {/* Card */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-dark-lighter p-8 rounded-lg"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="
+                group relative overflow-hidden rounded-2xl
+                bg-zinc-50 dark:bg-zinc-950/60
+                border border-zinc-200/70 dark:border-zinc-800/70
+                shadow-sm hover:shadow-md transition-shadow
+                p-7 md:p-8
+              "
             >
-              <div className="flex items-center mb-6">
-                <div className="bg-primary/20 p-3 rounded-full mr-4">
-                  <Rocket size={32} className="text-primary" />
+              <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-primary/10 blur-3xl group-hover:bg-primary/15 transition-colors" />
+
+              <div className="flex items-start gap-4">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-xl bg-primary/20 blur-md" />
+                  <div className="relative rounded-xl p-3 bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/60 dark:border-zinc-800/60">
+                    <Rocket size={28} className="text-primary" />
+                  </div>
                 </div>
-                <h2 className="text-2xl font-bold font-display">Our Vision</h2>
+
+                <div>
+                  <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
+                    OUR VISION
+                  </p>
+                  <h3 className="mt-1 text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+                    Set the standard for autonomous AI.
+                  </h3>
+                </div>
               </div>
 
-              <p className="text-light-dark text-lg mb-4">
+              <p className="mt-5 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
                 To be the global leader in autonomous AI agent technology,
                 setting new standards for intelligence, reliability, and ethical
                 AI implementation.
               </p>
 
-              <p className="text-light-dark">
-                We envision a future where AI agents become trusted partners in
-                every organization, handling complex tasks autonomously while
-                adhering to the highest standards of ethics, transparency, and
-                human oversight.
+              <p className="mt-4 leading-relaxed text-zinc-600 dark:text-zinc-400">
+                We envision AI agents as trusted partners in every
+                organization—autonomous when appropriate, transparent always,
+                and guided by human oversight.
               </p>
             </motion.div>
           </div>
