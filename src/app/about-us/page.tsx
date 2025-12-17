@@ -188,7 +188,6 @@ const AboutPage: React.FC = () => {
             ].map((value, index) => (
               <AnimatedCard
                 key={index}
-                delay={0.1 * index}
                 className="p-8 dark:bg-zinc-800 text-gray-600 dark:text-gray-400"
               >
                 <div className="mb-4 p-4">{value.icon}</div>

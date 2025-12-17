@@ -71,7 +71,7 @@ export default function ServicesPage() {
                 ],
               },
             ].map((service, index) => (
-              <AnimatedCard key={index} delay={0.1 * index} className="p-8">
+              <AnimatedCard key={index} className="p-8">
                 <div className="mb-6">{service.icon}</div>
                 <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
@@ -157,7 +157,7 @@ export default function ServicesPage() {
                   'Create natural, engaging interactions between your systems and users.',
               },
             ].map((service, index) => (
-              <AnimatedCard key={index} delay={0.05 * index} className="p-6">
+              <AnimatedCard key={index} className="p-6">
                 <div className="mb-4">{service.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
