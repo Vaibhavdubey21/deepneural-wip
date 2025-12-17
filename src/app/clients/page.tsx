@@ -69,7 +69,7 @@ const ClientsPage: React.FC = () => {
                   <Quote size={32} />
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 mb-6 italic">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
                 <div className="flex items-center justify-between">
                   <div>
