@@ -19,6 +19,7 @@ import SectionHeader from './components/SectionHeader';
 import HeroSection from './components/sections/HeroSection';
 
 export default function HomePage() {
+  // Test commit for vercel deployment
   const topics = [
     {
       title: 'Autonomous Reasoning',
