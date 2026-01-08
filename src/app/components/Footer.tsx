@@ -265,7 +265,7 @@ const Footer: React.FC = () => {
                     href="mailto:contact@deepneuraltechnologies.com"
                     className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary transition-colors break-all"
                   >
-                    contact@deepneural.tech
+                    contact@deepneuraltechnologies.com
                   </a>
                 </li>
               </ul>
