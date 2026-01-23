@@ -64,12 +64,12 @@ export default function HomePage() {
       {/* Landing page intro */}
       <HeroSection />
 
-      <section className="py-20 dark:bg-linear-to-b from-[#0a0a0a] to-gray-700 relative">
+      <section className="py-20 px-15 dark:bg-linear-to-b from-[#0a0a0a] to-gray-700 relative">
         <div className="container mx-auto relative z-10">
           <SectionHeader
             subheading="Engineering intelligent autonomy"
             heading="Cutting-Edge AI"
-            description="Our AI agents leverage the latest advancements in machine learning and neural networks to deliver intelligent solutions."
+            description="Our AI agents leverage the latest advancements in Gen AI and neural networks to deliver intelligent solutions."
           />
           <Carousel
             opts={{
@@ -119,9 +119,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 dark:bg-linear-to-b from-gray-700 to-black relative">
+      <section className="py-20 px-15 dark:bg-linear-to-b from-gray-700 to-black relative">
         <div className="absolute bottom-0 right-0 w-50 h-50 bg-blue-600/30 rounded-full filter blur-3xl -mr-20 -mb-20"></div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container relative z-10">
           <SectionHeader
             subheading="From vision to value"
             heading="Success Stories"
@@ -150,7 +150,7 @@ export default function HomePage() {
       </section>
 
       {/* Enhanced CTA Section */}
-      <section className="pt-32 pb-48 dark:bg-black bg-white text-white relative overflow-hidden">
+      <section className="pt-32 pb-48 px-15 dark:bg-black bg-white text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-center opacity-10"></div>
         <div className="absolute top-0 right-0 w-50 h-50 bg-blue-600/30 rounded-full filter blur-3xl -mr-20 -mt-20"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/30 rounded-full filter blur-3xl -ml-20 -mb-20"></div>

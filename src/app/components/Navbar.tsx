@@ -62,10 +62,10 @@ const Navbar = () => {
           </div>
           <div className="hidden lg:flex flex-col -space-y-0.5">
             <span className="text-md font-semibold text-primary tracking-widest uppercase">
-              DeepNeural
+              DeepNeural Technologies
             </span>
             <span className="text-xs font-medium text-light-dark/60 dark:text-light/50">
-              AI Solutions
+              AI Agents & Solutions
             </span>
           </div>
         </Link>
