@@ -2,7 +2,6 @@
 
 import {
   ArrowRight,
-  Brain,
   Github,
   Linkedin,
   Mail,
@@ -11,6 +10,7 @@ import {
   Twitter,
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
 
 const Footer: React.FC = () => {
@@ -26,10 +26,12 @@ const Footer: React.FC = () => {
                 href="/"
                 className="w-fit flex items-center gap-3 group mb-4"
               >
-                <div className="rounded-lg group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
-                  <Brain
-                    size={40}
-                    className="text-primary group-hover:scale-110 transition-transform duration-300"
+                <div className="rounded-lg group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300 relative w-10 h-10">
+                  <Image
+                    src="/logo dnt.png"
+                    alt="DeepNeural Logo"
+                    fill
+                    className="object-contain group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
                 <div className="flex flex-col -space-y-0.5">

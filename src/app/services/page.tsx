@@ -241,61 +241,41 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h2
-              className="text-3xl md:text-4xl font-bold mb-6 font-display text-black"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              Ready to Transform Your Business with AI?
-            </motion.h2>
+      <section className="py-20 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="max-w-3xl mx-auto text-center">
 
-            <motion.p
-              className="text-xl mb-8 opacity-90 text-black"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              Contact us today to discuss how our AI agents can help you achieve
-              your business goals.
-            </motion.p>
+      <motion.h2 className="text-3xl md:text-4xl font-bold mb-6 font-display text-black">
+        Ready to Transform Your Business with AI?
+      </motion.h2>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-4"
-            >
-              <Button
-                variant="secondary"
-                size="lg"
-                icon={<ArrowRight size={18} />}
-                iconPosition="right"
-              >
-                <Link href="/contact-us" className="text-black">
-                  Schedule a Consultation
-                </Link>
-              </Button>
+      <motion.p className="text-xl mb-8 opacity-90 text-black">
+        Contact us today to discuss how our AI agents can help you achieve
+        your business goals.
+      </motion.p>
 
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white/10"
-              >
-                <Link href="/clients" className="text-black">
-                  View Case Studies
-                </Link>
-              </Button>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <motion.div className="flex flex-wrap justify-center gap-4">
+        <Button variant="secondary" size="lg" icon={<ArrowRight size={18} />} iconPosition="right">
+          <Link href="/contact-us" className="text-black">
+            Schedule a Consultation
+          </Link>
+        </Button>
+
+        <Button
+          variant="outline"
+          size="lg"
+          className="border-black text-black hover:bg-black/5"
+        >
+          <Link href="/clients" className="text-black">
+            View Case Studies
+          </Link>
+        </Button>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }

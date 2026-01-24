@@ -153,7 +153,7 @@ const AboutPage: React.FC = () => {
                 icon: <Lightbulb size={40} className="text-primary" />,
                 title: 'Innovation',
                 description:
-                  "We constantly push the boundaries of what's possible in AI, investing heavily in R&D to create breakthrough technologies.",
+                  'Complex problems can have simple solution with our innovation.',
               },
               {
                 icon: <Users size={40} className="text-primary" />,
@@ -215,7 +215,7 @@ const AboutPage: React.FC = () => {
               {
                 name: 'Vivek Saraf',
                 role: 'Founder & CEO',
-                bio: 'With over 23 years of experience in consulting, designing, and delivering technology solutions...',
+                bio: 'AI entrepreneur and technology leader and an IIT Kanpur alumnus with 23+ years of experience in enterprise tech, AI automation,and consulting shaping DeepNeural’s product and innovation roadmap.',
                 image: 'https://picsum.photos/400/400',
               },
             ].map((member, index) => (

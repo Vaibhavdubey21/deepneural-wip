@@ -69,7 +69,7 @@ export default function HomePage() {
           <SectionHeader
             subheading="Engineering intelligent autonomy"
             heading="Cutting-Edge AI"
-            description="Our AI agents leverage the latest advancements in Gen AI and neural networks to deliver intelligent solutions."
+            description="Our AI agents leverage the latest advancements in GenAI and neural networks to deliver intelligent solutions."
           />
           <Carousel
             opts={{
@@ -148,63 +148,85 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+{/* Enhanced CTA Section */}
+<section
+  className="
+    pt-32 pb-48 px-6
+    bg-white dark:bg-black
+    relative overflow-hidden
+    text-black dark:text-white
+  "
+>
+  {/* Background */}
+  <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-center opacity-5 pointer-events-none"></div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl -mr-24 -mt-24"></div>
+  <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl -ml-24 -mb-24"></div>
 
-      {/* Enhanced CTA Section */}
-      <section className="pt-32 pb-48 px-15 dark:bg-black bg-white text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-center opacity-10"></div>
-        <div className="absolute top-0 right-0 w-50 h-50 bg-blue-600/30 rounded-full filter blur-3xl -mr-20 -mt-20"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/30 rounded-full filter blur-3xl -ml-20 -mb-20"></div>
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="max-w-3xl mx-auto text-center">
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h2
-              className="text-3xl md:text-4xl font-bold mb-6 font-display text-black dark:text-white"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              Ready to Transform Your Business with AI?
-            </motion.h2>
+      <motion.h2
+        className="
+          text-3xl md:text-4xl
+          font-bold mb-6 font-display
+          !text-black dark:!text-white
+        "
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        Ready to transform your business with AI?
+      </motion.h2>
 
-            <motion.p
-              className="text-xl mb-10 opacity-90 text-black dark:text-white"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              Join the AI revolution and stay ahead of the competition with our
-              cutting-edge autonomous agents.
-            </motion.p>
+      <motion.p
+        className="
+          text-lg md:text-xl mb-10
+          !text-black/80 dark:!text-white/90
+        "
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        Join the growing list of companies leveraging our AI agent technology
+        to solve complex challenges.
+      </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Button
-                variant="primary"
-                size="lg"
-                icon={<ArrowRight size={18} />}
-                iconPosition="right"
-                className="shadow-xl shadow-dark/20 hover:shadow-dark/30 transition-all dark:text-black text-white"
-              >
-                <Link href="/contact-us">Schedule a Demo</Link>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-black dark:border-white/60 dark:text-white/90 hover:bg-white/10 backdrop-blur-sm transition-all"
-              >
-                <Link href="/about-us">Learn More About Us</Link>
-              </Button>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="flex flex-col sm:flex-row gap-4 justify-center"
+      >
+        <Button
+          variant="primary"
+          size="lg"
+          icon={<ArrowRight size={18} />}
+          iconPosition="right"
+          className="shadow-xl transition-all text-white"
+        >
+          <Link href="/contact-us">Get in touch</Link>
+        </Button>
+
+        <Button
+          variant="outline"
+          size="lg"
+          className="
+            border-black text-black dark:text-white
+            hover:bg-black/5
+            dark:border-white/60 dark:text-white
+            dark:hover:bg-white/10
+          "
+        >
+          <Link href="/about-us">Learn More About Us</Link>
+        </Button>
+      </motion.div>
+
     </div>
-  );
+  </div>
+</section>
+ </div>
+ );
 }

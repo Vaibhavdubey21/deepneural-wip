@@ -91,22 +91,37 @@ const ClientsPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-dark text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">
-            Ready to transform your business with AI?
-          </h2>
-          <p className="text-xl text-light-dark max-w-2xl mx-auto mb-8">
-            Join the growing list of companies leveraging our AI agent
-            technology to solve complex challenges
-          </p>
-          <Link href="/contact-us">
-            <Button variant="primary" size="lg">
-              Get in touch
-            </Button>
-          </Link>
-        </div>
-      </section>
+<section className="py-20 bg-white dark:bg-black">
+  <div className="container mx-auto px-4 text-center">
+    
+    <h2 className="text-3xl md:text-4xl font-bold font-display mb-6 text-black dark:text-white">
+      Ready to transform your business with AI?
+    </h2>
+
+    <p className="text-xl max-w-2xl mx-auto mb-8 text-black/80 dark:text-white/80">
+      Join the growing list of companies leveraging our AI agent
+      technology to solve complex challenges
+    </p>
+
+    <Link href="/contact-us">
+  <Button
+    size="lg"
+    className="
+      bg-white text-black
+      border border-black/10
+      hover:bg-black hover:text-white
+      transition-all
+      shadow-md
+    "
+  >
+    Get in touch
+  </Button>
+</Link>
+
+
+  </div>
+</section>
+
     </div>
   );
 };

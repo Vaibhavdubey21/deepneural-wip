@@ -13,22 +13,6 @@ import AnimatedListBg from './AnimatedListBg';
 
 const features = [
   {
-    Icon: FileTextIcon,
-    name: 'Manufacturing Process Optimization',
-    description:
-      'Implementing AI agents to monitor production lines, resulting in 35% reduction in defects, 22% increase in throughput, and significant energy savings.',
-    href: '/contact-us',
-    cta: 'Learn more',
-    badgeClass: 'bg-yellow-500 dark:bg-yellow-600',
-    badgeLabel: 'Manufacturing',
-    BadgeIcon: MixerHorizontalIcon,
-    companyName: 'PrecisionTech Industries',
-    background: (
-      <AnimatedListBg className="absolute top-20 right-2 h-[300px] w-full scale-115 border-none mask-[linear-gradient(to_top,transparent_5%,#000_100%)] transition-all duration-400 ease-out group-hover:scale-90" />
-    ),
-    className: 'lg:row-start-1 lg:row-end-7 lg:col-start-2 lg:col-end-3',
-  },
-  {
     Icon: InputIcon,
     name: 'HR Recruitment GenAI SaaS Platform',
     description:

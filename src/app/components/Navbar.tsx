@@ -1,8 +1,9 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { Brain, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Button from './Button';
@@ -54,10 +55,12 @@ const Navbar = () => {
           href="/"
           className="absolute left-4 flex items-center gap-3 group"
         >
-          <div className="rounded-lg group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
-            <Brain
-              size={40}
-              className="text-primary group-hover:scale-110 transition-transform duration-300"
+          <div className="rounded-lg group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300 relative w-10 h-10">
+            <Image
+              src="/logo dnt.png"
+              alt="DeepNeural Logo"
+              fill
+              className="object-contain group-hover:scale-110 transition-transform duration-300"
             />
           </div>
           <div className="hidden lg:flex flex-col -space-y-0.5">
@@ -136,11 +139,10 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     href={link.path}
-                    className={`text-xl font-medium transition-colors hover:text-primary ${
-                      pathname === link.path
+                    className={`text-xl font-medium transition-colors hover:text-primary ${pathname === link.path
                         ? 'text-primary'
                         : 'text-light-dark dark:text-light'
-                    }`}
+                      }`}
                     onClick={closeMenu}
                   >
                     {link.name}
