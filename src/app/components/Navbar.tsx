@@ -2,8 +2,8 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Button from './Button';
@@ -45,10 +45,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <div className="fixed top-0 w-screen z-40">
-      {/* Backdrop blur layer */}
-      <div className="absolute inset-x-0 top-0 h-24 backdrop-blur-md" />
-
+    <div className="fixed top-0 w-screen z-40 dark:bg-black bg-white pb-8">
       {/* Navbar content */}
       <div className="relative z-10 mx-4 px-4 mt-14 mb-4 flex items-center">
         <Link
@@ -139,10 +136,11 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     href={link.path}
-                    className={`text-xl font-medium transition-colors hover:text-primary ${pathname === link.path
+                    className={`text-xl font-medium transition-colors hover:text-primary ${
+                      pathname === link.path
                         ? 'text-primary'
                         : 'text-light-dark dark:text-light'
-                      }`}
+                    }`}
                     onClick={closeMenu}
                   >
                     {link.name}

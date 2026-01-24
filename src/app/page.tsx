@@ -148,85 +148,83 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-{/* Enhanced CTA Section */}
-<section
-  className="
+      {/* Enhanced CTA Section */}
+      <section
+        className="
     pt-32 pb-48 px-6
     bg-white dark:bg-black
     relative overflow-hidden
     text-black dark:text-white
   "
->
-  {/* Background */}
-  <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-center opacity-5 pointer-events-none"></div>
-  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl -mr-24 -mt-24"></div>
-  <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl -ml-24 -mb-24"></div>
+      >
+        {/* Background */}
+        <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-center opacity-5 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl -mr-24 -mt-24"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl -ml-24 -mb-24"></div>
 
-  <div className="container mx-auto px-4 relative z-10">
-    <div className="max-w-3xl mx-auto text-center">
-
-      <motion.h2
-        className="
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h2
+              className="
           text-3xl md:text-4xl
           font-bold mb-6 font-display
-          !text-black dark:!text-white
+          text-black dark:text-white
         "
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        Ready to transform your business with AI?
-      </motion.h2>
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Ready to transform your business with AI?
+            </motion.h2>
 
-      <motion.p
-        className="
+            <motion.p
+              className="
           text-lg md:text-xl mb-10
-          !text-black/80 dark:!text-white/90
+          text-black/80 dark:text-white/90
         "
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        Join the growing list of companies leveraging our AI agent technology
-        to solve complex challenges.
-      </motion.p>
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              Join the growing list of companies leveraging our AI agent
+              technology to solve complex challenges.
+            </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="flex flex-col sm:flex-row gap-4 justify-center"
-      >
-        <Button
-          variant="primary"
-          size="lg"
-          icon={<ArrowRight size={18} />}
-          iconPosition="right"
-          className="shadow-xl transition-all text-white"
-        >
-          <Link href="/contact-us">Get in touch</Link>
-        </Button>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <Button
+                variant="primary"
+                size="lg"
+                icon={<ArrowRight size={18} />}
+                iconPosition="right"
+                className="shadow-xl transition-all text-white"
+              >
+                <Link href="/contact-us">Get in touch</Link>
+              </Button>
 
-        <Button
-          variant="outline"
-          size="lg"
-          className="
+              <Button
+                variant="outline"
+                size="lg"
+                className="
             border-black text-black dark:text-white
             hover:bg-black/5
-            dark:border-white/60 dark:text-white
+            dark:border-white/60
             dark:hover:bg-white/10
           "
-        >
-          <Link href="/about-us">Learn More About Us</Link>
-        </Button>
-      </motion.div>
-
+              >
+                <Link href="/about-us">Learn More About Us</Link>
+              </Button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-</section>
- </div>
- );
+  );
 }
