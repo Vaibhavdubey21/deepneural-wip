@@ -15,6 +15,8 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
 });
 
+// TODO: Update metadata
+
 export const metadata: Metadata = {
   title: 'DeepNeural | AI Agent Solutions',
   description:
