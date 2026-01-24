@@ -1,15 +1,13 @@
 import {
   BookmarkIcon,
-  FileTextIcon,
   GlobeIcon,
   HeartIcon,
   InputIcon,
-  MixerHorizontalIcon,
 } from '@radix-ui/react-icons';
 
 import { BentoCard, BentoGrid } from '@/components/ui/bento-grid';
 import { Globe } from '@/components/ui/globe';
-import AnimatedListBg from './AnimatedListBg';
+
 
 const features = [
   {
