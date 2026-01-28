@@ -1,5 +1,13 @@
 'use client';
-import { motion, useScroll, useTransform, useSpring, useInView, useMotionValue, animate } from 'framer-motion';
+import {
+  animate,
+  motion,
+  useInView,
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
 import {
   ArrowRight,
   Award,
@@ -13,13 +21,19 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import SectionHeading from '../components/SectionHeading';
 import HeaderSection from '../components/sections/HeaderSection';
 
-const CountingNumber = ({ value, className }: { value: string; className?: string }) => {
+const CountingNumber = ({
+  value,
+  className,
+}: {
+  value: string;
+  className?: string;
+}) => {
   const numericValue = parseInt(value, 10);
   const suffix = value.replace(numericValue.toString(), '');
 
@@ -31,7 +45,10 @@ const CountingNumber = ({ value, className }: { value: string; className?: strin
 
   useEffect(() => {
     if (isInView) {
-      const controls = animate(count, numericValue, { duration: 1.5, ease: "easeOut" });
+      const controls = animate(count, numericValue, {
+        duration: 1.5,
+        ease: 'easeOut',
+      });
       return () => controls.stop();
     } else {
       count.set(0);
@@ -40,7 +57,8 @@ const CountingNumber = ({ value, className }: { value: string; className?: strin
 
   return (
     <span ref={ref} className={className}>
-      <motion.span>{displayValue}</motion.span>{suffix}
+      <motion.span>{displayValue}</motion.span>
+      {suffix}
     </span>
   );
 };
@@ -49,13 +67,13 @@ const AboutPage: React.FC = () => {
   const scrollRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: scrollRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 70,
     damping: 20,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   const visionY = useTransform(smoothProgress, [0, 1], [0, -50]);
@@ -64,13 +82,13 @@ const AboutPage: React.FC = () => {
   const valuesRef = useRef(null);
   const { scrollYProgress: valuesProgress } = useScroll({
     target: valuesRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   });
 
   const smoothValuesProgress = useSpring(valuesProgress, {
     stiffness: 70,
     damping: 20,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   // Balanced Y offsets for the grid
@@ -81,13 +99,13 @@ const AboutPage: React.FC = () => {
   const statsRef = useRef(null);
   const { scrollYProgress: statsProgress } = useScroll({
     target: statsRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   });
 
   const smoothStatsProgress = useSpring(statsProgress, {
     stiffness: 70,
     damping: 20,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   const statsY = useTransform(smoothStatsProgress, [0, 1], [0, -50]);
@@ -95,13 +113,13 @@ const AboutPage: React.FC = () => {
   const teamRef = useRef(null);
   const { scrollYProgress: teamProgress } = useScroll({
     target: teamRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   });
 
   const smoothTeamProgress = useSpring(teamProgress, {
     stiffness: 70,
     damping: 20,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   const teamPhotoY = useTransform(smoothTeamProgress, [0, 1], [150, -150]);
@@ -109,11 +127,6 @@ const AboutPage: React.FC = () => {
   const teamTextY2 = useTransform(smoothTeamProgress, [0, 1], [40, -40]);
 
   const techRef = useRef(null);
-  const { scrollYProgress: techProgress } = useScroll({
-    target: techRef,
-    offset: ["start end", "end start"]
-  });
-
   return (
     <div>
       <HeaderSection
@@ -123,7 +136,10 @@ const AboutPage: React.FC = () => {
       />
 
       {/* Mission and Vision */}
-      <section className="py-20 pt-18 bg-white dark:bg-black overflow-hidden" ref={scrollRef}>
+      <section
+        className="py-20 pt-18 bg-white dark:bg-black overflow-hidden"
+        ref={scrollRef}
+      >
         <div className="container mx-auto px-4">
           <SectionHeader
             subheading="What drives us"
@@ -198,7 +214,11 @@ const AboutPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1],
+                delay: 0.1,
+              }}
               whileHover={{ y: -6, scale: 1.01, zIndex: 20 }}
               className="
                 group relative overflow-hidden rounded-2xl
@@ -237,8 +257,9 @@ const AboutPage: React.FC = () => {
 
               <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
                 <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400 italic">
-                  &quot;We build AI that works alongside humans—taking on repetitive and
-                  complex tasks so teams can focus on creative and strategic work.&quot;
+                  &quot;We build AI that works alongside humans—taking on
+                  repetitive and complex tasks so teams can focus on creative
+                  and strategic work.&quot;
                 </p>
               </div>
             </motion.div>
@@ -247,7 +268,10 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Our Values */}
-      <section className="py-24 bg-white dark:bg-black overflow-hidden relative" ref={valuesRef}>
+      <section
+        className="py-24 bg-white dark:bg-black overflow-hidden relative"
+        ref={valuesRef}
+      >
         {/* Background Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
           <div className="absolute top-[20%] -left-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-[100px]" />
@@ -403,7 +427,10 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-24 bg-zinc-50 dark:bg-zinc-950/50 overflow-hidden relative" ref={teamRef}>
+      <section
+        className="py-24 bg-zinc-50 dark:bg-zinc-950/50 overflow-hidden relative"
+        ref={teamRef}
+      >
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             title="Our Leadership Team"
@@ -439,10 +466,21 @@ const AboutPage: React.FC = () => {
                   {/* Founder Bio - Moving Layer 1 */}
                   <motion.div style={{ y: teamTextY1 }}>
                     <h3 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-white leading-tight">
-                      <span className="text-primary">Vivek Saraf</span> – Founder & CEO
+                      <span className="text-primary">Vivek Saraf</span> –
+                      Founder & CEO
                     </h3>
                     <p className="mt-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
-                      AI entrepreneur and technology leader and an <span className="text-zinc-900 dark:text-white font-bold">IIT Kanpur</span> alumnus with <span className="text-zinc-900 dark:text-white font-bold">23+ years</span> of experience in enterprise tech, AI automation, and consulting—shaping DeepNeural&apos;s product and innovation roadmap.
+                      AI entrepreneur and technology leader and an{' '}
+                      <span className="text-zinc-900 dark:text-white font-bold">
+                        IIT Kanpur
+                      </span>{' '}
+                      alumnus with{' '}
+                      <span className="text-zinc-900 dark:text-white font-bold">
+                        23+ years
+                      </span>{' '}
+                      of experience in enterprise tech, AI automation, and
+                      consulting—shaping DeepNeural&apos;s product and
+                      innovation roadmap.
                     </p>
                   </motion.div>
 
@@ -452,7 +490,17 @@ const AboutPage: React.FC = () => {
                       Our Leadership & Team
                     </h3>
                     <p className="mt-4 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
-                      Backed by talented <span className="text-zinc-900 dark:text-white font-bold">IITian&apos;s</span> and seasoned technologists driving AI innovation, product engineering, and enterprise-grade delivery. We are a fast-growing AI start up with <span className="text-zinc-900 dark:text-white font-bold">14+ members</span> strong team.
+                      Backed by talented{' '}
+                      <span className="text-zinc-900 dark:text-white font-bold">
+                        IITian&apos;s
+                      </span>{' '}
+                      and seasoned technologists driving AI innovation, product
+                      engineering, and enterprise-grade delivery. We are a
+                      fast-growing AI start up with{' '}
+                      <span className="text-zinc-900 dark:text-white font-bold">
+                        14+ members
+                      </span>{' '}
+                      strong team.
                     </p>
                   </motion.div>
                 </div>
@@ -463,9 +511,12 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Stats and Achievements */}
-      <section className="py-24 bg-white dark:bg-black overflow-hidden relative" ref={statsRef}>
+      <section
+        className="py-24 bg-white dark:bg-black overflow-hidden relative"
+        ref={statsRef}
+      >
         {/* Background gradient hint */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
@@ -502,7 +553,7 @@ const AboutPage: React.FC = () => {
                   border: 'hover:border-indigo-500/50',
                   shadow: 'hover:shadow-indigo-500/20',
                   glow: 'bg-indigo-500',
-                  icon: 'text-indigo-600 dark:text-indigo-400 border-indigo-500/20 bg-indigo-500/10 group-hover:bg-indigo-500/20'
+                  icon: 'text-indigo-600 dark:text-indigo-400 border-indigo-500/20 bg-indigo-500/10 group-hover:bg-indigo-500/20',
                 },
                 blue: {
                   text: 'text-blue-600 dark:text-blue-400',
@@ -510,7 +561,7 @@ const AboutPage: React.FC = () => {
                   border: 'hover:border-blue-500/50',
                   shadow: 'hover:shadow-blue-500/20',
                   glow: 'bg-blue-500',
-                  icon: 'text-blue-600 dark:text-blue-400 border-blue-500/20 bg-blue-500/10 group-hover:bg-blue-500/20'
+                  icon: 'text-blue-600 dark:text-blue-400 border-blue-500/20 bg-blue-500/10 group-hover:bg-blue-500/20',
                 },
                 emerald: {
                   text: 'text-emerald-600 dark:text-emerald-400',
@@ -518,7 +569,7 @@ const AboutPage: React.FC = () => {
                   border: 'hover:border-emerald-500/50',
                   shadow: 'hover:shadow-emerald-500/20',
                   glow: 'bg-emerald-500',
-                  icon: 'text-emerald-600 dark:text-emerald-400 border-emerald-500/20 bg-emerald-500/10 group-hover:bg-emerald-500/20'
+                  icon: 'text-emerald-600 dark:text-emerald-400 border-emerald-500/20 bg-emerald-500/10 group-hover:bg-emerald-500/20',
                 },
               };
 
@@ -544,13 +595,17 @@ const AboutPage: React.FC = () => {
                     className={`absolute inset-0 opacity-0 group-hover:opacity-5 dark:group-hover:opacity-10 transition-opacity duration-700 rounded-[2.5rem] ${style.glow}`}
                   />
 
-                  <div className={`
+                  <div
+                    className={`
                     inline-flex p-6 rounded-[2rem] mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3
                     ${style.icon} border shadow-lg relative z-10
-                  `}>
+                  `}
+                  >
                     {stat.icon}
                   </div>
-                  <div className={`relative z-10 text-5xl md:text-6xl font-black mb-3 transition-colors duration-500 ${style.text}`}>
+                  <div
+                    className={`relative z-10 text-5xl md:text-6xl font-black mb-3 transition-colors duration-500 ${style.text}`}
+                  >
                     <CountingNumber value={stat.value} />
                   </div>
                   <div className="relative z-10 text-zinc-500 dark:text-zinc-400 font-black uppercase tracking-[0.2em] text-xs">
@@ -563,8 +618,10 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Technology Approach */}
-      <section className="py-24 bg-white dark:bg-black overflow-hidden relative" ref={techRef}>
+      <section
+        className="py-24 bg-white dark:bg-black overflow-hidden relative"
+        ref={techRef}
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05),transparent)] pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -577,7 +634,7 @@ const AboutPage: React.FC = () => {
           <div className="max-w-4xl mx-auto mt-20">
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute top-0 bottom-0 left-16 w-[2px] bg-gradient-to-b from-zinc-200 via-zinc-100 to-transparent dark:from-zinc-800 dark:via-zinc-900 -translate-x-1/2 z-0 md:block hidden"></div>
+              <div className="absolute top-0 bottom-0 left-16 w-0.5 bg-linear-to-b from-zinc-200 via-zinc-100 to-transparent dark:from-zinc-800 dark:via-zinc-900 -translate-x-1/2 z-0 md:block hidden"></div>
 
               {[
                 {
@@ -610,12 +667,12 @@ const AboutPage: React.FC = () => {
                   key={index}
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, margin: "-100px" }}
+                  viewport={{ once: false, margin: '-100px' }}
                   transition={{
                     duration: 0.8,
-                    type: "spring",
+                    type: 'spring',
                     stiffness: 50,
-                    delay: 0.1
+                    delay: 0.1,
                   }}
                   className="flex items-start gap-8 mb-16 relative z-10 group"
                 >
@@ -627,8 +684,12 @@ const AboutPage: React.FC = () => {
                   </div>
 
                   <div className="bg-zinc-50/80 dark:bg-zinc-900/40 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 group-hover:border-primary/40 transition-all duration-500 grow shadow-md hover:shadow-lg translate-y-0 group-hover:-translate-y-2">
-                    <h3 className="text-xl font-black mb-2 text-zinc-900 dark:text-white group-hover:text-primary transition-colors">{step.title}</h3>
-                    <p className="text-zinc-500 dark:text-zinc-400 text-base leading-relaxed group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">{step.description}</p>
+                    <h3 className="text-xl font-black mb-2 text-zinc-900 dark:text-white group-hover:text-primary transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-zinc-500 dark:text-zinc-400 text-base leading-relaxed group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
+                      {step.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
