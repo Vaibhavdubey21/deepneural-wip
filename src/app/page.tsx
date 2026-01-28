@@ -64,7 +64,7 @@ export default function HomePage() {
       {/* Landing page intro */}
       <HeroSection />
 
-      <section className="py-20 px-15 dark:bg-linear-to-b from-[#0a0a0a] to-gray-700 relative">
+      <section className="py-20 px-15 bg-blue-100 dark:bg-linear-to-b from-[#0a0a0a] to-gray-700 relative">
         <div className="container mx-auto relative z-10">
           <SectionHeader
             subheading="Engineering intelligent autonomy"
@@ -121,7 +121,7 @@ export default function HomePage() {
 
       <section className="py-20 px-15 dark:bg-linear-to-b from-gray-700 to-black relative">
         <div className="absolute bottom-0 right-0 w-50 h-50 bg-blue-600/30 rounded-full filter blur-3xl -mr-20 -mb-20"></div>
-        <div className="container relative z-10">
+        <div className="container mx-auto relative z-10">
           <SectionHeader
             subheading="From vision to value"
             heading="Success Stories"
@@ -152,15 +152,15 @@ export default function HomePage() {
       <section
         className="
     pt-32 pb-48 px-6
-    bg-white dark:bg-black
+    bg-zinc-950
     relative overflow-hidden
-    text-black dark:text-white
+    text-white
   "
       >
         {/* Background */}
-        <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-center opacity-5 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl -mr-24 -mt-24"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl -ml-24 -mb-24"></div>
+        <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-center opacity-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-24 -mt-24"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-24 -mb-24"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -168,7 +168,7 @@ export default function HomePage() {
               className="
           text-3xl md:text-4xl
           font-bold mb-6 font-display
-          text-black dark:text-white
+          text-white
         "
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -181,7 +181,7 @@ export default function HomePage() {
             <motion.p
               className="
           text-lg md:text-xl mb-10
-          text-black/80 dark:text-white/90
+          text-zinc-400
         "
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -200,11 +200,11 @@ export default function HomePage() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button
-                variant="primary"
+                variant="secondary"
                 size="lg"
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
-                className="shadow-xl transition-all text-white"
+                className="shadow-xl transition-all"
               >
                 <Link href="/contact-us">Get in touch</Link>
               </Button>
@@ -213,10 +213,9 @@ export default function HomePage() {
                 variant="outline"
                 size="lg"
                 className="
-            border-black text-black dark:text-white
-            hover:bg-black/5
-            dark:border-white/60
-            dark:hover:bg-white/10
+            border-white/20 text-white
+            hover:bg-white/10
+            transition-colors
           "
               >
                 <Link href="/about-us">Learn More About Us</Link>

@@ -136,11 +136,10 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     href={link.path}
-                    className={`text-xl font-medium transition-colors hover:text-primary ${
-                      pathname === link.path
-                        ? 'text-primary'
-                        : 'text-light-dark dark:text-light'
-                    }`}
+                    className={`text-xl font-medium transition-colors hover:text-primary ${pathname === link.path
+                      ? 'text-primary'
+                      : 'text-light-dark dark:text-light'
+                      }`}
                     onClick={closeMenu}
                   >
                     {link.name}

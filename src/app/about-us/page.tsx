@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView, useMotionValue, animate } from 'framer-motion';
 import {
   ArrowRight,
   Award,
@@ -13,14 +13,116 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import AnimatedCard from '../components/AnimatedCard';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import SectionHeading from '../components/SectionHeading';
 import HeaderSection from '../components/sections/HeaderSection';
 
+const CountingNumber = ({ value, className }: { value: string; className?: string }) => {
+  const numericValue = parseInt(value, 10);
+  const suffix = value.replace(numericValue.toString(), '');
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+
+  const count = useMotionValue(0);
+  const displayValue = useTransform(count, (latest) => Math.round(latest));
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(count, numericValue, { duration: 1.5, ease: "easeOut" });
+      return () => controls.stop();
+    } else {
+      count.set(0);
+    }
+  }, [isInView, numericValue, count]);
+
+  return (
+    <span ref={ref} className={className}>
+      <motion.span>{displayValue}</motion.span>{suffix}
+    </span>
+  );
+};
+
 const AboutPage: React.FC = () => {
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"]
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 70,
+    damping: 20,
+    restDelta: 0.001
+  });
+
+  const visionY = useTransform(smoothProgress, [0, 1], [0, -50]);
+  const missionY = useTransform(smoothProgress, [0, 1], [0, -50]);
+
+  const valuesRef = useRef(null);
+  const { scrollYProgress: valuesProgress } = useScroll({
+    target: valuesRef,
+    offset: ["start end", "end start"]
+  });
+
+  const smoothValuesProgress = useSpring(valuesProgress, {
+    stiffness: 70,
+    damping: 20,
+    restDelta: 0.001
+  });
+
+  // Balanced Y offsets for the grid
+  const valuesY1 = useTransform(smoothValuesProgress, [0, 1], [0, -30]);
+  const valuesY2 = useTransform(smoothValuesProgress, [0, 1], [0, -30]);
+  const valuesY3 = useTransform(smoothValuesProgress, [0, 1], [0, -30]);
+
+  const statsRef = useRef(null);
+  const { scrollYProgress: statsProgress } = useScroll({
+    target: statsRef,
+    offset: ["start end", "end start"]
+  });
+
+  const smoothStatsProgress = useSpring(statsProgress, {
+    stiffness: 70,
+    damping: 20,
+    restDelta: 0.001
+  });
+
+  const statsY = useTransform(smoothStatsProgress, [0, 1], [0, -50]);
+
+  const teamRef = useRef(null);
+  const { scrollYProgress: teamProgress } = useScroll({
+    target: teamRef,
+    offset: ["start end", "end start"]
+  });
+
+  const smoothTeamProgress = useSpring(teamProgress, {
+    stiffness: 70,
+    damping: 20,
+    restDelta: 0.001
+  });
+
+  const teamPhotoY = useTransform(smoothTeamProgress, [0, 1], [150, -150]);
+  const teamTextY1 = useTransform(smoothTeamProgress, [0, 1], [80, -80]);
+  const teamTextY2 = useTransform(smoothTeamProgress, [0, 1], [40, -40]);
+
+  const techRef = useRef(null);
+  const { scrollYProgress: techProgress } = useScroll({
+    target: techRef,
+    offset: ["start end", "end start"]
+  });
+
+  const smoothTechProgress = useSpring(techProgress, {
+    stiffness: 70,
+    damping: 20,
+    restDelta: 0.001
+  });
+
+  const techY = useTransform(smoothTechProgress, [0, 1], [0, -60]);
+
   return (
     <div>
       <HeaderSection
@@ -30,289 +132,461 @@ const AboutPage: React.FC = () => {
       />
 
       {/* Mission and Vision */}
-      <section className="py-20 pt-18 bg-white dark:bg-black">
+      <section className="py-20 pt-18 bg-white dark:bg-black overflow-hidden" ref={scrollRef}>
         <div className="container mx-auto px-4">
           <SectionHeader
             subheading="What drives us"
-            heading="Mission & Vision"
+            heading="Vision & Mission"
             description="The principles that guide how we build autonomous AI
               agents—responsibly, reliably, and at scale."
           />
           {/* Section header */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {/* Card */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-12 relative">
+            {/* Background Orbs */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full pointer-events-none opacity-20 dark:opacity-30">
+              <div className="absolute top-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
+              <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-500/15 rounded-full blur-[100px] animate-pulse delay-1000" />
+            </div>
+
+            {/* Vision Card */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              style={{ y: visionY }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -6, scale: 1.01, zIndex: 20 }}
               className="
                 group relative overflow-hidden rounded-2xl
-                bg-zinc-50 dark:bg-zinc-950/60
-                border border-zinc-200/70 dark:border-zinc-800/70
-                shadow-sm hover:shadow-md transition-shadow
-                p-7 md:p-8
+                bg-white dark:bg-zinc-950
+                border border-zinc-200/60 dark:border-zinc-800/60
+                shadow-md hover:shadow-primary/10
+                hover:border-primary/40 transition-all duration-500
+                p-6 md:p-8
               "
             >
-              {/* subtle glow */}
-              <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-primary/10 blur-3xl group-hover:bg-primary/15 transition-colors" />
+              <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/10 blur-[80px] group-hover:bg-primary/20 transition-all duration-1000" />
 
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-6">
                 <div className="relative">
-                  <div className="absolute inset-0 rounded-xl bg-primary/20 blur-md" />
-                  <div className="relative rounded-xl p-3 bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/60 dark:border-zinc-800/60">
-                    <Target size={28} className="text-primary" />
+                  <div className="absolute inset-0 rounded-2xl bg-primary/30 blur-xl group-hover:blur-2xl transition-all" />
+                  <div className="relative rounded-2xl p-4 bg-white dark:bg-zinc-900 border border-zinc-200/50 dark:border-zinc-800/50 shadow-md group-hover:scale-110 transition-transform duration-500">
+                    <Rocket size={32} className="text-primary" />
                   </div>
                 </div>
 
                 <div>
-                  <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
-                    OUR MISSION
-                  </p>
-                  <h3 className="mt-1 text-2xl font-bold text-zinc-900 dark:text-zinc-100">
-                    Build agents that amplify people.
-                  </h3>
-                </div>
-              </div>
-
-              <p className="mt-5 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                To create autonomous AI agents that enhance human capabilities,
-                solve complex problems, and drive business transformation across
-                industries.
-              </p>
-
-              <p className="mt-4 leading-relaxed text-zinc-600 dark:text-zinc-400">
-                We build AI that works alongside humans—taking on repetitive and
-                complex tasks so teams can focus on creative and strategic work.
-              </p>
-            </motion.div>
-
-            {/* Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="
-                group relative overflow-hidden rounded-2xl
-                bg-zinc-50 dark:bg-zinc-950/60
-                border border-zinc-200/70 dark:border-zinc-800/70
-                shadow-sm hover:shadow-md transition-shadow
-                p-7 md:p-8
-              "
-            >
-              <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-primary/10 blur-3xl group-hover:bg-primary/15 transition-colors" />
-
-              <div className="flex items-start gap-4">
-                <div className="relative">
-                  <div className="absolute inset-0 rounded-xl bg-primary/20 blur-md" />
-                  <div className="relative rounded-xl p-3 bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/60 dark:border-zinc-800/60">
-                    <Rocket size={28} className="text-primary" />
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
+                  <p className="text-xs font-bold tracking-[0.3em] text-primary uppercase">
                     OUR VISION
                   </p>
-                  <h3 className="mt-1 text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+                  <h3 className="mt-2 text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors duration-300">
                     Set the standard for autonomous AI.
                   </h3>
                 </div>
               </div>
 
-              <p className="mt-5 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
+              <p className="mt-6 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
                 To be the global leader in autonomous AI agent technology,
                 setting new standards for intelligence, reliability, and ethical
                 AI implementation.
               </p>
 
-              <p className="mt-4 leading-relaxed text-zinc-600 dark:text-zinc-400">
-                We envision AI agents as trusted partners in every
-                organization—autonomous when appropriate, transparent always,
-                and guided by human oversight.
+              <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
+                <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400 italic">
+                  &quot;We envision AI agents as trusted partners in every
+                  organization—autonomous when appropriate, transparent always,
+                  and guided by human oversight.&quot;
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Mission Card */}
+            <motion.div
+              style={{ y: missionY }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+              whileHover={{ y: -6, scale: 1.01, zIndex: 20 }}
+              className="
+                group relative overflow-hidden rounded-2xl
+                bg-white dark:bg-zinc-950
+                border border-zinc-200/60 dark:border-zinc-800/60
+                shadow-md hover:shadow-primary/10
+                hover:border-primary/40 transition-all duration-500
+                p-6 md:p-8
+              "
+            >
+              <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/10 blur-[80px] group-hover:bg-primary/20 transition-all duration-1000" />
+
+              <div className="flex items-start gap-6">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-2xl bg-primary/30 blur-xl group-hover:blur-2xl transition-all" />
+                  <div className="relative rounded-2xl p-4 bg-white dark:bg-zinc-900 border border-zinc-200/50 dark:border-zinc-800/50 shadow-md group-hover:scale-110 transition-transform duration-500">
+                    <Target size={32} className="text-primary" />
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold tracking-[0.3em] text-primary uppercase">
+                    OUR MISSION
+                  </p>
+                  <h3 className="mt-2 text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors duration-300">
+                    Build agents that amplify people.
+                  </h3>
+                </div>
+              </div>
+
+              <p className="mt-6 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
+                To create autonomous AI agents that enhance human capabilities,
+                solve complex problems, and drive business transformation across
+                industries.
               </p>
+
+              <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
+                <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400 italic">
+                  &quot;We build AI that works alongside humans—taking on repetitive and
+                  complex tasks so teams can focus on creative and strategic work.&quot;
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-white dark:bg-black">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-white dark:bg-black overflow-hidden relative" ref={valuesRef}>
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+          <div className="absolute top-[20%] -left-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-[20%] -right-20 w-80 h-80 bg-rose-500/10 rounded-full blur-[100px]" />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             title="Our Core Values"
             subtitle="The principles that guide everything we do at DeepNeural"
             centered
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mt-20">
             {[
               {
-                icon: <Lightbulb size={40} className="text-primary" />,
+                icon: <Lightbulb size={40} />,
                 title: 'Innovation',
                 description:
                   'Complex problems can have simple solution with our innovation.',
+                color: 'indigo',
               },
               {
-                icon: <Users size={40} className="text-primary" />,
+                icon: <Users size={40} />,
                 title: 'Human-Centered',
                 description:
                   'We design our AI agents to augment human capabilities, not replace them, prioritizing collaboration between humans and machines.',
+                color: 'blue',
               },
               {
-                icon: <Award size={40} className="text-primary" />,
+                icon: <Award size={40} />,
                 title: 'Excellence',
                 description:
                   'We hold ourselves to the highest standards in every aspect of our work, from code quality to client relationships.',
+                color: 'violet',
               },
               {
-                icon: <Globe size={40} className="text-primary" />,
+                icon: <Globe size={40} />,
                 title: 'Responsibility',
                 description:
                   'We develop AI with strong ethical principles, ensuring our technology is safe, fair, transparent, and respects privacy.',
+                color: 'emerald',
               },
               {
-                icon: <TrendingUp size={40} className="text-primary" />,
+                icon: <TrendingUp size={40} />,
                 title: 'Impact',
                 description:
                   'We measure our success by the tangible value our solutions create for clients and society as a whole.',
+                color: 'amber',
               },
               {
-                icon: <Zap size={40} className="text-primary" />,
+                icon: <Zap size={40} />,
                 title: 'Agility',
                 description:
                   'We move quickly, adapt to changing circumstances, and continuously evolve our approach based on new learnings.',
+                color: 'rose',
               },
-            ].map((value, index) => (
-              <AnimatedCard
-                key={index}
-                className="p-8 dark:bg-zinc-800 text-gray-600 dark:text-gray-400"
-              >
-                <div className="mb-4 p-4">{value.icon}</div>
-                <h3 className="text-xl font-bold mb-3 dark:text-white">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600">{value.description}</p>
-              </AnimatedCard>
-            ))}
+            ].map((value, index) => {
+              const colorMaps = {
+                indigo: {
+                  border: 'hover:border-indigo-500/50',
+                  shadow: 'hover:shadow-indigo-500/20',
+                  glow: 'bg-indigo-500',
+                  iconBg: 'bg-indigo-500/10 group-hover:bg-indigo-500/20',
+                  iconText: 'text-indigo-600 dark:text-indigo-400',
+                },
+                blue: {
+                  border: 'hover:border-blue-500/50',
+                  shadow: 'hover:shadow-blue-500/20',
+                  glow: 'bg-blue-500',
+                  iconBg: 'bg-blue-500/10 group-hover:bg-blue-500/20',
+                  iconText: 'text-blue-600 dark:text-blue-400',
+                },
+                violet: {
+                  border: 'hover:border-violet-500/50',
+                  shadow: 'hover:shadow-violet-500/20',
+                  glow: 'bg-violet-500',
+                  iconBg: 'bg-violet-500/10 group-hover:bg-violet-500/20',
+                  iconText: 'text-violet-600 dark:text-violet-400',
+                },
+                emerald: {
+                  border: 'hover:border-emerald-500/50',
+                  shadow: 'hover:shadow-emerald-500/20',
+                  glow: 'bg-emerald-500',
+                  iconBg: 'bg-emerald-500/10 group-hover:bg-emerald-500/20',
+                  iconText: 'text-emerald-600 dark:text-emerald-400',
+                },
+                amber: {
+                  border: 'hover:border-amber-500/50',
+                  shadow: 'hover:shadow-amber-500/20',
+                  glow: 'bg-amber-500',
+                  iconBg: 'bg-amber-500/10 group-hover:bg-amber-500/20',
+                  iconText: 'text-amber-600 dark:text-amber-400',
+                },
+                rose: {
+                  border: 'hover:border-rose-500/50',
+                  shadow: 'hover:shadow-rose-500/20',
+                  glow: 'bg-rose-500',
+                  iconBg: 'bg-rose-500/10 group-hover:bg-rose-500/20',
+                  iconText: 'text-rose-600 dark:text-rose-400',
+                },
+              };
+
+              const style =
+                colorMaps[value.color as keyof typeof colorMaps] ||
+                colorMaps.indigo;
+
+              // Assign staggered Y based on column
+              const columnY = [valuesY1, valuesY2, valuesY3][index % 3];
+
+              return (
+                <motion.div
+                  key={index}
+                  style={{ y: columnY }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: (index % 3) * 0.1 }}
+                  whileHover={{ y: -6, scale: 1.01, zIndex: 10 }}
+                  className={`
+                  relative group p-6 md:p-7 rounded-2xl transition-all duration-500
+                  border-2 border-zinc-200 dark:border-zinc-800
+                  bg-white dark:bg-zinc-950
+                  hover:shadow-lg ${style.border} ${style.shadow}
+                `}
+                >
+                  {/* Subtle colored background glow */}
+                  <div
+                    className={`absolute inset-0 opacity-0 group-hover:opacity-10 dark:group-hover:opacity-15 transition-opacity duration-700 rounded-2xl ${style.glow}`}
+                  />
+
+                  <div className="relative z-10">
+                    <div
+                      className={`
+                      inline-flex p-3 rounded-xl mb-4 transition-all duration-500 group-hover:scale-110
+                      ${style.iconBg} ${style.iconText} shadow-sm
+                    `}
+                    >
+                      {value.icon}
+                    </div>
+                    <h3 className="text-lg font-bold mb-2 text-zinc-900 dark:text-white transition-colors group-hover:text-zinc-900 dark:group-hover:text-white">
+                      {value.title}
+                    </h3>
+                    <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed text-sm font-medium">
+                      {value.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Leadership Team */}
-      <section className="py-20 bg-light">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-zinc-50 dark:bg-zinc-950/50 overflow-hidden relative" ref={teamRef}>
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             title="Our Leadership Team"
             subtitle="Meet the experts behind DeepNeural's innovative AI solutions. Founded by industry veterans with decades of experience in technology, consulting, and AI innovation, our leadership team brings together unmatched expertise and vision."
             centered
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-            {[
-              {
-                name: 'Vivek Saraf',
-                role: 'Founder & CEO',
-                bio: 'AI entrepreneur and technology leader and an IIT Kanpur alumnus with 23+ years of experience in enterprise tech, AI automation,and consulting shaping DeepNeural’s product and innovation roadmap.',
-                image: 'https://picsum.photos/400/400',
-              },
-            ].map((member, index) => (
+          <div className="max-w-5xl mx-auto mt-16 md:mt-24">
+            <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start translate-y-0">
+              {/* Left: Founder Photo */}
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: 0.1 * index }}
-                className="bg-white rounded-lg overflow-hidden shadow-lg"
+                style={{ y: teamPhotoY }}
+                className="w-full md:w-[320px] lg:w-[380px] shrink-0 mx-auto md:mx-0"
               >
-                <div className="h-64 overflow-hidden">
+                <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800 group translate-y-0">
                   <Image
-                    src={member.image}
-                    alt={member.name}
+                    src="/photo.jpeg"
+                    alt="Vivek Saraf"
                     width={500}
                     height={500}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <div className="text-primary font-medium text-sm mb-4">
-                    {member.role}
-                  </div>
-                  <p className="text-gray-600 text-sm">{member.bio}</p>
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-3xl" />
                 </div>
               </motion.div>
-            ))}
+
+              {/* Right: Content with Accent Line */}
+              <div className="w-full grow flex gap-6 md:gap-10">
+                {/* Vertical Blue Line accent to match the mockup */}
+                <div className="w-1.5 bg-primary/80 rounded-full shrink-0 my-2" />
+
+                <div className="space-y-16">
+                  {/* Founder Bio - Moving Layer 1 */}
+                  <motion.div style={{ y: teamTextY1 }}>
+                    <h3 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-white leading-tight">
+                      <span className="text-primary">Vivek Saraf</span> – Founder & CEO
+                    </h3>
+                    <p className="mt-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
+                      AI entrepreneur and technology leader and an <span className="text-zinc-900 dark:text-white font-bold">IIT Kanpur</span> alumnus with <span className="text-zinc-900 dark:text-white font-bold">23+ years</span> of experience in enterprise tech, AI automation, and consulting—shaping DeepNeural&apos;s product and innovation roadmap.
+                    </p>
+                  </motion.div>
+
+                  {/* Team Section - Moving Layer 2 */}
+                  <motion.div style={{ y: teamTextY2 }}>
+                    <h3 className="text-xl md:text-2xl font-black text-zinc-900 dark:text-white">
+                      Our Leadership & Team
+                    </h3>
+                    <p className="mt-4 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
+                      Backed by talented <span className="text-zinc-900 dark:text-white font-bold">IITian&apos;s</span> and seasoned technologists driving AI innovation, product engineering, and enterprise-grade delivery. We are a fast-growing AI start up with <span className="text-zinc-900 dark:text-white font-bold">14+ members</span> strong team.
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Stats and Achievements */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-white dark:bg-black overflow-hidden relative" ref={statsRef}>
+        {/* Background gradient hint */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             title="DeepNeural by the Numbers"
             subtitle="Our growth and impact since 2018"
             centered
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
             {[
               {
                 label: 'AI Agents Deployed',
                 value: '16+',
-                icon: <Zap size={32} className="text-primary" />,
+                icon: <Zap size={36} />,
+                color: 'indigo',
               },
               {
                 label: 'Team Members',
                 value: '14+',
-                icon: <Users size={32} className="text-primary" />,
+                icon: <Users size={36} />,
+                color: 'blue',
               },
               {
                 label: 'Enterprise Clients',
                 value: '3+',
-                icon: <Globe size={32} className="text-primary" />,
+                icon: <Globe size={36} />,
+                color: 'emerald',
               },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: 0.1 * index }}
-                className="bg-light rounded-lg p-6 text-center shadow-md"
-                whileHover={{
-                  y: -5,
-                  boxShadow:
-                    '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                }}
-              >
-                <div className="flex justify-center mb-4">{stat.icon}</div>
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
+            ].map((stat, index) => {
+              const colorMaps = {
+                indigo: {
+                  text: 'text-indigo-600 dark:text-indigo-400',
+                  bg: 'bg-indigo-500/10 dark:bg-indigo-500/5',
+                  border: 'hover:border-indigo-500/50',
+                  shadow: 'hover:shadow-indigo-500/20',
+                  glow: 'bg-indigo-500',
+                  icon: 'text-indigo-600 dark:text-indigo-400 border-indigo-500/20 bg-indigo-500/10 group-hover:bg-indigo-500/20'
+                },
+                blue: {
+                  text: 'text-blue-600 dark:text-blue-400',
+                  bg: 'bg-blue-500/10 dark:bg-blue-500/5',
+                  border: 'hover:border-blue-500/50',
+                  shadow: 'hover:shadow-blue-500/20',
+                  glow: 'bg-blue-500',
+                  icon: 'text-blue-600 dark:text-blue-400 border-blue-500/20 bg-blue-500/10 group-hover:bg-blue-500/20'
+                },
+                emerald: {
+                  text: 'text-emerald-600 dark:text-emerald-400',
+                  bg: 'bg-emerald-500/10 dark:bg-emerald-500/5',
+                  border: 'hover:border-emerald-500/50',
+                  shadow: 'hover:shadow-emerald-500/20',
+                  glow: 'bg-emerald-500',
+                  icon: 'text-emerald-600 dark:text-emerald-400 border-emerald-500/20 bg-emerald-500/10 group-hover:bg-emerald-500/20'
+                },
+              };
+
+              const style = colorMaps[stat.color as keyof typeof colorMaps];
+
+              return (
+                <motion.div
+                  key={index}
+                  style={{ y: statsY }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  whileHover={{ y: statsY.get() - 8, scale: 1.02 }}
+                  className={`
+                    group relative p-10 text-center rounded-[2.5rem] transition-all duration-500
+                    bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800
+                    hover:shadow-2xl ${style.border} ${style.shadow}
+                  `}
+                >
+                  {/* Subtle colored background glow */}
+                  <div
+                    className={`absolute inset-0 opacity-0 group-hover:opacity-5 dark:group-hover:opacity-10 transition-opacity duration-700 rounded-[2.5rem] ${style.glow}`}
+                  />
+
+                  <div className={`
+                    inline-flex p-6 rounded-[2rem] mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3
+                    ${style.icon} border shadow-lg relative z-10
+                  `}>
+                    {stat.icon}
+                  </div>
+                  <div className={`relative z-10 text-5xl md:text-6xl font-black mb-3 transition-colors duration-500 ${style.text}`}>
+                    <CountingNumber value={stat.value} />
+                  </div>
+                  <div className="relative z-10 text-zinc-500 dark:text-zinc-400 font-black uppercase tracking-[0.2em] text-xs">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Technology Approach */}
-      <section className="py-20 bg-dark-light text-light">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-white dark:bg-black overflow-hidden relative" ref={techRef}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05),transparent)] pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             title="Our Technology Approach"
             subtitle="How we build autonomous AI agents that deliver real business value"
             centered
-            className="text-light"
           />
 
-          <div className="max-w-4xl mx-auto mt-12">
+          <div className="max-w-4xl mx-auto mt-20">
             <div className="relative">
-              <div className="absolute top-0 bottom-0 left-16 w-px bg-primary/30 -translate-x-1/2 z-0 md:block hidden"></div>
+              {/* Timeline Line */}
+              <div className="absolute top-0 bottom-0 left-16 w-[2px] bg-gradient-to-b from-zinc-200 via-zinc-100 to-transparent dark:from-zinc-800 dark:via-zinc-900 -translate-x-1/2 z-0 md:block hidden"></div>
 
               {[
                 {
@@ -343,19 +617,30 @@ const AboutPage: React.FC = () => {
               ].map((step, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 * index }}
-                  className="flex items-start gap-8 mb-12 relative z-10"
+                  style={{
+                    y: useTransform(smoothTechProgress, [0, 1], [50 * index, -100 * (index + 1) / 2])
+                  }}
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: false, margin: "-100px" }}
+                  transition={{
+                    duration: 0.8,
+                    type: "spring",
+                    stiffness: 50,
+                    delay: 0.1
+                  }}
+                  className="flex items-start gap-8 mb-16 relative z-10 group"
                 >
-                  <div className="bg-dark-lighter h-12 w-12 rounded-full flex items-center justify-center text-lg font-bold border-4 border-primary shrink-0 ml-10 md:ml-0">
-                    {index + 1}
+                  <div className="relative shrink-0 ml-10 md:ml-0">
+                    <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all rounded-full" />
+                    <div className="relative h-14 w-14 rounded-2xl bg-white dark:bg-zinc-900 border-2 border-primary/50 flex items-center justify-center text-xl font-black text-zinc-900 dark:text-white group-hover:scale-110 transition-transform duration-500 shadow-xl">
+                      {index + 1}
+                    </div>
                   </div>
 
-                  <div className="bg-dark-lighter p-6 rounded-lg shadow-lg grow">
-                    <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                    <p className="text-light-dark">{step.description}</p>
+                  <div className="bg-zinc-50/80 dark:bg-zinc-900/40 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 group-hover:border-primary/40 transition-all duration-500 grow shadow-md hover:shadow-lg translate-y-0 group-hover:-translate-y-2">
+                    <h3 className="text-xl font-black mb-2 text-zinc-900 dark:text-white group-hover:text-primary transition-colors">{step.title}</h3>
+                    <p className="text-zinc-500 dark:text-zinc-400 text-base leading-relaxed group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">{step.description}</p>
                   </div>
                 </motion.div>
               ))}

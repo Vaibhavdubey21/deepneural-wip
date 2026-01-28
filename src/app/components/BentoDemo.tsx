@@ -39,7 +39,6 @@ const features = [
   className: 'lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-4',
 },
 
-
 ];
 
 export default function BentoDemo() {

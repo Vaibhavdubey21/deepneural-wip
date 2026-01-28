@@ -54,28 +54,28 @@ const Footer: React.FC = () => {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-light-dark/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-primary/20 text-light-dark dark:text-light hover:text-primary transition-all duration-300"
+                  className="p-2 rounded-lg bg-[#1DA1F2]/10 hover:bg-[#1DA1F2]/20 text-[#1DA1F2] transition-all duration-300"
                   aria-label="Follow us on Twitter"
                 >
-                  <Twitter size={18} />
+                  <Twitter size={18} fill="#1DA1F2" />
                 </a>
                 <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-light-dark/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-primary/20 text-light-dark dark:text-light hover:text-primary transition-all duration-300"
+                  className="p-2 rounded-lg bg-[#0077B5]/10 hover:bg-[#0077B5]/20 text-[#0077B5] transition-all duration-300"
                   aria-label="Connect with us on LinkedIn"
                 >
-                  <Linkedin size={18} />
+                  <Linkedin size={18} fill="#0077B5" />
                 </a>
                 <a
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-light-dark/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-primary/20 text-light-dark dark:text-light hover:text-primary transition-all duration-300"
+                  className="p-2 rounded-lg bg-black dark:bg-white/10 hover:bg-black/80 dark:hover:bg-white/20 text-white transition-all duration-300"
                   aria-label="Check our projects on GitHub"
                 >
-                  <Github size={18} />
+                  <Github size={18} fill="currentColor" />
                 </a>
               </div>
             </div>
