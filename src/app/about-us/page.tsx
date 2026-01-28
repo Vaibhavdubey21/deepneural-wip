@@ -14,7 +14,6 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useRef, useEffect } from 'react';
-import AnimatedCard from '../components/AnimatedCard';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import SectionHeading from '../components/SectionHeading';
@@ -114,14 +113,6 @@ const AboutPage: React.FC = () => {
     target: techRef,
     offset: ["start end", "end start"]
   });
-
-  const smoothTechProgress = useSpring(techProgress, {
-    stiffness: 70,
-    damping: 20,
-    restDelta: 0.001
-  });
-
-  const techY = useTransform(smoothTechProgress, [0, 1], [0, -60]);
 
   return (
     <div>
@@ -617,9 +608,6 @@ const AboutPage: React.FC = () => {
               ].map((step, index) => (
                 <motion.div
                   key={index}
-                  style={{
-                    y: useTransform(smoothTechProgress, [0, 1], [50 * index, -100 * (index + 1) / 2])
-                  }}
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false, margin: "-100px" }}
