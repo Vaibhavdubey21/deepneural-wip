@@ -1,9 +1,6 @@
 'use client';
 import {
-  animate,
   motion,
-  useInView,
-  useMotionValue,
   useScroll,
   useSpring,
   useTransform,
@@ -20,7 +17,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useRef } from 'react';
+import React, {  useRef } from 'react';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import SectionHeading from '../components/SectionHeading';
