@@ -15,7 +15,6 @@ import {
   Lightbulb,
   Rocket,
   Target,
-  TrendingUp,
   Users,
   Zap,
 } from 'lucide-react';
@@ -27,42 +26,6 @@ import SectionHeader from '../components/SectionHeader';
 import SectionHeading from '../components/SectionHeading';
 import HeaderSection from '../components/sections/HeaderSection';
 import AnimatedCounter from '../components/AnimatedCounter';
-
-const CountingNumber = ({
-  value,
-  className,
-}: {
-  value: string;
-  className?: string;
-}) => {
-  const numericValue = parseInt(value, 10);
-  const suffix = value.replace(numericValue.toString(), '');
-
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
-
-  const count = useMotionValue(0);
-  const displayValue = useTransform(count, (latest) => Math.round(latest));
-
-  useEffect(() => {
-    if (isInView) {
-      const controls = animate(count, numericValue, {
-        duration: 1.5,
-        ease: 'easeOut',
-      });
-      return () => controls.stop();
-    } else {
-      count.set(0);
-    }
-  }, [isInView, numericValue, count]);
-
-  return (
-    <span ref={ref} className={className}>
-      <motion.span>{displayValue}</motion.span>
-      {suffix}
-    </span>
-  );
-};
 
 const AboutPage: React.FC = () => {
   const scrollRef = useRef(null);
