@@ -129,22 +129,21 @@ export default function HomePage() {
           />
           <BentoDemo />
           <div className="text-center mt-16">
-            <Button
-              variant="primary"
-              size="lg"
-              className="shadow-2xl shadow-white hover:shadow-white hover:-translate-y-1 transition-all duration-300 px-5 py-2 rounded-xl bg-linear-to-r from-primary to-primary/90 border border-primary/20 group dark:text-black text-white"
-            >
-              <Link
-                href="/clients"
-                className="flex items-center gap-3 font-medium"
+            <Link href="/clients">
+              <Button
+                variant="primary"
+                size="lg"
+                className="shadow-2xl shadow-white hover:shadow-white hover:-translate-y-1 transition-all duration-300 px-5 py-2 rounded-xl bg-linear-to-r from-primary to-primary/90 border border-primary/20 group !text-white"
               >
-                View All Case Studies
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </Link>
-            </Button>
+                <div className="flex items-center gap-3 font-medium">
+                  View All Case Studies
+                  <ArrowRight
+                    size={18}
+                    className="group-hover:translate-x-1 transition-transform duration-300"
+                  />
+                </div>
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -199,27 +198,31 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button
-                variant="secondary"
-                size="lg"
-                icon={<ArrowRight size={18} />}
-                iconPosition="right"
-                className="shadow-xl transition-all"
-              >
-                <Link href="/contact-us">Get in touch</Link>
-              </Button>
+              <Link href="/contact-us">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  icon={<ArrowRight size={18} />}
+                  iconPosition="right"
+                  className="shadow-xl transition-all"
+                >
+                  Get in touch
+                </Button>
+              </Link>
 
-              <Button
-                variant="outline"
-                size="lg"
-                className="
-            border-white/20 text-white
-            hover:bg-white/10
-            transition-colors
-          "
-              >
-                <Link href="/about-us">Learn More About Us</Link>
-              </Button>
+              <Link href="/about-us">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="
+              border-white/20 text-white
+              hover:bg-white/10
+              transition-colors
+            "
+                >
+                  Learn More About Us
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>

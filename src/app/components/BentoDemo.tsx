@@ -12,9 +12,9 @@ import { Globe } from '@/components/ui/globe';
 const features = [
   {
     Icon: InputIcon,
-    name: 'HR Recruitment GenAI SaaS Platform',
+    name: 'Recrugence – Smart AI-Powered HR Platform',
     description:
-      'Leveraging GenAI to streamline recruitment processes, reducing time-to-hire by 60% and improving candidate quality through intelligent matching algorithms.',
+      'An AI-powered hiring platform that understands resumes, matches candidates to roles, and automates recruitment workflows. Designed to simplify hiring while improving the quality and clarity of candidate selection.',
     href: '/contact-us',
     cta: 'Learn more',
     badgeClass: 'bg-blue-500 dark:bg-blue-600',
@@ -22,23 +22,78 @@ const features = [
     BadgeIcon: BookmarkIcon,
     companyName: 'NeoSource',
     background: <img className="absolute -top-20 -right-20 opacity-60" />,
-    className: 'lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-4',
+    className: 'lg:col-span-1 lg:row-span-4',
   },
   {
-  Icon: GlobeIcon,
-  name: 'AI SaaS Dental Imaging Platform',
-  description:
-    'Revolutionizing dental imaging with AI-powered diagnostics that detect issues with 98% accuracy, helping dentists provide better care and reduce misdiagnosis.',
-  href: '/contact-us',
-  cta: 'Learn more',
-  badgeClass: 'bg-red-500 dark:bg-red-600',
-  badgeLabel: 'Healthcare',
-  BadgeIcon: HeartIcon,
-  companyName: '4EDental.com',
-  background: <Globe className="absolute right-0 bottom-0 opacity-30" />,
-  className: 'lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-4',
-},
-
+    Icon: GlobeIcon,
+    name: 'AI Dental Imaging SaaS Platform',
+    description:
+      'A cloud-based AI platform that analyzes dental X-ray images to detect cavities and early-stage dental issues. Supports faster diagnosis and more informed clinical decisions.',
+    href: '/contact-us',
+    cta: 'Learn more',
+    badgeClass: 'bg-red-500 dark:bg-red-600',
+    badgeLabel: 'Healthcare',
+    BadgeIcon: HeartIcon,
+    companyName: '4EDental.com',
+    background: <Globe className="absolute right-0 bottom-0 opacity-30" />,
+    className: 'lg:col-span-1 lg:row-span-4',
+  },
+  {
+    Icon: InputIcon,
+    name: 'AI-Driven Digital Marketing Platform',
+    description:
+      'Leverages AI to manage content creation, validation, publishing, and lead handling across marketing campaigns. Helps teams run consistent digital marketing efforts with less manual coordination.',
+    href: '/contact-us',
+    cta: 'Learn more',
+    badgeClass: 'bg-purple-500 dark:bg-purple-600',
+    badgeLabel: 'Digital Marketing',
+    BadgeIcon: BookmarkIcon,
+    companyName: 'Goldstone',
+    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    className: 'lg:col-span-1 lg:row-span-4',
+  },
+  {
+    Icon: InputIcon,
+    name: 'AI-Powered E-Commerce Recommendation Engine',
+    description:
+      'A sophisticated AI agent that analyzes customer behavior in real-time to provide highly personalized product recommendations, increasing conversion rates and customer satisfaction.',
+    href: '/contact-us',
+    cta: 'Learn more',
+    badgeClass: 'bg-green-500 dark:bg-green-600',
+    badgeLabel: 'E-Commerce',
+    BadgeIcon: BookmarkIcon,
+    companyName: 'RetailFlow',
+    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    className: 'lg:col-span-1 lg:row-span-4',
+  },
+  {
+    Icon: InputIcon,
+    name: 'Syādvāda Logic Custom GPT',
+    description:
+      'A custom GPT-based conversational system designed to explain AI responses using multi-perspective Syādvāda logic. Helps users understand different viewpoints and contexts.',
+    href: '/contact-us',
+    cta: 'Learn more',
+    badgeClass: 'bg-orange-500 dark:bg-orange-600',
+    badgeLabel: 'Explainable AI',
+    BadgeIcon: BookmarkIcon,
+    companyName: 'Dr. Pragati Jain',
+    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    className: 'lg:col-span-1 lg:row-span-4',
+  },
+  {
+    Icon: InputIcon,
+    name: 'AI Investment Advisor Platform',
+    description:
+      'An AI-based investment analysis platform that reviews financial documents, earnings data, and market information to provide structured insights for balanced investment decisions.',
+    href: '/contact-us',
+    cta: 'Learn more',
+    badgeClass: 'bg-indigo-500 dark:bg-indigo-600',
+    badgeLabel: 'Finance',
+    BadgeIcon: BookmarkIcon,
+    companyName: 'WealthStream',
+    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    className: 'lg:col-span-1 lg:row-span-4',
+  },
 ];
 
 export default function BentoDemo() {
@@ -50,3 +105,4 @@ export default function BentoDemo() {
     </BentoGrid>
   );
 }
+

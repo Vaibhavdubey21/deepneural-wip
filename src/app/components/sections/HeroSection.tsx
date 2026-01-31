@@ -43,15 +43,17 @@ function HeroSection() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex flex-wrap justify-center"
               >
-                <Button
-                  variant="primary"
-                  size="lg"
-                  icon={<ArrowRight size={18} />}
-                  iconPosition="right"
-                  className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all text-white dark:text-black bg-black dark:bg-white"
-                >
-                  <Link href="/services">Explore Our Solutions</Link>
-                </Button>
+                <Link href="/services">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    icon={<ArrowRight size={18} />}
+                    iconPosition="right"
+                    className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all !text-white bg-black dark:bg-white"
+                  >
+                    Explore Our Solutions
+                  </Button>
+                </Link>
               </motion.div>
             </div>
           </div>

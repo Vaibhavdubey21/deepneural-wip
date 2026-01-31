@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Clock, Mail, MapPin, Phone, Send } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import Button from '../components/Button';
 import ContactForm from '../components/ContactForm';
 import SectionHeading from '../components/SectionHeading';
 import HeaderSection from '../components/sections/HeaderSection';
@@ -248,11 +249,15 @@ const ContactPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex justify-center"
             >
-              <Link
-                href="/#contact-form"
-                className="inline-flex items-center justify-center px-6 py-3 bg-secondary text-dark font-medium rounded-md shadow-md hover:shadow-lg transition-all duration-200 text-base"
-              >
-                Contact Us Now <Send size={18} className="ml-2" />
+              <Link href="/#contact-form">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  icon={<Send size={18} />}
+                  iconPosition="right"
+                >
+                  Contact Us Now
+                </Button>
               </Link>
             </motion.div>
           </div>

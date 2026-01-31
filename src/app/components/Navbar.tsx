@@ -88,7 +88,7 @@ const Navbar = () => {
         <div className="hidden md:flex absolute right-4 items-center space-x-1">
           <ThemeToggle />
           <Link href="/contact-us">
-            <Button className="p-2 text-white dark:text-black bg-black shadow-none dark:bg-white ">
+            <Button className="p-2 !text-white dark:!text-black bg-black shadow-none dark:bg-white px-4">
               Contact Us
             </Button>
           </Link>
@@ -147,7 +147,7 @@ const Navbar = () => {
                 ))}
 
                 <Link href="/contact-us" onClick={closeMenu} className="w-full">
-                  <Button className="w-full p-3 text-white dark:text-black bg-black shadow-none dark:bg-white">
+                  <Button className="w-full p-3 !text-white dark:!text-black bg-black shadow-none dark:bg-white">
                     Contact Us
                   </Button>
                 </Link>

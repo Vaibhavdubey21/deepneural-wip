@@ -93,9 +93,8 @@ const ContactForm: React.FC = () => {
             <input
               id="name"
               type="text"
-              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${
-                errors.name ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${errors.name ? 'border-red-500' : 'border-gray-300'
+                }`}
               placeholder="John Doe"
               {...register('name', { required: 'Name is required' })}
             />
@@ -114,9 +113,8 @@ const ContactForm: React.FC = () => {
             <input
               id="email"
               type="email"
-              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${
-                errors.email ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${errors.email ? 'border-red-500' : 'border-gray-300'
+                }`}
               placeholder="john@example.com"
               {...register('email', {
                 required: 'Email is required',
@@ -159,9 +157,8 @@ const ContactForm: React.FC = () => {
             <textarea
               id="message"
               rows={4}
-              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${
-                errors.message ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${errors.message ? 'border-red-500' : 'border-gray-300'
+                }`}
               placeholder="How can we help you?"
               {...register('message', { required: 'Message is required' })}
             />
@@ -176,7 +173,7 @@ const ContactForm: React.FC = () => {
             type="submit"
             variant="primary"
             size="lg"
-            className="w-full"
+            className="w-full !text-white"
             disabled={isSubmitting}
             icon={<Send size={18} />}
           >

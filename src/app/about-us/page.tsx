@@ -26,6 +26,7 @@ import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import SectionHeading from '../components/SectionHeading';
 import HeaderSection from '../components/sections/HeaderSection';
+import AnimatedCounter from '../components/AnimatedCounter';
 
 const CountingNumber = ({
   value,
@@ -149,7 +150,7 @@ const AboutPage: React.FC = () => {
           />
           {/* Section header */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-12 relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 relative max-w-6xl mx-auto">
             {/* Background Orbs */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full pointer-events-none opacity-20 dark:opacity-30">
               <div className="absolute top-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
@@ -168,9 +169,9 @@ const AboutPage: React.FC = () => {
                 group relative overflow-hidden rounded-2xl
                 bg-white dark:bg-zinc-950
                 border border-zinc-200/60 dark:border-zinc-800/60
-                shadow-md hover:shadow-primary/10
-                hover:border-primary/40 transition-all duration-500
-                p-6 md:p-8
+                shadow-md hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.3)]
+                hover:border-primary/50 transition-all duration-500
+                p-5 md:p-6
               "
             >
               <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/10 blur-[80px] group-hover:bg-primary/20 transition-all duration-1000" />
@@ -188,15 +189,13 @@ const AboutPage: React.FC = () => {
                     OUR VISION
                   </p>
                   <h3 className="mt-2 text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors duration-300">
-                    Set the standard for autonomous AI.
+                    Defining the Future of Intelligent Automation.
                   </h3>
                 </div>
               </div>
 
               <p className="mt-6 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                To be the global leader in autonomous AI agent technology,
-                setting new standards for intelligence, reliability, and ethical
-                AI implementation.
+                To become the world’s leading force in AI-driven automation, empowering organizations to modernize operations, elevate decision-making, and achieve breakthrough performance.
               </p>
 
               <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
@@ -224,9 +223,9 @@ const AboutPage: React.FC = () => {
                 group relative overflow-hidden rounded-2xl
                 bg-white dark:bg-zinc-950
                 border border-zinc-200/60 dark:border-zinc-800/60
-                shadow-md hover:shadow-primary/10
-                hover:border-primary/40 transition-all duration-500
-                p-6 md:p-8
+                shadow-md hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.3)]
+                hover:border-primary/50 transition-all duration-500
+                p-5 md:p-6
               "
             >
               <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/10 blur-[80px] group-hover:bg-primary/20 transition-all duration-1000" />
@@ -244,15 +243,13 @@ const AboutPage: React.FC = () => {
                     OUR MISSION
                   </p>
                   <h3 className="mt-2 text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors duration-300">
-                    Build agents that amplify people.
+                    Turning AI Innovation into Everyday Impact.
                   </h3>
                 </div>
               </div>
 
               <p className="mt-6 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                To create autonomous AI agents that enhance human capabilities,
-                solve complex problems, and drive business transformation across
-                industries.
+                Our mission is to empower organizations with AI-driven agentic automation that integrates effortlessly into their existing workflows. By innovating scalable solutions across HR, e-commerce, healthcare, digital marketing, customer support etc., we help businesses operate smarter, faster, and more efficiently. Through continuous R&D, we expand our automation capabilities to unlock new possibilities for every industry we serve.
               </p>
 
               <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
@@ -291,84 +288,70 @@ const AboutPage: React.FC = () => {
                 icon: <Lightbulb size={40} />,
                 title: 'Innovation',
                 description:
-                  'Complex problems can have simple solution with our innovation.',
+                  'We design agentic AI systems that break down complexity into intelligent, self-driven workflows.Continuous experimentation and learning shape how we build scalable automation that adapts and evolves.',
                 color: 'indigo',
-              },
-              {
-                icon: <Users size={40} />,
-                title: 'Human-Centered',
-                description:
-                  'We design our AI agents to augment human capabilities, not replace them, prioritizing collaboration between humans and machines.',
-                color: 'blue',
               },
               {
                 icon: <Award size={40} />,
                 title: 'Excellence',
                 description:
-                  'We hold ourselves to the highest standards in every aspect of our work, from code quality to client relationships.',
+                  'We hold our autonomous systems to the same standards we hold ourselves—precision, reliability, and performance. Every solution is engineered, tested, and delivered with a focus on measurable impact and long-term value.',
                 color: 'violet',
               },
               {
                 icon: <Globe size={40} />,
                 title: 'Responsibility',
                 description:
-                  'We develop AI with strong ethical principles, ensuring our technology is safe, fair, transparent, and respects privacy.',
+                  'We develop and deploy agentic AI with accountability, ethics, and trust at the core. Our responsibility extends beyond technology—driving positive impact for communities, businesses, and society.',
                 color: 'emerald',
               },
               {
-                icon: <TrendingUp size={40} />,
-                title: 'Impact',
-                description:
-                  'We measure our success by the tangible value our solutions create for clients and society as a whole.',
-                color: 'amber',
-              },
-              {
                 icon: <Zap size={40} />,
-                title: 'Agility',
+                title: 'Collaboration',
                 description:
-                  'We move quickly, adapt to changing circumstances, and continuously evolve our approach based on new learnings.',
+                  'We work as one ecosystem—teams, partners, and clients—aligned toward shared outcomes.Co-creation and transparency are embedded in how our AI agents integrate seamlessly into real business workflows.',
                 color: 'rose',
               },
             ].map((value, index) => {
               const colorMaps = {
                 indigo: {
                   border: 'hover:border-indigo-500/50',
-                  shadow: 'hover:shadow-indigo-500/20',
+                  shadow: 'hover:shadow-indigo-500/30',
                   glow: 'bg-indigo-500',
                   iconBg: 'bg-indigo-500/10 group-hover:bg-indigo-500/20',
                   iconText: 'text-indigo-600 dark:text-indigo-400',
                 },
                 blue: {
                   border: 'hover:border-blue-500/50',
-                  shadow: 'hover:shadow-blue-500/20',
+                  shadow: 'hover:shadow-blue-500/30',
                   glow: 'bg-blue-500',
                   iconBg: 'bg-blue-500/10 group-hover:bg-blue-500/20',
                   iconText: 'text-blue-600 dark:text-blue-400',
                 },
                 violet: {
                   border: 'hover:border-violet-500/50',
-                  shadow: 'hover:shadow-violet-500/20',
+                  shadow: 'hover:shadow-violet-500/30',
                   glow: 'bg-violet-500',
                   iconBg: 'bg-violet-500/10 group-hover:bg-violet-500/20',
                   iconText: 'text-violet-600 dark:text-violet-400',
                 },
                 emerald: {
                   border: 'hover:border-emerald-500/50',
-                  shadow: 'hover:shadow-emerald-500/20',
+                  shadow: 'hover:shadow-emerald-500/30',
                   glow: 'bg-emerald-500',
                   iconBg: 'bg-emerald-500/10 group-hover:bg-emerald-500/20',
                   iconText: 'text-emerald-600 dark:text-emerald-400',
                 },
                 amber: {
                   border: 'hover:border-amber-500/50',
-                  shadow: 'hover:shadow-amber-500/20',
+                  shadow: 'hover:shadow-amber-500/30',
                   glow: 'bg-amber-500',
                   iconBg: 'bg-amber-500/10 group-hover:bg-amber-500/20',
                   iconText: 'text-amber-600 dark:text-amber-400',
                 },
                 rose: {
                   border: 'hover:border-rose-500/50',
-                  shadow: 'hover:shadow-rose-500/20',
+                  shadow: 'hover:shadow-rose-500/30',
                   glow: 'bg-rose-500',
                   iconBg: 'bg-rose-500/10 group-hover:bg-rose-500/20',
                   iconText: 'text-rose-600 dark:text-rose-400',
@@ -443,7 +426,7 @@ const AboutPage: React.FC = () => {
               {/* Left: Founder Photo */}
               <motion.div
                 style={{ y: teamPhotoY }}
-                className="w-full md:w-[320px] lg:w-[380px] shrink-0 mx-auto md:mx-0"
+                className="w-full md:w-[320px] lg:w-[380px] shrink-0 mx-auto md:mx-0 md:mt-12"
               >
                 <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800 group translate-y-0">
                   <Image
@@ -529,19 +512,19 @@ const AboutPage: React.FC = () => {
             {[
               {
                 label: 'AI Agents Deployed',
-                value: '16+',
+                value: 16,
                 icon: <Zap size={36} />,
                 color: 'indigo',
               },
               {
                 label: 'Team Members',
-                value: '14+',
+                value: 14,
                 icon: <Users size={36} />,
                 color: 'blue',
               },
               {
                 label: 'Enterprise Clients',
-                value: '3+',
+                value: 3,
                 icon: <Globe size={36} />,
                 color: 'emerald',
               },
@@ -603,10 +586,8 @@ const AboutPage: React.FC = () => {
                   >
                     {stat.icon}
                   </div>
-                  <div
-                    className={`relative z-10 text-5xl md:text-6xl font-black mb-3 transition-colors duration-500 ${style.text}`}
-                  >
-                    <CountingNumber value={stat.value} />
+                  <div className={`relative z-10 text-5xl md:text-6xl font-black mb-3 transition-colors duration-500 ${style.text}`}>
+                    <AnimatedCounter value={stat.value} />+
                   </div>
                   <div className="relative z-10 text-zinc-500 dark:text-zinc-400 font-black uppercase tracking-[0.2em] text-xs">
                     {stat.label}
@@ -641,58 +622,128 @@ const AboutPage: React.FC = () => {
                   title: 'Deep Learning Foundation',
                   description:
                     'Our agents are built on advanced neural network architectures, trained on vast datasets to recognize patterns and make intelligent decisions.',
+                  color: 'indigo',
                 },
                 {
                   title: 'Reinforcement Learning',
                   description:
                     'We use reinforcement learning techniques to enable our agents to learn from experiences and continuously improve their performance over time.',
+                  color: 'blue',
                 },
                 {
                   title: 'Knowledge Integration',
                   description:
                     'Our systems integrate with your existing knowledge bases and data sources, leveraging your institutional knowledge to make better decisions.',
+                  color: 'emerald',
                 },
                 {
                   title: 'Human-in-the-Loop Design',
                   description:
                     'We design our AI agents to work collaboratively with humans, providing transparency into decision-making and allowing for oversight.',
+                  color: 'violet',
                 },
                 {
                   title: 'Continuous Improvement',
                   description:
                     'Our agents are constantly learning and evolving, adapting to new data and changing business conditions to deliver ever-improving results.',
+                  color: 'rose',
                 },
-              ].map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, margin: '-100px' }}
-                  transition={{
-                    duration: 0.8,
-                    type: 'spring',
-                    stiffness: 50,
-                    delay: 0.1,
-                  }}
-                  className="flex items-start gap-8 mb-16 relative z-10 group"
-                >
-                  <div className="relative shrink-0 ml-10 md:ml-0">
-                    <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all rounded-full" />
-                    <div className="relative h-14 w-14 rounded-2xl bg-white dark:bg-zinc-900 border-2 border-primary/50 flex items-center justify-center text-xl font-black text-zinc-900 dark:text-white group-hover:scale-110 transition-transform duration-500 shadow-xl">
-                      {index + 1}
-                    </div>
-                  </div>
+              ].map((step, index) => {
+                const colorMaps = {
+                  indigo: {
+                    border: 'group-hover:border-indigo-500/50',
+                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(99,102,241,0.3)]',
+                    glow: 'from-indigo-500/10',
+                    numberBorder: 'border-indigo-500/50',
+                    numberText: 'text-indigo-600 dark:text-indigo-400',
+                    numberBg: 'bg-indigo-500/20',
+                    title: 'group-hover:text-indigo-600 dark:group-hover:text-indigo-400',
+                  },
+                  blue: {
+                    border: 'group-hover:border-blue-500/50',
+                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(59,130,246,0.3)]',
+                    glow: 'from-blue-500/10',
+                    numberBorder: 'border-blue-500/50',
+                    numberText: 'text-blue-600 dark:text-blue-400',
+                    numberBg: 'bg-blue-500/20',
+                    title: 'group-hover:text-blue-600 dark:group-hover:text-blue-400',
+                  },
+                  emerald: {
+                    border: 'group-hover:border-emerald-500/50',
+                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(16,185,129,0.3)]',
+                    glow: 'from-emerald-500/10',
+                    numberBorder: 'border-emerald-500/50',
+                    numberText: 'text-emerald-600 dark:text-emerald-400',
+                    numberBg: 'bg-emerald-500/20',
+                    title: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
+                  },
+                  violet: {
+                    border: 'group-hover:border-violet-500/50',
+                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(139,92,246,0.3)]',
+                    glow: 'from-violet-500/10',
+                    numberBorder: 'border-violet-500/50',
+                    numberText: 'text-violet-600 dark:text-violet-400',
+                    numberBg: 'bg-violet-500/20',
+                    title: 'group-hover:text-violet-600 dark:group-hover:text-violet-400',
+                  },
+                  rose: {
+                    border: 'group-hover:border-rose-500/50',
+                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(244,63,94,0.3)]',
+                    glow: 'from-rose-500/10',
+                    numberBorder: 'border-rose-500/50',
+                    numberText: 'text-rose-600 dark:text-rose-400',
+                    numberBg: 'bg-rose-500/20',
+                    title: 'group-hover:text-rose-600 dark:group-hover:text-rose-400',
+                  },
+                };
 
-                  <div className="bg-zinc-50/80 dark:bg-zinc-900/40 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 group-hover:border-primary/40 transition-all duration-500 grow shadow-md hover:shadow-lg translate-y-0 group-hover:-translate-y-2">
-                    <h3 className="text-xl font-black mb-2 text-zinc-900 dark:text-white group-hover:text-primary transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="text-zinc-500 dark:text-zinc-400 text-base leading-relaxed group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+                const style = colorMaps[step.color as keyof typeof colorMaps] || colorMaps.indigo;
+
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: '-100px' }}
+                    transition={{
+                      duration: 0.8,
+                      type: 'spring',
+                      stiffness: 50,
+                      delay: 0.1,
+                    }}
+                    className="flex items-start gap-8 mb-16 relative z-10 group"
+                  >
+                    <div className="relative shrink-0 ml-10 md:ml-0">
+                      <div
+                        className={`absolute inset-0 blur-xl opacity-0 group-hover:opacity-60 transition-all rounded-full ${style.numberBg}`}
+                      />
+                      <div
+                        className={`relative h-14 w-14 rounded-2xl bg-white dark:bg-zinc-900 border-2 ${style.numberBorder} flex items-center justify-center text-xl font-black ${style.numberText} group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.5)]`}
+                      >
+                        {index + 1}
+                      </div>
+                    </div>
+
+                    <div
+                      className={`bg-white/80 dark:bg-zinc-900/60 backdrop-blur-xl p-6 md:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 transition-all duration-500 grow shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] ${style.shadow} ${style.border} translate-y-0 group-hover:-translate-y-2 relative overflow-hidden`}
+                    >
+                      {/* Colorful background glow for hover state */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${style.glow} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}
+                      />
+
+                      <h3
+                        className={`relative z-10 text-xl font-black mb-2 text-zinc-900 dark:text-white transition-colors ${style.title}`}
+                      >
+                        {step.title}
+                      </h3>
+                      <p className="relative z-10 text-zinc-500 dark:text-zinc-400 text-base leading-relaxed group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
