@@ -10,7 +10,6 @@ import {
   LineChart,
   MessageSquare,
   Server,
-  Shield,
   Zap,
 } from 'lucide-react';
 import Link from 'next/link';
