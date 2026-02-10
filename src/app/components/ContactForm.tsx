@@ -156,7 +156,7 @@ const ContactForm: React.FC = () => {
             </label>
             <textarea
               id="message"
-              rows={4}
+              rows={9}
               className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${errors.message ? 'border-red-500' : 'border-gray-300'
                 }`}
               placeholder="How can we help you?"

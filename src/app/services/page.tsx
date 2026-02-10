@@ -81,7 +81,7 @@ export default function ServicesPage() {
             centered
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-20 max-w-5xl mx-auto">
             {[
               {
                 icon: <Brain size={48} />,
@@ -115,23 +115,6 @@ export default function ServicesPage() {
                   glow: 'group-hover:shadow-blue-500/20 group-hover:border-blue-500/30',
                   icon: 'text-blue-600 dark:text-blue-400',
                   bg: 'group-hover:bg-blue-500/5'
-                }
-              },
-              {
-                icon: <Eye size={48} />,
-                title: 'Custom AI Development',
-                description: 'From computer vision to NLP, we build AI models that solve real-world problems.',
-                features: [
-                  'Design and train AI models for industry-specific challenges.',
-                  'Implement computer vision, NLP, predictive analytics, and recommendation systems.',
-                  'Deliver end-to-end solutions from data preparation to deployment.',
-                ],
-                color: 'emerald',
-                style: {
-                  y: coreY3,
-                  glow: 'group-hover:shadow-emerald-500/20 group-hover:border-emerald-500/30',
-                  icon: 'text-emerald-600 dark:text-emerald-400',
-                  bg: 'group-hover:bg-emerald-500/5'
                 }
               },
             ].map((service, index) => (

@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, {  useRef } from 'react';
+import React, { useRef } from 'react';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import SectionHeading from '../components/SectionHeading';
@@ -102,15 +102,17 @@ const AboutPage: React.FC = () => {
         ref={scrollRef}
       >
         <div className="container mx-auto px-4">
-          <SectionHeader
-            subheading="What drives us"
-            heading="Vision & Mission"
-            description="The principles that guide how we build autonomous AI
-              agents—responsibly, reliably, and at scale."
-          />
+          <div className="max-w-7xl mx-auto">
+            <SectionHeader
+              subheading="What drives us"
+              heading="Vision & Mission"
+              description="The principles that guide how we build autonomous AI
+                agents—responsibly, reliably, and at scale."
+            />
+          </div>
           {/* Section header */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 relative max-w-6xl mx-auto">
+          <div className="flex flex-col gap-8 mt-12 relative max-w-7xl mx-auto">
             {/* Background Orbs */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full pointer-events-none opacity-20 dark:opacity-30">
               <div className="absolute top-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
@@ -176,7 +178,6 @@ const AboutPage: React.FC = () => {
               transition={{
                 duration: 0.8,
                 ease: [0.16, 1, 0.3, 1],
-                delay: 0.1,
               }}
               whileHover={{ y: -6, scale: 1.01, zIndex: 20 }}
               className="
@@ -242,7 +243,7 @@ const AboutPage: React.FC = () => {
             centered
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-20 max-w-6xl mx-auto">
             {[
               {
                 icon: <Lightbulb size={40} />,
@@ -382,19 +383,18 @@ const AboutPage: React.FC = () => {
           />
 
           <div className="max-w-5xl mx-auto mt-16 md:mt-24">
-            <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start translate-y-0">
+            <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center translate-y-0">
               {/* Left: Founder Photo */}
               <motion.div
-                style={{ y: teamPhotoY }}
-                className="w-full md:w-[320px] lg:w-[380px] shrink-0 mx-auto md:mx-0 md:mt-12"
+                className="w-full md:w-[320px] lg:w-[380px] shrink-0 mx-auto md:mx-0"
               >
-                <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800 group translate-y-0">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800 group translate-y-0">
                   <Image
-                    src="/photo.jpeg"
+                    src="/img.jpeg"
                     alt="Vivek Saraf"
                     width={500}
                     height={500}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-3xl" />
                 </div>

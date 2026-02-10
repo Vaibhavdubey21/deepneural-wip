@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 // TODO: Update metadata
 
 export const metadata: Metadata = {
-  title: 'DeepNeural | AI Agent Solutions',
+  title: 'DeepNeural  | AI Agent Solutions',
   description:
     'DeepNeural is pioneering autonomous AI agents that transform how businesses operate.',
   icons: {

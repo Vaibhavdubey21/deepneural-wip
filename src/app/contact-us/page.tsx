@@ -193,7 +193,7 @@ const ContactPage: React.FC = () => {
                 question:
                   'What kind of ROI can we expect from implementing your AI agents?',
                 answer:
-                  'ROI varies by industry and use case, but our clients typically see returns within 6-12 months. We work with you to establish clear KPIs and measure the impact of our solutions on your business.',
+                  'ROI varies by industry and use case, but our clients typically see returns within 4-8 months. We work with you to establish clear KPIs and measure the impact of our solutions on your business.',
               },
               {
                 question: 'Do you offer ongoing support and maintenance?',

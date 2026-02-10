@@ -2,12 +2,10 @@
 
 import {
   ArrowRight,
-  Github,
   Linkedin,
   Mail,
   MapPin,
   Phone,
-  Twitter,
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -17,9 +15,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white dark:bg-black border-t border-light-dark/10 dark:border-white/10 text-light-dark dark:text-light">
       <div className="mx-3 md:mx-8 px-4 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-4">
           {/* Left Section: Brand + Navigation */}
-          <div className="lg:col-span-3 flex flex-col gap-12">
+          <div className="lg:col-span-6 flex flex-col gap-12">
             {/* Brand Section */}
             <div>
               <Link
@@ -36,7 +34,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex flex-col -space-y-0.5">
                   <span className="text-md font-semibold text-primary tracking-widest uppercase">
-                    DeepNeural
+                    DeepNeural Technologies
                   </span>
                   <span className="text-xs font-medium text-light-dark/60 dark:text-light/50">
                     AI Solutions
@@ -51,15 +49,6 @@ const Footer: React.FC = () => {
               {/* Social Links */}
               <div className="flex items-center gap-4">
                 <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-[#1DA1F2]/10 hover:bg-[#1DA1F2]/20 text-[#1DA1F2] transition-all duration-300"
-                  aria-label="Follow us on Twitter"
-                >
-                  <Twitter size={18} fill="#1DA1F2" />
-                </a>
-                <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -68,24 +57,14 @@ const Footer: React.FC = () => {
                 >
                   <Linkedin size={18} fill="#0077B5" />
                 </a>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-black dark:bg-white/10 hover:bg-black/80 dark:hover:bg-white/20 text-white transition-all duration-300"
-                  aria-label="Check our projects on GitHub"
-                >
-                  <Github size={18} fill="currentColor" />
-                </a>
               </div>
             </div>
           </div>
 
           {/* Right Section: Services + Contact + Quick Links */}
-          <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-7 lg:grid-cols-5 gap-14 md:gap-12 lg:gap-4">
-            <div className="hidden lg:block lg:col-span-1"></div>
+          <div className="lg:col-span-6 flex flex-col lg:flex-row gap-14 md:gap-12 lg:gap-12">
             {/* Services */}
-            <div className="md:col-span-2 lg:col-span-1">
+            <div className="md:col-span-2 lg:col-span-1 min-w-fit">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-light-dark dark:text-light mb-6">
                 Services
               </h3>
@@ -95,43 +74,7 @@ const Footer: React.FC = () => {
                     href="/services"
                     className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
                   >
-                    <span>AI Agent Development</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span>NLP Solutions</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span>Computer Vision</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span>Predictive Analytics</span>
+                    <span className="whitespace-nowrap">AI Agent Development</span>
                     <ArrowRight
                       size={14}
                       className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -154,7 +97,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="md:col-span-2 lg:col-span-1 w-fit">
+            <div className="md:col-span-2 lg:col-span-1 w-fit min-w-fit">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-light-dark dark:text-light mb-6">
                 Navigation
               </h3>
@@ -223,7 +166,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="md:col-span-3 lg:col-span-2">
+            <div className="md:col-span-3 lg:col-span-1 min-w-fit">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-light-dark dark:text-light mb-6">
                 Contact
               </h3>
@@ -265,7 +208,7 @@ const Footer: React.FC = () => {
                   </div>
                   <a
                     href="mailto:contact@deepneuraltechnologies.com"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary transition-colors break-all"
+                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary transition-colors whitespace-nowrap"
                   >
                     contact@deepneuraltechnologies.com
                   </a>

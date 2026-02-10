@@ -45,20 +45,6 @@ const ClientsPage: React.FC = () => {
                 position: 'Recruitment Industry Leader, NeoSource',
                 rating: 5,
               },
-              {
-                quote:
-                  'Working with DeepNeural has been a game-changer for our dental practice. Their AI imaging platform has significantly improved our diagnostic accuracy.',
-                author: 'Dr. Michael Chen',
-                position: 'Founder, 4EDental.com',
-                rating: 5,
-              },
-              {
-                quote:
-                  "The manufacturing optimization solution provided by DeepNeural exceeded our expectations. We've seen dramatic improvements in efficiency and quality.",
-                author: 'Robert Patel',
-                position: 'COO, PrecisionTech Industries',
-                rating: 5,
-              },
             ].map((testimonial, index) => (
               <AnimatedCard key={index} className="p-6 dark:bg-zinc-800">
                 <div className="mb-4 text-primary">
