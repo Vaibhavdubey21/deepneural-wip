@@ -82,8 +82,6 @@ const AboutPage: React.FC = () => {
     damping: 20,
     restDelta: 0.001,
   });
-
-  const teamPhotoY = useTransform(smoothTeamProgress, [0, 1], [150, -150]);
   const teamTextY1 = useTransform(smoothTeamProgress, [0, 1], [80, -80]);
   const teamTextY2 = useTransform(smoothTeamProgress, [0, 1], [40, -40]);
 
