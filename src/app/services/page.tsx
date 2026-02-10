@@ -6,7 +6,6 @@ import {
   Brain,
   Code,
   Database,
-  Eye,
   LineChart,
   MessageSquare,
   Server,
@@ -28,7 +27,7 @@ export default function ServicesPage() {
 
   const coreY1 = useTransform(smoothCoreProgress, [0, 1], [40, -40]);
   const coreY2 = useTransform(smoothCoreProgress, [0, 1], [80, -80]);
-  const coreY3 = useTransform(smoothCoreProgress, [0, 1], [60, -60]);
+ 
 
   const specializedRef = useRef(null);
   const { scrollYProgress: specializedProgress } = useScroll({
