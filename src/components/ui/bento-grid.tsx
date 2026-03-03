@@ -82,7 +82,7 @@ const BentoCard = ({
       </span>
     </Badge>
     <div className="hidden lg:block">{background}</div>
-    <div className="p-6">
+    <div className="p-6 relative z-[2]">
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 transition-all duration-300 lg:group-hover:-translate-y-10">
         <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-400 transition-all duration-300 ease-in-out group-hover:scale-75" />
         <h3 className="text-xl font-semibold text-black dark:text-white">

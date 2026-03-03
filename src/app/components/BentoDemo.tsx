@@ -21,7 +21,12 @@ const features = [
     badgeLabel: 'Human Resources',
     BadgeIcon: BookmarkIcon,
     companyName: 'NeoSource',
-    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    background: (
+      <>
+        <img src="/hr .png" alt="Recrugence HR Platform" className="absolute inset-0 w-full h-[65%] object-cover object-left-top z-0" />
+        <div className="absolute inset-x-0 bottom-0 h-[45%] z-[1]" style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(248,250,252,0.7) 30%, rgb(248,250,252) 55%)' }} />
+      </>
+    ),
     className: 'lg:col-span-1 lg:row-span-4',
   },
   {
@@ -49,7 +54,12 @@ const features = [
     badgeLabel: 'Digital Marketing',
     BadgeIcon: BookmarkIcon,
     companyName: 'Goldstone',
-    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    background: (
+      <>
+        <img src="/digital marketing.png" alt="AI-Driven Digital Marketing" className="absolute inset-0 w-full h-full object-contain object-top z-0" />
+        <div className="absolute inset-x-0 bottom-0 h-[55%] z-[1]" style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(248,250,252,0.5) 20%, rgba(248,250,252,0.85) 40%, rgb(248,250,252) 60%)' }} />
+      </>
+    ),
     className: 'lg:col-span-1 lg:row-span-4',
   },
   {
@@ -63,7 +73,12 @@ const features = [
     badgeLabel: 'E-Commerce',
     BadgeIcon: BookmarkIcon,
     companyName: '',
-    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    background: (
+      <>
+        <img src="/E-commerce.png" alt="AI-Powered E-Commerce" className="absolute inset-0 w-full h-full object-cover z-0" />
+        <div className="absolute inset-x-0 bottom-0 h-[55%] z-[1]" style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(248,250,252,0.5) 20%, rgba(248,250,252,0.85) 40%, rgb(248,250,252) 60%)' }} />
+      </>
+    ),
     className: 'lg:col-span-1 lg:row-span-4',
   },
   {
@@ -77,7 +92,13 @@ const features = [
     badgeLabel: 'Explainable AI',
     BadgeIcon: BookmarkIcon,
     companyName: 'Dr. Pragati Jain',
-    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    background: (
+      <div className="absolute inset-0 overflow-hidden bg-[#0f111a]">
+        <img src="/chatgpt1.png" alt="" className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-50 z-0" />
+        <img src="/chatgpt1.png" alt="Syādvāda Logic" className="absolute inset-x-0 top-0 w-full h-[65%] object-contain object-top z-[1]" />
+        <div className="absolute inset-x-0 bottom-0 h-[45%] z-[2]" style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(248,250,252,0.7) 30%, rgb(248,250,252) 55%)' }} />
+      </div>
+    ),
     className: 'lg:col-span-1 lg:row-span-4',
   },
   {
@@ -91,7 +112,13 @@ const features = [
     badgeLabel: 'Finance',
     BadgeIcon: BookmarkIcon,
     companyName: '',
-    background: <img className="absolute -top-20 -right-20 opacity-60" />,
+    background: (
+      <div className="absolute inset-0 overflow-hidden bg-[#0f111a]">
+        <img src="/investment 1.png" alt="" className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-50 z-0" />
+        <img src="/investment 1.png" alt="AI Investment Advisor" className="absolute inset-x-0 top-0 w-full h-[65%] object-contain object-top z-[1]" />
+        <div className="absolute inset-x-0 bottom-0 h-[45%] z-[2]" style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(248,250,252,0.7) 30%, rgb(248,250,252) 55%)' }} />
+      </div>
+    ),
     className: 'lg:col-span-1 lg:row-span-4',
   },
 ];

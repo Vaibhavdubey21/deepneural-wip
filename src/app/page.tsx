@@ -45,18 +45,6 @@ export default function HomePage() {
         'Natural language capabilities that make interaction with AI agents intuitive and productive for all users.',
       url: 'https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
-    {
-      title: 'Predictive Analytics',
-      description:
-        'Forecast trends, identify opportunities, and mitigate risks before they impact your business.',
-      url: 'https://images.pexels.com/photos/6770611/pexels-photo-6770611.jpeg',
-    },
-    {
-      title: 'Enterprise Security',
-      description:
-        'Built with security-first architecture ensuring your data and operations remain protected.',
-      url: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg',
-    },
   ];
 
   return (
@@ -69,7 +57,7 @@ export default function HomePage() {
           <SectionHeader
             subheading="Engineering intelligent autonomy"
             heading="Cutting-Edge AI"
-            description="Our AI agents leverage the latest advancements in GenAI and neural networks to deliver intelligent solutions."
+            description="Our AI agents leverage the latest advancements in GenAI to deliver intelligent solutions."
           />
           <Carousel
             opts={{
