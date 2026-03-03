@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next';
+// Analytics for vercel
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import Footer from './components/Footer';
