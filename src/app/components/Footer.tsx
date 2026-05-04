@@ -2,6 +2,8 @@
 
 import {
   ArrowRight,
+  Facebook,
+  Instagram,
   Linkedin,
   Mail,
   MapPin,
@@ -49,13 +51,31 @@ const Footer: React.FC = () => {
               {/* Social Links */}
               <div className="flex items-center gap-4">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/company/deepneural-technologies-private-limited/posts/?feedView=all"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-[#0077B5]/10 hover:bg-[#0077B5]/20 text-[#0077B5] transition-all duration-300"
+                  className="p-2 rounded-lg bg-[#0077B5]/10 hover:bg-[#0077B5] text-[#0077B5] hover:text-white transition-all duration-300"
                   aria-label="Connect with us on LinkedIn"
                 >
-                  <Linkedin size={18} fill="#0077B5" />
+                  <Linkedin size={18} fill="currentColor" />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61573254260959"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-[#1877F2]/10 hover:bg-[#1877F2] text-[#1877F2] hover:text-white transition-all duration-300"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook size={18} fill="currentColor" />
+                </a>
+                <a
+                  href="https://www.instagram.com/co.ntact9421/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-gradient-to-tr from-[#f9ce34]/10 via-[#ee2a7b]/10 to-[#6228d7]/10 hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] text-[#ee2a7b] hover:text-white transition-all duration-300"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram size={18} />
                 </a>
               </div>
             </div>
