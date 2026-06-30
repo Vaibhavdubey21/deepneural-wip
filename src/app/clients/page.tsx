@@ -45,6 +45,20 @@ const ClientsPage: React.FC = () => {
                 position: 'Recruitment Industry Leader, NeoSource',
                 rating: 5,
               },
+              {
+                quote:
+                  'DeepNeural Technologies transformed our vision of a Syadvada Logic AI Chatbot into a powerful and intelligent solution. Their technical expertise, innovative AI architecture, and dedicated development support made a highly complex project successful. The team\'s professionalism, collaboration, and commitment to excellence exceeded our expectations. I highly recommend DeepNeural Technologies for any advanced AI development project.',
+                author: 'Dr. Pragati Jain',
+                position: 'Head of Mathematics',
+                rating: 5,
+              },
+              {
+                quote:
+                  'DeepNeural Technologies delivered outstanding digital content and design services for my book publication project. Their team handled everything from creative cover design to technical optimization with exceptional quality and efficiency. Their responsiveness to feedback and attention to detail made the entire process seamless. I sincerely appreciate their professionalism and highly recommend their services.',
+                author: 'Ranjana Sehgal',
+                position: 'POSH and CSR Consultant, Independent Director, former Professor and Principal, Author, Secretary – SATYA',
+                rating: 5,
+              },
             ].map((testimonial, index) => (
               <AnimatedCard key={index} className="p-6 dark:bg-zinc-800">
                 <div className="mb-4 text-primary">

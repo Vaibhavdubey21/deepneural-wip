@@ -476,13 +476,13 @@ const AboutPage: React.FC = () => {
               },
               {
                 label: 'Team Members',
-                value: 14,
+                value: 6,
                 icon: <Users size={36} />,
                 color: 'blue',
               },
               {
                 label: 'Enterprise Clients',
-                value: 3,
+                value: 6,
                 icon: <Globe size={36} />,
                 color: 'emerald',
               },
