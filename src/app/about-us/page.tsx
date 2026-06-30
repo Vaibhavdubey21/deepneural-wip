@@ -441,7 +441,7 @@ const AboutPage: React.FC = () => {
                       engineering, and enterprise-grade delivery. We are a
                       fast-growing AI start up with{" "}
                       <span className="text-zinc-900 dark:text-white font-bold">
-                        14+ members
+                        6+ members
                       </span>{" "}
                       strong team.
                     </p>
@@ -484,7 +484,7 @@ const AboutPage: React.FC = () => {
               },
               {
                 label: "Enterprise Clients",
-                value: 6,
+                value: 8,
                 icon: <Globe size={36} />,
                 color: "emerald",
               },
