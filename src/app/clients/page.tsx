@@ -1,12 +1,12 @@
-'use client';
-import { Quote, Star } from 'lucide-react';
-import Link from 'next/link';
-import React from 'react';
-import AnimatedCard from '../components/AnimatedCard';
-import BentoDemo from '../components/BentoDemo';
-import Button from '../components/Button';
-import SectionHeading from '../components/SectionHeading';
-import HeaderSection from '../components/sections/HeaderSection';
+"use client";
+import { Quote, Star } from "lucide-react";
+import Link from "next/link";
+import React from "react";
+import AnimatedCard from "../components/AnimatedCard";
+import BentoDemo from "../components/BentoDemo";
+import Button from "../components/Button";
+import SectionHeading from "../components/SectionHeading";
+import HeaderSection from "../components/sections/HeaderSection";
 
 const ClientsPage: React.FC = () => {
   return (
@@ -40,23 +40,24 @@ const ClientsPage: React.FC = () => {
             {[
               {
                 quote:
-                  'The AI agents developed by DeepNeural have transformed our recruitment process, saving us countless hours and helping us find better candidates faster.',
-                author: 'Gaurav Gupta',
-                position: 'Recruitment Industry Leader, NeoSource',
+                  "The AI agents developed by DeepNeural have transformed our recruitment process, saving us countless hours and helping us find better candidates faster.",
+                author: "Gaurav Gupta",
+                position: "Recruitment Industry Leader, NeoSource",
                 rating: 5,
               },
               {
                 quote:
-                  'DeepNeural Technologies transformed our vision of a Syadvada Logic AI Chatbot into a powerful and intelligent solution. Their technical expertise, innovative AI architecture, and dedicated development support made a highly complex project successful. The team\'s professionalism, collaboration, and commitment to excellence exceeded our expectations. I highly recommend DeepNeural Technologies for any advanced AI development project.',
-                author: 'Dr. Pragati Jain',
-                position: 'Head of Mathematics',
+                  "DeepNeural Technologies transformed our vision of a Syadvada Logic AI Chatbot into a powerful and intelligent solution. Their technical expertise, innovative AI architecture, and dedicated development support made a highly complex project successful. The team's professionalism, collaboration, and commitment to excellence exceeded our expectations. I highly recommend DeepNeural Technologies for any advanced AI development project.",
+                author: "Dr. Pragati Jain",
+                position: "Head of Mathematics",
                 rating: 5,
               },
               {
                 quote:
-                  'DeepNeural Technologies delivered outstanding digital content and design services for my book publication project. Their team handled everything from creative cover design to technical optimization with exceptional quality and efficiency. Their responsiveness to feedback and attention to detail made the entire process seamless. I sincerely appreciate their professionalism and highly recommend their services.',
-                author: 'Ranjana Sehgal',
-                position: 'POSH and CSR Consultant, Independent Director, former Professor and Principal, Author, Secretary – SATYA',
+                  "DeepNeural Technologies delivered outstanding digital content and design services for my book publication project. Their team handled everything from creative cover design to technical optimization with exceptional quality and efficiency. Their responsiveness to feedback and attention to detail made the entire process seamless. I sincerely appreciate their professionalism and highly recommend their services.",
+                author: "Ranjana Sehgal",
+                position:
+                  "POSH and CSR Consultant, Independent Director, former Professor and Principal, Author, Secretary – SATYA",
                 rating: 5,
               },
             ].map((testimonial, index) => (
@@ -113,7 +114,6 @@ const ClientsPage: React.FC = () => {
           </Link>
         </div>
       </section>
-
     </div>
   );
 };

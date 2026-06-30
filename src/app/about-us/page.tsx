@@ -1,10 +1,5 @@
-'use client';
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
+"use client";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import {
   ArrowRight,
   Award,
@@ -14,21 +9,21 @@ import {
   Target,
   Users,
   Zap,
-} from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useRef } from 'react';
-import Button from '../components/Button';
-import SectionHeader from '../components/SectionHeader';
-import SectionHeading from '../components/SectionHeading';
-import HeaderSection from '../components/sections/HeaderSection';
-import AnimatedCounter from '../components/AnimatedCounter';
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useRef } from "react";
+import Button from "../components/Button";
+import SectionHeader from "../components/SectionHeader";
+import SectionHeading from "../components/SectionHeading";
+import HeaderSection from "../components/sections/HeaderSection";
+import AnimatedCounter from "../components/AnimatedCounter";
 
 const AboutPage: React.FC = () => {
   const scrollRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: scrollRef,
-    offset: ['start end', 'end start'],
+    offset: ["start end", "end start"],
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
@@ -43,7 +38,7 @@ const AboutPage: React.FC = () => {
   const valuesRef = useRef(null);
   const { scrollYProgress: valuesProgress } = useScroll({
     target: valuesRef,
-    offset: ['start end', 'end start'],
+    offset: ["start end", "end start"],
   });
 
   const smoothValuesProgress = useSpring(valuesProgress, {
@@ -60,7 +55,7 @@ const AboutPage: React.FC = () => {
   const statsRef = useRef(null);
   const { scrollYProgress: statsProgress } = useScroll({
     target: statsRef,
-    offset: ['start end', 'end start'],
+    offset: ["start end", "end start"],
   });
 
   const smoothStatsProgress = useSpring(statsProgress, {
@@ -74,7 +69,7 @@ const AboutPage: React.FC = () => {
   const teamRef = useRef(null);
   const { scrollYProgress: teamProgress } = useScroll({
     target: teamRef,
-    offset: ['start end', 'end start'],
+    offset: ["start end", "end start"],
   });
 
   const smoothTeamProgress = useSpring(teamProgress, {
@@ -155,7 +150,9 @@ const AboutPage: React.FC = () => {
               </div>
 
               <p className="mt-6 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                To become the world’s leading force in AI-driven automation, empowering organizations to modernize operations, elevate decision-making, and achieve breakthrough performance.
+                To become the world’s leading force in AI-driven automation,
+                empowering organizations to modernize operations, elevate
+                decision-making, and achieve breakthrough performance.
               </p>
 
               <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
@@ -208,7 +205,14 @@ const AboutPage: React.FC = () => {
               </div>
 
               <p className="mt-6 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                Our mission is to empower organizations with AI-driven agentic automation that integrates effortlessly into their existing workflows. By innovating scalable solutions across HR, e-commerce, healthcare, digital marketing, customer support etc., we help businesses operate smarter, faster, and more efficiently. Through continuous R&D, we expand our automation capabilities to unlock new possibilities for every industry we serve.
+                Our mission is to empower organizations with AI-driven agentic
+                automation that integrates effortlessly into their existing
+                workflows. By innovating scalable solutions across HR,
+                e-commerce, healthcare, digital marketing, customer support
+                etc., we help businesses operate smarter, faster, and more
+                efficiently. Through continuous R&D, we expand our automation
+                capabilities to unlock new possibilities for every industry we
+                serve.
               </p>
 
               <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
@@ -245,75 +249,75 @@ const AboutPage: React.FC = () => {
             {[
               {
                 icon: <Lightbulb size={40} />,
-                title: 'Innovation',
+                title: "Innovation",
                 description:
-                  'We design agentic AI systems that break down complexity into intelligent, self-driven workflows.Continuous experimentation and learning shape how we build scalable automation that adapts and evolves.',
-                color: 'indigo',
+                  "We design agentic AI systems that break down complexity into intelligent, self-driven workflows.Continuous experimentation and learning shape how we build scalable automation that adapts and evolves.",
+                color: "indigo",
               },
               {
                 icon: <Award size={40} />,
-                title: 'Excellence',
+                title: "Excellence",
                 description:
-                  'We hold our autonomous systems to the same standards we hold ourselves—precision, reliability, and performance. Every solution is engineered, tested, and delivered with a focus on measurable impact and long-term value.',
-                color: 'violet',
+                  "We hold our autonomous systems to the same standards we hold ourselves—precision, reliability, and performance. Every solution is engineered, tested, and delivered with a focus on measurable impact and long-term value.",
+                color: "violet",
               },
               {
                 icon: <Globe size={40} />,
-                title: 'Responsibility',
+                title: "Responsibility",
                 description:
-                  'We develop and deploy agentic AI with accountability, ethics, and trust at the core. Our responsibility extends beyond technology—driving positive impact for communities, businesses, and society.',
-                color: 'emerald',
+                  "We develop and deploy agentic AI with accountability, ethics, and trust at the core. Our responsibility extends beyond technology—driving positive impact for communities, businesses, and society.",
+                color: "emerald",
               },
               {
                 icon: <Zap size={40} />,
-                title: 'Collaboration',
+                title: "Collaboration",
                 description:
-                  'We work as one ecosystem—teams, partners, and clients—aligned toward shared outcomes.Co-creation and transparency are embedded in how our AI agents integrate seamlessly into real business workflows.',
-                color: 'rose',
+                  "We work as one ecosystem—teams, partners, and clients—aligned toward shared outcomes.Co-creation and transparency are embedded in how our AI agents integrate seamlessly into real business workflows.",
+                color: "rose",
               },
             ].map((value, index) => {
               const colorMaps = {
                 indigo: {
-                  border: 'hover:border-indigo-500/50',
-                  shadow: 'hover:shadow-indigo-500/30',
-                  glow: 'bg-indigo-500',
-                  iconBg: 'bg-indigo-500/10 group-hover:bg-indigo-500/20',
-                  iconText: 'text-indigo-600 dark:text-indigo-400',
+                  border: "hover:border-indigo-500/50",
+                  shadow: "hover:shadow-indigo-500/30",
+                  glow: "bg-indigo-500",
+                  iconBg: "bg-indigo-500/10 group-hover:bg-indigo-500/20",
+                  iconText: "text-indigo-600 dark:text-indigo-400",
                 },
                 blue: {
-                  border: 'hover:border-blue-500/50',
-                  shadow: 'hover:shadow-blue-500/30',
-                  glow: 'bg-blue-500',
-                  iconBg: 'bg-blue-500/10 group-hover:bg-blue-500/20',
-                  iconText: 'text-blue-600 dark:text-blue-400',
+                  border: "hover:border-blue-500/50",
+                  shadow: "hover:shadow-blue-500/30",
+                  glow: "bg-blue-500",
+                  iconBg: "bg-blue-500/10 group-hover:bg-blue-500/20",
+                  iconText: "text-blue-600 dark:text-blue-400",
                 },
                 violet: {
-                  border: 'hover:border-violet-500/50',
-                  shadow: 'hover:shadow-violet-500/30',
-                  glow: 'bg-violet-500',
-                  iconBg: 'bg-violet-500/10 group-hover:bg-violet-500/20',
-                  iconText: 'text-violet-600 dark:text-violet-400',
+                  border: "hover:border-violet-500/50",
+                  shadow: "hover:shadow-violet-500/30",
+                  glow: "bg-violet-500",
+                  iconBg: "bg-violet-500/10 group-hover:bg-violet-500/20",
+                  iconText: "text-violet-600 dark:text-violet-400",
                 },
                 emerald: {
-                  border: 'hover:border-emerald-500/50',
-                  shadow: 'hover:shadow-emerald-500/30',
-                  glow: 'bg-emerald-500',
-                  iconBg: 'bg-emerald-500/10 group-hover:bg-emerald-500/20',
-                  iconText: 'text-emerald-600 dark:text-emerald-400',
+                  border: "hover:border-emerald-500/50",
+                  shadow: "hover:shadow-emerald-500/30",
+                  glow: "bg-emerald-500",
+                  iconBg: "bg-emerald-500/10 group-hover:bg-emerald-500/20",
+                  iconText: "text-emerald-600 dark:text-emerald-400",
                 },
                 amber: {
-                  border: 'hover:border-amber-500/50',
-                  shadow: 'hover:shadow-amber-500/30',
-                  glow: 'bg-amber-500',
-                  iconBg: 'bg-amber-500/10 group-hover:bg-amber-500/20',
-                  iconText: 'text-amber-600 dark:text-amber-400',
+                  border: "hover:border-amber-500/50",
+                  shadow: "hover:shadow-amber-500/30",
+                  glow: "bg-amber-500",
+                  iconBg: "bg-amber-500/10 group-hover:bg-amber-500/20",
+                  iconText: "text-amber-600 dark:text-amber-400",
                 },
                 rose: {
-                  border: 'hover:border-rose-500/50',
-                  shadow: 'hover:shadow-rose-500/30',
-                  glow: 'bg-rose-500',
-                  iconBg: 'bg-rose-500/10 group-hover:bg-rose-500/20',
-                  iconText: 'text-rose-600 dark:text-rose-400',
+                  border: "hover:border-rose-500/50",
+                  shadow: "hover:shadow-rose-500/30",
+                  glow: "bg-rose-500",
+                  iconBg: "bg-rose-500/10 group-hover:bg-rose-500/20",
+                  iconText: "text-rose-600 dark:text-rose-400",
                 },
               };
 
@@ -383,9 +387,7 @@ const AboutPage: React.FC = () => {
           <div className="max-w-5xl mx-auto mt-16 md:mt-24">
             <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center translate-y-0">
               {/* Left: Founder Photo */}
-              <motion.div
-                className="w-full md:w-[320px] lg:w-[380px] shrink-0 mx-auto md:mx-0"
-              >
+              <motion.div className="w-full md:w-[320px] lg:w-[380px] shrink-0 mx-auto md:mx-0">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800 group translate-y-0">
                   <Image
                     src="/img.jpeg"
@@ -411,14 +413,14 @@ const AboutPage: React.FC = () => {
                       Founder & CEO
                     </h3>
                     <p className="mt-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
-                      AI entrepreneur and technology leader and an{' '}
+                      AI entrepreneur and technology leader and an{" "}
                       <span className="text-zinc-900 dark:text-white font-bold">
                         IIT Kanpur
-                      </span>{' '}
-                      alumnus with{' '}
+                      </span>{" "}
+                      alumnus with{" "}
                       <span className="text-zinc-900 dark:text-white font-bold">
                         23+ years
-                      </span>{' '}
+                      </span>{" "}
                       of experience in enterprise tech, AI automation, and
                       consulting—shaping DeepNeural&apos;s product and
                       innovation roadmap.
@@ -431,16 +433,16 @@ const AboutPage: React.FC = () => {
                       Our Leadership & Team
                     </h3>
                     <p className="mt-4 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
-                      Backed by talented{' '}
+                      Backed by talented{" "}
                       <span className="text-zinc-900 dark:text-white font-bold">
                         IITian&apos;s
-                      </span>{' '}
+                      </span>{" "}
                       and seasoned technologists driving AI innovation, product
                       engineering, and enterprise-grade delivery. We are a
-                      fast-growing AI start up with{' '}
+                      fast-growing AI start up with{" "}
                       <span className="text-zinc-900 dark:text-white font-bold">
                         14+ members
-                      </span>{' '}
+                      </span>{" "}
                       strong team.
                     </p>
                   </motion.div>
@@ -469,48 +471,48 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
             {[
               {
-                label: 'AI Agents Deployed',
+                label: "AI Agents Deployed",
                 value: 16,
                 icon: <Zap size={36} />,
-                color: 'indigo',
+                color: "indigo",
               },
               {
-                label: 'Team Members',
+                label: "Team Members",
                 value: 6,
                 icon: <Users size={36} />,
-                color: 'blue',
+                color: "blue",
               },
               {
-                label: 'Enterprise Clients',
+                label: "Enterprise Clients",
                 value: 6,
                 icon: <Globe size={36} />,
-                color: 'emerald',
+                color: "emerald",
               },
             ].map((stat, index) => {
               const colorMaps = {
                 indigo: {
-                  text: 'text-indigo-600 dark:text-indigo-400',
-                  bg: 'bg-indigo-500/10 dark:bg-indigo-500/5',
-                  border: 'hover:border-indigo-500/50',
-                  shadow: 'hover:shadow-indigo-500/20',
-                  glow: 'bg-indigo-500',
-                  icon: 'text-indigo-600 dark:text-indigo-400 border-indigo-500/20 bg-indigo-500/10 group-hover:bg-indigo-500/20',
+                  text: "text-indigo-600 dark:text-indigo-400",
+                  bg: "bg-indigo-500/10 dark:bg-indigo-500/5",
+                  border: "hover:border-indigo-500/50",
+                  shadow: "hover:shadow-indigo-500/20",
+                  glow: "bg-indigo-500",
+                  icon: "text-indigo-600 dark:text-indigo-400 border-indigo-500/20 bg-indigo-500/10 group-hover:bg-indigo-500/20",
                 },
                 blue: {
-                  text: 'text-blue-600 dark:text-blue-400',
-                  bg: 'bg-blue-500/10 dark:bg-blue-500/5',
-                  border: 'hover:border-blue-500/50',
-                  shadow: 'hover:shadow-blue-500/20',
-                  glow: 'bg-blue-500',
-                  icon: 'text-blue-600 dark:text-blue-400 border-blue-500/20 bg-blue-500/10 group-hover:bg-blue-500/20',
+                  text: "text-blue-600 dark:text-blue-400",
+                  bg: "bg-blue-500/10 dark:bg-blue-500/5",
+                  border: "hover:border-blue-500/50",
+                  shadow: "hover:shadow-blue-500/20",
+                  glow: "bg-blue-500",
+                  icon: "text-blue-600 dark:text-blue-400 border-blue-500/20 bg-blue-500/10 group-hover:bg-blue-500/20",
                 },
                 emerald: {
-                  text: 'text-emerald-600 dark:text-emerald-400',
-                  bg: 'bg-emerald-500/10 dark:bg-emerald-500/5',
-                  border: 'hover:border-emerald-500/50',
-                  shadow: 'hover:shadow-emerald-500/20',
-                  glow: 'bg-emerald-500',
-                  icon: 'text-emerald-600 dark:text-emerald-400 border-emerald-500/20 bg-emerald-500/10 group-hover:bg-emerald-500/20',
+                  text: "text-emerald-600 dark:text-emerald-400",
+                  bg: "bg-emerald-500/10 dark:bg-emerald-500/5",
+                  border: "hover:border-emerald-500/50",
+                  shadow: "hover:shadow-emerald-500/20",
+                  glow: "bg-emerald-500",
+                  icon: "text-emerald-600 dark:text-emerald-400 border-emerald-500/20 bg-emerald-500/10 group-hover:bg-emerald-500/20",
                 },
               };
 
@@ -544,7 +546,9 @@ const AboutPage: React.FC = () => {
                   >
                     {stat.icon}
                   </div>
-                  <div className={`relative z-10 text-5xl md:text-6xl font-black mb-3 transition-colors duration-500 ${style.text}`}>
+                  <div
+                    className={`relative z-10 text-5xl md:text-6xl font-black mb-3 transition-colors duration-500 ${style.text}`}
+                  >
                     <AnimatedCounter value={stat.value} />+
                   </div>
                   <div className="relative z-10 text-zinc-500 dark:text-zinc-400 font-black uppercase tracking-[0.2em] text-xs">
@@ -577,95 +581,107 @@ const AboutPage: React.FC = () => {
 
               {[
                 {
-                  title: 'Deep Learning Foundation',
+                  title: "Deep Learning Foundation",
                   description:
-                    'Our agents are built on advanced neural network architectures, trained on vast datasets to recognize patterns and make intelligent decisions.',
-                  color: 'indigo',
+                    "Our agents are built on advanced neural network architectures, trained on vast datasets to recognize patterns and make intelligent decisions.",
+                  color: "indigo",
                 },
                 {
-                  title: 'Reinforcement Learning',
+                  title: "Reinforcement Learning",
                   description:
-                    'We use reinforcement learning techniques to enable our agents to learn from experiences and continuously improve their performance over time.',
-                  color: 'blue',
+                    "We use reinforcement learning techniques to enable our agents to learn from experiences and continuously improve their performance over time.",
+                  color: "blue",
                 },
                 {
-                  title: 'Knowledge Integration',
+                  title: "Knowledge Integration",
                   description:
-                    'Our systems integrate with your existing knowledge bases and data sources, leveraging your institutional knowledge to make better decisions.',
-                  color: 'emerald',
+                    "Our systems integrate with your existing knowledge bases and data sources, leveraging your institutional knowledge to make better decisions.",
+                  color: "emerald",
                 },
                 {
-                  title: 'Human-in-the-Loop Design',
+                  title: "Human-in-the-Loop Design",
                   description:
-                    'We design our AI agents to work collaboratively with humans, providing transparency into decision-making and allowing for oversight.',
-                  color: 'violet',
+                    "We design our AI agents to work collaboratively with humans, providing transparency into decision-making and allowing for oversight.",
+                  color: "violet",
                 },
                 {
-                  title: 'Continuous Improvement',
+                  title: "Continuous Improvement",
                   description:
-                    'Our agents are constantly learning and evolving, adapting to new data and changing business conditions to deliver ever-improving results.',
-                  color: 'rose',
+                    "Our agents are constantly learning and evolving, adapting to new data and changing business conditions to deliver ever-improving results.",
+                  color: "rose",
                 },
               ].map((step, index) => {
                 const colorMaps = {
                   indigo: {
-                    border: 'group-hover:border-indigo-500/50',
-                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(99,102,241,0.3)]',
-                    glow: 'from-indigo-500/10',
-                    numberBorder: 'border-indigo-500/50',
-                    numberText: 'text-indigo-600 dark:text-indigo-400',
-                    numberBg: 'bg-indigo-500/20',
-                    title: 'group-hover:text-indigo-600 dark:group-hover:text-indigo-400',
+                    border: "group-hover:border-indigo-500/50",
+                    shadow:
+                      "hover:shadow-[0_20px_60px_-12px_rgba(99,102,241,0.3)]",
+                    glow: "from-indigo-500/10",
+                    numberBorder: "border-indigo-500/50",
+                    numberText: "text-indigo-600 dark:text-indigo-400",
+                    numberBg: "bg-indigo-500/20",
+                    title:
+                      "group-hover:text-indigo-600 dark:group-hover:text-indigo-400",
                   },
                   blue: {
-                    border: 'group-hover:border-blue-500/50',
-                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(59,130,246,0.3)]',
-                    glow: 'from-blue-500/10',
-                    numberBorder: 'border-blue-500/50',
-                    numberText: 'text-blue-600 dark:text-blue-400',
-                    numberBg: 'bg-blue-500/20',
-                    title: 'group-hover:text-blue-600 dark:group-hover:text-blue-400',
+                    border: "group-hover:border-blue-500/50",
+                    shadow:
+                      "hover:shadow-[0_20px_60px_-12px_rgba(59,130,246,0.3)]",
+                    glow: "from-blue-500/10",
+                    numberBorder: "border-blue-500/50",
+                    numberText: "text-blue-600 dark:text-blue-400",
+                    numberBg: "bg-blue-500/20",
+                    title:
+                      "group-hover:text-blue-600 dark:group-hover:text-blue-400",
                   },
                   emerald: {
-                    border: 'group-hover:border-emerald-500/50',
-                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(16,185,129,0.3)]',
-                    glow: 'from-emerald-500/10',
-                    numberBorder: 'border-emerald-500/50',
-                    numberText: 'text-emerald-600 dark:text-emerald-400',
-                    numberBg: 'bg-emerald-500/20',
-                    title: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
+                    border: "group-hover:border-emerald-500/50",
+                    shadow:
+                      "hover:shadow-[0_20px_60px_-12px_rgba(16,185,129,0.3)]",
+                    glow: "from-emerald-500/10",
+                    numberBorder: "border-emerald-500/50",
+                    numberText: "text-emerald-600 dark:text-emerald-400",
+                    numberBg: "bg-emerald-500/20",
+                    title:
+                      "group-hover:text-emerald-600 dark:group-hover:text-emerald-400",
                   },
                   violet: {
-                    border: 'group-hover:border-violet-500/50',
-                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(139,92,246,0.3)]',
-                    glow: 'from-violet-500/10',
-                    numberBorder: 'border-violet-500/50',
-                    numberText: 'text-violet-600 dark:text-violet-400',
-                    numberBg: 'bg-violet-500/20',
-                    title: 'group-hover:text-violet-600 dark:group-hover:text-violet-400',
+                    border: "group-hover:border-violet-500/50",
+                    shadow:
+                      "hover:shadow-[0_20px_60px_-12px_rgba(139,92,246,0.3)]",
+                    glow: "from-violet-500/10",
+                    numberBorder: "border-violet-500/50",
+                    numberText: "text-violet-600 dark:text-violet-400",
+                    numberBg: "bg-violet-500/20",
+                    title:
+                      "group-hover:text-violet-600 dark:group-hover:text-violet-400",
                   },
                   rose: {
-                    border: 'group-hover:border-rose-500/50',
-                    shadow: 'hover:shadow-[0_20px_60px_-12px_rgba(244,63,94,0.3)]',
-                    glow: 'from-rose-500/10',
-                    numberBorder: 'border-rose-500/50',
-                    numberText: 'text-rose-600 dark:text-rose-400',
-                    numberBg: 'bg-rose-500/20',
-                    title: 'group-hover:text-rose-600 dark:group-hover:text-rose-400',
+                    border: "group-hover:border-rose-500/50",
+                    shadow:
+                      "hover:shadow-[0_20px_60px_-12px_rgba(244,63,94,0.3)]",
+                    glow: "from-rose-500/10",
+                    numberBorder: "border-rose-500/50",
+                    numberText: "text-rose-600 dark:text-rose-400",
+                    numberBg: "bg-rose-500/20",
+                    title:
+                      "group-hover:text-rose-600 dark:group-hover:text-rose-400",
                   },
                 };
 
-                const style = colorMaps[step.color as keyof typeof colorMaps] || colorMaps.indigo;
+                const style =
+                  colorMaps[step.color as keyof typeof colorMaps] ||
+                  colorMaps.indigo;
 
                 return (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: false, margin: '-100px' }}
+                    viewport={{ once: false, margin: "-100px" }}
                     transition={{
                       duration: 0.8,
-                      type: 'spring',
+                      type: "spring",
                       stiffness: 50,
                       delay: 0.1,
                     }}
