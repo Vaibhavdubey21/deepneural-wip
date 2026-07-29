@@ -18,8 +18,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'About', path: '/about-us' },
+    { name: 'Real Estate', path: '/real-estate' },
     { name: 'Services', path: '/services' },
-    { name: 'Clients', path: '/clients' },
+    { name: 'Our Work', path: '/clients' },
+    { name: 'Resources', path: '/resources' },
   ];
 
   useEffect(() => {

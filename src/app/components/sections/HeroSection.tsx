@@ -1,7 +1,8 @@
+'use client';
+
 import { Highlight } from '@/components/ui/hero-highlight';
 import { WavyBackground } from '@/components/ui/wavy-background';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../Button';
 
@@ -18,10 +19,10 @@ function HeroSection() {
                 transition={{ duration: 0.5 }}
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-6 text-black dark:text-white text-center">
-                  Innovating Tomorrow’s
+                  AI-enabled Real Estate Investment
                   <br />
                   <Highlight className="text-black dark:text-white">
-                    AI Solutions
+                    Operations Company
                   </Highlight>
                 </h1>
               </motion.div>
@@ -30,28 +31,34 @@ function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-xl text-light-dark mb-8 max-w-lg text-center mx-auto"
+                className="text-xl text-light-dark mb-8 max-w-2xl text-center mx-auto"
               >
-                DeepNeural is pioneering autonomous AI agents that transform how
-                businesses operate. Our cutting-edge solutions deliver
-                unprecedented efficiency and intelligence.
+                We help US real estate investors close more deals by combining
+                trained offshore operations specialists with AI automation.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex flex-wrap justify-center"
+                className="flex flex-wrap justify-center gap-4"
               >
-                <Link href="/services">
+                <Link href="/contact-us">
                   <Button
                     variant="primary"
                     size="lg"
-                    icon={<ArrowRight size={18} />}
-                    iconPosition="right"
-                    className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all !text-white bg-black dark:bg-white"
+                    className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all !text-white bg-black dark:bg-white dark:!text-black"
                   >
-                    Explore Our Solutions
+                    Book a Consultation
+                  </Button>
+                </Link>
+                <Link href="/clients">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="transition-all"
+                  >
+                    See Our Work
                   </Button>
                 </Link>
               </motion.div>

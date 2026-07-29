@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"F:\\\\Nandini_folder\\\\DNT\\\\deepneural\")",
+      "Bash(python3 -c ' *)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}
