@@ -85,8 +85,8 @@ const AboutPage: React.FC = () => {
     <div>
       <HeaderSection
         title="About DeepNeural"
-        subtitle="Pioneering the future of AI agents to solve complex business
-            challenges"
+        subtitle="Helping real estate investment firms and modern businesses
+            grow through Artificial Intelligence and Custom Software Development"
       />
 
       {/* Mission and Vision */}
@@ -150,16 +150,18 @@ const AboutPage: React.FC = () => {
               </div>
 
               <p className="mt-6 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                To become the world’s leading force in AI-driven automation,
-                empowering organizations to modernize operations, elevate
-                decision-making, and achieve breakthrough performance.
+                To become a leading technology partner for real estate
+                investment firms and modern businesses, helping them
+                modernize operations, elevate decision-making, and achieve
+                breakthrough performance through AI, custom software, and
+                automation.
               </p>
 
               <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
                 <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400 italic">
-                  &quot;We envision AI agents as trusted partners in every
-                  organization—autonomous when appropriate, transparent always,
-                  and guided by human oversight.&quot;
+                  &quot;We envision technology as a trusted partner in every
+                  organization—practical when applied, transparent always,
+                  and guided by real business needs.&quot;
                 </p>
               </div>
             </motion.div>
@@ -205,21 +207,20 @@ const AboutPage: React.FC = () => {
               </div>
 
               <p className="mt-6 text-base md:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                Our mission is to empower organizations with AI-driven agentic
-                automation that integrates effortlessly into their existing
-                workflows. By innovating scalable solutions across HR,
-                e-commerce, healthcare, digital marketing, customer support
-                etc., we help businesses operate smarter, faster, and more
-                efficiently. Through continuous R&D, we expand our automation
-                capabilities to unlock new possibilities for every industry we
-                serve.
+                Our mission is to help businesses leverage Real Estate
+                Investment technology, Artificial Intelligence, and Custom
+                Software Development to improve efficiency, simplify
+                operations, and support sustainable growth. By building
+                scalable solutions across real estate, healthcare, financial
+                services, and enterprise teams, we help businesses operate
+                smarter, faster, and more efficiently.
               </p>
 
               <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
                 <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400 italic">
-                  &quot;We build AI that works alongside humans—taking on
-                  repetitive and complex tasks so teams can focus on creative
-                  and strategic work.&quot;
+                  &quot;We build technology that works alongside teams—taking
+                  on repetitive and complex tasks so people can focus on
+                  creative and strategic work.&quot;
                 </p>
               </div>
             </motion.div>
@@ -570,7 +571,7 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
             title="Our Technology Approach"
-            subtitle="How we build autonomous AI agents that deliver real business value"
+            subtitle="How we build practical AI and software solutions that deliver real business value"
             centered
           />
 
@@ -744,8 +745,8 @@ const AboutPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Partner with DeepNeural to transform your business with
-              cutting-edge AI agent technology.
+              Partner with DeepNeural to transform your business with AI,
+              custom software, and automation.
             </motion.p>
 
             <motion.div
@@ -755,7 +756,7 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-wrap justify-center gap-4"
             >
-              <Link href="/contact">
+              <Link href="/contact-us">
                 <Button
                   variant="secondary"
                   size="lg"

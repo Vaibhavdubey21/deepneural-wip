@@ -39,7 +39,7 @@ function HeaderSection({
           'radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 40%, .12) 0, hsla(210, 100%, 20%, .04) 80%, transparent 100%)',
       };
   return (
-    <div className="relative min-h-[50vh] md:h-90 w-full rounded-md flex flex-col items-center justify-center bg-white dark:bg-black">
+    <div className="relative min-h-[70vh] w-full rounded-md flex flex-col items-center justify-center bg-white dark:bg-black pt-32">
       <div className="hidden md:block">
         <Spotlight
           gradientFirst={spotlightGradients.gradientFirst}
@@ -49,7 +49,7 @@ function HeaderSection({
         />
       </div>
       <div className="mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mt-32">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

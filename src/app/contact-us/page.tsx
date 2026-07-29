@@ -15,7 +15,7 @@ const ContactPage: React.FC = () => {
       {/* Hero Section */}
       <HeaderSection
         title="Contact Us"
-        subtitle="Get in touch with our team to discuss how our AI agents can transform your business"
+        subtitle="Get in touch with our team to discuss how AI, custom software, and automation can transform your business"
       />
 
       {/* Contact Information */}
@@ -138,7 +138,7 @@ const ContactPage: React.FC = () => {
               </motion.div>
             </div>
 
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2" id="contact-form">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -169,14 +169,14 @@ const ContactPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto">
             {[
               {
-                question: 'How quickly can you deploy an AI agent solution?',
+                question: 'How quickly can you deploy an AI or software solution?',
                 answer:
                   'Deployment timelines vary based on complexity, but most solutions can be implemented within 4-12 weeks. Simple integrations may be faster, while more complex enterprise-wide deployments may take longer.',
               },
               {
-                question: 'Do your AI agents require extensive training?',
+                question: 'Do your AI solutions require extensive configuration?',
                 answer:
-                  'Our agents are pre-trained on general knowledge but require specific training on your business data and processes. The amount of training depends on the complexity of your use case, but we handle this process for you.',
+                  'Our AI solutions are built on strong foundations but require specific configuration on your business data and processes. The amount of setup depends on the complexity of your use case, but we handle this process for you.',
               },
               {
                 question: 'How do you ensure data security and privacy?',
@@ -185,13 +185,13 @@ const ContactPage: React.FC = () => {
               },
               {
                 question:
-                  'Can your AI agents integrate with our existing systems?',
+                  'Can your AI and software solutions integrate with our existing systems?',
                 answer:
-                  'Yes, our AI agents are designed to integrate seamlessly with most common business systems and can be customized to work with proprietary systems through our API framework.',
+                  'Yes, our solutions are designed to integrate seamlessly with most common business systems and can be customized to work with proprietary systems through our API framework.',
               },
               {
                 question:
-                  'What kind of ROI can we expect from implementing your AI agents?',
+                  'What kind of ROI can we expect from implementing your solutions?',
                 answer:
                   'ROI varies by industry and use case, but our clients typically see returns within 4-8 months. We work with you to establish clear KPIs and measure the impact of our solutions on your business.',
               },
@@ -228,7 +228,7 @@ const ContactPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              Ready to Start Your AI Journey?
+              Ready to Start Your Technology Journey?
             </motion.h2>
 
             <motion.p
@@ -238,8 +238,8 @@ const ContactPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Our team is ready to help you harness the power of AI agents for
-              your business.
+              Our team is ready to help you harness the power of AI, custom
+              software, and automation for your business.
             </motion.p>
 
             <motion.div
@@ -249,7 +249,7 @@ const ContactPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex justify-center"
             >
-              <Link href="/#contact-form">
+              <Link href="#contact-form">
                 <Button
                   variant="secondary"
                   size="lg"

@@ -17,11 +17,13 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
-    { name: 'About', path: '/about-us' },
-    { name: 'Real Estate', path: '/real-estate' },
+    { name: 'Home', path: '/' },
+    { name: 'Real Estate Investment', path: '/real-estate' },
     { name: 'Services', path: '/services' },
-    { name: 'Our Work', path: '/clients' },
+    { name: 'Our Work', path: '/our-work' },
+    { name: 'Clients', path: '/clients' },
     { name: 'Resources', path: '/resources' },
+    { name: 'About', path: '/about-us' },
   ];
 
   useEffect(() => {
@@ -73,27 +75,29 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.path}
-              className="text-md font-medium pb-0.5 border-b-2 border-b-transparent hover:border-b-primary transition-colors duration-300 inline-block"
-            >
-              <span className="block hover:-translate-y-1 transition-transform duration-300">
-                {link.name}
-              </span>
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden md:flex absolute right-4 items-center gap-6">
+          <nav className="flex items-center space-x-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.path}
+                className="text-md font-medium pb-0.5 border-b-2 border-b-transparent hover:border-b-primary transition-colors duration-300 inline-block"
+              >
+                <span className="block hover:-translate-y-1 transition-transform duration-300">
+                  {link.name}
+                </span>
+              </Link>
+            ))}
+          </nav>
 
-        <div className="hidden md:flex absolute right-4 items-center space-x-1">
-          <ThemeToggle />
-          <Link href="/contact-us">
-            <Button className="p-2 !text-white dark:!text-black bg-black shadow-none dark:bg-white px-4">
-              Contact Us
-            </Button>
-          </Link>
+          <div className="flex items-center space-x-1">
+            <Link href="/contact-us">
+              <Button className="p-2 !text-white dark:!text-black bg-black shadow-none dark:bg-white px-4">
+                Contact Us
+              </Button>
+            </Link>
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Theme Toggle and Mobile Menu - Right */}

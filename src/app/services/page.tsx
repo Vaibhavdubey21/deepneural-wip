@@ -4,12 +4,12 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import {
   ArrowRight,
   Brain,
+  Building2,
   Code,
   Database,
   LineChart,
-  MessageSquare,
+  Network,
   Server,
-  Zap,
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
@@ -66,8 +66,8 @@ export default function ServicesPage() {
     <div>
       {/* Hero Section */}
       <HeaderSection
-        title="Our AI Services"
-        subtitle="Cutting-edge AI agent solutions tailored to your business needs"
+        title="Our Services"
+        subtitle="Practical AI, custom software, and automation solutions tailored to your business needs"
       />
       {/* Main Services */}
       <section className="py-24 bg-white dark:bg-black overflow-hidden relative" ref={coreRef}>
@@ -75,7 +75,7 @@ export default function ServicesPage() {
 
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
-            title="Core AI Agent Solutions"
+            title="Core Expertise"
             subtitle="Our flagship services that are transforming industries"
             centered
           />
@@ -83,13 +83,13 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-20 max-w-5xl mx-auto">
             {[
               {
-                icon: <Brain size={48} />,
-                title: 'AI Agents for Businesses',
-                description: 'Automating workflows, decision-making, and customer engagement.',
+                icon: <Building2 size={48} />,
+                title: 'Real Estate Investment Solutions',
+                description: 'Digital platforms and internal tools built for how investment firms operate.',
                 features: [
-                  'Build intelligent agents for customer support, sales, and lead generation.',
+                  'Deal management tools, investor portals, and custom dashboards.',
                   'Automate repetitive tasks to save time and reduce operational costs.',
-                  'Enable real-time decision-making with AI-driven insights.',
+                  'Centralize business information for faster, better-informed decisions.',
                 ],
                 color: 'indigo',
                 style: {
@@ -100,13 +100,13 @@ export default function ServicesPage() {
                 }
               },
               {
-                icon: <MessageSquare size={48} />,
-                title: 'AI SaaS Development',
-                description: 'Scalable AI-powered SaaS platforms tailored for modern businesses.',
+                icon: <Brain size={48} />,
+                title: 'Artificial Intelligence',
+                description: 'AI-powered capabilities that assist analysis, automation, and decision support.',
                 features: [
-                  'Develop cloud-native SaaS platforms with AI at the core.',
-                  'Ensure scalability, security, and high availability for enterprise users.',
-                  'Provide subscription-based AI solutions with seamless user experience.',
+                  'AI document processing, intelligent search, and workflow automation.',
+                  'AI assistants that help teams access information faster.',
+                  'Practical AI built around real business use cases, not hype.',
                 ],
                 color: 'blue',
                 style: {
@@ -170,7 +170,7 @@ export default function ServicesPage() {
       <section className="py-24 bg-zinc-50/50 dark:bg-zinc-950/50 overflow-hidden relative" ref={specializedRef}>
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading
-            title="Specialized AI Services"
+            title="Specialized Services"
             subtitle="Targeted solutions for specific business challenges"
             centered
           />
@@ -178,9 +178,9 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-16">
             {[
               {
-                icon: <Zap size={36} />,
-                title: 'Process Automation',
-                description: 'Streamline operations with intelligent automation of repetitive and complex processes.',
+                icon: <Code size={36} />,
+                title: 'Custom Software Development',
+                description: 'Secure, scalable applications built around your specific business processes.',
                 color: 'amber',
                 bgHover: 'group-hover:bg-amber-500/25',
                 iconColor: 'text-amber-600 dark:text-amber-400',
@@ -189,9 +189,9 @@ export default function ServicesPage() {
                 style: 'group-hover:shadow-amber-500/10 group-hover:border-amber-500/30'
               },
               {
-                icon: <Code size={36} />,
-                title: 'Custom AI Development',
-                description: 'Bespoke AI solutions tailored to your unique business requirements and challenges.',
+                icon: <Network size={36} />,
+                title: 'Business Automation & Integration',
+                description: 'Connect systems, automate repetitive activities, and reduce operational complexity.',
                 color: 'emerald',
                 bgHover: 'group-hover:bg-emerald-500/25',
                 iconColor: 'text-emerald-600 dark:text-emerald-400',
@@ -202,7 +202,7 @@ export default function ServicesPage() {
               {
                 icon: <Brain size={36} />,
                 title: 'AI Consulting',
-                description: 'Strategic guidance on implementing AI to transform your business operations.',
+                description: 'Strategic guidance on identifying and implementing the right AI capabilities for your business.',
                 color: 'violet',
                 bgHover: 'group-hover:bg-violet-500/25',
                 iconColor: 'text-violet-600 dark:text-violet-400',
@@ -211,9 +211,9 @@ export default function ServicesPage() {
                 style: 'group-hover:shadow-violet-500/10 group-hover:border-violet-500/30'
               },
               {
-                icon: <MessageSquare size={36} />,
-                title: 'Conversational AI',
-                description: 'Create natural, engaging interactions between your systems and users.',
+                icon: <LineChart size={36} />,
+                title: 'Business Intelligence',
+                description: 'Turn business data into meaningful insights that support planning and decision-making.',
                 color: 'cyan',
                 bgHover: 'group-hover:bg-cyan-500/25',
                 iconColor: 'text-cyan-600 dark:text-cyan-400',
@@ -278,7 +278,7 @@ export default function ServicesPage() {
                 icon: <Brain size={24} />,
                 title: 'Discovery',
                 subtitle: 'Goals & Assessment',
-                description: 'We begin by understanding your business, challenges, and goals. Our team conducts a thorough assessment to identify opportunities where AI agents can create the most value.',
+                description: 'We begin by understanding your business, challenges, and goals. Our team conducts a thorough assessment to identify opportunities where AI and software can create the most value.',
                 y: step1Y,
                 opacity: step1Opacity,
                 color: 'text-indigo-600 dark:text-indigo-400',
@@ -308,7 +308,7 @@ export default function ServicesPage() {
                 icon: <Database size={24} />,
                 title: 'Develop',
                 subtitle: 'Coding & Training',
-                description: 'We develop your AI agents and train them using your data, continuously refining their capabilities to ensure they meet your performance requirements.',
+                description: 'We build and train your solution using your data, continuously refining it to ensure it meets your performance requirements.',
                 y: step3Y,
                 opacity: step3Opacity,
                 color: 'text-emerald-600 dark:text-emerald-400',
@@ -338,7 +338,7 @@ export default function ServicesPage() {
                 icon: <LineChart size={24} />,
                 title: 'Monitor',
                 subtitle: 'Support & Scale',
-                description: 'After deployment, we continuously monitor the performance of your AI agents, making adjustments and improvements to maximize their effectiveness.',
+                description: 'After deployment, we continuously monitor the performance of your solution, making adjustments and improvements to maximize its effectiveness.',
                 y: step5Y,
                 opacity: step5Opacity,
                 color: 'text-rose-600 dark:text-rose-400',
@@ -409,8 +409,8 @@ export default function ServicesPage() {
             </motion.h2>
 
             <motion.p className="text-xl mb-8 text-zinc-400">
-              Contact us today to discuss how our AI agents can help you achieve
-              your business goals.
+              Contact us today to discuss how AI, custom software, and
+              automation can help you achieve your business goals.
             </motion.p>
 
             <motion.div className="flex flex-wrap justify-center gap-4">
@@ -426,7 +426,7 @@ export default function ServicesPage() {
                 </Button>
               </Link>
 
-              <Link href="/clients">
+              <Link href="/our-work">
                 <Button
                   variant="outline"
                   size="lg"
