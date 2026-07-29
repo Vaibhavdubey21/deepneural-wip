@@ -69,7 +69,7 @@ function ServicesSection() {
           <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
             Every service we offer is built around a single objective: turning
             your firm into a capital-raising machine that runs without consuming
-            your principals' time.
+            your principals&apos; time.
           </p>
         </motion.div>
 
