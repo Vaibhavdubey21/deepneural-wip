@@ -6,51 +6,67 @@ import Link from 'next/link';
 
 const whoWeWorkWith = [
   {
-    title: 'Multifamily Syndicators and Operators',
+    title: 'Multifamily Syndicators & Operators',
     description:
-      'You are raising capital from accredited investors and you need a credible, consistent presence that makes people want to invest with you. We build the full system around that goal.',
+      'Supporting businesses with software, AI, automation, and digital solutions that improve operations, communication, and workflow management.',
   },
   {
     title: 'Real Estate Investment Firms',
     description:
-      'Whether you are managing a fund, running a joint venture, or syndicating deals, we help you build the investor pipeline and the brand presence that serious capital allocators expect to see.',
+      'Helping investment firms streamline business processes, centralise information, improve collaboration, and strengthen their digital capabilities.',
   },
   {
-    title: 'Assisted Living and Senior Housing Operators',
+    title: 'Real Estate Developers',
     description:
-      'We help operators in this niche build investor confidence through professional content, clear communication, and a digital presence that reflects the quality of your portfolio.',
+      'Building technology that supports project coordination, document management, operational workflows, and business growth.',
   },
   {
-    title: 'Developers Seeking Capital Partners',
+    title: 'Asset Managers & Property Management Companies',
     description:
-      'If you are actively raising equity for development projects, we build the materials, the outreach systems, and the content programs that get qualified partners to the table.',
+      'Developing solutions that improve operational visibility, organise business information, automate repetitive activities, and support efficient day-to-day management.',
   },
 ];
 
-const problems = [
+const valueAreas = [
   {
-    title: 'Inconsistent Outreach',
+    title: 'Business Operations',
     description:
-      'Investor communications are scattered across emails, social posts, and one-off conversations with no unified strategy and no way to track what is working. Serious investors notice.',
+      'Simplify internal processes, reduce manual work, and improve collaboration across teams.',
   },
   {
-    title: 'Wasted Principal Time',
+    title: 'Workflow Automation',
     description:
-      'Your partners and principals are spending hours every week building decks, writing emails, and posting content instead of closing deals and managing assets.',
+      'Automate repetitive business activities to save time, improve consistency, and increase productivity.',
   },
   {
-    title: 'No Qualified Investor Pipeline',
+    title: 'Information Management',
     description:
-      'There is no system in place to consistently attract, qualify, and nurture accredited investors through a predictable funnel.',
+      'Organise business information through connected systems that make data easier to access, manage, and use.',
   },
   {
-    title: 'Outdated Brand Presence',
+    title: 'Digital Presence',
     description:
-      'Your website, your decks, and your content look like they were put together in a hurry. To a sophisticated capital allocator, that signals risk before they even read the numbers.',
+      "Strengthen your online presence with a professional website, business content, and digital experiences that reflect your organisation's capabilities.",
+  },
+  {
+    title: 'Business Intelligence',
+    description:
+      'Transform business data into meaningful insights that support planning, reporting, and informed decision-making.',
+  },
+  {
+    title: 'Scalable Technology',
+    description:
+      'Build software and digital infrastructure that grows alongside your business and supports future expansion.',
   },
 ];
 
-const funnelSteps = ['Acquire', 'Engage', 'Nurture', 'Convert', 'Scale'];
+const approachSteps = [
+  'Understand Your Business',
+  'Plan the Right Solution',
+  'Design & Develop',
+  'Integrate & Automate',
+  'Support Continuous Improvement',
+];
 
 function RealEstateSection() {
   return (
@@ -67,14 +83,44 @@ function RealEstateSection() {
             Real Estate Investment
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">
-            Most Real Estate Investment Firms Are Leaving Capital on the Table.
-            We Help Them Stop.
+            Technology That Supports Modern Real Estate Investment Businesses
           </h2>
+          <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 mb-4">
+            Real Estate Investment is one of DeepNeural&apos;s primary focus
+            areas. We help investment firms modernise their operations
+            through Artificial Intelligence, Custom Software Development,
+            Business Automation, and Digital Solutions designed to support
+            the way real estate businesses operate.
+          </p>
           <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            You have great deals. The problem is that serious capital allocators
-            do not know enough about you to trust you with their money yet.
-            DeepNeural builds the marketing, content, and investor engagement
-            infrastructure that changes that.
+            From managing business information and streamlining internal
+            workflows to improving digital presence and automating routine
+            processes, we develop practical technology that helps investment
+            teams work more efficiently, make informed decisions, and support
+            long-term business growth.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="mb-16 max-w-3xl"
+        >
+          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+            Understanding Your Business
+          </h3>
+          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Every Real Estate Investment business has its own investment
+            strategy, operational processes, and growth objectives. Whether
+            you&apos;re acquiring properties, managing assets, working with
+            investors, overseeing developments, or expanding your portfolio,
+            technology plays an important role in keeping your business
+            organised, connected, and scalable. At DeepNeural, we focus on
+            building solutions that align with the way Real Estate Investment
+            firms operate, helping teams simplify complex processes, improve
+            collaboration, and make better use of their business data.
           </p>
         </motion.div>
 
@@ -117,26 +163,23 @@ function RealEstateSection() {
           className="mb-16"
         >
           <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-8">
-            The Real Reason Good Deals Do Not Get Fully Funded
+            Where Technology Creates Value
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {problems.map((problem, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {valueAreas.map((area, index) => (
               <motion.div
-                key={problem.title}
+                key={area.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="rounded-2xl border border-orange-200 dark:border-orange-900/40 shadow-md hover:shadow-xl bg-white dark:bg-zinc-800 p-6 transition-shadow duration-300"
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                className="rounded-2xl border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl bg-white dark:bg-zinc-800 p-6 transition-shadow duration-300"
               >
-                <div className="flex items-start gap-3 mb-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-orange-500 flex-shrink-0 mt-1.5" />
-                  <h4 className="text-lg font-semibold text-zinc-900 dark:text-white">
-                    {problem.title}
-                  </h4>
-                </div>
-                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm pl-5">
-                  {problem.description}
+                <h4 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3">
+                  {area.title}
+                </h4>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {area.description}
                 </p>
               </motion.div>
             ))}
@@ -147,28 +190,40 @@ function RealEstateSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mb-16 max-w-3xl"
+        >
+          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+            Bringing Technology Together for Real Estate Investment
+          </h3>
+          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            We combine Artificial Intelligence, Custom Software Development,
+            Business Automation, System Integration, and Digital Solutions to
+            help Real Estate Investment firms build connected, efficient, and
+            future-ready businesses. Rather than implementing isolated tools,
+            we focus on creating technology ecosystems where software, data,
+            automation, and digital platforms work together to support
+            everyday business operations.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-zinc-800 p-8 md:p-10"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-4">
-            One Partner. Six Systems. A Fully Integrated Operations and Investor
-            Engagement Engine.
-          </h3>
-          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8 max-w-3xl">
-            We replace the patchwork of disconnected freelancers and generic
-            tools with one integrated system built specifically for real estate
-            investment firms. Our team combines trained offshore operations
-            specialists with AI-powered automation to cover every stage of the
-            investor journey.
+          <p className="text-sm font-medium tracking-wide text-zinc-500 dark:text-zinc-500 uppercase mb-3">
+            Our Approach
           </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-            {funnelSteps.map((step, index) => (
+          <div className="flex flex-wrap items-center gap-2 mb-8">
+            {approachSteps.map((step, index) => (
               <div key={step} className="flex items-center gap-2">
                 <span className="px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm border border-primary/20">
                   {step}
                 </span>
-                {index < funnelSteps.length - 1 && (
+                {index < approachSteps.length - 1 && (
                   <ArrowRight
                     size={16}
                     className="text-primary flex-shrink-0"
@@ -178,11 +233,20 @@ function RealEstateSection() {
             ))}
           </div>
 
+          <h4 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
+            Ready to Modernise Your Real Estate Investment Business?
+          </h4>
+          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 max-w-3xl">
+            Let&apos;s discuss how Artificial Intelligence, Custom Software
+            Development, and Business Automation can help your business
+            operate more efficiently and prepare for future growth.
+          </p>
+
           <Link
-            href="/services"
+            href="/real-estate"
             className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-200"
           >
-            See How Our System Works
+            Explore Our Real Estate Investment Solutions
             <ArrowRight size={16} />
           </Link>
         </motion.div>

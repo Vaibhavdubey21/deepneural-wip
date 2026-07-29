@@ -5,34 +5,34 @@ import { CheckCircle } from 'lucide-react';
 
 const reasons = [
   {
-    title: 'One Integrated Partner Instead of Five Disconnected Ones',
+    title: 'Industry-Oriented Perspective',
     description:
-      'You get a single team that owns your entire investor operations infrastructure. Campaign strategy, website, email sequences, podcast, social media, and presentations all work together because they were built together.',
+      'We take time to understand how your organisation operates before recommending or developing any solution. This helps us create software and digital experiences that reflect the way your business actually works.',
   },
   {
-    title: 'A Predictable Investor Acquisition Funnel',
+    title: 'Business Before Technology',
     description:
-      'Instead of relying on referrals and sporadic outreach, you get a structured system that consistently brings new accredited investors into your pipeline, qualifies them, and nurtures them toward a commitment.',
+      'Every recommendation starts with your goals, challenges, and priorities—not with a predefined product. The result is technology that supports your organisation instead of requiring your organisation to adapt to the technology.',
   },
   {
-    title: 'Strategy Built for Real Estate Investment',
+    title: 'Connected Thinking',
     description:
-      'We do not take a generic marketing playbook and dress it up for real estate. Everything we do is built from the ground up for the way accredited investors think and the trust signals they look for before they commit capital.',
+      'Web platforms, Artificial Intelligence, software applications, automation, and digital experiences deliver greater value when they work together. We design integrated solutions that connect these capabilities into a cohesive technology ecosystem rather than treating each project as a standalone implementation.',
   },
   {
-    title: 'Your Principals Stay Focused on Deals',
+    title: 'Quality Without Unnecessary Complexity',
     description:
-      'The biggest cost of doing investor marketing in-house is not the money. It is the hours your best people spend writing emails, building slides, and posting on LinkedIn instead of sourcing deals.',
+      'We believe good technology should be intuitive, reliable, and easy to maintain. Our focus is on developing solutions that integrate seamlessly into business operations and support long-term adoption across the organisation.',
   },
   {
-    title: 'A Premium Brand Presence That Signals Credibility',
+    title: 'Long-Term Collaboration',
     description:
-      'Sophisticated investors decide whether to take you seriously before they ever read your numbers. We make sure your website, content, and presentations all communicate: this is a firm that knows what it is doing.',
+      'We value lasting business relationships built on transparency, communication, and continuous improvement. As your business evolves, your technology should evolve with it.',
   },
   {
-    title: 'Built Exclusively for Real Estate',
+    title: 'A Foundation for Future Growth',
     description:
-      'Real estate investment is the only industry we serve with this system. That focus means we understand the compliance nuances, the investor psychology, and the asset-class-specific messaging that generalists always get wrong.',
+      'Our approach emphasises scalable architecture, adaptable systems, and thoughtful planning, helping organisations prepare for changing business requirements without frequent redevelopment.',
   },
 ];
 
@@ -51,13 +51,15 @@ function WhyChooseSection() {
             Why DeepNeural
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
-            What Working With Us Actually Looks Like Compared to the Alternative
+            A Different Approach to Building Business Technology
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-zinc-400">
-            Most firms trying to solve their investor marketing problem end up
-            with three to five disconnected freelancers, a pile of one-off
-            content, and still no real system. Here is the difference when you
-            work with us.
+            Technology projects are most successful when they begin with a
+            clear understanding of the business behind them. At DeepNeural,
+            we combine Real Estate Investment, Artificial Intelligence, and
+            Custom Software Development to create solutions that are aligned
+            with business objectives, practical to use, and designed for
+            long-term value.
           </p>
         </motion.div>
 
