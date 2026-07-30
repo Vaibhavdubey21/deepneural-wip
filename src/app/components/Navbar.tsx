@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Button from './Button';
-import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +20,6 @@ const Navbar = () => {
     { name: 'Real Estate Investment', path: '/real-estate' },
     { name: 'Services', path: '/services' },
     { name: 'Our Work', path: '/our-work' },
-    { name: 'Clients', path: '/clients' },
     { name: 'Resources', path: '/resources' },
     { name: 'About', path: '/about-us' },
   ];
@@ -96,13 +94,11 @@ const Navbar = () => {
                 Contact Us
               </Button>
             </Link>
-            <ThemeToggle />
           </div>
         </div>
 
-        {/* Theme Toggle and Mobile Menu - Right */}
+        {/* Mobile Menu - Right */}
         <div className="absolute md:hidden right-4 flex items-center justify-end space-x-3 z-60">
-          <ThemeToggle />
           <Button
             className="md:hidden text-black dark:text-white bg-transparent"
             onClick={toggleMenu}

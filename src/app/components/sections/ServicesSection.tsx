@@ -7,16 +7,16 @@ import Link from 'next/link';
 const services = [
   {
     number: '01',
-    name: 'Campaign Management',
+    name: 'Campaign Strategy and Execution',
     description:
       'We build multi-channel investor acquisition campaigns designed around your specific investor economics, not generic tactics. Every campaign is built to attract accredited investors and guide them through a structured journey from first click to funded commitment.',
     href: '/services',
   },
   {
     number: '02',
-    name: 'Investor Website Creation',
+    name: 'Business Website Development',
     description:
-      'Your website is the first thing a serious capital allocator evaluates. We build editorial-quality investor platforms that communicate your investment thesis with precision, establish trust from the first click, and convert interest into qualified inquiries.',
+      'Your website is the first thing a serious capital allocator evaluates. We build editorial-quality investor platforms that communicate your investment strategy with precision, establish trust from the first click, and convert interest into qualified inquiries.',
     href: '/services',
   },
   {
@@ -28,23 +28,37 @@ const services = [
   },
   {
     number: '04',
-    name: 'Video Podcast Production',
+    name: 'AI-Powered Video Podcast Production',
     description:
       'We manage the full production workflow so your principals become trusted voices in the real estate investment space without spending their own time on the logistics.',
     href: '/services',
   },
   {
     number: '05',
-    name: 'Social Media Management',
+    name: 'Social Media Marketing',
     description:
       'We build and manage content programs on LinkedIn and other platforms designed specifically for institutional-minded investors, establishing thought leadership and keeping your firm top of mind.',
     href: '/services',
   },
   {
     number: '06',
-    name: 'AI Assisted Presentations',
+    name: 'AI-Assisted Presentation Design',
     description:
       'We transform complex investment data into investor-ready narratives. Pitch decks, offering memorandums, investor updates, quarterly reports, and fully automated AI-generated newsletters.',
+    href: '/services',
+  },
+  {
+    number: '07',
+    name: 'Lead Generation',
+    description:
+      'Generate high-quality leads through targeted strategies that attract the right prospects and create new growth opportunities for your business.',
+    href: '/services',
+  },
+  {
+    number: '08',
+    name: 'CRM Automation',
+    description:
+      'Streamline your customer journey with automated workflows, lead tracking, and smart CRM solutions that improve efficiency and conversions.',
     href: '/services',
   },
 ];
@@ -67,9 +81,12 @@ function ServicesSection() {
             Six Systems. One Goal. More Capital Raised.
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Every service we offer is built around a single objective: turning
-            your firm into a capital-raising machine that runs without consuming
-            your principals&apos; time.
+            Our services are designed to help Real Estate Investment firms
+            strengthen their digital capabilities through Artificial
+            Intelligence, Custom Software Development, Business Automation,
+            and strategic digital solutions. We work as a technology partner,
+            delivering integrated systems that support efficient operations,
+            stronger digital presence, and long-term business growth.
           </p>
         </motion.div>
 

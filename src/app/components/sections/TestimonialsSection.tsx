@@ -3,6 +3,27 @@
 import { motion } from 'framer-motion';
 import { Quote, Star } from 'lucide-react';
 
+const testimonials = [
+  {
+    quote:
+      'The AI agents developed by DeepNeural have transformed our recruitment process, saving us countless hours and helping us find better candidates faster.',
+    author: 'Gaurav Gupta',
+    position: 'Recruitment Industry Leader, NeoSource',
+  },
+  {
+    quote:
+      "DeepNeural Technologies transformed our vision of a Syadvada Logic AI Chatbot into a powerful and intelligent solution. Their technical expertise, innovative AI architecture, and dedicated development support made a highly complex project successful.",
+    author: 'Dr. Pragati Jain',
+    position: 'Head of Mathematics',
+  },
+  {
+    quote:
+      'DeepNeural Technologies delivered outstanding digital content and design services for my book publication project. Their responsiveness to feedback and attention to detail made the entire process seamless.',
+    author: 'Ranjana Sehgal',
+    position: 'POSH & CSR Consultant, Independent Director',
+  },
+];
+
 const stats = [
   {
     value: 'xx+',
@@ -41,41 +62,40 @@ function TestimonialsSection() {
           </h2>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="max-w-2xl mb-16"
-        >
-          <div className="rounded-2xl border border-slate-700 shadow-md bg-zinc-900 p-8">
-            <div className="mb-4 text-primary">
-              <Quote size={32} />
-            </div>
-            <p className="text-zinc-300 text-lg leading-relaxed italic mb-6">
-              &quot;The AI agents developed by DeepNeural have transformed our
-              recruitment process, saving us countless hours and helping us find
-              better candidates faster.&quot;
-            </p>
-            <div className="flex items-center justify-between">
-              <div>
-                <h4 className="font-bold text-white">Gaurav Gupta</h4>
-                <p className="text-sm text-zinc-400">
-                  Recruitment Industry Leader, NeoSource
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.author}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              className="rounded-2xl border border-slate-700 shadow-md bg-zinc-900 p-8 flex flex-col"
+            >
+              <div className="mb-4 text-primary">
+                <Quote size={32} />
               </div>
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={16}
-                    className="text-yellow-500 fill-current"
-                  />
-                ))}
+              <p className="text-zinc-300 text-base leading-relaxed italic mb-6 flex-1">
+                &quot;{testimonial.quote}&quot;
+              </p>
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <h4 className="font-bold text-white">{testimonial.author}</h4>
+                  <p className="text-sm text-zinc-400">{testimonial.position}</p>
+                </div>
+                <div className="flex shrink-0">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={14}
+                      className="text-yellow-500 fill-current"
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -83,7 +103,7 @@ function TestimonialsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="text-2xl font-bold text-white mb-8">By the Numbers</h3>
+          <h3 className="text-2xl font-bold text-white mb-8">DeepNeural at a Glance</h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <motion.div

@@ -81,7 +81,7 @@ function OurWorkSection() {
           className="mb-12"
         >
           <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-8">
-            What We Help Real Estate Investment Firms Do
+            Technology Use Cases for Real Estate Investment
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {useCases.map((useCase, index) => (
@@ -112,7 +112,7 @@ function OurWorkSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center"
         >
-          <Link href="/clients">
+          <Link href="/our-work">
             <Button variant="primary" size="lg" className="!text-white">
               View All Our Work
             </Button>

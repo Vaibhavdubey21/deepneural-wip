@@ -29,13 +29,13 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-24 -mb-24 pointer-events-none" />
         <div className="container mx-auto relative z-10 text-center max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Stop Leaving Capital on the Table?
+            Transform the Way Your Real Estate Investment Business Operates
           </h2>
           <p className="text-lg md:text-xl text-zinc-400 mb-10 leading-relaxed">
-            If your firm has great deals but your investor pipeline is
-            inconsistent, your brand does not reflect the quality of your
-            portfolio, or your principals are spending too much time on
-            marketing and operations instead of closing, we should talk.
+            Whether you&apos;re looking to modernise operations, strengthen
+            your digital presence, implement Artificial Intelligence, or build
+            custom software for your Real Estate Investment business, we&apos;re
+            here to help you find the right technology solution.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link href="/contact-us">
@@ -60,8 +60,8 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="text-zinc-500 text-sm">
-            Built exclusively for real estate investment firms in the United
-            States.
+            Partnering with Real Estate Investment firms in the United States
+            to build AI-powered and custom technology solutions.
           </p>
         </div>
       </section>

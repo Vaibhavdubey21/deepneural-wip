@@ -59,9 +59,10 @@ function TechStackSection() {
             The AI Tools and Operational Infrastructure Behind Our System
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Every piece of our stack is chosen because it does a specific job
-            better than the alternative, and our offshore operations team makes
-            sure each tool is working at full capacity.
+            Our technology stack combines Artificial Intelligence, modern
+            development frameworks, automation platforms, and cloud
+            infrastructure to build secure, scalable, and connected solutions
+            for Real Estate Investment firms and other businesses.
           </p>
         </motion.div>
 

@@ -53,8 +53,9 @@ function ResourcesSection() {
             Insights for Real Estate Investment Leaders
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            We share what we know about investor marketing, AI-powered content,
-            and what actually moves accredited investors to commit.
+            We share insights, practical ideas, and industry perspectives on
+            Real Estate Investment, Artificial Intelligence, Custom Software
+            Development, and the technologies shaping modern businesses.
           </p>
         </motion.div>
 

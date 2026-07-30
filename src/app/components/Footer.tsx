@@ -89,30 +89,29 @@ const Footer: React.FC = () => {
                 Services
               </h3>
               <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/services"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span className="whitespace-nowrap">AI Agent Development</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span>AI Integration</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
+                {[
+                  'Campaign Strategy and Execution',
+                  'Business Website Development',
+                  'Drip Sequence Management',
+                  'AI-Powered Video Podcast Production',
+                  'Social Media Marketing',
+                  'AI-Assisted Presentation Design',
+                  'Lead Generation',
+                  'CRM Automation',
+                ].map((service) => (
+                  <li key={service}>
+                    <Link
+                      href="/services"
+                      className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-start group"
+                    >
+                      <span>{service}</span>
+                      <ArrowRight
+                        size={14}
+                        className="ml-2 mt-0.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                      />
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -160,19 +159,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    href="/clients"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span>Clients</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
+                    href="/contact-us"
                     className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
                   >
                     <span>Contact</span>
@@ -258,7 +245,7 @@ const Footer: React.FC = () => {
                 href="/terms"
                 className="text-xs hover:text-primary transition-colors"
               >
-                Terms of Service
+                Terms &amp; Conditions
               </Link>
             </div>
           </div>
