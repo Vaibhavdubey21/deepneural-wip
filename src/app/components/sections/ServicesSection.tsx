@@ -78,7 +78,7 @@ function ServicesSection() {
             Our Services
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">
-            Six Systems. One Goal. More Capital Raised.
+            Eight Systems. One Goal. More Capital Raised.
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
             Our services are designed to help Real Estate Investment firms

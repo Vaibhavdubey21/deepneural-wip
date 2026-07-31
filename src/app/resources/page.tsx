@@ -5,6 +5,7 @@ import { ArrowRight, Brain, Building2, Code } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../components/Button';
 import HeaderSection from '../components/sections/HeaderSection';
+import { posts } from './posts';
 
 const categories = [
   {
@@ -77,17 +78,56 @@ export default function ResourcesPage() {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-2xl border-2 border-dashed border-gray-200 dark:border-slate-700 bg-white dark:bg-zinc-900 p-12 text-center"
-          >
-            <p className="text-zinc-400 dark:text-zinc-500 text-sm font-medium">
-              New articles coming soon
-            </p>
-          </motion.div>
+          {posts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {posts
+                .slice()
+                .sort(
+                  (a, b) =>
+                    new Date(b.date).getTime() - new Date(a.date).getTime()
+                )
+                .map((post, index) => (
+                  <motion.div
+                    key={post.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 * index }}
+                  >
+                    <Link
+                      href={`/resources/${post.slug}`}
+                      className="group flex flex-col h-full rounded-2xl border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl bg-white dark:bg-zinc-800 p-6 transition-shadow duration-300"
+                    >
+                      <p className="text-xs font-medium tracking-wide text-primary uppercase mb-3">
+                        {post.category}
+                      </p>
+                      <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm mb-4 flex-1">
+                        {post.excerpt}
+                      </p>
+                      <span className="inline-flex items-center gap-2 text-sm font-medium text-primary">
+                        Read More
+                        <ArrowRight size={14} />
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="rounded-2xl border-2 border-dashed border-gray-200 dark:border-slate-700 bg-white dark:bg-zinc-900 p-12 text-center"
+            >
+              <p className="text-zinc-400 dark:text-zinc-500 text-sm font-medium">
+                New articles coming soon
+              </p>
+            </motion.div>
+          )}
         </div>
       </section>
 

@@ -1,15 +1,18 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { Fragment } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Button from './Button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
   const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -46,8 +49,24 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const scrolledDown = currentY > lastScrollY.current;
+      setHidden(scrolledDown && currentY > 120);
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="fixed top-0 w-screen z-40 dark:bg-black bg-white pb-8">
+    <Fragment>
+    <motion.div
+      animate={{ y: hidden && !isOpen ? '-100%' : '0%' }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      className="fixed top-0 w-screen z-40 backdrop-blur-xl backdrop-saturate-150 bg-white/25 dark:bg-black/25 border-b border-white/40 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.06)] before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none dark:before:from-white/5 pb-8">
       {/* Navbar content */}
       <div className="relative z-10 mx-4 px-4 mt-14 mb-4 flex items-center">
         <Link
@@ -108,6 +127,7 @@ const Navbar = () => {
           </Button>
         </div>
       </div>
+    </motion.div>
 
       {/* Mobile Navigation */}
       <AnimatePresence>
@@ -158,7 +178,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </Fragment>
   );
 };
 

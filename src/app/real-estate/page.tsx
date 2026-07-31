@@ -2,30 +2,29 @@
 
 import { motion } from 'framer-motion';
 import {
-  ArrowRight,
-  BarChart3,
-  Briefcase,
+  Award,
+  Boxes,
   Brain,
+  Briefcase,
+  BookOpen,
   Building2,
-  CheckCircle,
   Code,
   Database,
   Eye,
   FileBarChart,
-  FileSearch,
   FileText,
-  Handshake,
+  HardHat,
+  Landmark,
   Layers,
   LineChart,
-  MessageSquare,
   Network,
-  Search,
+  Rocket,
   Server,
   TrendingUp,
   Users,
   Workflow,
-  Zap,
   type LucideIcon,
+  ArrowRight,
 } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -36,176 +35,269 @@ import { useTheme } from '../components/ThemeProvider';
 const challenges: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: Database,
-    title: 'Manual Data Management',
+    title: 'Fragmented Business Information',
     description:
-      'Managing property, investor, and operational data across multiple systems can reduce efficiency.',
+      'Property, investor, financial, and operational information is often spread across multiple systems, making it difficult to access accurate data, maintain consistency, and support informed business decisions.',
   },
   {
-    icon: BarChart3,
-    title: 'Complex Reporting',
+    icon: FileBarChart,
+    title: 'Time-Intensive Reporting',
     description:
-      'Generating investment reports, performance analysis, and updates requires significant time and effort.',
+      'Preparing investment updates, portfolio performance reports, operational summaries, and business insights can require significant manual effort, reducing the time available for higher-value activities.',
   },
   {
     icon: FileText,
-    title: 'Document-Heavy Processes',
+    title: 'Growing Document Complexity',
     description:
-      'Investment firms handle large volumes of documents including agreements, reports, and financial records.',
+      'From due diligence materials and investment documents to contracts, compliance records, and operational files, managing large volumes of business information becomes increasingly challenging as portfolios expand.',
   },
   {
     icon: Network,
-    title: 'Disconnected Systems',
-    description: 'Multiple tools and platforms can create fragmented workflows.',
+    title: 'Disconnected Operational Workflows',
+    description:
+      'Business processes often span multiple applications, requiring teams to switch between systems, duplicate information, and manually coordinate tasks across departments.',
   },
   {
     icon: Eye,
-    title: 'Limited Business Visibility',
+    title: 'Limited Operational Visibility',
     description:
-      'Without centralized dashboards, decision-makers lack real-time insights.',
+      'Without connected data and centralised reporting, leadership teams may lack timely visibility into business performance, operational activities, and key information needed to support strategic decision-making.',
   },
   {
     icon: TrendingUp,
-    title: 'Scaling Operations',
+    title: "Technology That Doesn't Scale",
     description:
-      'Growing investment portfolios require technology that can scale with business needs.',
+      'As firms grow, legacy systems and manual processes can make it harder to manage increasing business complexity, support larger portfolios, and maintain operational efficiency.',
   },
 ];
 
-const howWeHelp: {
+const solutionAreas: {
   icon: LucideIcon;
+  label: string;
   title: string;
-  goal: string;
-  examples: string[];
+  description: string;
+  items: string[];
 }[] = [
   {
-    icon: Zap,
-    title: 'AI-Powered Automation',
-    goal: 'Automate repetitive tasks, extract valuable information, and improve operational efficiency.',
-    examples: ['AI document processing', 'Intelligent workflows', 'AI assistants'],
+    icon: Brain,
+    label: 'Artificial Intelligence',
+    title: 'Smarter Decisions Through Artificial Intelligence',
+    description:
+      'Artificial Intelligence helps transform business information into actionable insights while reducing manual effort. Our AI solutions are designed to streamline everyday operations, improve information accessibility, and support faster, more informed decision-making.',
+    items: [
+      'AI Document Processing',
+      'AI Business Assistants',
+      'Intelligent Search',
+      'Information Extraction',
+    ],
   },
   {
     icon: Code,
-    title: 'Custom Software Solutions',
-    goal: 'Build platforms tailored to investment operations.',
-    examples: [
-      'Investor portals',
-      'Internal management systems',
-      'Custom dashboards',
-      'Business applications',
+    label: 'Custom Software Development',
+    title: 'Software Built Around Your Business',
+    description:
+      "Every business has unique processes and operational requirements. We design and develop custom software that supports the way your organization works, helping teams improve productivity, centralize information, and scale with confidence.",
+    items: [
+      'Investor Portals',
+      'Business Platforms',
+      'Internal Management Systems',
+      'Business Dashboards',
+    ],
+  },
+  {
+    icon: Workflow,
+    label: 'Business Automation',
+    title: 'Automate Repetitive Business Processes',
+    description:
+      'Manual processes can slow operations and increase administrative workload. Business Automation helps streamline routine activities, improve consistency, and enable teams to focus on higher-value responsibilities.',
+    items: [
+      'Workflow Automation',
+      'CRM Automation',
+      'Newsletter Automation',
+      'Email Campaign Automation',
+      'Follow-Up Automation',
+      'Lead Tagging Automation',
+      'Task Tracking Automation',
+      'Document Workflows',
+      'Approval Processes',
     ],
   },
   {
     icon: Network,
-    title: 'System Integration',
-    goal: 'Connect existing business tools into a unified ecosystem.',
-    examples: ['CRM integrations', 'Data synchronization', 'Workflow automation'],
+    label: 'System Integration',
+    title: 'Connect Your Business Systems',
+    description:
+      'Business applications deliver greater value when they work together. We integrate existing systems to improve data flow, reduce information silos, and create a connected technology environment that supports efficient business operations.',
+    items: [
+      'API Integrations',
+      'CRM Integrations',
+      'Data Synchronization',
+      'Cloud Connectivity',
+    ],
   },
 ];
 
-const aiSolutions: { icon: LucideIcon; title: string; description: string }[] = [
+const servicePackages: { icon: LucideIcon; name: string; description: string }[] = [
   {
-    icon: FileText,
-    title: 'AI Document Intelligence',
+    icon: Rocket,
+    name: 'Starter',
     description:
-      'Analyze and organize large volumes of investment-related documents.',
+      'Launch your syndication business professionally with a complete credibility foundation — brand, website, and CRM setup.',
   },
   {
-    icon: MessageSquare,
-    title: 'AI Assistants',
+    icon: TrendingUp,
+    name: 'Growth',
     description:
-      'Enable teams to quickly access information and automate routine tasks.',
+      'Everything in Starter, plus monthly investor outreach, content, newsletters, acquisition support, lead magnets, webinars, and light operations. Includes a free CRM account.',
   },
   {
-    icon: Search,
-    title: 'Intelligent Search',
-    description: 'Quickly find relevant information across documents and systems.',
+    icon: Award,
+    name: 'Premium',
+    description:
+      'Everything in Growth, plus advanced capital-raise systems, automation, underwriting admin, asset management reporting, paid ads management, and priority execution. Includes a free CRM account.',
   },
 ];
 
-const softwareSolutions: {
-  icon: LucideIcon;
-  title: string;
-  bullets?: string[];
-  description?: string;
-}[] = [
+const businessSolutions: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: Users,
-    title: 'Investor Portals',
-    bullets: ['Investment updates', 'Reports', 'Documents', 'Portfolio information'],
+    title: 'Property Portals',
+    description:
+      'Provide investors with a secure, centralized platform to access investment updates, documents, reports, and important business information.',
   },
   {
     icon: Building2,
     title: 'Asset Management Platforms',
-    bullets: ['Properties', 'Performance data', 'Operations'],
+    description:
+      'Manage property portfolios, operational activities, asset performance, and business information through a unified digital platform.',
   },
   {
     icon: Briefcase,
     title: 'Deal Management Systems',
-    bullets: ['Opportunities', 'Transactions', 'Investment pipelines'],
-  },
-  {
-    icon: Layers,
-    title: 'Custom Business Applications',
-    description: 'Software designed around specific business workflows.',
-  },
-];
-
-const useCases: { icon: LucideIcon; title: string; description: string }[] = [
-  {
-    icon: FileSearch,
-    title: 'AI Due Diligence Assistant',
     description:
-      'Automate document review and extract important investment information.',
-  },
-  {
-    icon: Users,
-    title: 'Investor Relationship Platform',
-    description:
-      'Improve communication and provide investors with centralized access to information.',
+      'Organize acquisition opportunities, monitor deal progress, and manage investment activities throughout the transaction lifecycle.',
   },
   {
     icon: LineChart,
-    title: 'Investment Analytics Dashboard',
-    description: 'Monitor portfolio performance and business metrics.',
+    title: 'Investment Analytics Dashboards',
+    description:
+      'Visualize key business metrics, portfolio performance, and operational insights through interactive dashboards that support informed decision-making.',
+  },
+  {
+    icon: FileText,
+    title: 'Document Management Platforms',
+    description:
+      'Store, organize, search, and manage business documents securely while improving accessibility across teams.',
   },
   {
     icon: FileBarChart,
-    title: 'Automated Reporting System',
-    description: 'Generate reports faster with reduced manual effort.',
+    title: 'Reporting Solutions',
+    description:
+      'Generate structured business reports, portfolio updates, operational summaries, and performance insights more efficiently.',
   },
   {
-    icon: Workflow,
-    title: 'Deal Pipeline Management Platform',
-    description: 'Track opportunities and investment activities.',
+    icon: BookOpen,
+    title: 'Knowledge Management Systems',
+    description:
+      "Create a centralized repository for business knowledge, internal documentation, policies, and operational information that teams can easily access.",
   },
   {
-    icon: Brain,
-    title: 'AI-Powered Knowledge Assistant',
-    description: 'Help teams quickly access internal business information.',
+    icon: Layers,
+    title: 'Internal Business Applications',
+    description:
+      "Develop custom business applications tailored to your organization's workflows, helping teams improve productivity and operational efficiency.",
   },
 ];
 
-const techGroups: { icon: LucideIcon; title: string; items: string[] }[] = [
+const segments: { icon: LucideIcon; title: string; description: string }[] = [
+  {
+    icon: Building2,
+    title: 'Multifamily Investment',
+    description:
+      'Support multifamily investment firms with technology solutions that streamline operations, improve information management, automate business processes, and enhance portfolio visibility.',
+  },
+  {
+    icon: Briefcase,
+    title: 'Commercial Real Estate',
+    description:
+      'Help commercial real estate organizations improve operational efficiency, centralize business information, and support data-informed decision-making through connected technology platforms.',
+  },
+  {
+    icon: Boxes,
+    title: 'Assisted Living & Senior Housing',
+    description:
+      'Build solutions that simplify operational workflows, improve information accessibility, and support the day-to-day management of assisted living and senior housing portfolios.',
+  },
+  {
+    icon: HardHat,
+    title: 'Real Estate Developers',
+    description:
+      'Enable real estate developers to streamline project coordination, centralize business information, improve operational visibility, and support more efficient development workflows through custom technology solutions.',
+  },
+  {
+    icon: Landmark,
+    title: 'Private Equity Real Estate',
+    description:
+      'Support private equity real estate firms with scalable technology for investment operations, portfolio management, reporting, and business processes.',
+  },
+  {
+    icon: Layers,
+    title: 'Real Estate Investment Firms',
+    description:
+      'Deliver integrated technology solutions that combine Artificial Intelligence, Custom Software Development, Business Automation, and connected business systems to support operational efficiency, business growth, and long-term scalability.',
+  },
+];
+
+const techCategories: {
+  icon: LucideIcon;
+  label: string;
+  technologies: string;
+  value: string;
+}[] = [
   {
     icon: Brain,
-    title: 'AI Technologies',
-    items: [
-      'Machine Learning',
-      'Generative AI',
-      'Large Language Models',
-      'AI Automation',
-    ],
+    label: 'Artificial Intelligence',
+    technologies:
+      'Machine Learning • Generative AI • Large Language Models (LLMs) • AI Automation',
+    value:
+      'Develop intelligent solutions that automate repetitive work, analyze business information, extract insights from documents, improve knowledge accessibility, and support more informed business decisions.',
+  },
+  {
+    icon: Code,
+    label: 'Frontend Development',
+    technologies: 'React • Next.js • JavaScript',
+    value:
+      'Build responsive, user-friendly business applications, investor portals, dashboards, and web platforms that deliver a modern digital experience across desktop and mobile devices.',
   },
   {
     icon: Server,
-    title: 'Development Technologies',
-    items: [
-      'Frontend frameworks',
-      'Backend technologies',
-      'Databases',
-      'Cloud platforms',
-      'API integrations',
-    ],
+    label: 'Backend Development',
+    technologies: 'Node.js • Python • REST APIs',
+    value:
+      'Power secure business logic, process complex workflows, integrate Artificial Intelligence capabilities, and support scalable enterprise applications.',
+  },
+  {
+    icon: Database,
+    label: 'Database & Cloud Infrastructure',
+    technologies: 'PostgreSQL • AWS • Vercel',
+    value:
+      'Provide reliable data storage, secure cloud deployment, high availability, and scalable infrastructure that supports growing business operations.',
+  },
+  {
+    icon: Network,
+    label: 'System Integration',
+    technologies:
+      'REST APIs • Third-Party Integrations • CRM Integration • Cloud Connectivity',
+    value:
+      'Connect business applications, synchronize information across systems, reduce manual data movement, and create a unified technology ecosystem.',
+  },
+  {
+    icon: Workflow,
+    label: 'Business Automation',
+    technologies:
+      'Workflow Automation • CRM Automation • AI Workflows • Process Automation',
+    value:
+      'Automate repetitive business activities, streamline operational workflows, improve process consistency, and increase organizational efficiency.',
   },
 ];
 
@@ -214,55 +306,104 @@ const whyChooseUs: { icon: LucideIcon; title: string; description: string }[] = 
     icon: Building2,
     title: 'Industry-Focused Approach',
     description:
-      'We understand the operational needs of real estate investment businesses.',
+      'We develop technology with the operational needs of Real Estate Investment businesses in mind, creating solutions that align with investment workflows, business processes, and organizational objectives.',
   },
   {
-    icon: Code,
-    title: 'Custom-Built Solutions',
-    description: 'We create technology based on specific business requirements.',
+    icon: Briefcase,
+    title: 'Business-First Thinking',
+    description:
+      'Technology should support business goals, not complicate them. Every solution is designed to improve efficiency, simplify operations, and deliver measurable value for your organization.',
   },
   {
     icon: Brain,
     title: 'AI + Software Expertise',
     description:
-      'We combine modern AI capabilities with strong software development practices.',
+      'Our team combines Artificial Intelligence, Custom Software Development, Business Automation, and System Integration to create connected technology solutions tailored to your business requirements.',
+  },
+  {
+    icon: Code,
+    title: 'Built for Your Business',
+    description:
+      'Rather than adapting generic software, we design solutions around your existing processes, operational priorities, and long-term technology strategy.',
   },
   {
     icon: Layers,
     title: 'Scalable Technology',
-    description: 'Solutions designed to support business growth.',
+    description:
+      'As your portfolio and business grow, your technology should grow with you. We build secure, scalable solutions that support changing business needs without requiring complete system redesigns.',
   },
   {
-    icon: Handshake,
-    title: 'Long-Term Partnership',
-    description: 'We work with businesses beyond initial development.',
+    icon: Users,
+    title: 'A Long-Term Technology Partner',
+    description:
+      'We believe successful technology extends beyond implementation. From planning and development to optimization and ongoing support, we work alongside your team to help your technology continue delivering value as your business evolves.',
   },
 ];
 
-const processSteps = [
-  { number: '01', title: 'Understand Business Requirements' },
-  { number: '02', title: 'Identify Technology Opportunities' },
-  { number: '03', title: 'Design Solution Architecture' },
-  { number: '04', title: 'Develop & Test' },
-  { number: '05', title: 'Deploy Solution' },
-  { number: '06', title: 'Provide Continuous Support' },
+const processSteps: { number: string; title: string; description: string }[] = [
+  {
+    number: '01',
+    title: 'Understand Your Business',
+    description:
+      'We start by learning about your business objectives, operational workflows, existing technology environment, and the challenges you want to solve.',
+  },
+  {
+    number: '02',
+    title: 'Evaluate the Right Solution',
+    description:
+      'We assess whether your requirements can be addressed through an existing DeepNeural solution, a customized implementation, or a new solution designed specifically for your business.',
+  },
+  {
+    number: '03',
+    title: 'Design & Plan',
+    description:
+      'If a custom solution is required, we define the solution architecture, technical approach, implementation roadmap, and delivery plan to ensure it aligns with your business requirements.',
+  },
+  {
+    number: '04',
+    title: 'Develop & Validate',
+    description:
+      'Our team develops, integrates, and thoroughly tests every component to ensure performance, security, reliability, and compatibility with your business environment.',
+  },
+  {
+    number: '05',
+    title: 'Deploy & Enable',
+    description:
+      'Once approved, we deploy the solution, support implementation, and help your team transition with minimal disruption to day-to-day operations.',
+  },
+  {
+    number: '06',
+    title: 'Continuous Optimization',
+    description:
+      'As your business evolves, we provide ongoing enhancements, technical support, and performance improvements to help your technology continue delivering long-term value.',
+  },
 ];
 
 const faqs = [
   {
-    question: 'Can DeepNeural build custom software for real estate investment firms?',
+    question: 'Can DeepNeural develop custom software for Real Estate Investment firms?',
     answer:
-      'Yes, we develop tailored software solutions based on specific operational requirements.',
+      'Yes. We design and develop custom software tailored to your business requirements, operational workflows, and long-term technology objectives. Every solution is built around your organization rather than adapting your processes to off-the-shelf software.',
   },
   {
-    question: 'Can AI be integrated into existing business processes?',
+    question: 'Can Artificial Intelligence be integrated into our existing systems?',
     answer:
-      'Yes, AI solutions can be integrated with existing workflows and systems.',
+      'Yes. Our AI solutions can integrate with your existing business applications, CRM platforms, databases, and operational systems to enhance workflows without requiring a complete technology replacement.',
   },
   {
-    question: 'Do you work with US-based companies?',
+    question: 'Do you work with US-based Real Estate Investment firms?',
     answer:
-      'Yes, DeepNeural works with businesses looking for AI and software development solutions.',
+      'Yes. We work with Real Estate Investment firms, developers, and related businesses, with a primary focus on organizations operating in the United States.',
+  },
+  {
+    question: 'Can solutions be customized for our business?',
+    answer:
+      'Absolutely. Every organization has unique operational priorities and technology requirements. We develop tailored solutions that align with your existing processes, business goals, and future growth plans.',
+  },
+  {
+    question: 'Do you provide ongoing support after deployment?',
+    answer:
+      'Yes. Our engagement extends beyond implementation. We provide ongoing maintenance, enhancements, technical support, and continuous optimization to help your technology evolve alongside your business.',
   },
 ];
 
@@ -277,9 +418,10 @@ function SectionIntro({
 }: {
   eyebrow: string;
   heading: string;
-  intro: string;
+  intro: string | string[];
   dark?: boolean;
 }) {
+  const paragraphs = Array.isArray(intro) ? intro : [intro];
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -302,13 +444,16 @@ function SectionIntro({
       >
         {heading}
       </h2>
-      <p
-        className={`text-base md:text-lg leading-relaxed ${
-          dark ? 'text-zinc-400' : 'text-zinc-600 dark:text-zinc-400'
-        }`}
-      >
-        {intro}
-      </p>
+      {paragraphs.map((paragraph, index) => (
+        <p
+          key={index}
+          className={`text-base md:text-lg leading-relaxed ${
+            index < paragraphs.length - 1 ? 'mb-4' : ''
+          } ${dark ? 'text-zinc-400' : 'text-zinc-600 dark:text-zinc-400'}`}
+        >
+          {paragraph}
+        </p>
+      ))}
     </motion.div>
   );
 }
@@ -360,11 +505,18 @@ export default function RealEstatePage() {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight mb-6 text-black dark:text-white">
             Technology Solutions for Modern Real Estate Investment Firms
           </h1>
-          <p className="text-xl text-light-dark mb-10 max-w-4xl mx-auto">
-            DeepNeural helps real estate investment companies leverage
-            Artificial Intelligence and custom software solutions to
-            automate operations, improve decision-making, and build
-            scalable digital platforms.
+          <p className="text-xl text-light-dark mb-6 max-w-4xl mx-auto">
+            DeepNeural helps Real Estate Investment firms leverage Artificial
+            Intelligence, Custom Software Development, and Business
+            Automation to streamline business operations, optimise
+            workflows, improve decision-making, and build scalable
+            technology solutions tailored to their business objectives.
+          </p>
+          <p className="text-base md:text-lg text-light-dark mb-10 max-w-3xl mx-auto">
+            From investor platforms and business applications to AI-powered
+            automation and system integration, we develop practical
+            technology solutions that help Real Estate Investment firms
+            modernise operations and support long-term business growth.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link href="/contact-us">
@@ -387,13 +539,17 @@ export default function RealEstatePage() {
         </motion.div>
       </section>
 
-      {/* 2. About Real Estate Investment Technology */}
+      {/* 2. Technology for Real Estate Investment */}
       <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
-            eyebrow="Overview"
-            heading="About Real Estate Investment Technology"
-            intro="Real estate investment firms manage complex processes involving acquisitions, asset management, investor relations, reporting, and operational workflows. Traditional processes often involve disconnected systems, manual reporting, and time-consuming tasks. DeepNeural helps firms modernize these operations through AI-powered solutions, automation, and custom software platforms designed around their business needs."
+            eyebrow="Technology for Real Estate Investment"
+            heading="Helping Real Estate Investment Firms Operate More Efficiently"
+            intro={[
+              'Real Estate Investment firms manage a wide range of business functions, from acquisitions and asset management to investor relations, reporting, document management, compliance, and day-to-day operations. As portfolios grow, these processes often become more complex, requiring teams to work across multiple systems, and time-sensitive workflows.',
+              'Modern technology enables firms to simplify these operations through Artificial Intelligence, Custom Software Development, Business Automation, and integrated digital platforms. By connecting systems, automating routine processes, and improving access to business information, technology can help organisations work more efficiently, strengthen operational visibility, and support informed decision-making.',
+              'At DeepNeural, we develop technology solutions tailored to the operational needs of Real Estate Investment firms, helping businesses build scalable systems that support both current requirements and future growth.',
+            ]}
           />
         </div>
       </section>
@@ -402,9 +558,9 @@ export default function RealEstatePage() {
       <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
-            eyebrow="Challenges"
-            heading="Challenges Faced by Real Estate Investment Firms"
-            intro="Investment firms navigate complex, data-heavy operations every day. Here is where technology gaps tend to show up most."
+            eyebrow="Industry Challenges"
+            heading="Technology Challenges That Can Limit Business Growth"
+            intro="As Real Estate Investment firms grow, managing information, operations, and business processes becomes increasingly complex. Many organisations rely on multiple systems, manual workflows, and disconnected data, making it difficult to maintain operational efficiency and gain timely business insights."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {challenges.map((item, index) => (
@@ -433,182 +589,35 @@ export default function RealEstatePage() {
       <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
-            eyebrow="How We Help"
-            heading="How DeepNeural Helps Real Estate Investment Firms"
-            intro="We connect these challenges to practical, business-focused technology across three areas."
+            eyebrow="Our Solutions"
+            heading="Technology Solutions Built for Real Estate Investment Firms"
+            intro="Every Real Estate Investment firm operates differently, which is why technology should align with your business—not the other way around. DeepNeural combines Artificial Intelligence, Custom Software Development, Business Automation, and System Integration to help modernize operations, improve efficiency, and support long-term business growth."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {howWeHelp.map((category, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {solutionAreas.map((area, index) => (
               <motion.div
-                key={category.title}
+                key={area.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.08 * index }}
                 className={cardWrapper}
               >
-                <category.icon size={20} className="text-primary mb-3" />
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
-                  {category.title}
+                <area.icon size={20} className="text-primary mb-3" />
+                <p className="text-xs font-medium tracking-wide text-primary uppercase mb-2">
+                  {area.label}
+                </p>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3">
+                  {area.title}
                 </h3>
                 <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm mb-4">
-                  {category.goal}
+                  {area.description}
                 </p>
-                <ul className="space-y-2">
-                  {category.examples.map((example) => (
-                    <li key={example} className="flex items-start gap-2">
-                      <CheckCircle
-                        size={14}
-                        className="text-primary flex-shrink-0 mt-1"
-                      />
-                      <span className="text-zinc-600 dark:text-zinc-400 text-sm">
-                        {example}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. AI Solutions for Real Estate Investment */}
-      <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
-        <div className="container mx-auto relative z-10">
-          <SectionIntro
-            eyebrow="AI Solutions"
-            heading="AI Solutions for Real Estate Investment"
-            intro="Practical AI capabilities that help teams move faster and make better-informed decisions."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {aiSolutions.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.08 * index }}
-                className={cardWrapper}
-              >
-                <item.icon size={20} className="text-primary mb-3" />
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Software Solutions for Real Estate Investment */}
-      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
-        <div className="container mx-auto relative z-10">
-          <SectionIntro
-            eyebrow="Software Solutions"
-            heading="Software Solutions for Real Estate Investment"
-            intro="Custom-built platforms designed around how investment firms actually operate."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {softwareSolutions.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.08 * index }}
-                className={cardWrapper}
-              >
-                <item.icon size={20} className="text-primary mb-3" />
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3">
-                  {item.title}
-                </h3>
-                {item.bullets ? (
-                  <ul className="space-y-2">
-                    {item.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2">
-                        <CheckCircle
-                          size={14}
-                          className="text-primary flex-shrink-0 mt-1"
-                        />
-                        <span className="text-zinc-600 dark:text-zinc-400 text-sm">
-                          {bullet}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
-                    {item.description}
-                  </p>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Solution Use Cases */}
-      <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
-        <div className="container mx-auto relative z-10">
-          <SectionIntro
-            eyebrow="Use Cases"
-            heading="Solutions We Can Build for Real Estate Investment Firms"
-            intro="The examples below illustrate the types of solutions we can build for real estate investment firms — they are illustrative capabilities, not necessarily completed projects."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {useCases.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.08 * index }}
-                className={cardWrapper}
-              >
-                <item.icon size={20} className="text-primary mb-3" />
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Technology Stack */}
-      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
-        <div className="container mx-auto relative z-10">
-          <SectionIntro
-            eyebrow="Technology"
-            heading="Technology Stack"
-            intro="The technologies behind the AI and software solutions we build for real estate investment firms."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {techGroups.map((group, index) => (
-              <motion.div
-                key={group.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className={cardWrapper}
-              >
-                <group.icon size={20} className="text-primary mb-3" />
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
-                  {group.title}
-                </h3>
                 <div className="flex flex-wrap gap-2">
-                  {group.items.map((item) => (
+                  {area.items.map((item) => (
                     <span
                       key={item}
-                      className="px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm border border-primary/20"
+                      className="px-3 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-medium text-xs border border-primary/20"
                     >
                       {item}
                     </span>
@@ -620,13 +629,147 @@ export default function RealEstatePage() {
         </div>
       </section>
 
-      {/* 9. Why Real Estate Investment Firms Choose DeepNeural */}
+      {/* 4b. Service Packages */}
+      <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Flexible Engagement Options"
+            heading="Service Packages"
+            intro="Whether you're exploring a single technology initiative or planning a broader digital transformation, DeepNeural offers flexible service packages designed to match your business objectives, operational priorities, and growth plans."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {servicePackages.map((pkg, index) => (
+              <motion.div
+                key={pkg.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className={cardWrapper}
+              >
+                <pkg.icon size={20} className="text-primary mb-3" />
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+                  {pkg.name}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {pkg.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+          <Link
+            href="/contact-us"
+            className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-200"
+          >
+            Explore our packages
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 5. Business Solutions */}
+      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Business Solutions"
+            heading="Technology Solutions We Build"
+            intro="Every Real Estate Investment firm has unique operational requirements. DeepNeural develops custom technology solutions that help streamline business processes, improve access to information, and support more efficient day-to-day operations. Below are examples of the types of solutions we can design and develop based on your business needs."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {businessSolutions.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                className={cardWrapper}
+              >
+                <item.icon size={20} className="text-primary mb-3" />
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Real Estate Investment Segments We Support */}
+      <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Industry Segments"
+            heading="Supporting Diverse Real Estate Investment Businesses"
+            intro="Different Real Estate Investment businesses face different operational challenges, investment strategies, and technology needs. DeepNeural develops Artificial Intelligence, Custom Software, Business Automation, and technology solutions tailored to the needs of different segments across the Real Estate Investment industry."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {segments.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                className={cardWrapper}
+              >
+                <item.icon size={20} className="text-primary mb-3" />
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Technology Stack */}
+      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Technology Stack"
+            heading="Modern Technology Built for Real Estate Investment Solutions"
+            intro="DeepNeural combines Artificial Intelligence, modern software development, cloud infrastructure, and system integration technologies to build secure, scalable, and business-focused solutions for Real Estate Investment firms. Every technology we use is selected to improve performance, support operational efficiency, and create solutions that grow alongside your business."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {techCategories.map((group, index) => (
+              <motion.div
+                key={group.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                className={cardWrapper}
+              >
+                <group.icon size={20} className="text-primary mb-3" />
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3">
+                  {group.label}
+                </h3>
+                <p className="text-primary font-medium text-sm mb-3">
+                  {group.technologies}
+                </p>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {group.value}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Why Real Estate Investment Firms Choose DeepNeural */}
       <section className="py-20 px-4 md:px-15 bg-zinc-950 text-white">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Why DeepNeural"
-            heading="Why Real Estate Investment Firms Choose DeepNeural"
-            intro="A business-first technology partner built around the way investment firms operate."
+            heading="Technology and Services Built Around Real Estate Investment Businesses"
+            intro="Choosing the right technology partner goes beyond technical expertise. It requires an understanding of how Real Estate Investment businesses operate, the challenges they face, and the outcomes they want to achieve. DeepNeural combines industry understanding with Artificial Intelligence, Custom Software Development, and Business Automation to deliver solutions that support long-term business success."
             dark
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -652,13 +795,13 @@ export default function RealEstatePage() {
         </div>
       </section>
 
-      {/* 10. Our Process */}
+      {/* 9. Our Process */}
       <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Our Process"
-            heading="Our Process"
-            intro="A clear, repeatable process for turning business requirements into working technology."
+            heading="A Practical Approach to Delivering Technology Solutions"
+            intro="Successful technology initiatives begin with a clear understanding of business objectives, operational priorities, and technical requirements. We begin by evaluating your needs, identifying the most effective approach, and recommending the solution that delivers the greatest value—whether that's an existing solution, a customized implementation, or a completely new build."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {processSteps.map((step, index) => (
@@ -673,16 +816,19 @@ export default function RealEstatePage() {
                 <span className="inline-block text-sm font-bold text-primary bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-full mb-4 w-fit">
                   {step.number}
                 </span>
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
                   {step.title}
                 </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {step.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 11. FAQs */}
+      {/* 10. FAQs */}
       <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
@@ -712,15 +858,22 @@ export default function RealEstatePage() {
         </div>
       </section>
 
-      {/* 12. Final CTA */}
+      {/* 11. Final CTA */}
       <section className="py-20 px-4 md:px-15 bg-zinc-950 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-24 -mt-24 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-24 -mb-24 pointer-events-none" />
         <div className="container mx-auto relative z-10 text-center max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">
-            Transform Your Real Estate Investment Operations with AI & Software
-            Solutions
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Let&apos;s Build Technology That Moves Your Real Estate Investment
+            Business Forward
           </h2>
+          <p className="text-lg text-zinc-400 mb-10 leading-relaxed">
+            Whether you&apos;re planning to implement Artificial Intelligence,
+            develop custom software, automate business operations, or
+            modernize your existing technology, DeepNeural is ready to help
+            you identify the right solution for your business objectives and
+            long-term growth.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact-us">
               <Button
@@ -739,7 +892,16 @@ export default function RealEstatePage() {
                 size="lg"
                 className="border-white/20 text-white hover:bg-white/10 transition-colors"
               >
-                Talk to Our Experts
+                Discuss Your Project
+              </Button>
+            </Link>
+            <Link href="/contact-us">
+              <Button
+                variant="ghost"
+                size="lg"
+                className="text-white hover:bg-white/10 transition-colors"
+              >
+                Send Us Inquiry
               </Button>
             </Link>
           </div>
