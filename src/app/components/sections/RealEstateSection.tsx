@@ -71,7 +71,7 @@ const approachSteps = [
 
 function RealEstateSection() {
   return (
-    <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
+    <section className="pt-12 pb-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
       <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch mb-12 md:mb-14">
           <motion.div
@@ -149,11 +149,15 @@ function RealEstateSection() {
             Who We Work With
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Image — replace this placeholder with your image */}
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-primary/15 bg-gradient-to-br from-primary/15 via-primary/5 to-transparent dark:from-primary/20 dark:via-zinc-800 dark:to-zinc-800 flex items-center justify-center">
-              <span className="text-sm font-medium text-primary/60">
-                Your image here
-              </span>
+            {/* Image */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-primary/15 shadow-xl">
+              <Image
+                src="/Who%20We%20Work.png"
+                alt="Real estate businesses we work with"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
 
             {/* The 4 elements as a clean list */}
