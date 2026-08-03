@@ -7,32 +7,32 @@ const reasons = [
   {
     title: 'Industry-Oriented Perspective',
     description:
-      'We take time to understand how your organisation operates before recommending or developing any solution. This helps us create software and digital experiences that reflect the way your business actually works.',
+      'We take time to understand your business before recommending or developing technology solutions.',
   },
   {
     title: 'Business Before Technology',
     description:
-      'Every recommendation starts with your goals, challenges, and priorities—not with a predefined product. The result is technology that supports your organisation instead of requiring your organisation to adapt to the technology.',
+      'Every solution is designed around your goals, operational priorities, and business requirements.',
   },
   {
     title: 'Connected Thinking',
     description:
-      'Web platforms, Artificial Intelligence, software applications, automation, and digital experiences deliver greater value when they work together. We design integrated solutions that connect these capabilities into a cohesive technology ecosystem rather than treating each project as a standalone implementation.',
+      'We integrate AI, software, automation, and digital platforms into connected technology ecosystems.',
   },
   {
-    title: 'Quality Without Unnecessary Complexity',
+    title: 'Practical & Scalable Solutions',
     description:
-      'We believe good technology should be intuitive, reliable, and easy to maintain. Our focus is on developing solutions that integrate seamlessly into business operations and support long-term adoption across the organisation.',
+      'Our solutions are designed to be reliable, easy to maintain, and built for long-term growth.',
   },
   {
-    title: 'Long-Term Collaboration',
+    title: 'Long-Term Partnership',
     description:
-      'We value lasting business relationships built on transparency, communication, and continuous improvement. As your business evolves, your technology should evolve with it.',
+      'We work alongside your team, providing ongoing support as your business and technology evolve.',
   },
   {
-    title: 'A Foundation for Future Growth',
+    title: 'Built for the Future',
     description:
-      'Our approach emphasises scalable architecture, adaptable systems, and thoughtful planning, helping organisations prepare for changing business requirements without frequent redevelopment.',
+      'Scalable architecture and thoughtful planning help your technology adapt to changing business needs.',
   },
 ];
 
@@ -51,15 +51,14 @@ function WhyChooseSection() {
             Why DeepNeural
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
-            A Different Approach to Building Business Technology
+            Technology Built Around Your Business
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-zinc-400">
-            Technology projects are most successful when they begin with a
-            clear understanding of the business behind them. At DeepNeural,
-            we combine Real Estate Investment, Artificial Intelligence, and
-            Custom Software Development to create solutions that are aligned
-            with business objectives, practical to use, and designed for
-            long-term value.
+            DeepNeural combines Real Estate Investment expertise, Artificial
+            Intelligence, and Custom Software Development to deliver
+            technology solutions aligned with your business objectives. Our
+            focus is on building practical, scalable solutions that create
+            long-term business value.
           </p>
         </motion.div>
 

@@ -6,22 +6,22 @@ const industries = [
   {
     title: 'Real Estate Investment',
     description:
-      'We help real estate investment firms strengthen their operations with technology that improves collaboration, streamlines investment workflows, centralises business information, and supports informed investment decisions.',
+      'Technology that streamlines operations and supports smarter investment decisions.',
   },
   {
     title: 'Financial Services',
     description:
-      'We support financial organisations with digital solutions that simplify reporting, improve operational accuracy, organise business data, and enhance day-to-day financial processes.',
+      'Digital solutions that improve efficiency, reporting, and operational accuracy.',
   },
   {
     title: 'Healthcare Operations',
     description:
-      'We help healthcare providers improve administrative efficiency by digitising workflows, reducing manual effort, and making operational information easier to manage.',
+      'Technology that simplifies workflows and improves operational efficiency.',
   },
   {
     title: 'Enterprise & B2B Businesses',
     description:
-      'We partner with growing businesses to modernise their technology landscape, improve internal collaboration, and build scalable digital systems that support long-term business growth.',
+      'Technology solutions that modernize operations and support business growth.',
   },
 ];
 
@@ -29,22 +29,22 @@ const expertise = [
   {
     title: 'Real Estate Investment Solutions',
     description:
-      'We design and develop digital platforms, internal applications, and business tools tailored to the operational needs of real estate investment firms, helping teams work more efficiently and manage information effectively.',
+      'Technology solutions built for modern Real Estate Investment firms.',
   },
   {
     title: 'Artificial Intelligence',
     description:
-      'We build AI-powered capabilities that assist with information analysis, workflow automation, intelligent search, document processing, and decision support for business teams.',
+      'AI solutions that automate workflows and improve business decision-making.',
   },
   {
     title: 'Custom Software Development',
     description:
-      "We create secure, scalable, and user-focused software applications that are built around each client's unique business processes, operational goals, and future growth plans.",
+      'Scalable software tailored to your business operations and growth.',
   },
   {
     title: 'Business Automation & System Integration',
     description:
-      'We connect business systems, automate repetitive activities, improve data movement across platforms, and create integrated digital environments that reduce complexity and support efficient operations.',
+      'Connected systems that automate workflows and simplify operations.',
   },
 ];
 
@@ -79,23 +79,14 @@ function AboutSection() {
               DeepNeural is a technology company specializing in Real Estate
               Investment, Artificial Intelligence, and Custom Software
               Development. We help organizations streamline operations,
-              improve decision-making, and solve business challenges through
-              practical, business-focused technology.
-            </p>
-            <p className="text-zinc-300 text-lg leading-relaxed mb-6">
-              Our team combines software engineering, AI, and business
-              expertise to develop solutions that fit the way businesses
-              operate. Instead of offering one-size-fits-all products, we
-              design and build solutions tailored to each client&apos;s goals,
-              processes, and long-term growth.
+              automate business processes, and build scalable technology
+              solutions tailored to their business objectives.
             </p>
             <p className="text-zinc-300 text-lg leading-relaxed">
-              Real Estate Investment is one of our key focus areas. We work
-              with investment firms to improve operational efficiency,
-              organize business information, automate workflows, and support
-              smarter decision-making. We also help businesses across
-              multiple industries adopt AI, build custom software, and
-              modernize their operations with scalable digital solutions.
+              With a strong focus on Real Estate Investment, we develop
+              AI-powered solutions, custom software, and business automation
+              that improve operational efficiency, simplify complex
+              workflows, and support long-term business growth.
             </p>
           </motion.div>
 
@@ -132,7 +123,7 @@ function AboutSection() {
           <h3 className="text-2xl font-bold text-white mb-8">
             Industries We Serve
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 border-t border-white/10">
             {industries.map((industry, index) => (
               <motion.div
                 key={industry.title}
@@ -140,14 +131,17 @@ function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="rounded-2xl border border-slate-700 shadow-md hover:shadow-xl bg-zinc-900 p-6 transition-shadow duration-300"
+                className="flex gap-4 py-6 border-b border-white/10"
               >
-                <h4 className="text-lg font-semibold text-white mb-3">
-                  {industry.title}
-                </h4>
-                <p className="text-zinc-400 leading-relaxed text-sm">
-                  {industry.description}
-                </p>
+                <span className="mt-2 h-2 w-2 rotate-45 bg-primary shrink-0" />
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-1">
+                    {industry.title}
+                  </h4>
+                  <p className="text-zinc-400 leading-relaxed text-sm">
+                    {industry.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -160,7 +154,7 @@ function AboutSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <h3 className="text-2xl font-bold text-white mb-8">Core Expertise</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 border-t border-white/10">
             {expertise.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -168,14 +162,17 @@ function AboutSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 * index }}
-                className="rounded-2xl border border-slate-700 shadow-md hover:shadow-xl bg-zinc-900 p-6 transition-shadow duration-300"
+                className="flex gap-4 py-6 border-b border-white/10"
               >
-                <h4 className="text-lg font-semibold text-white mb-3">
-                  {item.title}
-                </h4>
-                <p className="text-zinc-400 leading-relaxed text-sm">
-                  {item.description}
-                </p>
+                <span className="mt-2 h-2 w-2 rotate-45 bg-primary shrink-0" />
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-zinc-400 leading-relaxed text-sm">
+                    {item.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

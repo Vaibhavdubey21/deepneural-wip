@@ -2,28 +2,29 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const whoWeWorkWith = [
   {
     title: 'Multifamily Syndicators & Operators',
     description:
-      'Supporting businesses with software, AI, automation, and digital solutions that improve operations, communication, and workflow management.',
+      'Technology solutions that improve operations, communication, and workflow efficiency.',
   },
   {
     title: 'Real Estate Investment Firms',
     description:
-      'Helping investment firms streamline business processes, centralise information, improve collaboration, and strengthen their digital capabilities.',
+      'Solutions that streamline operations, centralize information, and strengthen digital capabilities.',
   },
   {
     title: 'Real Estate Developers',
     description:
-      'Building technology that supports project coordination, document management, operational workflows, and business growth.',
+      'Technology that improves project coordination, document management, and operational efficiency.',
   },
   {
     title: 'Asset Managers & Property Management Companies',
     description:
-      'Developing solutions that improve operational visibility, organise business information, automate repetitive activities, and support efficient day-to-day management.',
+      'Solutions that improve visibility, automate workflows, and simplify day-to-day operations.',
   },
 ];
 
@@ -31,32 +32,32 @@ const valueAreas = [
   {
     title: 'Business Operations',
     description:
-      'Simplify internal processes, reduce manual work, and improve collaboration across teams.',
+      'Improve efficiency through connected business processes.',
   },
   {
     title: 'Workflow Automation',
     description:
-      'Automate repetitive business activities to save time, improve consistency, and increase productivity.',
+      'Automate repetitive tasks and improve productivity.',
   },
   {
     title: 'Information Management',
     description:
-      'Organise business information through connected systems that make data easier to access, manage, and use.',
+      'Centralize business information for faster access and better collaboration.',
   },
   {
     title: 'Digital Presence',
     description:
-      "Strengthen your online presence with a professional website, business content, and digital experiences that reflect your organisation's capabilities.",
+      'Build a professional digital presence that strengthens credibility.',
   },
   {
     title: 'Business Intelligence',
     description:
-      'Transform business data into meaningful insights that support planning, reporting, and informed decision-making.',
+      'Turn business data into actionable insights.',
   },
   {
     title: 'Scalable Technology',
     description:
-      'Build software and digital infrastructure that grows alongside your business and supports future expansion.',
+      'Build technology that grows with your business.',
   },
 ];
 
@@ -72,34 +73,51 @@ function RealEstateSection() {
   return (
     <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
       <div className="container mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 md:mb-14 max-w-3xl"
-        >
-          <p className="text-sm font-medium tracking-wide text-zinc-600 dark:text-zinc-400 uppercase mb-3">
-            Real Estate Investment
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">
-            Technology That Supports Modern Real Estate Investment Businesses
-          </h2>
-          <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 mb-4">
-            Real Estate Investment is one of DeepNeural&apos;s primary focus
-            areas. We help investment firms modernise their operations
-            through Artificial Intelligence, Custom Software Development,
-            Business Automation, and Digital Solutions designed to support
-            the way real estate businesses operate.
-          </p>
-          <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            From managing business information and streamlining internal
-            workflows to improving digital presence and automating routine
-            processes, we develop practical technology that helps investment
-            teams work more efficiently, make informed decisions, and support
-            long-term business growth.
-          </p>
-        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch mb-12 md:mb-14">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-sm font-medium tracking-wide text-zinc-600 dark:text-zinc-400 uppercase mb-3">
+              Real Estate Investment
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">
+              Technology That Supports Modern Real Estate Investment Businesses
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 mb-4">
+              Real Estate Investment is one of DeepNeural&apos;s core focus
+              areas. We help investment firms modernize operations through
+              Artificial Intelligence, Custom Software Development, Business
+              Automation, and Digital Solutions tailored to the way Real
+              Estate Investment businesses operate.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+              From streamlining workflows and managing business information to
+              strengthening digital capabilities, we develop technology that
+              improves operational efficiency and supports long-term growth.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative"
+          >
+            <div className="relative aspect-[4/5] lg:aspect-auto h-full min-h-[300px] w-full max-w-md mx-auto lg:max-w-none overflow-hidden rounded-2xl shadow-xl">
+              <Image
+                src="/sideimage.png"
+                alt="Real estate investment technology and analytics"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,15 +130,11 @@ function RealEstateSection() {
             Understanding Your Business
           </h3>
           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Every Real Estate Investment business has its own investment
-            strategy, operational processes, and growth objectives. Whether
-            you&apos;re acquiring properties, managing assets, working with
-            investors, overseeing developments, or expanding your portfolio,
-            technology plays an important role in keeping your business
-            organised, connected, and scalable. At DeepNeural, we focus on
-            building solutions that align with the way Real Estate Investment
-            firms operate, helping teams simplify complex processes, improve
-            collaboration, and make better use of their business data.
+            Real Estate Investment firms have different investment strategies,
+            operational priorities, and growth goals. We build technology that
+            aligns with your business, helping teams simplify operations,
+            improve collaboration, and make better use of business
+            information.
           </p>
         </motion.div>
 
@@ -134,24 +148,37 @@ function RealEstateSection() {
           <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-8">
             Who We Work With
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {whoWeWorkWith.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="rounded-2xl border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl bg-white dark:bg-zinc-800 p-6 transition-shadow duration-300"
-              >
-                <h4 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3">
-                  {item.title}
-                </h4>
-                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Image — replace this placeholder with your image */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-primary/15 bg-gradient-to-br from-primary/15 via-primary/5 to-transparent dark:from-primary/20 dark:via-zinc-800 dark:to-zinc-800 flex items-center justify-center">
+              <span className="text-sm font-medium text-primary/60">
+                Your image here
+              </span>
+            </div>
+
+            {/* The 4 elements as a clean list */}
+            <div className="border-t border-gray-200 dark:border-white/10">
+              {whoWeWorkWith.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className="flex gap-4 py-5 border-b border-gray-200 dark:border-white/10"
+                >
+                  <span className="mt-2 h-2 w-2 rotate-45 bg-primary shrink-0" />
+                  <div>
+                    <h4 className="text-lg font-semibold text-zinc-900 dark:text-white mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -198,12 +225,9 @@ function RealEstateSection() {
           </h3>
           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
             We combine Artificial Intelligence, Custom Software Development,
-            Business Automation, System Integration, and Digital Solutions to
-            help Real Estate Investment firms build connected, efficient, and
-            future-ready businesses. Rather than implementing isolated tools,
-            we focus on creating technology ecosystems where software, data,
-            automation, and digital platforms work together to support
-            everyday business operations.
+            Business Automation, and System Integration to build connected
+            technology ecosystems that support efficient, scalable Real Estate
+            Investment operations.
           </p>
         </motion.div>
 
@@ -234,12 +258,12 @@ function RealEstateSection() {
           </div>
 
           <h4 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
-            Ready to Modernise Your Real Estate Investment Business?
+            Ready to Modernize Your Real Estate Investment Business?
           </h4>
           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 max-w-3xl">
-            Let&apos;s discuss how Artificial Intelligence, Custom Software
-            Development, and Business Automation can help your business
-            operate more efficiently and prepare for future growth.
+            Discover how Artificial Intelligence, Custom Software Development,
+            and Business Automation can help streamline operations and support
+            long-term growth.
           </p>
 
           <Link

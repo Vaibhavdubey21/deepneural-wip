@@ -62,11 +62,13 @@ export const AnimatedHero = ({
 }: AnimatedHeroProps) => {
   const glassButtonClassName =
     "bg-white/10 backdrop-blur-sm border border-white/20 text-primary-foreground hover:bg-white/20 transition-colors";
+  const darkButtonClassName =
+    "bg-black text-white border border-white/10 shadow-lg hover:bg-zinc-800 transition-colors";
 
   return (
     <div
       className={cn(
-        "relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-background",
+        "relative flex min-h-screen w-full flex-col items-start justify-center overflow-hidden bg-background",
         className
       )}
     >
@@ -123,7 +125,7 @@ export const AnimatedHero = ({
           <Button
             onClick={ctaButton.onClick}
             size="lg"
-            className={glassButtonClassName}
+            className={darkButtonClassName}
           >
             {ctaButton.text}
           </Button>

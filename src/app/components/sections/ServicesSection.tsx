@@ -1,5 +1,10 @@
 'use client';
 
+import {
+  Coverflow,
+  CoverflowControls,
+  CoverflowItem,
+} from '@/components/motion-ui/coverflow';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -9,56 +14,56 @@ const services = [
     number: '01',
     name: 'Campaign Strategy and Execution',
     description:
-      'We build multi-channel investor acquisition campaigns designed around your specific investor economics, not generic tactics. Every campaign is built to attract accredited investors and guide them through a structured journey from first click to funded commitment.',
+      'Build multi-channel investor acquisition campaigns designed to attract, engage, and convert accredited investors.',
     href: '/services',
   },
   {
     number: '02',
     name: 'Business Website Development',
     description:
-      'Your website is the first thing a serious capital allocator evaluates. We build editorial-quality investor platforms that communicate your investment strategy with precision, establish trust from the first click, and convert interest into qualified inquiries.',
+      'Develop high-performance investor websites that build credibility and generate qualified inquiries.',
     href: '/services',
   },
   {
     number: '03',
     name: 'Drip Sequence Management',
     description:
-      'Most investors do not commit on the first interaction. We build smart automated nurture sequences that guide potential investors from initial curiosity to confident decision making through timely, personalized communication.',
+      'Automate investor follow-up with personalized nurture sequences that strengthen engagement.',
     href: '/services',
   },
   {
     number: '04',
     name: 'AI-Powered Video Podcast Production',
     description:
-      'We manage the full production workflow so your principals become trusted voices in the real estate investment space without spending their own time on the logistics.',
+      'Produce professional video podcasts that position your leadership as trusted industry voices.',
     href: '/services',
   },
   {
     number: '05',
     name: 'Social Media Marketing',
     description:
-      'We build and manage content programs on LinkedIn and other platforms designed specifically for institutional-minded investors, establishing thought leadership and keeping your firm top of mind.',
+      'Build thought leadership through consistent, investor-focused content across social platforms.',
     href: '/services',
   },
   {
     number: '06',
     name: 'AI-Assisted Presentation Design',
     description:
-      'We transform complex investment data into investor-ready narratives. Pitch decks, offering memorandums, investor updates, quarterly reports, and fully automated AI-generated newsletters.',
+      'Create investor-ready pitch decks, reports, presentations, and AI-generated newsletters.',
     href: '/services',
   },
   {
     number: '07',
     name: 'Lead Generation',
     description:
-      'Generate high-quality leads through targeted strategies that attract the right prospects and create new growth opportunities for your business.',
+      'Generate qualified business opportunities through targeted lead generation strategies.',
     href: '/services',
   },
   {
     number: '08',
     name: 'CRM Automation',
     description:
-      'Streamline your customer journey with automated workflows, lead tracking, and smart CRM solutions that improve efficiency and conversions.',
+      'Automate customer journeys, streamline workflows, and improve lead management.',
     href: '/services',
   },
 ];
@@ -78,47 +83,55 @@ function ServicesSection() {
             Our Services
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">
-            Eight Systems. One Goal. More Capital Raised.
+            Eight Solutions. One Goal. Business Growth.
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Our services are designed to help Real Estate Investment firms
-            strengthen their digital capabilities through Artificial
-            Intelligence, Custom Software Development, Business Automation,
-            and strategic digital solutions. We work as a technology partner,
-            delivering integrated systems that support efficient operations,
-            stronger digital presence, and long-term business growth.
+            We help Real Estate Investment firms strengthen their digital
+            capabilities through Artificial Intelligence, Custom Software
+            Development, Business Automation, and strategic digital solutions
+            that improve operations, investor engagement, and business
+            growth.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <motion.div
+        <Coverflow
+          rotation={22}
+          aria-label="Our services. Use the left and right arrow keys to navigate."
+          items={services.map((service, index) => (
+            <CoverflowItem
               key={service.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.08 * index }}
-              className="rounded-2xl border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl bg-white dark:bg-zinc-900 p-6 flex flex-col transition-shadow duration-300 group"
+              label={`Service ${index + 1} of ${services.length}: ${service.name}`}
             >
-              <span className="inline-block text-sm font-bold text-primary bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-full mb-4 w-fit">
-                {service.number}
-              </span>
-              <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-3">
-                {service.name}
-              </h3>
-              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm flex-1 mb-5">
-                {service.description}
-              </p>
-              <Link
-                href={service.href}
-                className="inline-flex items-center gap-1.5 text-primary font-medium text-sm group-hover:gap-2.5 transition-all duration-200"
-              >
-                Learn more
-                <ArrowRight size={14} />
-              </Link>
-            </motion.div>
+              <figure className="flex h-[300px] flex-col rounded-2xl border border-gray-200 bg-white p-8 text-left shadow-2xl dark:border-slate-700 dark:bg-zinc-900">
+                <span className="mb-4 w-fit rounded-full bg-primary/10 px-3 py-1 text-sm font-bold text-primary dark:bg-primary/20">
+                  {service.number}
+                </span>
+                <h3 className="mb-3 text-xl font-bold text-zinc-900 dark:text-white">
+                  {service.name}
+                </h3>
+                <p className="mb-5 flex-1 overflow-hidden text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  {service.description}
+                </p>
+                <Link
+                  href={service.href}
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-all duration-200 hover:gap-2.5"
+                >
+                  Learn more
+                  <ArrowRight size={14} />
+                </Link>
+              </figure>
+            </CoverflowItem>
           ))}
-        </div>
+        >
+          <CoverflowControls
+            announce={(i, total) =>
+              `Showing service ${i + 1} of ${total}: ${services[i].name}`
+            }
+            prevLabel="Previous service"
+            nextLabel="Next service"
+            dotsLabel="Choose a service"
+          />
+        </Coverflow>
       </div>
     </section>
   );

@@ -66,9 +66,9 @@ const Navbar = () => {
     <motion.div
       animate={{ y: hidden && !isOpen ? '-100%' : '0%' }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className="fixed top-0 w-screen z-40 backdrop-blur-xl backdrop-saturate-150 bg-white/25 dark:bg-black/25 border-b border-white/40 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.06)] before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none dark:before:from-white/5 pb-8">
+      className="fixed top-0 w-screen z-40 backdrop-blur-3xl backdrop-saturate-200 bg-white/20 dark:bg-black/20 border-b border-white/60 dark:border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.10)] before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/55 before:to-transparent before:pointer-events-none dark:before:from-white/15">
       {/* Navbar content */}
-      <div className="relative z-10 mx-4 px-4 mt-14 mb-4 flex items-center">
+      <div className="relative z-10 mx-4 px-4 py-8 flex items-center">
         <Link
           href="/"
           className="absolute left-4 flex items-center gap-3 group"
@@ -146,7 +146,7 @@ const Navbar = () => {
 
             {/* Drawer */}
             <motion.div
-              className="absolute right-0 top-24 h-fit w-full bg-light dark:bg-dark"
+              className="absolute right-0 top-28 h-fit w-full bg-light dark:bg-dark"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}

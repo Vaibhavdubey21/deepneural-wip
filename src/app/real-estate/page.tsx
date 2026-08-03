@@ -37,37 +37,37 @@ const challenges: { icon: LucideIcon; title: string; description: string }[] = [
     icon: Database,
     title: 'Fragmented Business Information',
     description:
-      'Property, investor, financial, and operational information is often spread across multiple systems, making it difficult to access accurate data, maintain consistency, and support informed business decisions.',
+      'Business data is often spread across multiple systems, making it difficult to access accurate information and maintain consistency.',
   },
   {
     icon: FileBarChart,
     title: 'Time-Intensive Reporting',
     description:
-      'Preparing investment updates, portfolio performance reports, operational summaries, and business insights can require significant manual effort, reducing the time available for higher-value activities.',
+      'Investment updates, portfolio reporting, and business insights often require significant manual effort, reducing time for higher-value activities.',
   },
   {
     icon: FileText,
     title: 'Growing Document Complexity',
     description:
-      'From due diligence materials and investment documents to contracts, compliance records, and operational files, managing large volumes of business information becomes increasingly challenging as portfolios expand.',
+      'Managing due diligence, contracts, compliance records, and investment documents becomes increasingly challenging as portfolios expand.',
   },
   {
     icon: Network,
     title: 'Disconnected Operational Workflows',
     description:
-      'Business processes often span multiple applications, requiring teams to switch between systems, duplicate information, and manually coordinate tasks across departments.',
+      'Disconnected applications and manual processes create inefficiencies, duplicate work, and slow collaboration across teams.',
   },
   {
     icon: Eye,
     title: 'Limited Operational Visibility',
     description:
-      'Without connected data and centralised reporting, leadership teams may lack timely visibility into business performance, operational activities, and key information needed to support strategic decision-making.',
+      'Without centralized data and reporting, leadership teams may lack the insights needed to make timely business decisions.',
   },
   {
     icon: TrendingUp,
     title: "Technology That Doesn't Scale",
     description:
-      'As firms grow, legacy systems and manual processes can make it harder to manage increasing business complexity, support larger portfolios, and maintain operational efficiency.',
+      'Legacy systems and manual processes can limit growth, making it harder to support larger portfolios and evolving business needs.',
   },
 ];
 
@@ -81,9 +81,9 @@ const solutionAreas: {
   {
     icon: Brain,
     label: 'Artificial Intelligence',
-    title: 'Smarter Decisions Through Artificial Intelligence',
+    title: 'Smarter Decisions with AI',
     description:
-      'Artificial Intelligence helps transform business information into actionable insights while reducing manual effort. Our AI solutions are designed to streamline everyday operations, improve information accessibility, and support faster, more informed decision-making.',
+      'Leverage AI to automate routine work, improve information access, and support faster decision-making.',
     items: [
       'AI Document Processing',
       'AI Business Assistants',
@@ -96,7 +96,7 @@ const solutionAreas: {
     label: 'Custom Software Development',
     title: 'Software Built Around Your Business',
     description:
-      "Every business has unique processes and operational requirements. We design and develop custom software that supports the way your organization works, helping teams improve productivity, centralize information, and scale with confidence.",
+      'Develop custom platforms that support your workflows, improve collaboration, and scale with your business.',
     items: [
       'Investor Portals',
       'Business Platforms',
@@ -107,9 +107,9 @@ const solutionAreas: {
   {
     icon: Workflow,
     label: 'Business Automation',
-    title: 'Automate Repetitive Business Processes',
+    title: 'Streamline Everyday Operations',
     description:
-      'Manual processes can slow operations and increase administrative workload. Business Automation helps streamline routine activities, improve consistency, and enable teams to focus on higher-value responsibilities.',
+      'Automate repetitive processes to improve efficiency, consistency, and team productivity.',
     items: [
       'Workflow Automation',
       'CRM Automation',
@@ -119,7 +119,6 @@ const solutionAreas: {
       'Lead Tagging Automation',
       'Task Tracking Automation',
       'Document Workflows',
-      'Approval Processes',
     ],
   },
   {
@@ -127,7 +126,7 @@ const solutionAreas: {
     label: 'System Integration',
     title: 'Connect Your Business Systems',
     description:
-      'Business applications deliver greater value when they work together. We integrate existing systems to improve data flow, reduce information silos, and create a connected technology environment that supports efficient business operations.',
+      'Integrate business applications to improve data flow, eliminate information silos, and create a connected technology ecosystem.',
     items: [
       'API Integrations',
       'CRM Integrations',
@@ -163,49 +162,49 @@ const businessSolutions: { icon: LucideIcon; title: string; description: string 
     icon: Users,
     title: 'Property Portals',
     description:
-      'Provide investors with a secure, centralized platform to access investment updates, documents, reports, and important business information.',
+      'Secure portals that give investors easy access to updates, reports, and documents.',
   },
   {
     icon: Building2,
     title: 'Asset Management Platforms',
     description:
-      'Manage property portfolios, operational activities, asset performance, and business information through a unified digital platform.',
+      'Centralize portfolio, asset, and operational management in one platform.',
   },
   {
     icon: Briefcase,
     title: 'Deal Management Systems',
     description:
-      'Organize acquisition opportunities, monitor deal progress, and manage investment activities throughout the transaction lifecycle.',
+      'Track acquisition opportunities from pipeline to closing.',
   },
   {
     icon: LineChart,
     title: 'Investment Analytics Dashboards',
     description:
-      'Visualize key business metrics, portfolio performance, and operational insights through interactive dashboards that support informed decision-making.',
+      'Monitor portfolio performance and key business metrics in real time.',
   },
   {
     icon: FileText,
     title: 'Document Management Platforms',
     description:
-      'Store, organize, search, and manage business documents securely while improving accessibility across teams.',
+      'Organize, search, and manage business documents securely.',
   },
   {
     icon: FileBarChart,
     title: 'Reporting Solutions',
     description:
-      'Generate structured business reports, portfolio updates, operational summaries, and performance insights more efficiently.',
+      'Generate investment, portfolio, and operational reports more efficiently.',
   },
   {
     icon: BookOpen,
     title: 'Knowledge Management Systems',
     description:
-      "Create a centralized repository for business knowledge, internal documentation, policies, and operational information that teams can easily access.",
+      'Centralize internal knowledge, documentation, and business information.',
   },
   {
     icon: Layers,
     title: 'Internal Business Applications',
     description:
-      "Develop custom business applications tailored to your organization's workflows, helping teams improve productivity and operational efficiency.",
+      'Custom applications designed around your workflows and operations.',
   },
 ];
 
@@ -214,37 +213,31 @@ const segments: { icon: LucideIcon; title: string; description: string }[] = [
     icon: Building2,
     title: 'Multifamily Investment',
     description:
-      'Support multifamily investment firms with technology solutions that streamline operations, improve information management, automate business processes, and enhance portfolio visibility.',
+      'Technology that supports acquisitions, investor management, portfolio operations, and asset performance.',
   },
   {
     icon: Briefcase,
     title: 'Commercial Real Estate',
     description:
-      'Help commercial real estate organizations improve operational efficiency, centralize business information, and support data-informed decision-making through connected technology platforms.',
-  },
-  {
-    icon: Boxes,
-    title: 'Assisted Living & Senior Housing',
-    description:
-      'Build solutions that simplify operational workflows, improve information accessibility, and support the day-to-day management of assisted living and senior housing portfolios.',
+      'Solutions that streamline property operations, reporting, and business management across commercial portfolios.',
   },
   {
     icon: HardHat,
     title: 'Real Estate Developers',
     description:
-      'Enable real estate developers to streamline project coordination, centralize business information, improve operational visibility, and support more efficient development workflows through custom technology solutions.',
+      'Platforms that improve project coordination, document management, and development workflows.',
   },
   {
     icon: Landmark,
     title: 'Private Equity Real Estate',
     description:
-      'Support private equity real estate firms with scalable technology for investment operations, portfolio management, reporting, and business processes.',
+      'Technology that supports investment operations, portfolio reporting, and investor communication.',
   },
   {
-    icon: Layers,
-    title: 'Real Estate Investment Firms',
+    icon: Boxes,
+    title: 'Assisted Living & Senior Housing',
     description:
-      'Deliver integrated technology solutions that combine Artificial Intelligence, Custom Software Development, Business Automation, and connected business systems to support operational efficiency, business growth, and long-term scalability.',
+      'Solutions that simplify operations, improve information management, and support portfolio oversight.',
   },
 ];
 
@@ -258,38 +251,35 @@ const techCategories: {
     icon: Brain,
     label: 'Artificial Intelligence',
     technologies:
-      'Machine Learning • Generative AI • Large Language Models (LLMs) • AI Automation',
+      'Machine Learning • Generative AI • Large Language Models • AI Automation',
     value:
-      'Develop intelligent solutions that automate repetitive work, analyze business information, extract insights from documents, improve knowledge accessibility, and support more informed business decisions.',
+      'Develop intelligent solutions that automate workflows and support better business decisions.',
   },
   {
     icon: Code,
     label: 'Frontend Development',
     technologies: 'React • Next.js • JavaScript',
     value:
-      'Build responsive, user-friendly business applications, investor portals, dashboards, and web platforms that deliver a modern digital experience across desktop and mobile devices.',
+      'Build modern investor portals, dashboards, and business applications.',
   },
   {
     icon: Server,
     label: 'Backend Development',
     technologies: 'Node.js • Python • REST APIs',
-    value:
-      'Power secure business logic, process complex workflows, integrate Artificial Intelligence capabilities, and support scalable enterprise applications.',
+    value: 'Power secure, scalable applications and business workflows.',
   },
   {
     icon: Database,
     label: 'Database & Cloud Infrastructure',
     technologies: 'PostgreSQL • AWS • Vercel',
-    value:
-      'Provide reliable data storage, secure cloud deployment, high availability, and scalable infrastructure that supports growing business operations.',
+    value: 'Deliver reliable, secure, and scalable cloud infrastructure.',
   },
   {
     icon: Network,
     label: 'System Integration',
     technologies:
       'REST APIs • Third-Party Integrations • CRM Integration • Cloud Connectivity',
-    value:
-      'Connect business applications, synchronize information across systems, reduce manual data movement, and create a unified technology ecosystem.',
+    value: 'Connect business systems through seamless data integration.',
   },
   {
     icon: Workflow,
@@ -297,46 +287,46 @@ const techCategories: {
     technologies:
       'Workflow Automation • CRM Automation • AI Workflows • Process Automation',
     value:
-      'Automate repetitive business activities, streamline operational workflows, improve process consistency, and increase organizational efficiency.',
+      'Automate repetitive processes and improve operational efficiency.',
   },
 ];
 
 const whyChooseUs: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: Building2,
-    title: 'Industry-Focused Approach',
+    title: 'Industry-Focused Expertise',
     description:
-      'We develop technology with the operational needs of Real Estate Investment businesses in mind, creating solutions that align with investment workflows, business processes, and organizational objectives.',
+      'We understand the operational workflows, investment processes, and technology needs of Real Estate Investment businesses.',
   },
   {
     icon: Briefcase,
-    title: 'Business-First Thinking',
+    title: 'Business-Driven Solutions',
     description:
-      'Technology should support business goals, not complicate them. Every solution is designed to improve efficiency, simplify operations, and deliver measurable value for your organization.',
+      'Every solution is designed to solve business challenges, improve efficiency, and support measurable outcomes.',
   },
   {
     icon: Brain,
-    title: 'AI + Software Expertise',
+    title: 'Connected Technology',
     description:
-      'Our team combines Artificial Intelligence, Custom Software Development, Business Automation, and System Integration to create connected technology solutions tailored to your business requirements.',
+      'We combine AI, custom software, automation, and system integration into connected business solutions.',
   },
   {
     icon: Code,
-    title: 'Built for Your Business',
+    title: 'Built Around Your Operations',
     description:
-      'Rather than adapting generic software, we design solutions around your existing processes, operational priorities, and long-term technology strategy.',
+      'Our solutions are tailored to your workflows, operational priorities, and long-term objectives.',
   },
   {
     icon: Layers,
-    title: 'Scalable Technology',
+    title: 'Designed to Scale',
     description:
-      'As your portfolio and business grow, your technology should grow with you. We build secure, scalable solutions that support changing business needs without requiring complete system redesigns.',
+      'We build secure, scalable technology that grows alongside your business.',
   },
   {
     icon: Users,
-    title: 'A Long-Term Technology Partner',
+    title: 'A Long-Term Partner',
     description:
-      'We believe successful technology extends beyond implementation. From planning and development to optimization and ongoing support, we work alongside your team to help your technology continue delivering value as your business evolves.',
+      'From strategy and implementation to ongoing optimization, we support your business as technology and operational needs evolve.',
   },
 ];
 
@@ -345,37 +335,37 @@ const processSteps: { number: string; title: string; description: string }[] = [
     number: '01',
     title: 'Understand Your Business',
     description:
-      'We start by learning about your business objectives, operational workflows, existing technology environment, and the challenges you want to solve.',
+      'We learn about your business objectives, operational workflows, existing technology, and the challenges you want to solve.',
   },
   {
     number: '02',
     title: 'Evaluate the Right Solution',
     description:
-      'We assess whether your requirements can be addressed through an existing DeepNeural solution, a customized implementation, or a new solution designed specifically for your business.',
+      'We determine whether your requirements are best addressed with an existing DeepNeural solution, a customized implementation, or a new solution built specifically for your business.',
   },
   {
     number: '03',
     title: 'Design & Plan',
     description:
-      'If a custom solution is required, we define the solution architecture, technical approach, implementation roadmap, and delivery plan to ensure it aligns with your business requirements.',
+      'When a custom solution is needed, we define the architecture, implementation roadmap, and delivery plan.',
   },
   {
     number: '04',
     title: 'Develop & Validate',
     description:
-      'Our team develops, integrates, and thoroughly tests every component to ensure performance, security, reliability, and compatibility with your business environment.',
+      'We develop, integrate, and thoroughly test every component to ensure security, performance, and reliability.',
   },
   {
     number: '05',
     title: 'Deploy & Enable',
     description:
-      'Once approved, we deploy the solution, support implementation, and help your team transition with minimal disruption to day-to-day operations.',
+      'We deploy the solution, support implementation, and help your team adopt it with minimal disruption.',
   },
   {
     number: '06',
     title: 'Continuous Optimization',
     description:
-      'As your business evolves, we provide ongoing enhancements, technical support, and performance improvements to help your technology continue delivering long-term value.',
+      'We provide ongoing enhancements, support, and performance improvements as your business evolves.',
   },
 ];
 
@@ -383,27 +373,27 @@ const faqs = [
   {
     question: 'Can DeepNeural develop custom software for Real Estate Investment firms?',
     answer:
-      'Yes. We design and develop custom software tailored to your business requirements, operational workflows, and long-term technology objectives. Every solution is built around your organization rather than adapting your processes to off-the-shelf software.',
+      'Yes. Every solution is designed around your business workflows and technology requirements.',
   },
   {
-    question: 'Can Artificial Intelligence be integrated into our existing systems?',
+    question: 'Can Artificial Intelligence integrate with our existing systems?',
     answer:
-      'Yes. Our AI solutions can integrate with your existing business applications, CRM platforms, databases, and operational systems to enhance workflows without requiring a complete technology replacement.',
+      'Yes. Our AI solutions integrate with existing business applications, CRM platforms, databases, and other operational systems.',
   },
   {
     question: 'Do you work with US-based Real Estate Investment firms?',
     answer:
-      'Yes. We work with Real Estate Investment firms, developers, and related businesses, with a primary focus on organizations operating in the United States.',
+      'Yes. We primarily work with Real Estate Investment firms, developers, and related businesses across the United States.',
   },
   {
     question: 'Can solutions be customized for our business?',
     answer:
-      'Absolutely. Every organization has unique operational priorities and technology requirements. We develop tailored solutions that align with your existing processes, business goals, and future growth plans.',
+      'Absolutely. Every solution is tailored to your operational priorities, business goals, and technology requirements.',
   },
   {
     question: 'Do you provide ongoing support after deployment?',
     answer:
-      'Yes. Our engagement extends beyond implementation. We provide ongoing maintenance, enhancements, technical support, and continuous optimization to help your technology evolve alongside your business.',
+      'Yes. We provide ongoing support, maintenance, enhancements, and continuous optimization.',
   },
 ];
 
@@ -507,16 +497,15 @@ export default function RealEstatePage() {
           </h1>
           <p className="text-xl text-light-dark mb-6 max-w-4xl mx-auto">
             DeepNeural helps Real Estate Investment firms leverage Artificial
-            Intelligence, Custom Software Development, and Business
-            Automation to streamline business operations, optimise
-            workflows, improve decision-making, and build scalable
-            technology solutions tailored to their business objectives.
+            Intelligence, Custom Software Development, and Business Automation
+            to streamline operations, improve decision-making, and build
+            scalable technology tailored to their business goals.
           </p>
           <p className="text-base md:text-lg text-light-dark mb-10 max-w-3xl mx-auto">
             From investor platforms and business applications to AI-powered
-            automation and system integration, we develop practical
-            technology solutions that help Real Estate Investment firms
-            modernise operations and support long-term business growth.
+            automation and system integration, we build practical solutions
+            that simplify operations, improve efficiency, and support
+            long-term growth.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link href="/contact-us">
@@ -546,9 +535,9 @@ export default function RealEstatePage() {
             eyebrow="Technology for Real Estate Investment"
             heading="Helping Real Estate Investment Firms Operate More Efficiently"
             intro={[
-              'Real Estate Investment firms manage a wide range of business functions, from acquisitions and asset management to investor relations, reporting, document management, compliance, and day-to-day operations. As portfolios grow, these processes often become more complex, requiring teams to work across multiple systems, and time-sensitive workflows.',
-              'Modern technology enables firms to simplify these operations through Artificial Intelligence, Custom Software Development, Business Automation, and integrated digital platforms. By connecting systems, automating routine processes, and improving access to business information, technology can help organisations work more efficiently, strengthen operational visibility, and support informed decision-making.',
-              'At DeepNeural, we develop technology solutions tailored to the operational needs of Real Estate Investment firms, helping businesses build scalable systems that support both current requirements and future growth.',
+              'Real Estate Investment firms manage acquisitions, asset management, investor relations, reporting, compliance, documents, and other critical business functions. As portfolios grow, these activities become increasingly complex, often spanning multiple systems and workflows.',
+              'Artificial Intelligence, Custom Software Development, Business Automation, and integrated digital platforms help simplify operations, connect business systems, and improve access to information for faster, more informed decision-making.',
+              'At DeepNeural, we develop technology tailored to the operational needs of Real Estate Investment firms, helping organizations build efficient, scalable systems that support long-term growth.',
             ]}
           />
         </div>
@@ -560,7 +549,7 @@ export default function RealEstatePage() {
           <SectionIntro
             eyebrow="Industry Challenges"
             heading="Technology Challenges That Can Limit Business Growth"
-            intro="As Real Estate Investment firms grow, managing information, operations, and business processes becomes increasingly complex. Many organisations rely on multiple systems, manual workflows, and disconnected data, making it difficult to maintain operational efficiency and gain timely business insights."
+            intro="As Real Estate Investment firms grow, managing information, processes, and technology becomes increasingly complex. Disconnected systems, manual workflows, and fragmented data can reduce efficiency, limit visibility, and slow informed decision-making."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {challenges.map((item, index) => (
@@ -591,7 +580,7 @@ export default function RealEstatePage() {
           <SectionIntro
             eyebrow="Our Solutions"
             heading="Technology Solutions Built for Real Estate Investment Firms"
-            intro="Every Real Estate Investment firm operates differently, which is why technology should align with your business—not the other way around. DeepNeural combines Artificial Intelligence, Custom Software Development, Business Automation, and System Integration to help modernize operations, improve efficiency, and support long-term business growth."
+            intro="Every Real Estate Investment firm has different operational priorities. DeepNeural combines Artificial Intelligence, Custom Software Development, Business Automation, and System Integration to deliver technology aligned with your business goals."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {solutionAreas.map((area, index) => (
@@ -673,7 +662,7 @@ export default function RealEstatePage() {
           <SectionIntro
             eyebrow="Business Solutions"
             heading="Technology Solutions We Build"
-            intro="Every Real Estate Investment firm has unique operational requirements. DeepNeural develops custom technology solutions that help streamline business processes, improve access to information, and support more efficient day-to-day operations. Below are examples of the types of solutions we can design and develop based on your business needs."
+            intro="We design and develop technology solutions tailored to the operational needs of Real Estate Investment firms. Here are examples of the platforms and applications we can build for your business."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {businessSolutions.map((item, index) => (
@@ -702,9 +691,9 @@ export default function RealEstatePage() {
       <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
-            eyebrow="Industry Segments"
-            heading="Supporting Diverse Real Estate Investment Businesses"
-            intro="Different Real Estate Investment businesses face different operational challenges, investment strategies, and technology needs. DeepNeural develops Artificial Intelligence, Custom Software, Business Automation, and technology solutions tailored to the needs of different segments across the Real Estate Investment industry."
+            eyebrow="Who We Support"
+            heading="Technology Solutions for Every Stage of Real Estate Investment"
+            intro="Every Real Estate Investment business operates differently. We develop technology solutions tailored to the operational priorities of each segment across the investment lifecycle."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {segments.map((item, index) => (
@@ -733,9 +722,9 @@ export default function RealEstatePage() {
       <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
-            eyebrow="Technology Stack"
-            heading="Modern Technology Built for Real Estate Investment Solutions"
-            intro="DeepNeural combines Artificial Intelligence, modern software development, cloud infrastructure, and system integration technologies to build secure, scalable, and business-focused solutions for Real Estate Investment firms. Every technology we use is selected to improve performance, support operational efficiency, and create solutions that grow alongside your business."
+            eyebrow="Technology Expertise"
+            heading="Modern Technology Built for Real Estate Investment"
+            intro="We combine Artificial Intelligence, modern software development, cloud infrastructure, and system integration to build secure, scalable technology for Real Estate Investment firms."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {techCategories.map((group, index) => (
@@ -768,8 +757,8 @@ export default function RealEstatePage() {
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Why DeepNeural"
-            heading="Technology and Services Built Around Real Estate Investment Businesses"
-            intro="Choosing the right technology partner goes beyond technical expertise. It requires an understanding of how Real Estate Investment businesses operate, the challenges they face, and the outcomes they want to achieve. DeepNeural combines industry understanding with Artificial Intelligence, Custom Software Development, and Business Automation to deliver solutions that support long-term business success."
+            heading="A Technology Partner That Understands Real Estate Investment"
+            intro="Technology delivers the greatest value when it's built around the way Real Estate Investment businesses operate. DeepNeural combines industry understanding with Artificial Intelligence, Custom Software Development, and Business Automation to develop practical solutions that support long-term growth."
             dark
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -801,7 +790,7 @@ export default function RealEstatePage() {
           <SectionIntro
             eyebrow="Our Process"
             heading="A Practical Approach to Delivering Technology Solutions"
-            intro="Successful technology initiatives begin with a clear understanding of business objectives, operational priorities, and technical requirements. We begin by evaluating your needs, identifying the most effective approach, and recommending the solution that delivers the greatest value—whether that's an existing solution, a customized implementation, or a completely new build."
+            intro="Every project begins with understanding your business, evaluating the right approach, and recommending the solution that delivers the greatest value—whether that's an existing solution, a customized implementation, or a completely new build."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {processSteps.map((step, index) => (
