@@ -38,14 +38,14 @@ const reasons = [
 
 function WhyChooseSection() {
   return (
-    <section className="py-20 px-4 md:px-15 bg-zinc-950 text-white">
+    <section className="pt-8 pb-16 px-4 sm:px-6 md:px-12 bg-zinc-950 text-white">
       <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 md:mb-14 max-w-3xl"
+          className="mb-8 md:mb-10 max-w-3xl"
         >
           <p className="text-sm font-medium tracking-wide text-zinc-400 uppercase mb-3">
             Why DeepNeural
@@ -62,7 +62,7 @@ function WhyChooseSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {reasons.map((reason, index) => (
             <motion.div
               key={reason.title}
@@ -70,7 +70,7 @@ function WhyChooseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.08 * index }}
-              className="rounded-2xl border border-slate-700 shadow-md hover:shadow-xl bg-zinc-900 p-6 transition-shadow duration-300"
+              className="rounded-lg border border-slate-700 shadow-md hover:shadow-xl bg-zinc-900 p-6 transition-shadow duration-300"
             >
               <div className="flex items-start gap-3 mb-3">
                 <CheckCircle

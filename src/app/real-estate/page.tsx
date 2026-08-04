@@ -418,7 +418,7 @@ function SectionIntro({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="mb-12 md:mb-14 max-w-3xl"
+      className="mb-8 md:mb-10 max-w-3xl"
     >
       <p
         className={`text-sm font-medium tracking-wide uppercase mb-3 ${
@@ -512,9 +512,10 @@ export default function RealEstatePage() {
               <Button
                 variant="primary"
                 size="lg"
+                movingBorder
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
-                className="!text-white"
+                className="!text-white shadow-xl transition-all"
               >
                 Book a Consultation
               </Button>
@@ -529,7 +530,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 2. Technology for Real Estate Investment */}
-      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Technology for Real Estate Investment"
@@ -544,7 +545,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 3. Challenges Faced by Real Estate Investment Firms */}
-      <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Industry Challenges"
@@ -575,7 +576,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 4. How DeepNeural Helps */}
-      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Our Solutions"
@@ -619,7 +620,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 4b. Service Packages */}
-      <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Flexible Engagement Options"
@@ -657,7 +658,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 5. Business Solutions */}
-      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Business Solutions"
@@ -688,7 +689,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 6. Real Estate Investment Segments We Support */}
-      <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Who We Support"
@@ -719,7 +720,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 7. Technology Stack */}
-      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Technology Expertise"
@@ -753,7 +754,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 8. Why Real Estate Investment Firms Choose DeepNeural */}
-      <section className="py-20 px-4 md:px-15 bg-zinc-950 text-white">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-zinc-950 text-white">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Why DeepNeural"
@@ -785,7 +786,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 9. Our Process */}
-      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Our Process"
@@ -818,7 +819,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 10. FAQs */}
-      <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="FAQs"
@@ -848,7 +849,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 11. Final CTA */}
-      <section className="py-20 px-4 md:px-15 bg-zinc-950 text-white relative overflow-hidden">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-zinc-950 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-24 -mt-24 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-24 -mb-24 pointer-events-none" />
         <div className="container mx-auto relative z-10 text-center max-w-3xl">
@@ -868,6 +869,7 @@ export default function RealEstatePage() {
               <Button
                 variant="primary"
                 size="lg"
+                movingBorder
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
                 className="!text-white shadow-xl transition-all"

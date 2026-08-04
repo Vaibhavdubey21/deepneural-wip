@@ -56,7 +56,7 @@ export default function TermsPage() {
         subtitle="The terms that govern your use of the DeepNeural Technologies website."
       />
 
-      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto max-w-3xl">
           <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-12">
             Last updated: July 2026

@@ -13,7 +13,7 @@ import WhyChooseSection from './components/sections/WhyChooseSection';
 
 export default function HomePage() {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-x-clip">
       <HeroSection />
       <AboutSection />
       <RealEstateSection />
@@ -24,7 +24,7 @@ export default function HomePage() {
       <TestimonialsSection />
       <ResourcesSection />
 
-      <section className="py-20 px-4 md:px-15 bg-zinc-950 text-white relative overflow-hidden">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-zinc-950 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-24 -mt-24 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-24 -mb-24 pointer-events-none" />
         <div className="container mx-auto relative z-10 text-center max-w-3xl">
@@ -42,6 +42,7 @@ export default function HomePage() {
               <Button
                 variant="primary"
                 size="lg"
+                movingBorder
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
                 className="!text-white shadow-xl transition-all"

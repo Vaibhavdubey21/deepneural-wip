@@ -5,6 +5,7 @@ import {
   CoverflowControls,
   CoverflowItem,
 } from '@/components/motion-ui/coverflow';
+import { DrawOutlineButton } from '@/components/ui/draw-outline-button';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -70,14 +71,14 @@ const services = [
 
 function ServicesSection() {
   return (
-    <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+    <section className="pt-8 pb-8 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
       <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 md:mb-14 max-w-3xl"
+          className="mb-6 md:mb-8 max-w-3xl"
         >
           <p className="text-sm font-medium tracking-wide text-zinc-600 dark:text-zinc-400 uppercase mb-3">
             Our Services
@@ -102,23 +103,24 @@ function ServicesSection() {
               key={service.number}
               label={`Service ${index + 1} of ${services.length}: ${service.name}`}
             >
-              <figure className="flex h-[300px] flex-col rounded-2xl border border-gray-200 bg-white p-8 text-left shadow-2xl dark:border-slate-700 dark:bg-zinc-900">
-                <span className="mb-4 w-fit rounded-full bg-primary/10 px-3 py-1 text-sm font-bold text-primary dark:bg-primary/20">
+              <figure className="flex h-[280px] flex-col rounded-2xl border border-gray-200 bg-white p-6 text-left shadow-2xl dark:border-slate-700 dark:bg-zinc-900 md:h-[250px]">
+                <span className="mb-3 w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary dark:bg-primary/20">
                   {service.number}
                 </span>
-                <h3 className="mb-3 text-xl font-bold text-zinc-900 dark:text-white">
+                <h3 className="mb-2 text-lg font-bold text-zinc-900 dark:text-white">
                   {service.name}
                 </h3>
-                <p className="mb-5 flex-1 overflow-hidden text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="mb-4 flex-1 overflow-hidden text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                   {service.description}
                 </p>
-                <Link
+                <DrawOutlineButton
+                  as={Link}
                   href={service.href}
-                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-all duration-200 hover:gap-2.5"
+                  className="-ml-4 w-fit text-sm"
                 >
                   Learn more
                   <ArrowRight size={14} />
-                </Link>
+                </DrawOutlineButton>
               </figure>
             </CoverflowItem>
           ))}

@@ -43,14 +43,14 @@ const techCategories = [
 
 function TechStackSection() {
   return (
-    <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
+    <section className="pt-16 pb-6 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
       <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 md:mb-14 max-w-3xl"
+          className="mb-8 md:mb-10 max-w-3xl"
         >
           <p className="text-sm font-medium tracking-wide text-zinc-600 dark:text-zinc-400 uppercase mb-3">
             Technology
@@ -66,7 +66,7 @@ function TechStackSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {techCategories.map((category, index) => (
             <motion.div
               key={category.label}
@@ -74,7 +74,7 @@ function TechStackSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.08 * index }}
-              className="rounded-2xl border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl bg-white dark:bg-zinc-800 p-6 transition-shadow duration-300"
+              className="rounded-lg border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl bg-white dark:bg-zinc-800 p-6 transition-shadow duration-300"
             >
               <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2">
                 {category.label}

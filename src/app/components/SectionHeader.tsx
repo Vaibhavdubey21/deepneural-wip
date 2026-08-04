@@ -13,7 +13,7 @@ function SectionHeader(propTypes: propTypes) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="mb-12 md:mb-14 max-w-2xl"
+      className="mb-8 md:mb-10 max-w-2xl"
     >
       <p className="text-sm font-medium tracking-wide text-zinc-600 dark:text-zinc-400">
         {propTypes.subheading}

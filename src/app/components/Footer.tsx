@@ -9,33 +9,54 @@ import {
   MapPin,
   Phone,
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 
+// Mirrors the Navbar navigation, in the same order.
+const navLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'Real Estate Investment', path: '/real-estate' },
+  { name: 'Services', path: '/services' },
+  { name: 'Our Work', path: '/our-work' },
+  { name: 'Resources', path: '/resources' },
+  { name: 'About', path: '/about-us' },
+  { name: 'Contact Us', path: '/contact-us' },
+];
+
 const Footer: React.FC = () => {
   return (
     <footer className="bg-white dark:bg-black border-t border-light-dark/10 dark:border-white/10 text-light-dark dark:text-light">
-      <div className="mx-3 md:mx-8 px-4 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-4">
-          {/* Left Section: Brand + Navigation */}
-          <div className="lg:col-span-6 flex flex-col gap-12">
+      <div className="px-4 sm:px-6 md:px-12 py-16 md:py-20">
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Left Section: Brand */}
+          <div className="lg:col-span-4">
             {/* Brand Section */}
             <div>
               <Link
                 href="/"
                 className="w-fit flex items-center gap-3 group mb-4"
               >
-                <div className="rounded-lg group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300 relative w-10 h-10">
+                <motion.div
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                  className="rounded-lg group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300 relative w-10 h-10"
+                >
                   <Image
                     src="/logo dnt.png"
                     alt="DeepNeural Logo"
                     fill
+                    sizes="40px"
                     className="object-contain group-hover:scale-110 transition-transform duration-300"
                   />
-                </div>
+                </motion.div>
                 <div className="flex flex-col -space-y-0.5">
-                  <span className="text-md font-semibold text-primary tracking-widest uppercase">
+                  <span className="text-base font-semibold text-primary tracking-widest uppercase">
                     DeepNeural Technologies
                   </span>
                   <span className="text-xs font-medium text-light-dark/60 dark:text-light/50">
@@ -81,10 +102,10 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Section: Services + Contact + Quick Links */}
-          <div className="lg:col-span-6 flex flex-col lg:flex-row gap-14 md:gap-12 lg:gap-12">
+          {/* Right Section: Services + Navigation + Contact */}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
             {/* Services */}
-            <div className="md:col-span-2 lg:col-span-1 min-w-fit">
+            <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-light-dark dark:text-light mb-6">
                 Services
               </h3>
@@ -116,64 +137,30 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="md:col-span-2 lg:col-span-1 w-fit min-w-fit">
+            <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-light-dark dark:text-light mb-6">
                 Navigation
               </h3>
               <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span>Home</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about-us"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span>About Us</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span>Services</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact-us"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-center group"
-                  >
-                    <span>Contact</span>
-                    <ArrowRight
-                      size={14}
-                      className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                  </Link>
-                </li>
+                {navLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link
+                      href={link.path}
+                      className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary dark:hover:text-primary transition-colors flex items-start group"
+                    >
+                      <span>{link.name}</span>
+                      <ArrowRight
+                        size={14}
+                        className="ml-2 mt-0.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                      />
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Contact Info */}
-            <div className="md:col-span-3 lg:col-span-1 min-w-fit">
+            <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-light-dark dark:text-light mb-6">
                 Contact
               </h3>
@@ -215,7 +202,7 @@ const Footer: React.FC = () => {
                   </div>
                   <a
                     href="mailto:contact@deepneuraltechnologies.com"
-                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary transition-colors whitespace-nowrap"
+                    className="text-sm text-light-dark/70 dark:text-light/70 hover:text-primary transition-colors break-words"
                   >
                     contact@deepneuraltechnologies.com
                   </a>
@@ -227,9 +214,9 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="bg-violet-600">
-        <div className="mx-3 md:mx-8 px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white">
+      <div className="border-t border-light-dark/10 dark:border-white/10">
+        <div className="px-4 sm:px-6 md:px-12 py-6">
+          <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-light-dark/60 dark:text-light/60">
             <p className="text-xs">
               &copy; {new Date().getFullYear()} DeepNeural Technologies Pvt Ltd.
               All rights reserved.

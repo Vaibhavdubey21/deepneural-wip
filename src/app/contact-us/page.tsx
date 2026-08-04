@@ -253,6 +253,7 @@ const ContactPage: React.FC = () => {
                 <Button
                   variant="secondary"
                   size="lg"
+                  movingBorder
                   icon={<Send size={18} />}
                   iconPosition="right"
                 >

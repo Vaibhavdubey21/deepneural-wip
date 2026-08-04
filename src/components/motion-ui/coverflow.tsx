@@ -102,7 +102,7 @@ export function Coverflow({
               go(1);
             }
           }}
-          className="relative h-[440px] w-full overflow-hidden rounded-2xl outline-none [perspective:1400px] focus-visible:ring-2 focus-visible:ring-primary/50 sm:h-[400px] lg:h-[380px]"
+          className="relative h-[320px] w-full overflow-hidden rounded-2xl outline-none [perspective:1400px] focus-visible:ring-2 focus-visible:ring-primary/50 md:h-[290px]"
         >
           {items.map((item, i) =>
             React.cloneElement(item, { index: i, key: item.key ?? i } as Partial<CoverflowItemProps>),
@@ -133,7 +133,7 @@ export function CoverflowControls({
     'flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-zinc-700 shadow-sm transition-all hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:bg-zinc-900 dark:text-zinc-300';
 
   return (
-    <div className="mt-8 flex items-center justify-center gap-4">
+    <div className="mt-4 flex items-center justify-center gap-4">
       <button
         type="button"
         aria-label={prevLabel}

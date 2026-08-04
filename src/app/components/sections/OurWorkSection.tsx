@@ -22,14 +22,14 @@ const placeholderProjects = [
 
 function OurWorkSection() {
   return (
-    <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+    <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
       <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 md:mb-14 max-w-3xl"
+          className="mb-8 md:mb-10 max-w-3xl"
         >
           <p className="text-sm font-medium tracking-wide text-zinc-600 dark:text-zinc-400 uppercase mb-3">
             Our Work

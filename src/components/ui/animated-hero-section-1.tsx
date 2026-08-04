@@ -2,6 +2,8 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import CtaButton from "@/app/components/Button";
+import { ArrowRight } from "lucide-react";
 
 interface NavLink {
   label: string;
@@ -62,8 +64,6 @@ export const AnimatedHero = ({
 }: AnimatedHeroProps) => {
   const glassButtonClassName =
     "bg-white/10 backdrop-blur-sm border border-white/20 text-primary-foreground hover:bg-white/20 transition-colors";
-  const darkButtonClassName =
-    "bg-black text-white border border-white/10 shadow-lg hover:bg-zinc-800 transition-colors";
 
   return (
     <div
@@ -122,13 +122,17 @@ export const AnimatedHero = ({
           variants={itemVariants}
           className="mt-10 flex items-center gap-x-4"
         >
-          <Button
+          <CtaButton
             onClick={ctaButton.onClick}
+            variant="primary"
             size="lg"
-            className={darkButtonClassName}
+            movingBorder
+            icon={<ArrowRight size={18} />}
+            iconPosition="right"
+            className="!text-white shadow-xl transition-all"
           >
             {ctaButton.text}
-          </Button>
+          </CtaButton>
           {secondaryCta && (
             <Button
               onClick={secondaryCta.onClick}

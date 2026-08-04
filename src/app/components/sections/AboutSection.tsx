@@ -111,7 +111,7 @@ function AboutSection() {
   return (
     <>
       {/* About */}
-      <section className="bg-[#0B0B0F] px-4 pt-10 pb-8 text-white md:px-15 md:pt-14">
+      <section className="bg-[#0B0B0F] px-4 pt-16 pb-10 text-white sm:px-6 md:px-12">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Left: heading + description */}
@@ -172,7 +172,7 @@ function AboutSection() {
       </section>
 
       {/* Industries & Core Expertise — independent section */}
-      <section className="bg-[#0B0B0F] px-4 pb-8 text-white md:px-15 md:pb-10">
+      <section className="bg-[#0B0B0F] px-4 pb-16 text-white sm:px-6 md:px-12">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 24 }}

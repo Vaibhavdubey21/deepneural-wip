@@ -25,14 +25,14 @@ export default function OurWorkPage() {
       />
 
       {/* Featured Projects */}
-      <section className="py-20 px-4 md:px-15 bg-white dark:bg-black">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-12 md:mb-14 max-w-3xl"
+            className="mb-8 md:mb-10 max-w-3xl"
           >
             <p className="text-sm font-medium tracking-wide text-zinc-600 dark:text-zinc-400 uppercase mb-3">
               Featured Projects
@@ -50,14 +50,14 @@ export default function OurWorkPage() {
       </section>
 
       {/* Use Cases */}
-      <section className="py-20 px-4 md:px-15 bg-blue-50 dark:bg-zinc-900">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-12 md:mb-14 max-w-3xl"
+            className="mb-8 md:mb-10 max-w-3xl"
           >
             <p className="text-sm font-medium tracking-wide text-zinc-600 dark:text-zinc-400 uppercase mb-3">
               Use Cases
@@ -90,7 +90,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 md:px-15 bg-zinc-950 text-white relative overflow-hidden">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-zinc-950 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-24 -mt-24 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-24 -mb-24 pointer-events-none" />
         <div className="container mx-auto relative z-10 text-center max-w-3xl">
@@ -102,6 +102,7 @@ export default function OurWorkPage() {
               <Button
                 variant="primary"
                 size="lg"
+                movingBorder
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
                 className="!text-white shadow-xl transition-all"
