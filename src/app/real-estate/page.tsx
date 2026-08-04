@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import {
   Award,
   Boxes,
@@ -550,29 +551,50 @@ export default function RealEstatePage() {
       </section>
 
       {/* 2. Technology for Real Estate Investment */}
-      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
+      <section className="pt-16 pb-8 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
-          <SectionIntro
-            eyebrow="Technology for Real Estate Investment"
-            heading="Helping Real Estate Investment Firms Operate More Efficiently"
-            intro={[
-              'Real Estate Investment firms manage acquisitions, asset management, investor relations, reporting, compliance, documents, and other critical business functions. As portfolios grow, these activities become increasingly complex, often spanning multiple systems and workflows.',
-              'Artificial Intelligence, Custom Software Development, Business Automation, and integrated digital platforms help simplify operations, connect business systems, and improve access to information for faster, more informed decision-making.',
-              'At DeepNeural, we develop technology tailored to the operational needs of Real Estate Investment firms, helping organizations build efficient, scalable systems that support long-term growth.',
-            ]}
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+            <SectionIntro
+              eyebrow="Technology for Real Estate Investment"
+              heading="Helping Real Estate Investment Firms Operate More Efficiently"
+              intro={[
+                'Real Estate Investment firms manage acquisitions, asset management, investor relations, reporting, compliance, documents, and other critical business functions. As portfolios grow, these activities become increasingly complex, often spanning multiple systems and workflows.',
+                'Artificial Intelligence, Custom Software Development, Business Automation, and integrated digital platforms help simplify operations, connect business systems, and improve access to information for faster, more informed decision-making.',
+                'At DeepNeural, we develop technology tailored to the operational needs of Real Estate Investment firms, helping organizations build efficient, scalable systems that support long-term growth.',
+              ]}
+              className="mb-0 max-w-none"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative"
+            >
+              <div className="relative aspect-[4/5] lg:aspect-auto h-full min-h-[300px] w-full max-w-md mx-auto lg:max-w-none overflow-hidden rounded-2xl shadow-xl">
+                <Image
+                  src="/Helping%20Real%20Estate%20Investment.jpeg"
+                  alt="Helping Real Estate Investment firms operate more efficiently"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* 3. Challenges Faced by Real Estate Investment Firms */}
-      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
+      <section className="pt-8 pb-8 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Industry Challenges"
             heading="Technology Challenges That Can Limit Business Growth"
             intro="As Real Estate Investment firms grow, managing information, processes, and technology becomes increasingly complex. Disconnected systems, manual workflows, and fragmented data can reduce efficiency, limit visibility, and slow informed decision-making."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {challenges.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -580,7 +602,7 @@ export default function RealEstatePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.08 * index }}
-                className={cardWrapper}
+                className={`${cardWrapper} !rounded-lg`}
               >
                 <item.icon size={20} className="text-primary mb-3" />
                 <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
@@ -596,7 +618,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 4. How DeepNeural Helps */}
-      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
+      <section className="pt-8 pb-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Our Solutions"
@@ -639,46 +661,8 @@ export default function RealEstatePage() {
         </div>
       </section>
 
-      {/* 4b. Service Packages */}
-      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
-        <div className="container mx-auto relative z-10">
-          <SectionIntro
-            eyebrow="Flexible Engagement Options"
-            heading="Service Packages"
-            intro="Whether you're exploring a single technology initiative or planning a broader digital transformation, DeepNeural offers flexible service packages designed to match your business objectives, operational priorities, and growth plans."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {servicePackages.map((pkg, index) => (
-              <motion.div
-                key={pkg.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className={cardWrapper}
-              >
-                <pkg.icon size={20} className="text-primary mb-3" />
-                <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2">
-                  {pkg.name}
-                </h3>
-                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
-                  {pkg.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-          <Link
-            href="/contact-us"
-            className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-200"
-          >
-            Explore our packages
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-      </section>
-
       {/* 5. Business Solutions */}
-      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Business Solutions"
@@ -709,7 +693,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 6. Real Estate Investment Segments We Support */}
-      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Who We Support"
@@ -740,7 +724,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 7. Technology Stack */}
-      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Technology Expertise"
@@ -838,8 +822,46 @@ export default function RealEstatePage() {
         </div>
       </section>
 
-      {/* 10. FAQs */}
+      {/* 9b. Service Packages */}
       <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Flexible Engagement Options"
+            heading="Service Packages"
+            intro="Whether you're exploring a single technology initiative or planning a broader digital transformation, DeepNeural offers flexible service packages designed to match your business objectives, operational priorities, and growth plans."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {servicePackages.map((pkg, index) => (
+              <motion.div
+                key={pkg.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className={cardWrapper}
+              >
+                <pkg.icon size={20} className="text-primary mb-3" />
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+                  {pkg.name}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {pkg.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+          <Link
+            href="/contact-us"
+            className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-200"
+          >
+            Explore our packages
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 10. FAQs */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="FAQs"

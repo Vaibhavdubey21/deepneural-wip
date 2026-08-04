@@ -64,6 +64,27 @@ export const posts: BlogPost[] = [
       '🚀 Firms that adopt AI-powered automation today will be better positioned to scale investor relationships, improve efficiency, and build stronger foundations for growth.',
     ],
   },
+  {
+    slug: 'hidden-cost-of-operational-debt',
+    title: 'The Hidden Cost of Operational Debt in Real Estate Investment Firms',
+    date: '2026-08-01',
+    category: 'Real Estate Investment',
+    excerpt:
+      "Operational debt doesn't appear on your balance sheet. But it quietly slows your business every single day.",
+    content: [
+      "📊 Operational debt doesn't appear on your balance sheet.",
+      'But it quietly slows your business every single day.',
+      'Everyone talks about technical debt.\nVery few talk about operational debt.',
+      "It's built through small decisions that seem harmless at the time:",
+      '📋 Another spreadsheet to track leads.\n⌨️ Manual data entry between systems.\n📧 Follow-up reminders that depend on memory.\n🔄 Repeating the same tasks every week.\n📂 Information scattered across different tools.',
+      "Individually, these don't seem like major issues.\nCollectively, they create friction.",
+      '📈 As your real estate investment firm grows, that friction compounds.\nYour team spends more time managing processes than creating value.',
+      "🤝 The goal isn't to eliminate people from the process.\nIt's to eliminate repetitive work so your team can focus on what matters most—building relationships, evaluating opportunities, and making better decisions.",
+      "💡 The firms that scale efficiently aren't just adding more people or more software.\nThey're reducing operational debt before it becomes a barrier to growth.",
+      "🚀 Because every manual process you keep today can become tomorrow's bottleneck.",
+      'How much operational debt is your business carrying today?',
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

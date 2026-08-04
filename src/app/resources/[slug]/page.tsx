@@ -49,7 +49,7 @@ export default function BlogPostPage() {
           <div className="space-y-6">
             {post.content.map((block, index) => {
               const lines = block.split('\n');
-              const bulletPrefixes = ['✔️', '✅', '📌'];
+              const bulletPrefixes = ['✔️', '✅', '📌', '📋', '⌨️', '📧', '🔄', '📂'];
               const isChecklist =
                 lines.length > 1 &&
                 lines.every((line) =>
