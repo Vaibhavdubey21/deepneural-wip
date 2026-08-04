@@ -405,11 +405,13 @@ function SectionIntro({
   heading,
   intro,
   dark,
+  className = 'mb-8 md:mb-10 max-w-3xl',
 }: {
   eyebrow: string;
   heading: string;
   intro: string | string[];
   dark?: boolean;
+  className?: string;
 }) {
   const paragraphs = Array.isArray(intro) ? intro : [intro];
   return (
@@ -418,7 +420,7 @@ function SectionIntro({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="mb-8 md:mb-10 max-w-3xl"
+      className={className}
     >
       <p
         className={`text-sm font-medium tracking-wide uppercase mb-3 ${
@@ -477,7 +479,21 @@ export default function RealEstatePage() {
   return (
     <div>
       {/* 1. Hero */}
-      <section className="relative min-h-[70vh] w-full flex flex-col items-center justify-center bg-white dark:bg-black px-4 pt-32">
+      <section className="relative min-h-svh w-full flex flex-col items-center justify-center overflow-hidden bg-black px-4 pt-32 pb-16">
+        {/* Background video */}
+        <video
+          className="absolute inset-0 z-0 h-full w-full object-cover"
+          src="/video/hero%20video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        {/* Readability overlay */}
+        <div className="absolute inset-0 z-0 bg-black/60" aria-hidden="true" />
+
         <div className="hidden md:block">
           <Spotlight
             gradientFirst={spotlightGradients.gradientFirst}
@@ -492,16 +508,16 @@ export default function RealEstatePage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center relative z-10"
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight mb-6 text-black dark:text-white">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight mb-6 text-white">
             Technology Solutions for Modern Real Estate Investment Firms
           </h1>
-          <p className="text-xl text-light-dark mb-6 max-w-4xl mx-auto">
+          <p className="text-xl text-zinc-200 mb-6 max-w-4xl mx-auto">
             DeepNeural helps Real Estate Investment firms leverage Artificial
             Intelligence, Custom Software Development, and Business Automation
             to streamline operations, improve decision-making, and build
             scalable technology tailored to their business goals.
           </p>
-          <p className="text-base md:text-lg text-light-dark mb-10 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-zinc-300 mb-10 max-w-3xl mx-auto">
             From investor platforms and business applications to AI-powered
             automation and system integration, we build practical solutions
             that simplify operations, improve efficiency, and support
@@ -521,7 +537,11 @@ export default function RealEstatePage() {
               </Button>
             </Link>
             <Link href="/contact-us">
-              <Button variant="outline" size="lg">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/30 text-white hover:bg-white/10"
+              >
                 Discuss Your Project
               </Button>
             </Link>
