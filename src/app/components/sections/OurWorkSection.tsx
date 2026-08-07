@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Sparkles } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import Button from '../Button';
 
@@ -14,8 +15,21 @@ const useCases = [
   'Generate AI-powered investor newsletters with zero manual assembly',
 ];
 
-const placeholderProjects = [
-  { category: 'Multifamily', categoryColor: 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300' },
+const placeholderProjects: {
+  category: string;
+  categoryColor: string;
+  title?: string;
+  description?: string;
+  image?: string;
+}[] = [
+  {
+    category: 'Content Automation',
+    categoryColor: 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300',
+    title: 'NeuRal @rt — Autonomous Real Estate Content Engine',
+    description:
+      "A multitenant AI platform that autonomously researches, writes, validates, and publishes a fully-cited real estate market newsletter every day — delivered through each client's own branded email and CRM with zero manual operations and complete data isolation.",
+    image: '/neuralart.png',
+  },
   { category: 'Fund Management', categoryColor: 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300' },
   { category: 'Senior Housing', categoryColor: 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300' },
 ];
@@ -51,13 +65,33 @@ function OurWorkSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="rounded-2xl border-2 border-dashed border-gray-200 dark:border-slate-700 bg-white dark:bg-zinc-900 overflow-hidden"
+              className={`rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 ${
+                project.title
+                  ? 'border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl transition-shadow duration-300'
+                  : 'border-2 border-dashed border-gray-200 dark:border-slate-700'
+              }`}
             >
-              <div className="h-40 bg-gray-100 dark:bg-zinc-800 flex items-center justify-center">
-                <span className="text-zinc-400 dark:text-zinc-500 text-sm font-medium">
-                  Coming Soon
-                </span>
-              </div>
+              {project.image ? (
+                <div className="relative h-40 bg-zinc-100 dark:bg-zinc-800">
+                  <Image
+                    src={project.image}
+                    alt={project.title ?? project.category}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-contain"
+                  />
+                </div>
+              ) : project.title ? (
+                <div className="h-40 bg-gradient-to-br from-primary/20 to-primary/5 dark:from-primary/25 dark:to-primary/5 flex items-center justify-center">
+                  <Sparkles size={32} className="text-primary" />
+                </div>
+              ) : (
+                <div className="h-40 bg-gray-100 dark:bg-zinc-800 flex items-center justify-center">
+                  <span className="text-zinc-400 dark:text-zinc-500 text-sm font-medium">
+                    Coming Soon
+                  </span>
+                </div>
+              )}
               <div className="p-5">
                 <span
                   className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-3 ${project.categoryColor}`}
@@ -65,9 +99,11 @@ function OurWorkSection() {
                   {project.category}
                 </span>
                 <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-2">
-                  TBD
+                  {project.title ?? 'TBD'}
                 </h3>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm">TBD</p>
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm">
+                  {project.description ?? 'TBD'}
+                </p>
               </div>
             </motion.div>
           ))}

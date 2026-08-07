@@ -85,6 +85,38 @@ export const posts: BlogPost[] = [
       'How much operational debt is your business carrying today?',
     ],
   },
+  {
+    slug: 'best-firms-build-better-businesses',
+    title: "The Best Real Estate Investment Firms Don't Just Buy Better Assets—They Build Better Businesses",
+    date: '2026-08-04',
+    category: 'Real Estate Investment',
+    excerpt:
+      "Growth isn't only measured by the number of acquisitions. It's also reflected in how efficiently the business runs every day.",
+    content: [
+      "🏢 The Best Real Estate Investment Firms Don't Just Buy Better Assets. They Build Better Businesses.",
+      "Growth isn't only measured by the number of acquisitions.",
+      "It's also reflected in how efficiently the business runs every day.",
+      '📍 Are deals moving forward without bottlenecks?\n🤝 Are investor relationships managed consistently?\n📧 Are follow-ups happening at the right time?\n📊 Are marketing efforts generating qualified opportunities?\n📂 Can teams quickly access the information they need?',
+      'As firms grow, these day-to-day processes become just as important as the investments themselves.',
+      'Technology—including AI, automation, and custom software—can help simplify repetitive work, improve visibility, and enable teams to focus on higher-value decisions.',
+      "The firms that scale successfully aren't just investing in properties.\nThey're investing in the way their business operates.",
+    ],
+  },
+  {
+    slug: 'every-recurring-task-starts-small',
+    title: "Every Recurring Task Starts Small. Then It Adds Up.",
+    date: '2026-08-06',
+    category: 'Real Estate Investment',
+    excerpt:
+      'One investor update. One weekly report. One CRM cleanup. One follow-up. Months later, these small tasks consume hours every week.',
+    content: [
+      '📊 Every recurring task starts small.',
+      '📧 One investor update.\n📈 One weekly report.\n📝 One CRM cleanup.\n📞 One follow-up.',
+      '⏳ Months later, these small tasks consume hours every week—time that could be spent sourcing deals, building relationships, or evaluating opportunities.',
+      '🤖 AI helps automate repetitive operational work while your team stays focused on decisions that actually drive growth.',
+      "🎯 The goal isn't to replace people. It's to free them from repetitive work.",
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

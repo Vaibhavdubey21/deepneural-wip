@@ -61,87 +61,91 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
+    <div className="rounded-lg border border-gray-200 dark:border-slate-700 shadow-md bg-white dark:bg-zinc-800 p-4 md:p-5">
       {isSubmitted ? (
-        <div className="flex flex-col items-center justify-center py-8">
-          <CheckCircle size={64} className="text-green-500 mb-4" />
-          <h3 className="text-2xl font-bold text-center mb-2">Thank You!</h3>
-          <p className="text-gray-600 text-center">
+        <div className="flex flex-col items-center justify-center py-4">
+          <CheckCircle size={40} className="text-green-500 mb-2" />
+          <h3 className="text-lg font-bold text-center mb-1 text-zinc-900 dark:text-white">
+            Thank You!
+          </h3>
+          <p className="text-zinc-600 dark:text-zinc-400 text-center text-sm">
             Your message has been received. We&apos;ll get back to you shortly.
           </p>
         </div>
       ) : (
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-6"
+          className="space-y-2.5"
           id="contact-form"
         >
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md flex items-start">
-              <AlertTriangle size={20} className="mr-2 shrink-0 mt-0.5" />
+            <div className="bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 px-3 py-2 rounded-md flex items-start text-sm">
+              <AlertTriangle size={16} className="mr-2 shrink-0 mt-0.5" />
               <p>{error}</p>
             </div>
           )}
 
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Full Name
-            </label>
-            <input
-              id="name"
-              type="text"
-              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${errors.name ? 'border-red-500' : 'border-gray-300'
-                }`}
-              placeholder="John Doe"
-              {...register('name', { required: 'Name is required' })}
-            />
-            {errors.name && (
-              <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
-            )}
-          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-0.5"
+              >
+                Full Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                className={`w-full px-3 py-1.5 text-sm border rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary ${errors.name ? 'border-red-500' : 'border-gray-300 dark:border-slate-700'
+                  }`}
+                placeholder="John Doe"
+                {...register('name', { required: 'Name is required' })}
+              />
+              {errors.name && (
+                <p className="mt-0.5 text-xs text-red-600 dark:text-red-400">{errors.name.message}</p>
+              )}
+            </div>
 
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Email Address
-            </label>
-            <input
-              id="email"
-              type="email"
-              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${errors.email ? 'border-red-500' : 'border-gray-300'
-                }`}
-              placeholder="john@example.com"
-              {...register('email', {
-                required: 'Email is required',
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: 'Invalid email address',
-                },
-              })}
-            />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-600">
-                {errors.email.message}
-              </p>
-            )}
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-0.5"
+              >
+                Email Address
+              </label>
+              <input
+                id="email"
+                type="email"
+                className={`w-full px-3 py-1.5 text-sm border rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-slate-700'
+                  }`}
+                placeholder="john@example.com"
+                {...register('email', {
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'Invalid email address',
+                  },
+                })}
+              />
+              {errors.email && (
+                <p className="mt-0.5 text-xs text-red-600 dark:text-red-400">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
           </div>
 
           <div>
             <label
               htmlFor="company"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-0.5"
             >
               Company (Optional)
             </label>
             <input
               id="company"
               type="text"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
+              className="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-slate-700 rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary"
               placeholder="Your Company"
               {...register('company')}
             />
@@ -150,20 +154,20 @@ const ContactForm: React.FC = () => {
           <div>
             <label
               htmlFor="message"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-0.5"
             >
               Message
             </label>
             <textarea
               id="message"
-              rows={9}
-              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-primary ${errors.message ? 'border-red-500' : 'border-gray-300'
+              rows={3}
+              className={`w-full px-3 py-1.5 text-sm border rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary ${errors.message ? 'border-red-500' : 'border-gray-300 dark:border-slate-700'
                 }`}
               placeholder="How can we help you?"
               {...register('message', { required: 'Message is required' })}
             />
             {errors.message && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-0.5 text-xs text-red-600 dark:text-red-400">
                 {errors.message.message}
               </p>
             )}
@@ -172,10 +176,10 @@ const ContactForm: React.FC = () => {
           <Button
             type="submit"
             variant="primary"
-            size="lg"
+            size="md"
             className="w-full !text-white"
             disabled={isSubmitting}
-            icon={<Send size={18} />}
+            icon={<Send size={16} />}
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>

@@ -399,7 +399,7 @@ const faqs = [
 ];
 
 const cardWrapper =
-  'rounded-2xl border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl bg-white dark:bg-zinc-800 p-6 transition-shadow duration-300';
+  'rounded-lg border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl bg-white dark:bg-zinc-800 p-6 transition-shadow duration-300';
 
 function SectionIntro({
   eyebrow,
@@ -602,7 +602,7 @@ export default function RealEstatePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.08 * index }}
-                className={`${cardWrapper} !rounded-lg`}
+                className={cardWrapper}
               >
                 <item.icon size={20} className="text-primary mb-3" />
                 <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
@@ -622,10 +622,10 @@ export default function RealEstatePage() {
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Our Solutions"
-            heading="Technology Solutions Built for Real Estate Investment Firms"
+            heading="Solutions Designed Around Real Estate Investment Operations"
             intro="Every Real Estate Investment firm has different operational priorities. DeepNeural combines Artificial Intelligence, Custom Software Development, Business Automation, and System Integration to deliver technology aligned with your business goals."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {solutionAreas.map((area, index) => (
               <motion.div
                 key={area.title}
@@ -666,10 +666,10 @@ export default function RealEstatePage() {
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Business Solutions"
-            heading="Technology Solutions We Build"
+            heading="Business Platforms and Systems We Build"
             intro="We design and develop technology solutions tailored to the operational needs of Real Estate Investment firms. Here are examples of the platforms and applications we can build for your business."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {businessSolutions.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -697,10 +697,10 @@ export default function RealEstatePage() {
         <div className="container mx-auto relative z-10">
           <SectionIntro
             eyebrow="Who We Support"
-            heading="Technology Solutions for Every Stage of Real Estate Investment"
+            heading="Supporting Diverse Real Estate Investment Businesses"
             intro="Every Real Estate Investment business operates differently. We develop technology solutions tailored to the operational priorities of each segment across the investment lifecycle."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {segments.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -731,7 +731,7 @@ export default function RealEstatePage() {
             heading="Modern Technology Built for Real Estate Investment"
             intro="We combine Artificial Intelligence, modern software development, cloud infrastructure, and system integration to build secure, scalable technology for Real Estate Investment firms."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {techCategories.map((group, index) => (
               <motion.div
                 key={group.label}
@@ -766,7 +766,7 @@ export default function RealEstatePage() {
             intro="Technology delivers the greatest value when it's built around the way Real Estate Investment businesses operate. DeepNeural combines industry understanding with Artificial Intelligence, Custom Software Development, and Business Automation to develop practical solutions that support long-term growth."
             dark
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {whyChooseUs.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -774,7 +774,7 @@ export default function RealEstatePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.08 * index }}
-                className="rounded-2xl border border-slate-700 shadow-md hover:shadow-xl bg-zinc-900 p-6 transition-shadow duration-300"
+                className="rounded-lg border border-slate-700 shadow-md hover:shadow-xl bg-zinc-900 p-6 transition-shadow duration-300"
               >
                 <item.icon size={20} className="text-primary mb-3" />
                 <h3 className="text-lg font-semibold text-white mb-2">
@@ -797,7 +797,7 @@ export default function RealEstatePage() {
             heading="A Practical Approach to Delivering Technology Solutions"
             intro="Every project begins with understanding your business, evaluating the right approach, and recommending the solution that delivers the greatest value—whether that's an existing solution, a customized implementation, or a completely new build."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -830,7 +830,7 @@ export default function RealEstatePage() {
             heading="Service Packages"
             intro="Whether you're exploring a single technology initiative or planning a broader digital transformation, DeepNeural offers flexible service packages designed to match your business objectives, operational priorities, and growth plans."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10">
             {servicePackages.map((pkg, index) => (
               <motion.div
                 key={pkg.name}
@@ -868,7 +868,7 @@ export default function RealEstatePage() {
             heading="Frequently Asked Questions"
             intro="Answers to common questions about working with DeepNeural."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {faqs.map((faq, index) => (
               <motion.div
                 key={faq.question}

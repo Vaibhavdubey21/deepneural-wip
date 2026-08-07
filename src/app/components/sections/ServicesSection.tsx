@@ -67,6 +67,13 @@ const services = [
       'Automate customer journeys, streamline workflows, and improve lead management.',
     href: '/services',
   },
+  {
+    number: '09',
+    name: 'Custom Business & Technology Solutions',
+    description:
+      'We design tailored technology and operational solutions that address specific business challenges, improve efficiency, and support evolving business needs.',
+    href: '/services',
+  },
 ];
 
 function ServicesSection() {
@@ -84,7 +91,7 @@ function ServicesSection() {
             Our Services
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">
-            Eight Solutions. One Goal. Business Growth.
+            Nine Solutions. One Goal. Business Growth.
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
             We help Real Estate Investment firms strengthen their digital

@@ -119,6 +119,7 @@ const Footer: React.FC = () => {
                   'AI-Assisted Presentation Design',
                   'Lead Generation',
                   'CRM Automation',
+                  'Custom Business & Technology Solutions',
                 ].map((service) => (
                   <li key={service}>
                     <Link

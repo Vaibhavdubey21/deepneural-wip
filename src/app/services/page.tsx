@@ -1,445 +1,879 @@
 'use client';
 
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
+  Award,
+  Bot,
   Brain,
   Building2,
+  Cloud,
   Code,
   Database,
+  FileText,
+  Gauge,
+  Globe,
+  Layers,
   LineChart,
+  ListChecks,
+  Mail,
+  MessageSquare,
   Network,
+  Repeat,
+  Rocket,
+  Send,
   Server,
+  Smile,
+  Tag,
+  TrendingUp,
+  Users,
+  Workflow,
+  Zap,
+  type LucideIcon,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useEffect, useState } from 'react';
+import { Spotlight } from '@/components/ui/spotlight-new';
 import Button from '../components/Button';
-import SectionHeading from '../components/SectionHeading';
-import HeaderSection from '../components/sections/HeaderSection';
+import { useTheme } from '../components/ThemeProvider';
+
+const cardWrapper =
+  'rounded-lg border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-xl bg-white dark:bg-zinc-800 p-6 transition-shadow duration-300';
+
+const iconBadge =
+  'inline-flex p-3 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary mb-4 w-fit';
+
+const serviceCategories: { icon: LucideIcon; title: string; description: string }[] = [
+  {
+    icon: Brain,
+    title: 'Artificial Intelligence',
+    description:
+      'Leverage AI to automate processes, extract insights from business data, and support faster, more informed decision-making.',
+  },
+  {
+    icon: Code,
+    title: 'Custom Software Development',
+    description:
+      'Design and develop secure, scalable software tailored to your business processes, operational needs, and long-term growth.',
+  },
+  {
+    icon: Workflow,
+    title: 'Business Automation',
+    description:
+      'Automate repetitive workflows, connect business systems, and streamline operations to improve productivity and efficiency.',
+  },
+];
+
+const aiSolutions: { icon: LucideIcon; title: string; description: string }[] = [
+  {
+    icon: Bot,
+    title: 'AI Agents',
+    description:
+      'Develop AI agents that automate business tasks, assist teams, and streamline day-to-day operations through intelligent, context-aware interactions.',
+  },
+  {
+    icon: MessageSquare,
+    title: 'AI Chatbots',
+    description:
+      'Build AI-powered chatbots that enhance customer engagement, provide instant support, and deliver consistent conversational experiences across digital channels.',
+  },
+  {
+    icon: FileText,
+    title: 'Document AI',
+    description:
+      'Create intelligent document processing solutions that extract, classify, and organize information from business documents with greater speed and accuracy.',
+  },
+  {
+    icon: Zap,
+    title: 'AI Workflow Automation',
+    description:
+      'Implement AI-powered workflow automation that streamlines repetitive processes, improves operational efficiency, and enables smarter business operations.',
+  },
+];
+
+const customSoftware: { icon: LucideIcon; title: string; description: string }[] = [
+  {
+    icon: Globe,
+    title: 'Web Applications',
+    description:
+      'Develop responsive web applications that improve business operations, enhance user experiences, and support digital transformation initiatives.',
+  },
+  {
+    icon: Cloud,
+    title: 'SaaS Platforms',
+    description:
+      'Design and develop scalable Software-as-a-Service (SaaS) platforms that support subscription-based products, business operations, and long-term growth.',
+  },
+  {
+    icon: Building2,
+    title: 'Enterprise Software',
+    description:
+      'Create enterprise-grade software that streamlines operations, centralizes business information, and improves collaboration across teams.',
+  },
+  {
+    icon: Users,
+    title: 'CRM Development',
+    description:
+      'Develop custom CRM solutions that help manage customer relationships, organize business data, and optimize sales and service processes.',
+  },
+];
+
+const businessAutomation: { icon: LucideIcon; title: string; description: string }[] = [
+  {
+    icon: Users,
+    title: 'CRM Automation',
+    description:
+      'Automate lead management, customer interactions, follow-ups, and sales processes to improve efficiency and strengthen customer relationships.',
+  },
+  {
+    icon: Workflow,
+    title: 'Workflow Automation',
+    description:
+      'Eliminate repetitive manual tasks by automating business workflows across departments, applications, and operational processes.',
+  },
+  {
+    icon: Mail,
+    title: 'Newsletter Automation',
+    description:
+      'Automate the creation, scheduling, and distribution of newsletters to deliver consistent communication with customers, clients, and stakeholders.',
+  },
+  {
+    icon: Send,
+    title: 'Email Campaign Automation',
+    description:
+      'Build automated email campaigns that nurture leads, engage customers, and deliver timely communications throughout the customer journey.',
+  },
+  {
+    icon: Repeat,
+    title: 'Follow-Up Automation',
+    description:
+      'Automatically trigger follow-up communications based on customer actions, business events, or predefined workflows to improve engagement and response times.',
+  },
+  {
+    icon: Tag,
+    title: 'Lead Tagging Automation',
+    description:
+      'Automatically categorize, score, and organize leads based on behavior, source, or business-defined criteria for more effective sales and marketing.',
+  },
+  {
+    icon: ListChecks,
+    title: 'Task Tracking Automation',
+    description:
+      'Automate task creation, assignment, reminders, and progress tracking to improve team coordination and operational visibility.',
+  },
+  {
+    icon: FileText,
+    title: 'Document Workflow Automation',
+    description:
+      'Streamline document creation, routing, approvals, and management to improve accuracy, reduce delays, and maintain process consistency.',
+  },
+];
+
+const solutionsWeBuild: { icon: LucideIcon; title: string; description: string }[] = [
+  {
+    icon: Bot,
+    title: 'AI Assistants',
+    description:
+      'Develop intelligent AI assistants that automate business tasks, provide instant access to information, and support everyday operations.',
+  },
+  {
+    icon: MessageSquare,
+    title: 'AI Chatbots',
+    description:
+      'Build AI-powered chatbots that enhance customer engagement, automate support, and deliver seamless conversational experiences.',
+  },
+  {
+    icon: Globe,
+    title: 'Customer Portals',
+    description:
+      'Design secure customer portals that provide customers, partners, and stakeholders with centralized access to information, documents, and business services.',
+  },
+  {
+    icon: LineChart,
+    title: 'Business Dashboards',
+    description:
+      'Create interactive dashboards that visualize business data, monitor key metrics, and support informed decision-making.',
+  },
+  {
+    icon: Users,
+    title: 'CRM Systems',
+    description:
+      'Develop custom CRM systems that centralize customer information, streamline sales processes, and strengthen relationship management.',
+  },
+  {
+    icon: Layers,
+    title: 'Internal Business Applications',
+    description:
+      'Build custom business applications that simplify internal operations, improve collaboration, and support day-to-day business activities.',
+  },
+  {
+    icon: Workflow,
+    title: 'Workflow Management Systems',
+    description:
+      'Design workflow management systems that automate business processes, improve task coordination, and increase operational efficiency.',
+  },
+  {
+    icon: Network,
+    title: 'API Integrations',
+    description:
+      'Integrate business applications through secure APIs to enable seamless data exchange, improve connectivity, and create a unified technology ecosystem.',
+  },
+];
+
+const growthServices: { number: string; title: string; description: string }[] = [
+  {
+    number: '01',
+    title: 'Campaign Strategy & Execution',
+    description:
+      'Design and execute targeted campaigns that help businesses reach the right audience and generate qualified opportunities.',
+  },
+  {
+    number: '02',
+    title: 'Business Website Development',
+    description:
+      'Build professional websites that strengthen credibility, communicate your value, and support business growth.',
+  },
+  {
+    number: '03',
+    title: 'Drip Lead Generation Sequence Management',
+    description:
+      'Create automated lead nurturing sequences that engage prospects through timely and personalized communication.',
+  },
+  {
+    number: '04',
+    title: 'AI-Powered Video Podcast Production',
+    description:
+      'Manage the end-to-end production of AI-assisted video podcasts that help organizations build authority and increase visibility.',
+  },
+  {
+    number: '05',
+    title: 'Social Media Marketing',
+    description:
+      'Develop content strategies and manage social media presence to strengthen brand awareness and audience engagement.',
+  },
+  {
+    number: '06',
+    title: 'AI-Assisted Presentation Design',
+    description:
+      'Create professional presentations, pitch decks, reports, and business materials enhanced by AI-assisted design.',
+  },
+  {
+    number: '07',
+    title: 'Lead Generation',
+    description:
+      'Implement targeted lead generation strategies that help businesses identify and connect with qualified prospects.',
+  },
+  {
+    number: '08',
+    title: 'CRM Automation',
+    description:
+      'Automate customer relationship workflows, lead tracking, follow-ups, and sales processes to improve operational efficiency.',
+  },
+  {
+    number: '09',
+    title: 'Custom Business & Technology Solutions',
+    description:
+      "Deliver additional technology and operational solutions tailored to your organization's specific business requirements.",
+  },
+];
+
+const businessValue: { icon: LucideIcon; title: string; description: string }[] = [
+  {
+    icon: TrendingUp,
+    title: 'Improve Operational Efficiency',
+    description:
+      'Streamline business operations by reducing manual effort, simplifying workflows, and enabling teams to work more effectively.',
+  },
+  {
+    icon: Brain,
+    title: 'AI Enablement',
+    description:
+      'Empower your business with practical AI solutions that enhance productivity, support smarter decision-making, and automate routine work—allowing teams to focus on higher-value activities.',
+  },
+  {
+    icon: Zap,
+    title: 'Automate Repetitive Processes',
+    description:
+      'Replace time-consuming manual tasks with intelligent automation that improves consistency, accuracy, and productivity.',
+  },
+  {
+    icon: Gauge,
+    title: 'Accelerate Decision-Making',
+    description:
+      'Provide faster access to business information and actionable insights that support confident, data-driven decisions.',
+  },
+  {
+    icon: Network,
+    title: 'Connect Business Systems',
+    description:
+      'Integrate applications and business data to eliminate information silos and create a more connected operational environment.',
+  },
+  {
+    icon: Layers,
+    title: 'Scale With Confidence',
+    description:
+      'Build secure, scalable technology that adapts to evolving business needs and supports sustainable growth.',
+  },
+  {
+    icon: Smile,
+    title: 'Enhance Customer Experiences',
+    description:
+      'Deliver seamless digital experiences through modern applications, intelligent automation, and responsive customer interactions.',
+  },
+];
+
+const techCapabilities: {
+  icon: LucideIcon;
+  label: string;
+  technologies: string;
+  value: string;
+}[] = [
+  {
+    icon: Brain,
+    label: 'Artificial Intelligence',
+    technologies: 'Machine Learning • Generative AI • Large Language Models (LLMs) • AI Automation',
+    value:
+      'Build intelligent solutions that automate business processes, generate insights, and support smarter decision-making.',
+  },
+  {
+    icon: Code,
+    label: 'Frontend Development',
+    technologies: 'React • Next.js • JavaScript',
+    value:
+      'Develop responsive, user-friendly applications that deliver seamless digital experiences across web platforms.',
+  },
+  {
+    icon: Server,
+    label: 'Backend Development',
+    technologies: 'Node.js • Python • REST APIs',
+    value:
+      'Power secure, scalable applications with reliable business logic, data processing, and system functionality.',
+  },
+  {
+    icon: Database,
+    label: 'Databases & Cloud Infrastructure',
+    technologies: 'PostgreSQL • AWS • Vercel',
+    value:
+      'Ensure secure data management, reliable cloud deployment, and scalable infrastructure that supports business growth.',
+  },
+  {
+    icon: Network,
+    label: 'Integrations',
+    technologies: 'REST APIs • CRM Integrations • Third-Party Integrations • Cloud Connectivity',
+    value:
+      'Connect business applications, synchronize data, and create unified technology ecosystems that improve operational efficiency.',
+  },
+  {
+    icon: Cloud,
+    label: 'Deployment',
+    technologies:
+      'Cloud Deployment • Performance Optimization • Application Monitoring • Security Best Practices',
+    value:
+      'Deploy applications securely, optimize performance, and ensure reliable operation across production environments.',
+  },
+];
+
+const servicePackages: { icon: LucideIcon; name: string; description: string }[] = [
+  {
+    icon: Rocket,
+    name: 'Starter',
+    description:
+      'Launch your syndication business professionally with a complete credibility foundation — brand, website, and CRM setup.',
+  },
+  {
+    icon: TrendingUp,
+    name: 'Growth',
+    description:
+      'Everything in Starter, plus monthly investor outreach, content, newsletters, acquisition support, lead magnets, webinars, and light operations. Includes a free CRM account.',
+  },
+  {
+    icon: Award,
+    name: 'Premium',
+    description:
+      'Everything in Growth, plus advanced capital-raise systems, automation, underwriting admin, asset management reporting, paid ads management, and priority execution. Includes a free CRM account.',
+  },
+];
+
+function SectionIntro({
+  eyebrow,
+  heading,
+  intro,
+  dark,
+}: {
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  dark?: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="mb-8 md:mb-10 max-w-3xl"
+    >
+      <p
+        className={`text-sm font-medium tracking-wide uppercase mb-3 ${
+          dark ? 'text-zinc-400' : 'text-zinc-600 dark:text-zinc-400'
+        }`}
+      >
+        {eyebrow}
+      </p>
+      <h2
+        className={`text-3xl md:text-4xl font-bold tracking-tight mb-4 ${
+          dark ? 'text-white' : 'text-zinc-900 dark:text-zinc-100'
+        }`}
+      >
+        {heading}
+      </h2>
+      <p
+        className={`text-base md:text-lg leading-relaxed ${
+          dark ? 'text-zinc-400' : 'text-zinc-600 dark:text-zinc-400'
+        }`}
+      >
+        {intro}
+      </p>
+    </motion.div>
+  );
+}
 
 export default function ServicesPage() {
-  const coreRef = useRef(null);
-  const { scrollYProgress: coreProgress } = useScroll({
-    target: coreRef,
-    offset: ["start end", "end start"]
-  });
-  const smoothCoreProgress = useSpring(coreProgress, { stiffness: 70, damping: 20 });
+  const { theme } = useTheme();
+  const [isDark, setIsDark] = useState(theme === 'dark');
 
-  const coreY1 = useTransform(smoothCoreProgress, [0, 1], [40, -40]);
-  const coreY2 = useTransform(smoothCoreProgress, [0, 1], [80, -80]);
- 
+  useEffect(() => {
+    setIsDark(theme === 'dark');
+  }, [theme]);
 
-  const specializedRef = useRef(null);
-  const { scrollYProgress: specializedProgress } = useScroll({
-    target: specializedRef,
-    offset: ["start end", "end start"]
-  });
-  const smoothSpecializedProgress = useSpring(specializedProgress, { stiffness: 70, damping: 20 });
-  const specializedY1 = useTransform(smoothSpecializedProgress, [0, 1], [20, -20]);
-  const specializedY2 = useTransform(smoothSpecializedProgress, [0, 1], [40, -40]);
-  const specializedY3 = useTransform(smoothSpecializedProgress, [0, 1], [30, -30]);
-  const specializedY4 = useTransform(smoothSpecializedProgress, [0, 1], [25, -25]);
+  const spotlightGradients = isDark
+    ? {
+        gradientFirst:
+          'radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(210, 100%, 70%, .15) 0, hsla(210, 100%, 50%, .06) 50%, hsla(210, 100%, 40%, 0) 80%)',
+        gradientSecond:
+          'radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 70%, .12) 0, hsla(210, 100%, 50%, .04) 80%, transparent 100%)',
+        gradientThird:
+          'radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 70%, .1) 0, hsla(210, 100%, 40%, .03) 80%, transparent 100%)',
+      }
+    : {
+        gradientFirst:
+          'radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(210, 100%, 40%, .18) 0, hsla(210, 100%, 30%, .08) 50%, hsla(210, 100%, 20%, 0) 80%)',
+        gradientSecond:
+          'radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 40%, .15) 0, hsla(210, 100%, 30%, .06) 80%, transparent 100%)',
+        gradientThird:
+          'radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 40%, .12) 0, hsla(210, 100%, 20%, .04) 80%, transparent 100%)',
+      };
 
-  const processRef = useRef(null);
-  const { scrollYProgress: processProgress } = useScroll({
-    target: processRef,
-    offset: ["start end", "end start"]
-  });
-  const smoothProcessProgress = useSpring(processProgress, { stiffness: 100, damping: 25 });
-
-  // Individual transforms for each process step (one-by-one reveal)
-  const step1Y = useTransform(smoothProcessProgress, [0, 0.1], [40, 0]);
-  const step1Opacity = useTransform(smoothProcessProgress, [0, 0.08], [0, 1]);
-
-  const step2Y = useTransform(smoothProcessProgress, [0.1, 0.2], [40, 0]);
-  const step2Opacity = useTransform(smoothProcessProgress, [0.1, 0.18], [0, 1]);
-
-  const step3Y = useTransform(smoothProcessProgress, [0.2, 0.3], [40, 0]);
-  const step3Opacity = useTransform(smoothProcessProgress, [0.2, 0.28], [0, 1]);
-
-  const step4Y = useTransform(smoothProcessProgress, [0.3, 0.4], [40, 0]);
-  const step4Opacity = useTransform(smoothProcessProgress, [0.3, 0.38], [0, 1]);
-
-  const step5Y = useTransform(smoothProcessProgress, [0.4, 0.5], [40, 0]);
-  const step5Opacity = useTransform(smoothProcessProgress, [0.4, 0.48], [0, 1]);
   return (
     <div>
-      {/* Hero Section */}
-      <HeaderSection
-        title="Our Services"
-        subtitle="Practical AI, custom software, and automation solutions tailored to your business needs"
-      />
-      {/* Main Services */}
-      <section className="py-24 bg-white dark:bg-black overflow-hidden relative" ref={coreRef}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03),transparent)] pointer-events-none" />
-
-        <div className="container mx-auto px-4 relative z-10">
-          <SectionHeading
-            title="Core Expertise"
-            subtitle="Our flagship services that are transforming industries"
-            centered
+      {/* 1. Hero */}
+      <section className="relative min-h-[70vh] w-full flex flex-col items-center justify-center bg-white dark:bg-black px-4 pt-32">
+        <div className="hidden md:block">
+          <Spotlight
+            gradientFirst={spotlightGradients.gradientFirst}
+            gradientSecond={spotlightGradients.gradientSecond}
+            gradientThird={spotlightGradients.gradientThird}
+            height={1100}
           />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-20 max-w-5xl mx-auto">
-            {[
-              {
-                icon: <Building2 size={48} />,
-                title: 'Real Estate Investment Solutions',
-                description: 'Digital platforms and internal tools built for how investment firms operate.',
-                features: [
-                  'Deal management tools, investor portals, and custom dashboards.',
-                  'Automate repetitive tasks to save time and reduce operational costs.',
-                  'Centralize business information for faster, better-informed decisions.',
-                ],
-                color: 'indigo',
-                style: {
-                  y: coreY1,
-                  glow: 'group-hover:shadow-indigo-500/20 group-hover:border-indigo-500/30',
-                  icon: 'text-indigo-600 dark:text-indigo-400',
-                  bg: 'group-hover:bg-indigo-500/5'
-                }
-              },
-              {
-                icon: <Brain size={48} />,
-                title: 'Artificial Intelligence',
-                description: 'AI-powered capabilities that assist analysis, automation, and decision support.',
-                features: [
-                  'AI document processing, intelligent search, and workflow automation.',
-                  'AI assistants that help teams access information faster.',
-                  'Practical AI built around real business use cases, not hype.',
-                ],
-                color: 'blue',
-                style: {
-                  y: coreY2,
-                  glow: 'group-hover:shadow-blue-500/20 group-hover:border-blue-500/30',
-                  icon: 'text-blue-600 dark:text-blue-400',
-                  bg: 'group-hover:bg-blue-500/5'
-                }
-              },
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                style={{ y: service.style.y }}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`group relative h-full flex flex-col p-6 md:p-7 rounded-[1.5rem] bg-zinc-50 dark:bg-zinc-900/40 border-2 border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:border-primary/40 ${service.style.glow}`}
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mx-auto text-center relative z-10"
+        >
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight mb-6 text-black dark:text-white">
+            AI, Software & Real Estate Investment Technology Services
+          </h1>
+          <p className="text-xl text-light-dark mb-10 max-w-4xl mx-auto">
+            DeepNeural delivers Artificial Intelligence, Custom Software
+            Development, and Business Automation services for modern
+            businesses, with specialized expertise in Real Estate Investment
+            technology. We build practical, scalable solutions that
+            streamline operations, improve efficiency, and support long-term
+            growth.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/contact-us">
+              <Button
+                variant="primary"
+                size="lg"
+                movingBorder
+                icon={<ArrowRight size={18} />}
+                iconPosition="right"
+                className="!text-white"
               >
-                {/* Corner Radial Glow matching About Us page */}
-                <div className={`pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full transition-all duration-1000 opacity-0 group-hover:opacity-100 ${service.style.bg.replace('bg-', 'bg-').replace('/5', '/10')} blur-[80px]`} />
-                <div className={`absolute inset-0 transition-opacity duration-500 opacity-0 ${service.style.bg} rounded-[1.5rem] pointer-events-none`} />
+                Book a Consultation
+              </Button>
+            </Link>
+            <Link href="/contact-us">
+              <Button variant="outline" size="lg">
+                Talk to Our Experts
+              </Button>
+            </Link>
+          </div>
+        </motion.div>
+      </section>
 
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="relative mb-5 w-fit">
-                    {/* Icon Aura matching About Us page */}
-                    <div className={`absolute inset-0 rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 ${service.style.bg.replace('/5', '/40')}`} />
-                    <div className={`relative p-3.5 bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-zinc-100/50 dark:border-zinc-800/50 w-fit transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 ${service.style.icon}`}>
-                      {service.icon}
-                    </div>
-                  </div>
-
-                  <h3 className="text-lg md:text-xl font-black mb-2.5 text-zinc-900 dark:text-white transition-colors">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-6 text-lg leading-relaxed font-medium">
-                    {service.description}
-                  </p>
-
-                  <div className="space-y-4 flex-grow">
-                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-zinc-400 uppercase">Key Features</h4>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2.5 group/item">
-                          <div className={`mt-1.5 h-1.5 w-1.5 rounded-full shrink-0 ${service.style.icon.split(' ')[0]} transition-transform group-hover/item:scale-150`} />
-                          <span className="text-zinc-600 dark:text-zinc-400 text-base font-medium leading-relaxed">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
+      {/* 2. Service Categories */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Our Services"
+            heading="Technology Services That Drive Business Growth"
+            intro="DeepNeural provides Artificial Intelligence, Custom Software Development, and Business Automation services that help organizations improve efficiency, simplify operations, and build scalable digital solutions."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {serviceCategories.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                className={cardWrapper}
+              >
+                <div className={iconBadge}>
+                  <item.icon size={24} />
                 </div>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Specialized Services */}
-      <section className="py-24 bg-zinc-50/50 dark:bg-zinc-950/50 overflow-hidden relative" ref={specializedRef}>
-        <div className="container mx-auto px-4 relative z-10">
-          <SectionHeading
-            title="Specialized Services"
-            subtitle="Targeted solutions for specific business challenges"
-            centered
+      {/* 3. Artificial Intelligence Solutions */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Artificial Intelligence"
+            heading="Artificial Intelligence Solutions for Modern Businesses"
+            intro="DeepNeural develops Artificial Intelligence solutions that help organizations automate workflows, improve decision-making, and unlock greater value from business data. Our AI services are designed around your business requirements, enabling practical, scalable, and measurable outcomes."
           />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-16">
-            {[
-              {
-                icon: <Code size={36} />,
-                title: 'Custom Software Development',
-                description: 'Secure, scalable applications built around your specific business processes.',
-                color: 'amber',
-                bgHover: 'group-hover:bg-amber-500/25',
-                iconColor: 'text-amber-600 dark:text-amber-400',
-                iconBg: 'bg-amber-500/40',
-                titleHover: 'group-hover:text-amber-600',
-                style: 'group-hover:shadow-amber-500/10 group-hover:border-amber-500/30'
-              },
-              {
-                icon: <Network size={36} />,
-                title: 'Business Automation & Integration',
-                description: 'Connect systems, automate repetitive activities, and reduce operational complexity.',
-                color: 'emerald',
-                bgHover: 'group-hover:bg-emerald-500/25',
-                iconColor: 'text-emerald-600 dark:text-emerald-400',
-                iconBg: 'bg-emerald-500/40',
-                titleHover: 'group-hover:text-emerald-600',
-                style: 'group-hover:shadow-emerald-500/10 group-hover:border-emerald-500/30'
-              },
-              {
-                icon: <Brain size={36} />,
-                title: 'AI Consulting',
-                description: 'Strategic guidance on identifying and implementing the right AI capabilities for your business.',
-                color: 'violet',
-                bgHover: 'group-hover:bg-violet-500/25',
-                iconColor: 'text-violet-600 dark:text-violet-400',
-                iconBg: 'bg-violet-500/40',
-                titleHover: 'group-hover:text-violet-600',
-                style: 'group-hover:shadow-violet-500/10 group-hover:border-violet-500/30'
-              },
-              {
-                icon: <LineChart size={36} />,
-                title: 'Business Intelligence',
-                description: 'Turn business data into meaningful insights that support planning and decision-making.',
-                color: 'cyan',
-                bgHover: 'group-hover:bg-cyan-500/25',
-                iconColor: 'text-cyan-600 dark:text-cyan-400',
-                iconBg: 'bg-cyan-500/40',
-                titleHover: 'group-hover:text-cyan-600',
-                style: 'group-hover:shadow-cyan-500/10 group-hover:border-cyan-500/30'
-              },
-            ].map((service, index) => {
-              // Assign staggered Y based on column (4 columns)
-              const columnY = [specializedY1, specializedY2, specializedY3, specializedY4][index % 4];
-
-              return (
-                <motion.div
-                  key={index}
-                  style={{ y: columnY }}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className={`group p-5 md:p-6 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border-2 border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:scale-[1.02] h-full flex flex-col relative overflow-hidden group-hover:shadow-2xl group-hover:z-20 ${service.style} ${service.bgHover}`}
-                >
-                  {/* Corner Radial Glow */}
-                  <div className={`pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full transition-all duration-1000 opacity-0 group-hover:opacity-100 bg-${service.color}-500/10 blur-[40px]`} />
-
-                  <div className="relative mb-4 w-fit">
-                    {/* Icon Aura */}
-                    <div className={`absolute inset-0 rounded-lg blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300 ${service.iconBg}`} />
-                    <div className={`relative p-3 bg-white dark:bg-zinc-900 rounded-lg shadow-sm w-fit ${service.iconColor} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
-                      {service.icon}
-                    </div>
-                  </div>
-
-                  <h3 className={`text-base font-bold mb-1.5 text-zinc-900 dark:text-white ${service.titleHover} transition-colors relative z-10`}>
-                    {service.title}
-                  </h3>
-                  <p className="text-zinc-500 dark:text-zinc-400 text-base leading-relaxed relative z-10 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
-                    {service.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Process */}
-      <section className="py-24 bg-white dark:bg-black overflow-hidden relative" ref={processRef}>
-        <div className="container mx-auto px-4 relative z-10">
-          <SectionHeading
-            title="Our Implementation Process"
-            subtitle="How we deliver exceptional AI solutions for your business"
-            centered
-          />
-
-          {/* Sequential Process Layout */}
-          <div className="relative mt-20 max-w-5xl mx-auto space-y-12 md:space-y-24">
-            {/* Timeline Line (Desktop Only) - Gradient for a more colorful look */}
-            <div className="absolute left-12 top-4 bottom-4 w-0.5 bg-gradient-to-b from-indigo-500 via-emerald-500 to-rose-500 hidden md:block -translate-x-1/2 opacity-30 dark:opacity-20" />
-
-            {[
-              {
-                icon: <Brain size={24} />,
-                title: 'Discovery',
-                subtitle: 'Goals & Assessment',
-                description: 'We begin by understanding your business, challenges, and goals. Our team conducts a thorough assessment to identify opportunities where AI and software can create the most value.',
-                y: step1Y,
-                opacity: step1Opacity,
-                color: 'text-indigo-600 dark:text-indigo-400',
-                bg: 'bg-indigo-500/10',
-                hoverBg: 'group-hover:bg-indigo-50/50 dark:group-hover:bg-indigo-950/20',
-                border: 'border-indigo-500/20 group-hover:border-indigo-500/60',
-                shadow: 'hover:shadow-[0_30px_70px_-15px_rgba(99,102,241,0.4)]',
-                glow: 'from-indigo-500/20',
-                titleColor: 'group-hover:text-indigo-700 dark:group-hover:text-indigo-300'
-              },
-              {
-                icon: <Code size={24} />,
-                title: 'Design',
-                subtitle: 'Architecture & UX',
-                description: 'Our AI architects design a custom solution tailored to your specific needs, selecting the right technologies and approaches to address your unique challenges.',
-                y: step2Y,
-                opacity: step2Opacity,
-                color: 'text-blue-600 dark:text-blue-400',
-                bg: 'bg-blue-500/10',
-                hoverBg: 'group-hover:bg-blue-50/50 dark:group-hover:bg-blue-950/20',
-                border: 'border-blue-500/20 group-hover:border-blue-500/60',
-                shadow: 'hover:shadow-[0_30px_70px_-15px_rgba(59,130,246,0.4)]',
-                glow: 'from-blue-500/20',
-                titleColor: 'group-hover:text-blue-700 dark:group-hover:text-blue-300'
-              },
-              {
-                icon: <Database size={24} />,
-                title: 'Develop',
-                subtitle: 'Coding & Training',
-                description: 'We build and train your solution using your data, continuously refining it to ensure it meets your performance requirements.',
-                y: step3Y,
-                opacity: step3Opacity,
-                color: 'text-emerald-600 dark:text-emerald-400',
-                bg: 'bg-emerald-500/10',
-                hoverBg: 'group-hover:bg-emerald-50/50 dark:group-hover:bg-emerald-950/20',
-                border: 'border-emerald-500/20 group-hover:border-emerald-500/60',
-                shadow: 'hover:shadow-[0_30px_70px_-15px_rgba(16,185,129,0.4)]',
-                glow: 'from-emerald-500/20',
-                titleColor: 'group-hover:text-emerald-700 dark:group-hover:text-emerald-300'
-              },
-              {
-                icon: <Server size={24} />,
-                title: 'Integrate',
-                subtitle: 'Deployment & Setup',
-                description: 'We seamlessly integrate the AI solution with your existing systems and deploy it in your environment, ensuring minimal disruption to your operations.',
-                y: step4Y,
-                opacity: step4Opacity,
-                color: 'text-violet-600 dark:text-violet-400',
-                bg: 'bg-violet-500/10',
-                hoverBg: 'group-hover:bg-violet-50/50 dark:group-hover:bg-violet-950/20',
-                border: 'border-violet-500/20 group-hover:border-violet-500/60',
-                shadow: 'hover:shadow-[0_30px_70px_-15px_rgba(139,92,246,0.4)]',
-                glow: 'from-violet-500/20',
-                titleColor: 'group-hover:text-violet-700 dark:group-hover:text-violet-300'
-              },
-              {
-                icon: <LineChart size={24} />,
-                title: 'Monitor',
-                subtitle: 'Support & Scale',
-                description: 'After deployment, we continuously monitor the performance of your solution, making adjustments and improvements to maximize its effectiveness.',
-                y: step5Y,
-                opacity: step5Opacity,
-                color: 'text-rose-600 dark:text-rose-400',
-                bg: 'bg-rose-500/10',
-                hoverBg: 'group-hover:bg-rose-50/50 dark:group-hover:bg-rose-950/20',
-                border: 'border-rose-500/20 group-hover:border-rose-500/60',
-                shadow: 'hover:shadow-[0_30px_70px_-15px_rgba(244,63,94,0.4)]',
-                glow: 'from-rose-500/20',
-                titleColor: 'group-hover:text-rose-700 dark:group-hover:text-rose-300'
-              },
-            ].map((step, i) => (
-              <div key={i} className="relative flex flex-col md:flex-row gap-8 md:gap-16 items-start">
-                {/* Desktop Icon Sidebar */}
-                <div className="hidden md:flex flex-col items-center w-24 shrink-0 pt-8">
-                  <div className={`relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-zinc-950 border-2 ${step.border} ${step.color} shadow-lg box-content transition-all duration-500 group-hover:scale-110 group-hover:rotate-3`}>
-                    {/* Inner glow for the icon */}
-                    <div className={`absolute inset-0 rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500 ${step.bg}`} />
-                    <div className="relative z-10">{step.icon}</div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            {aiSolutions.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                className={cardWrapper}
+              >
+                <div className={iconBadge}>
+                  <item.icon size={22} />
                 </div>
-
-                {/* Content Card */}
-                <motion.div
-                  style={{ y: step.y, opacity: step.opacity }}
-                  whileHover={{ scale: 1.01, transition: { duration: 0.3 } }}
-                  className={`flex-1 flex flex-col md:flex-row gap-6 md:gap-8 items-start bg-white dark:bg-zinc-900/50 p-6 md:p-10 rounded-3xl border border-zinc-200 dark:border-zinc-800 transition-all duration-500 group relative overflow-hidden shadow-sm ${step.hoverBg} ${step.border} ${step.shadow}`}
-                >
-                  {/* Background Aura on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${step.glow} via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
-
-                  {/* Mobile Icon (Visible only on small screens) */}
-                  <div className={`md:hidden flex items-center justify-center w-12 h-12 rounded-full ${step.bg} ${step.color} shrink-0 relative z-10`}>
-                    {step.icon}
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-3">
-                      <span className={`hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full ${step.bg} ${step.color} text-sm font-black ring-4 ring-zinc-500/5 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500`}>0{i + 1}</span>
-                      <h3 className={`text-2xl md:text-3xl font-black text-zinc-900 dark:text-white transition-colors duration-300 ${step.titleColor}`}>{step.title}</h3>
-                    </div>
-                    <h4 className="text-sm font-bold text-primary mb-4 uppercase tracking-[0.2em]">{step.subtitle}</h4>
-                    <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium text-base md:text-lg">
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
+                <h3 className="text-base font-semibold text-zinc-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {item.description}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-zinc-950 text-white relative overflow-hidden">
-        {/* Background Accents */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-full bg-violet-500/5 blur-[100px] pointer-events-none" />
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 font-display leading-tight"
-            >
-              Ready to Transform Your Business with AI?
-            </motion.h2>
-
-            <motion.p className="text-xl mb-8 text-zinc-400">
-              Contact us today to discuss how AI, custom software, and
-              automation can help you achieve your business goals.
-            </motion.p>
-
-            <motion.div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact-us">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  icon={<ArrowRight size={18} />}
-                  iconPosition="right"
-                  className="shadow-xl transition-all"
-                >
-                  Schedule a Consultation
-                </Button>
-              </Link>
-
-              <Link href="/our-work">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-white/20 text-white hover:bg-white/10 transition-colors"
-                >
-                  View Case Studies
-                </Button>
-              </Link>
-            </motion.div>
+      {/* 4. Custom Software Development */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Custom Software Development"
+            heading="Custom Software Built Around Your Business"
+            intro="DeepNeural develops custom software solutions that align with your business processes, operational goals, and long-term growth. From customer-facing applications to enterprise platforms, we build secure, scalable software designed to solve real business challenges."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            {customSoftware.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                className={cardWrapper}
+              >
+                <div className={iconBadge}>
+                  <item.icon size={22} />
+                </div>
+                <h3 className="text-base font-semibold text-zinc-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* 5. Business Automation */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Business Automation"
+            heading="Automate Business Processes. Improve Operational Efficiency."
+            intro="DeepNeural develops business automation solutions that reduce manual effort, streamline workflows, and improve operational efficiency. By connecting systems, automating repetitive tasks, and standardizing business processes, we help organizations save time, increase productivity, and scale more effectively."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            {businessAutomation.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.06 * index }}
+                className={cardWrapper}
+              >
+                <div className={iconBadge}>
+                  <item.icon size={20} />
+                </div>
+                <h3 className="text-base font-semibold text-zinc-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Solutions We Build */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Solutions We Build"
+            heading="Technology Solutions Designed Around Your Business"
+            intro="DeepNeural designs and develops technology solutions tailored to your business requirements, operational workflows, and growth objectives. By combining Artificial Intelligence, Custom Software Development, and Business Automation, we create practical solutions that streamline operations, improve efficiency, and support long-term business success."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            {solutionsWeBuild.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.06 * index }}
+                className={cardWrapper}
+              >
+                <div className={iconBadge}>
+                  <item.icon size={20} />
+                </div>
+                <h3 className="text-base font-semibold text-zinc-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Business & Growth Services */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Growth & Marketing"
+            heading="Business & Growth Services"
+            intro="Beyond AI, software, and automation, DeepNeural also supports business growth through marketing, content, and campaign execution services."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {growthServices.map((service, index) => (
+              <motion.div
+                key={service.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.06 * index }}
+                className={cardWrapper}
+              >
+                <span className="inline-block text-sm font-bold text-primary bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-full mb-4 w-fit">
+                  {service.number}
+                </span>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Business Value We Deliver */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Business Value"
+            heading="Technology That Creates Measurable Business Value"
+            intro="The right technology should do more than digitize processes—it should improve the way your business operates. Our solutions are designed to increase efficiency, simplify operations, and deliver measurable outcomes that support long-term business growth."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {businessValue.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                className={cardWrapper}
+              >
+                <div className={iconBadge}>
+                  <item.icon size={22} />
+                </div>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Technology Capabilities */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-blue-50 dark:bg-zinc-900">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Technology Capabilities"
+            heading="Modern Technologies Behind Every Solution"
+            intro="DeepNeural leverages modern technologies, development frameworks, and cloud infrastructure to build secure, scalable, and high-performing business solutions. Our technology capabilities enable us to develop reliable applications, intelligent automation, and connected digital ecosystems."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {techCapabilities.map((group, index) => (
+              <motion.div
+                key={group.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                className={cardWrapper}
+              >
+                <div className={iconBadge}>
+                  <group.icon size={22} />
+                </div>
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3">
+                  {group.label}
+                </h3>
+                <p className="text-primary font-medium text-sm mb-3">
+                  {group.technologies}
+                </p>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {group.value}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. Service Packages */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-white dark:bg-black">
+        <div className="container mx-auto relative z-10">
+          <SectionIntro
+            eyebrow="Flexible Engagement Options"
+            heading="Service Packages"
+            intro="Whether you're exploring a single technology initiative or planning a broader digital transformation, DeepNeural offers flexible service packages designed to match your business objectives, operational priorities, and growth plans."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10">
+            {servicePackages.map((pkg, index) => (
+              <motion.div
+                key={pkg.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className={cardWrapper}
+              >
+                <div className={iconBadge}>
+                  <pkg.icon size={22} />
+                </div>
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+                  {pkg.name}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                  {pkg.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+          <Link
+            href="/contact-us"
+            className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-200"
+          >
+            Explore our packages
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 11. Final CTA */}
+      <section className="py-16 px-4 sm:px-6 md:px-12 bg-zinc-950 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-24 -mt-24 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-24 -mb-24 pointer-events-none" />
+        <div className="container mx-auto relative z-10 text-center max-w-3xl">
+          <p className="text-sm font-medium tracking-wide text-zinc-400 uppercase mb-3">
+            Let&apos;s Get Started
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Let&apos;s Build Your Next Technology Solution
+          </h2>
+          <p className="text-lg text-zinc-400 mb-10 leading-relaxed">
+            Whether you&apos;re exploring Artificial Intelligence, Custom
+            Software Development, or Business Automation, DeepNeural is
+            ready to help you identify the right solution for your business.
+            Let&apos;s discuss your requirements and build technology that
+            delivers measurable business value.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact-us">
+              <Button
+                variant="primary"
+                size="lg"
+                movingBorder
+                icon={<ArrowRight size={18} />}
+                iconPosition="right"
+                className="!text-white shadow-xl transition-all"
+              >
+                Book a Consultation
+              </Button>
+            </Link>
+            <Link href="/contact-us">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/20 text-white hover:bg-white/10 transition-colors"
+              >
+                Request a Proposal
+              </Button>
+            </Link>
+            <Link href="/contact-us">
+              <Button
+                variant="ghost"
+                size="lg"
+                className="text-white hover:bg-white/10 transition-colors"
+              >
+                Talk to Our Experts
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
