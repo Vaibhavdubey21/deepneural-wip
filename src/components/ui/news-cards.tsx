@@ -238,23 +238,6 @@ export function NewsCards({
     }
   };
 
-  const imageVariants = {
-    hidden: {
-      scale: 1.1,
-      opacity: 0.8,
-    },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        delay: 0.2,
-      }
-    }
-  };
-
 
 
   return (
@@ -305,7 +288,7 @@ export function NewsCards({
            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8"
            variants={shouldAnimate ? cardContainerVariants : {}}
          >
-           {newsCards.map((card, index) => {
+           {newsCards.map((card) => {
              if (selectedCard?.id === card.id) {
                return null; // Don't render the compact card when expanded
              }
