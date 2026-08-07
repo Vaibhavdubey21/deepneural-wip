@@ -28,8 +28,16 @@ const placeholderProjects: {
     category: 'Content Automation',
     categoryColor: 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300',
     title: 'NeuRal @rt — Autonomous Real Estate Content Engine',
+    subtitle: 'AI Agents · Multitenant SaaS · Google Cloud',
     description:
       "A multitenant AI platform that autonomously researches, writes, validates, and publishes a fully-cited real estate market newsletter every day — delivered through each client's own branded email and CRM with zero manual operations and complete data isolation.",
+    highlights: [
+      'Autonomous 5-stage pipeline — decides, researches, writes, validates & delivers with zero human involvement',
+      'Self-correcting — automatically rewrites itself when quality checks fail',
+      'Researches 8+ live sources, including official U.S. government data APIs',
+      'True multitenancy with complete data isolation per client',
+      'Self-service dashboard — clients control topics, sources, schedules & branding',
+    ],
     image: '/neuralart.png',
   },
   {
@@ -47,7 +55,19 @@ const placeholderProjects: {
       'Full audit logging for compliance & transparency',
     ],
   },
-  { category: 'Senior Housing', categoryColor: 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300' },
+  {
+    category: 'Marketing Automation',
+    categoryColor: 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300',
+    title: 'GoldStone Campaign Engine — AI Email Automation',
+    description:
+      'An AI pipeline that converts raw content into branded, compliance-checked HTML emails and pushes them straight into GoHighLevel as ready-to-send templates — no manual formatting, no missed disclaimers. Built for a real estate investment client to eliminate the back-and-forth of manual email design — from raw idea to a live, on-brand GHL template in minutes instead of hours.',
+    highlights: [
+      'AI-generated copy & layout from raw client input',
+      'Automated CAN-SPAM compliance check before every send',
+      'Direct push into GoHighLevel as a ready-to-use template',
+      'Consistent, on-brand design every single time',
+    ],
+  },
 ];
 
 function OurWorkSection() {
