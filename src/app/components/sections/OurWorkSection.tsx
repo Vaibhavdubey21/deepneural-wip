@@ -19,7 +19,9 @@ const placeholderProjects: {
   category: string;
   categoryColor: string;
   title?: string;
+  subtitle?: string;
   description?: string;
+  highlights?: string[];
   image?: string;
 }[] = [
   {
@@ -30,7 +32,21 @@ const placeholderProjects: {
       "A multitenant AI platform that autonomously researches, writes, validates, and publishes a fully-cited real estate market newsletter every day — delivered through each client's own branded email and CRM with zero manual operations and complete data isolation.",
     image: '/neuralart.png',
   },
-  { category: 'Fund Management', categoryColor: 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300' },
+  {
+    category: 'Private Investment Platform',
+    categoryColor: 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300',
+    title: 'Global Investor Circle',
+    subtitle: 'Confidential Real Estate Investment Marketplace',
+    description:
+      'An invitation-only digital platform connecting accredited investors with institutional developers — featuring role-based dashboards, admin-gated approvals, and secure property/document management, built end-to-end for confidential deal flow.',
+    highlights: [
+      'Role-based dashboards for Investors, Developers & Admins',
+      'Admin-gated approval workflow for users & property listings',
+      'Secure, private property & document management (Supabase Storage)',
+      'Automated email notifications & CRM lead capture integration',
+      'Full audit logging for compliance & transparency',
+    ],
+  },
   { category: 'Senior Housing', categoryColor: 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300' },
 ];
 
@@ -98,12 +114,29 @@ function OurWorkSection() {
                 >
                   {project.category}
                 </span>
-                <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-1">
                   {project.title ?? 'TBD'}
                 </h3>
+                {project.subtitle && (
+                  <p className="text-primary text-xs font-semibold mb-2">
+                    {project.subtitle}
+                  </p>
+                )}
                 <p className="text-zinc-500 dark:text-zinc-400 text-sm">
                   {project.description ?? 'TBD'}
                 </p>
+                {project.highlights && (
+                  <ul className="mt-3 space-y-1.5">
+                    {project.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-2">
+                        <div className="mt-1.5 h-1 w-1 rounded-full bg-primary shrink-0" />
+                        <span className="text-zinc-500 dark:text-zinc-400 text-xs leading-relaxed">
+                          {highlight}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </motion.div>
           ))}
